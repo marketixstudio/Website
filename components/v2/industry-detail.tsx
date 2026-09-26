@@ -39,6 +39,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
   const study = Object.values(caseStudies).find((c) => c.industrySlug === content.slug && !c.draft);
 
   const hero: ServiceHeroContent = {
+    crumbs: [ { name: "Home", path: "/" }, { name: "Industries", path: "/industries" }, { name: content.title, path }, ],
     label: `${content.title}, Pune`,
     title: f.title,
     lede: content.subtitle,

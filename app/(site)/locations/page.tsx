@@ -13,6 +13,7 @@ import type { AnswerBlock } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
 import { business, fullAddress } from "@/lib/site-config";
 import { answerSchema, breadcrumbSchema, collectionSchema, faqSchema, graph } from "@/lib/structured-data";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const path = "/locations";
 
@@ -72,7 +73,7 @@ export default function Page() {
       {/* 1 · Hero. */}
       <section className="mx-pool pb-16 pt-36 sm:pt-44">
         <div className="container-edge">
-          <p className="text-base font-semibold text-ink-2 sm:text-lg">Locations, Marketix Studio Pune</p>
+          <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Locations", path }, ]} />
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
               {locationsOverview.title}{" "}

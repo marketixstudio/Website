@@ -11,6 +11,7 @@ import { AnswerCard, FaqList, TextLink } from "@/components/v2/primitives";
 import { products } from "@/content/products-catalog";
 import { buildMetadata } from "@/lib/seo";
 import { answerSchema, breadcrumbSchema, faqSchema, graph, productSchema } from "@/lib/structured-data";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const product = products["gmb-toolkit"];
 const path = "/gmb-toolkit";
@@ -50,7 +51,7 @@ export default function Page() {
       <section className="mx-pool pb-20 pt-36 sm:pt-44">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16">
           <div>
-            <p className="text-base font-semibold text-ink-2 sm:text-lg">{product.name}</p>
+            <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: product.name, path }, ]} />
             <h1 className="mx-display mt-5 max-w-[14ch] font-display text-display text-ink">
               Rank your business on <span className="whitespace-nowrap text-ink-hi">Google Maps</span>
             </h1>

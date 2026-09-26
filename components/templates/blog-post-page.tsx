@@ -13,6 +13,7 @@ import { Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import type { BlogPost } from "@/lib/content-types";
 import { siteUrl } from "@/lib/seo";
 import { articleSchema, breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const MARKDOWN_LINK = /\[([^\]]+)\]\(([^)]+)\)/g;
 const linkClass = "font-semibold text-ink underline decoration-accent/50 underline-offset-4 transition-colors hover:text-accent hover:decoration-accent";
@@ -92,13 +93,7 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
         <div className="container-edge">
           {/* Header */}
           <header className="max-w-[48rem]">
-            <p className="text-base font-semibold text-ink-2">
-              <Link href="/blog" className="transition-colors hover:text-ink">
-                Blog
-              </Link>
-              <span aria-hidden="true" className="mx-2 text-muted">/</span>
-              <span className="text-muted">{post.category}</span>
-            </p>
+            <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, { name: post.breadcrumbTitle || post.title, path }, ]} />
             <h1 className="mt-5 font-display text-[clamp(2rem,3.2vw+0.5rem,3.25rem)] font-bold leading-[1.16] tracking-[-0.01em] text-ink">
               {post.title}
             </h1>

@@ -28,6 +28,7 @@ export default function Page() {
       <JsonLd data={graph([breadcrumbSchema([{ name: "Home", path: "/" }, { name: "Partners", path: "/partners" }])])} />
 
       <IndexHero
+        crumbs={[{ name: "Home", path: "/" }, { name: "Partners", path: "/partners" }]}
         label="Partners, Marketix Studio Pune"
         title="Let's work"
         accent="together"

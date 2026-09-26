@@ -19,6 +19,7 @@ const toolkit = products["gmb-toolkit"];
 const path = "/services/local-seo-gmb";
 
 const hero: ServiceHeroContent = {
+    crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Local SEO & Google Business", path }, ],
   label: "Local SEO & Google Business Profile, Pune",
   title: { before: "Get found by the customers searching", accent: "near you" },
   lede: "We optimise your Google Business Profile, keep reviews coming in and clean up your listings everywhere else, so people nearby find you on Google Maps and call, visit or ask for directions.",

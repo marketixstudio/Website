@@ -113,6 +113,7 @@ export default function Page() {
       />
 
       <IndexHero
+        crumbs={[ { name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }, ]}
         label="FAQ, Marketix Studio Pune"
         title="Straight answers,"
         accent="before the call"

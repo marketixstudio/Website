@@ -7,6 +7,7 @@ import type { LegalContent } from "@/lib/content-types";
 import { breadcrumbSchema, graph } from "@/lib/structured-data";
 import { business } from "@/lib/site-config";
 import { legalPages } from "@/content/legal";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const slugify = (s: string) =>
   s
@@ -38,7 +39,7 @@ export function LegalPage({ content }: { content: LegalContent }) {
       <article className="pb-24 pt-36 sm:pt-44">
         <div className="container-edge">
           <header className="max-w-[68ch]">
-            <p className="text-base font-semibold text-ink-2">Legal</p>
+            <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: content.title, path }, ]} />
             <h1 className="mt-4 font-display text-[clamp(2.25rem,4vw+0.5rem,3.75rem)] font-bold leading-[1.14] tracking-[-0.01em] text-ink">
               {content.title}
             </h1>

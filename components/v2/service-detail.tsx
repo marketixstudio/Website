@@ -110,6 +110,7 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
   const related = f.related.map((slug) => services[slug]).filter(Boolean);
 
   const hero: ServiceHeroContent = {
+    crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: content.title, path }, ],
     label: `${content.title}, Pune`,
     title: f.title,
     lede: content.subtitle,

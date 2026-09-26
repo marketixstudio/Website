@@ -25,6 +25,7 @@ export function BlogIndexPage({ posts }: { posts: BlogPost[] }) {
       />
 
       <IndexHero
+        crumbs={[ { name: "Home", path: "/" }, { name: "Blog", path: "/blog" }, ]}
         label="Blog, Marketix Studio Pune"
         title="Marketing notes"
         accent="from Pune"

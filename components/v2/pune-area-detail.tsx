@@ -17,6 +17,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
   const others = puneAreas.filter((a) => a.slug !== content.slug);
 
   const hero: ServiceHeroContent = {
+    crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: "Pune", path: "/locations/pune" }, { name: content.area, path }, ],
     label: `${content.area}, Pune`,
     title: content.title,
     lede: content.lede,

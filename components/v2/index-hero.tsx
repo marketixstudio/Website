@@ -1,4 +1,5 @@
 import type { ReactNode } from "react";
+import { Breadcrumbs, type Crumb } from "@/components/v2/breadcrumbs";
 import { Cta, TextLink } from "@/components/v2/primitives";
 
 /**
@@ -13,6 +14,7 @@ export function IndexHero({
   lede,
   cta = { label: "Get a free growth audit", href: "/growth-audit" },
   secondary,
+  crumbs,
   children,
 }: {
   label: string;
@@ -22,13 +24,15 @@ export function IndexHero({
   lede: string;
   cta?: { label: string; href: string } | null;
   secondary?: { label: string; href: string };
+  /** Breadcrumb trail shown above the title (replaces the label). */
+  crumbs?: Crumb[];
   /** Optional content under the lede, e.g. contact details. */
   children?: ReactNode;
 }) {
   return (
     <section className="mx-pool pb-16 pt-36 sm:pt-44">
       <div className="container-edge">
-        <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>
+        {crumbs && crumbs.length > 1 ? <Breadcrumbs items={crumbs} /> : <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>}
         <div className="mt-5 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
           <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
             {title}

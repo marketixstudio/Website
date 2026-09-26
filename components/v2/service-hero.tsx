@@ -1,5 +1,6 @@
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { Breadcrumbs, type Crumb } from "@/components/v2/breadcrumbs";
 import { Cta, TextLink } from "@/components/v2/primitives";
 
 export type ServiceHeroContent = {
@@ -15,6 +16,8 @@ export type ServiceHeroContent = {
   /** Card headings; default to the service wording. Industry and location pages reuse this hero. */
   includedLabel?: string;
   bestForLabel?: string;
+  /** Breadcrumb trail shown above the title (replaces the label). */
+  crumbs?: Crumb[];
 };
 
 /**
@@ -32,7 +35,11 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
     <section className="mx-pool pb-24 pt-36 sm:pb-28 sm:pt-44">
       <div className="container-edge grid items-center gap-12 lg:grid-cols-[minmax(0,1.25fr)_minmax(0,0.75fr)] lg:gap-16">
         <div>
-          <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>
+          {content.crumbs && content.crumbs.length > 1 ? (
+            <Breadcrumbs items={content.crumbs} />
+          ) : (
+            <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>
+          )}
           <h1 className="mx-display mt-5 max-w-[16ch] font-display text-display text-ink">
             {title.before} <span className="whitespace-nowrap text-ink-hi">{title.accent}</span>
             {title.after ? ` ${title.after}` : null}

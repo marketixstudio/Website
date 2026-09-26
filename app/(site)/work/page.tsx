@@ -12,6 +12,7 @@ import { clientLogos, testimonials } from "@/content/testimonials";
 import { publishedCaseStudies, workOverview } from "@/content/work";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, collectionSchema, graph, reviewSchema } from "@/lib/structured-data";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const path = "/work";
 
@@ -49,7 +50,7 @@ export default function Page() {
       <section className="mx-pool pb-16 pt-36 sm:pt-44">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
           <div>
-            <p className="text-base font-semibold text-ink-2 sm:text-lg">Case studies, Marketix Studio Pune</p>
+            <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Case Studies", path }, ]} />
             <h1 className="mx-display mt-5 max-w-[17ch] font-display text-display text-ink">
               {workOverview.title} <span className="text-ink-hi">{workOverview.highlight}</span>
             </h1>

@@ -244,3 +244,10 @@ light mode uses marketix-logo-light.png (Wordmark handles this).
 violet border (accent at 55%) plus the live site's violet glow `0 0 10px rgba(200,42,239,0.44)`.
 The old always-on corner glow (`.mx-glow`) stays disabled.
 
+## Headings (2026-09-26, user request; reverses "no gradient text")
+Page titles (h1) and section headings (`text-h2`, `text-display`) use the live site's heading
+treatment: Plus Jakarta Sans 700, normal letter spacing, 1.2 line height, silver #D1D1D1 fading
+toward the bottom-right (`linear-gradient(322deg, …18% floor…, #D1D1D1 70%)`, clipped to text).
+Card titles and small headings stay solid. Inner pages show a visible breadcrumb trail
+(Home in violet, underlined) built from the same list as the BreadcrumbList schema.
+

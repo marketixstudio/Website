@@ -207,6 +207,7 @@ export function SiteNav() {
         {open === "services" && (
           <div
             id="nav-services"
+            data-no-spot
             onMouseEnter={() => hoverOpen("services")}
             onMouseLeave={hoverClose}
             className={`${panelClass} w-[min(38rem,calc(100vw-2rem))] xl:w-[min(66rem,calc(100vw-2rem))]`}
@@ -241,6 +242,7 @@ export function SiteNav() {
         {open === "industries" && (
           <div
             id="nav-industries"
+            data-no-spot
             onMouseEnter={() => hoverOpen("industries")}
             onMouseLeave={hoverClose}
             className={`${panelClass} w-[min(28rem,calc(100vw-2rem))]`}
@@ -267,6 +269,7 @@ export function SiteNav() {
         {open === "about" && (
           <div
             id="nav-about"
+            data-no-spot
             onMouseEnter={() => hoverOpen("about")}
             onMouseLeave={hoverClose}
             className={`${panelClass} w-[min(34rem,calc(100vw-2rem))]`}

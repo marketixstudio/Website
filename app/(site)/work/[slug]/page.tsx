@@ -16,6 +16,7 @@ import { testimonials } from "@/content/testimonials";
 import { caseStudies, publishedCaseStudies } from "@/content/work";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, caseStudySchema, graph, reviewSchema } from "@/lib/structured-data";
+import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 /** Real, working client pages that can be shown as proof (rendered inert). */
 const livePreview: Record<string, { src: string; title: string; caption: string }> = {
@@ -77,6 +78,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       {/* 1 · Hero: who, what changed, in one line. */}
       <section className="mx-pool pb-20 pt-36 sm:pt-44">
         <div className="container-edge">
+          <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Case Studies", path: "/work" }, { name: study.client, path }, ]} className="mb-8" />
           <div className="flex items-center gap-4">
             {study.logo && (
               <Image

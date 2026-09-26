@@ -98,6 +98,7 @@ export default function Page() {
       />
 
       <IndexHero
+        crumbs={[ { name: "Home", path: "/" }, { name: "About", path }, ]}
         label="About Marketix Studio"
         title="A performance marketing agency that shows its"
         accent="working"

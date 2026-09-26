@@ -58,6 +58,7 @@ export default function Page() {
       />
 
       <IndexHero
+        crumbs={[{ name: "Home", path: "/" }, { name: "Team", path: "/team" }]}
         label="Team, Marketix Studio Pune"
         title="The people who do"
         accent="the work"

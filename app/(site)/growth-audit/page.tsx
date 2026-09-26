@@ -74,6 +74,7 @@ export default function Page() {
       />
 
       <IndexHero
+        crumbs={[ { name: "Home", path: "/" }, { name: "Growth audit", path }, ]}
         label="Free growth audit"
         title="Find out where your enquiries are"
         accent="leaking"

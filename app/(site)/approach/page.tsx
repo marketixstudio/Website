@@ -60,6 +60,7 @@ export default function Page() {
       />
 
       <IndexHero
+        crumbs={[ { name: "Home", path: "/" }, { name: "Our Approach", path }, ]}
         label="Our approach, Marketix Studio Pune"
         title="Audit. Plan. Build."
         accent="Improve."

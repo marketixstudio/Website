@@ -14,6 +14,7 @@
   --card: 255 255 255;
   --ink: 10 10 12;
   --ink-hi: 0 0 0;
+  --heading: 10 10 12;
   --ink-2: 31 31 35;
   --muted: 108 105 115;
   --line: 231 227 236;
@@ -56,6 +57,7 @@
   --card-2: 31 31 31;          /* #1F1F1F live site card highlight (from its CSS) */
   --ink: 216 213 217;          /* #D8D5D9 - headings, matched to the live site's soft #D1D1D1 */
   --ink-hi: 247 245 248;       /* #F7F5F8 - the one emphasised phrase in a heading */
+  --heading: 209 209 209;      /* #D1D1D1, the live site heading silver */
   --ink-2: 186 182 188;        /* #BAB6BC - secondary text */
   --muted: 149 144 150;        /* #959096 (live #8B8B8B) - 6.46:1 on paper */
   --line: 31 31 31;            /* #1F1F1F live site card border and dividers (from its CSS) */
@@ -172,6 +174,20 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   h2,
   h3 {
     text-wrap: balance;
+  }
+
+  /* Live-site heading colour (read from marketixstudio.com, 2026-09-26): silver #D1D1D1
+   * fading toward the bottom-right, linear-gradient(322deg, transparent, #D1D1D1 70%).
+   * A faint floor keeps the last letters of long lines readable. Page titles and
+   * section headings only; small card titles stay solid. */
+  h1,
+  .text-h2,
+  .text-display {
+    color: rgb(var(--heading));
+    background-image: linear-gradient(322deg, rgb(var(--heading) / 0.18) 0%, rgb(var(--heading)) 70%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
   }
 
   ::selection {
@@ -508,7 +524,12 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   .mx-card[data-spot]::before {
     opacity: 1;
   }
-  .mx-card:focus-within:not([data-spot]) {
+  /* Opt-out (nav mega menu panels): no cursor glow at all. */
+  .mx-card[data-no-spot]::after,
+  .mx-card[data-no-spot]::before {
+    display: none;
+  }
+  .mx-card:focus-within:not([data-spot]):not([data-no-spot]) {
     border-color: rgb(var(--accent) / 0.6);
   }
   @media (hover: none) {

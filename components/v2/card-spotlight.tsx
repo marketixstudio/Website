@@ -6,7 +6,8 @@ import { useEffect } from "react";
  * Drives the cursor-following border glow on every .mx-card (styles in globals.css).
  * One pointer listener for the whole page: it finds the card under the pointer, writes
  * the pointer position into --mx-x / --mx-y, and marks it with data-spot. Mouse and pen
- * only; touch screens have no hover, so they never see it.
+ * only; touch screens have no hover, so they never see it. Cards marked data-no-spot
+ * (the nav mega menu panels) never get it.
  */
 export function CardSpotlight() {
   useEffect(() => {
@@ -24,7 +25,7 @@ export function CardSpotlight() {
     const paint = () => {
       frame = 0;
       const el = document.elementFromPoint(lastX, lastY);
-      const card = el instanceof Element ? (el.closest(".mx-card") as HTMLElement | null) : null;
+      const card = el instanceof Element ? (el.closest(".mx-card:not([data-no-spot])") as HTMLElement | null) : null;
       if (card !== active) {
         clear();
         active = card;
