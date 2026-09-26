@@ -7,6 +7,7 @@ import { ArrowRight } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { HoursOverlap } from "@/components/v2/market-visuals";
 import { AreaGlobe } from "@/components/v2/globe";
+import { ZoomJourney } from "@/components/v2/zoom-journey";
 import { cityCoords } from "@/lib/geo";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
@@ -96,7 +97,11 @@ export function LocationDetail({ content }: { content: LocationContent }) {
             </p>
           </div>
           {isIndia || !f.zone ? (
-            <AreaGlobe city={content.area} areas={content.nearby.slice(0, 8)} focus={cityCoords[content.slug]} arcFromPune={content.slug !== "pune" && Boolean(cityCoords[content.slug])} />
+            content.slug === "pune" || content.slug === "mumbai" ? (
+              <ZoomJourney city={content.slug} nearby={content.nearby.slice(0, 8)} />
+            ) : (
+              <AreaGlobe city={content.area} areas={content.nearby.slice(0, 8)} focus={cityCoords[content.slug]} arcFromPune={Boolean(cityCoords[content.slug])} />
+            )
           ) : (
             <HoursOverlap place={f.zone.place} zone={f.zone.zone} offset={f.zone.offset} />
           )}

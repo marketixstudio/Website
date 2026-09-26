@@ -31,7 +31,13 @@ export function Globe({
   arcFromPune = false,
   label,
   className = "",
+  spin = true,
+  startOffset = 0,
 }: {
+  /** false: instead of spinning, the globe turns smoothly to face `focus` and stops. */
+  spin?: boolean;
+  /** Start rotated this many radians away from `focus` (used by the zoom sequence). */
+  startOffset?: number;
   focus?: LatLng;
   /** Draw an arc from Pune to the focus city (for cities other than Pune). */
   arcFromPune?: boolean;
@@ -41,13 +47,15 @@ export function Globe({
 }) {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const drag = useRef<{ x: number; phi: number } | null>(null);
+  const spinRef = useRef(spin);
+  spinRef.current = spin;
 
   useEffect(() => {
     const canvas = canvasRef.current;
     if (!canvas) return;
     const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
     const start = facing(focus);
-    let phi = start.phi;
+    let phi = start.phi + startOffset;
     let visible = true;
     let width = canvas.offsetWidth;
     const dpr = Math.min(window.devicePixelRatio || 1, 2);
@@ -82,7 +90,14 @@ export function Globe({
     const loop = () => {
       raf = requestAnimationFrame(loop);
       if (!visible || document.hidden) return;
-      if (!drag.current && !reduce) phi += 0.0025;
+      if (!drag.current) {
+        if (spinRef.current && !reduce) phi += 0.0025;
+        else if (!spinRef.current) {
+          // Ease toward the nearest full turn that faces the focus city.
+          const target = start.phi + 2 * Math.PI * Math.round((phi - start.phi) / (2 * Math.PI));
+          phi += (target - phi) * (reduce ? 1 : 0.035);
+        }
+      }
       globe.update({ phi, width: width * dpr, height: width * dpr });
     };
     raf = requestAnimationFrame(loop);

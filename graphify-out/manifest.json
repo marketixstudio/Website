@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790429808.183037,
-    "seen": 1790429810.048651,
-    "ast_hash": "4cd20f25c2a8c3a3ec5ce74cc916a82c",
+    "mtime": 1790437444.1215243,
+    "seen": 1790437450.363231,
+    "ast_hash": "3b30cc6c9bbbe7cd096922f32e1733ba",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -702,9 +702,9 @@
     "semantic_hash": ""
   },
   "components/v2/location-detail.tsx": {
-    "mtime": 1790429776.1796,
-    "seen": 1790429810.0486279,
-    "ast_hash": "5b78c5195e186f8520fa0adecec5f284",
+    "mtime": 1790437331.523814,
+    "seen": 1790437450.3631659,
+    "ast_hash": "4eccc894b42d69abc68cfd661fbe259c",
     "semantic_hash": ""
   },
   "components/v2/market-visuals.tsx": {
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/v2/pune-area-detail.tsx": {
-    "mtime": 1790429733.0430675,
-    "seen": 1790429810.048631,
-    "ast_hash": "2681668a2f1201fefe564244a809fc14",
+    "mtime": 1790437331.5225194,
+    "seen": 1790437450.363172,
+    "ast_hash": "a4e1439c8b0685e3888258728c55edb9",
     "semantic_hash": ""
   },
   "content/pune-areas.ts": {
@@ -852,15 +852,33 @@
     "semantic_hash": ""
   },
   "components/v2/globe.tsx": {
-    "mtime": 1790429789.2457387,
-    "seen": 1790429810.048627,
-    "ast_hash": "0dc129e0389b9acb6513b31859226872",
+    "mtime": 1790437277.7352424,
+    "seen": 1790437450.363162,
+    "ast_hash": "2f442736541ee93088fa0617773cf8d7",
     "semantic_hash": ""
   },
   "lib/geo.ts": {
     "mtime": 1790429776.179049,
     "seen": 1790429810.048643,
     "ast_hash": "d9679ca972b97eea8d2ce3383ad00ef5",
+    "semantic_hash": ""
+  },
+  "components/v2/zoom-journey.tsx": {
+    "mtime": 1790437385.3791199,
+    "seen": 1790437450.363181,
+    "ast_hash": "df4df8bb8efa71ffe7d035ebc2ea54ab",
+    "semantic_hash": ""
+  },
+  "lib/maharashtra.ts": {
+    "mtime": 1790437221.9724545,
+    "seen": 1790437450.363209,
+    "ast_hash": "c4038d45c34073b06b2d916b10351270",
+    "semantic_hash": ""
+  },
+  "lib/pune-places.ts": {
+    "mtime": 1790437248.829718,
+    "seen": 1790437450.363211,
+    "ast_hash": "776375858cab228564930382dd53ce95",
     "semantic_hash": ""
   }
 }

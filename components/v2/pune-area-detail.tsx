@@ -1,11 +1,11 @@
 /* Hallmark · genre: atmospheric · template: Pune neighbourhood page · hero: shared ServiceHero
- * centrepiece: AreaGlobe (spinning 3D Earth on Pune, with the nearby areas named)
+ * centrepiece: ZoomJourney (Earth, then Maharashtra, then this neighbourhood in Pune)
  * honest: local facts are general knowledge; searches are labelled as examples; no invented results
  */
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { AreaGlobe } from "@/components/v2/globe";
+import { ZoomJourney } from "@/components/v2/zoom-journey";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { puneAreas, type PuneArea } from "@/content/pune-areas";
@@ -80,7 +80,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
               ))}
             </ul>
           </div>
-          <AreaGlobe city={content.area} areas={content.nearby} />
+          <ZoomJourney city="pune" area={content.area} nearby={content.nearby} />
         </div>
       </section>
 
