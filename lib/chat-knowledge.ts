@@ -11,6 +11,8 @@ import { publishedCaseStudies } from "@/content/work";
 import { blogPosts } from "@/content/blog";
 import { business } from "@/lib/site-config";
 
+const chatPuneAreas = puneAreas.filter((a) => a.slug !== "balewadi");
+
 const keyPages: { label: string; href: string; body: string }[] = [
   { label: "Free growth audit", href: "/growth-audit", body: "A free, no-obligation review of ads, website, tracking, Google profile and lead handling, with recommended priorities. Short form." },
   { label: "Contact", href: "/contact", body: "Call, WhatsApp or send an enquiry." },
@@ -49,7 +51,8 @@ export function buildChatKnowledge(): string {
   lines.push("LOCATIONS:");
   for (const l of locationList) lines.push(`- ${l.area} (/locations/${l.slug})`);
   lines.push("PUNE NEIGHBOURHOODS:");
-  for (const a of puneAreas) lines.push(`- ${a.area} (/locations/pune/${a.slug}): ${a.metaDescription}`);
+  // Balewadi is left out on purpose: the assistant never mentions Balewadi (user request).
+  for (const a of chatPuneAreas) lines.push(`- ${a.area} (/locations/pune/${a.slug}): ${a.metaDescription}`);
   lines.push("");
 
   lines.push("CASE STUDIES (describe in words; do not quote any numbers):");
@@ -85,7 +88,7 @@ export const VALID_CHAT_LINKS: Set<string> = (() => {
   for (const s of serviceList) set.add(`/services/${s.slug}`);
   for (const i of industryList) set.add(`/industries/${i.slug}`);
   for (const l of locationList) set.add(`/locations/${l.slug}`);
-  for (const a of puneAreas) set.add(`/locations/pune/${a.slug}`);
+  for (const a of chatPuneAreas) set.add(`/locations/pune/${a.slug}`);
   for (const c of publishedCaseStudies) set.add(`/work/${c.slug}`);
   for (const p of blogPosts) set.add(`/blog/${p.slug}`);
   return set;
