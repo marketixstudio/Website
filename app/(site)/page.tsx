@@ -177,7 +177,20 @@ export default function HomePage() {
         <div className="container-wide">
           <div className="relative isolate flex min-h-[min(86vh,780px)] flex-col justify-between overflow-hidden rounded-[28px] border border-line bg-card px-6 pb-8 pt-12 sm:px-12 sm:pb-12 sm:pt-16 lg:px-16 lg:pb-16">
             <div className="absolute inset-0 -z-10">
-              <HeroThreads />
+              <div className="absolute inset-0 opacity-45 lg:opacity-100">
+                <HeroThreads />
+              </div>
+              {/* Readability: soft shade behind the headline (top-left) and the lede (bottom-right)
+                  so the threads glow in the open space instead of running through the text. */}
+              {/* Phones and tablets: the text fills the card, so an even shade keeps every line readable. */}
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 bg-[linear-gradient(180deg,rgb(var(--card)/0.55)_0%,rgb(var(--card)/0.7)_45%,rgb(var(--card)/0.85)_100%)] lg:hidden"
+              />
+              <div
+                aria-hidden="true"
+                className="pointer-events-none absolute inset-0 hidden lg:block bg-[radial-gradient(ellipse_75%_65%_at_18%_28%,rgb(var(--card)/0.92)_0%,rgb(var(--card)/0.6)_45%,transparent_75%),radial-gradient(ellipse_55%_45%_at_78%_82%,rgb(var(--card)/0.9)_0%,rgb(var(--card)/0.5)_50%,transparent_80%)]"
+              />
             </div>
             <h1 className="max-w-[18ch] font-display text-[clamp(2.6rem,6.4vw+0.2rem,6.25rem)] font-bold leading-[1.1] tracking-[-0.015em] text-ink">
               Performance Marketing Agency for Real Estate, Startups &amp; eCommerce

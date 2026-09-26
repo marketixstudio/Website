@@ -46,7 +46,7 @@ export function HeroThreads() {
       glow={0.02}
       falloff={0.6}
       thickness={1.1}
-      brightness={0.6}
+      brightness={0.5}
       opacity={1.0}
       mirror
       shimmer={false}
