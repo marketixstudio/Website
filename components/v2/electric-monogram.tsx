@@ -10,7 +10,14 @@ import ElectricLogo from "@/components/ui/bits/ElectricLogo";
  */
 export function ElectricMonogram({ className = "", scale = 0.7 }: { className?: string; scale?: number }) {
   return (
-    <div role="img" aria-label="Marketix monogram" className={className}>
+    <div
+      role="img"
+      aria-label="Marketix monogram"
+      // The effect paints faint grain over its whole canvas, which read as a dark square on
+      // cards. Screen blending drops the dark pixels (only light is added), and a radial
+      // mask fades the canvas edges so no box edge can show.
+      className={`dark:mix-blend-screen [mask-image:radial-gradient(closest-side,#000_72%,transparent)] ${className}`}
+    >
       <ElectricLogo
         src="/brand/marketix-monogram.png"
         color="#ecc7ff"

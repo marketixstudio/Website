@@ -63,7 +63,7 @@ export function SiteFooter() {
       {/* 1 · Call to action */}
       <div className="container-edge pt-20 sm:pt-24">
         <div className="mx-card grid grid-cols-[minmax(0,1fr)] gap-10 p-8 sm:p-10 lg:grid-cols-[160px_minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
-          <ElectricMonogram className="hidden h-[160px] w-full lg:block" scale={0.8} />
+          <ElectricMonogram className="hidden h-[170px] w-full lg:block" scale={0.6} />
           <div>
             <h2 className="max-w-[24ch] font-display text-3xl font-bold leading-[1.2] text-ink sm:text-4xl">
               Find out where your enquiries are being lost
