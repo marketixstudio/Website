@@ -448,26 +448,6 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   }
 }
 
-.logo-marquee-track {
-  display: flex;
-  width: max-content;
-  align-items: center;
-  animation: logo-marquee 24s linear infinite;
-}
-
-.logo-marquee:hover .logo-marquee-track {
-  animation-play-state: paused;
-}
-
-@keyframes logo-marquee {
-  from {
-    transform: translateX(0);
-  }
-  to {
-    transform: translateX(-50%);
-  }
-}
-
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,
@@ -622,27 +602,6 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
       0 0 0 3px rgb(var(--accent) / 0.14);
   }
 
-  /* Logo marquee: two copies of the track slide by half their width for a seamless loop. */
-  .mx-marquee {
-    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
-  }
-  .mx-marquee__track {
-    display: flex;
-    width: max-content;
-    animation: mx-marquee var(--mx-marquee-duration, 40s) linear infinite;
-  }
-  .mx-marquee--reverse .mx-marquee__track {
-    animation-direction: reverse;
-  }
-  .mx-marquee:hover .mx-marquee__track {
-    animation-play-state: paused;
-  }
-  @media (prefers-reduced-motion: reduce) {
-    .mx-marquee__track {
-      animation: none;
-    }
-  }
-
   /* Primary CTA: dark pill, 1px violet ring, violet circle carrying the arrow.
    * The ring glows only when the button is hovered or focused. */
   .mx-cta {
@@ -728,12 +687,6 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
 
   /* Display headings must break long words rather than overflow (gate 51). */
   .mx-display { overflow-wrap: anywhere; min-width: 0; }
-}
-
-@keyframes mx-marquee {
-  to {
-    transform: translateX(-50%);
-  }
 }
 
 /* WhatsApp widget: a gentle idle float, and the chat card's pop-in (both motion-safe only). */
