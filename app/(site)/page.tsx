@@ -35,7 +35,7 @@ import {
 } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { DemandMap } from "@/components/home/demand-map";
-import { LogoMarquee } from "@/components/home/logo-marquee";
+import { ClientLogoLoop } from "@/components/home/client-logo-loop";
 import { HeroThreads } from "@/components/home/hero-threads";
 import { FillHeading } from "@/components/v2/fill-heading";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
@@ -399,7 +399,7 @@ export default function HomePage() {
           <TextLink href="/work">What they say about us</TextLink>
         </div>
         <div className="mt-6">
-          <LogoMarquee logos={clientLogos} rows={1} />
+          <ClientLogoLoop logos={clientLogos} />
         </div>
       </section>
 

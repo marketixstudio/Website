@@ -49,8 +49,6 @@ function Portrait({ member, size }: { member: TeamMember; size: number }) {
 }
 
 export default function Page() {
-  const [lead, ...rest] = team;
-
   return (
     <>
       <JsonLd
@@ -67,51 +65,38 @@ export default function Page() {
         secondary={{ label: "About the studio", href: "/about" }}
       />
 
+      {/* Every member, the founder included, gets the same card at the same size (user request). */}
       <section aria-label="Team members" className="pb-24">
-        <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          {lead && (
-            <article id={lead.slug} className="mx-card flex flex-col p-8 sm:p-10">
-              <Portrait member={lead} size={128} />
-              <h2 className="mt-7 font-display text-3xl font-bold text-ink">{lead.name}</h2>
-              <p className="mt-1 font-semibold text-accent">{lead.role}</p>
-              <p className="mt-4 max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted">{lead.bio}</p>
-              {lead.expertise && (
-                <ul className="mt-6 flex flex-wrap gap-2">
-                  {lead.expertise.map((item) => (
+        <ul className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-3">
+          {team.map((member) => (
+            <li key={member.slug} id={member.slug} className="mx-card flex h-full flex-col p-7 sm:p-8">
+              <Portrait member={member} size={112} />
+              <h2 className="mt-6 font-display text-2xl font-bold text-ink">{member.name}</h2>
+              <p className="mt-1 font-semibold text-accent">{member.role}</p>
+              <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted">{member.bio}</p>
+              {member.expertise && member.expertise.length > 0 && (
+                <ul className="mt-5 flex flex-wrap gap-2">
+                  {member.expertise.map((item) => (
                     <li key={item} className="rounded-full border border-line px-3 py-1 text-sm text-ink-2">
                       {item}
                     </li>
                   ))}
                 </ul>
               )}
-            </article>
-          )}
-          <ul className="grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2">
-            {rest.map((member) => (
-              <li key={member.slug} id={member.slug} className="mx-card flex flex-col p-6">
-                <div className="flex items-center gap-4">
-                  <Portrait member={member} size={64} />
-                  <div className="min-w-0">
-                    <h2 className="font-display text-lg font-bold text-ink">{member.name}</h2>
-                    <p className="text-sm font-semibold text-accent">{member.role}</p>
-                  </div>
-                </div>
-                <p className="mt-4 flex-1 text-sm leading-relaxed text-muted">{member.bio}</p>
-                {member.linkedin && (
-                  <a
-                    href={member.linkedin}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    aria-label={`${member.name} on LinkedIn`}
-                    className="mt-4 inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-ink"
-                  >
-                    <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
-                  </a>
-                )}
-              </li>
-            ))}
-          </ul>
-        </div>
+              {member.linkedin && (
+                <a
+                  href={member.linkedin}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  aria-label={`${member.name} on LinkedIn`}
+                  className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-ink"
+                >
+                  <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
+                </a>
+              )}
+            </li>
+          ))}
+        </ul>
       </section>
 
       <section className="border-t border-line py-24 sm:py-28">
