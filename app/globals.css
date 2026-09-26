@@ -1,0 +1,653 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*
+ * Marketix Studio design tokens.
+ * Values are space-separated RGB channels so Tailwind can apply /opacity.
+ * Brand palette: carbon-black first, electric violet primary, signal gold secondary.
+ * The site ships dark (<html class="dark">); light mode is a supported alternate.
+ */
+:root {
+  --bg: 255 255 255;
+  --surface: 248 246 251;
+  --card: 255 255 255;
+  --ink: 10 10 12;
+  --ink-hi: 0 0 0;
+  --ink-2: 31 31 35;
+  --muted: 108 105 115;
+  --line: 231 227 236;
+
+  --accent: 200 42 239;        /* Electric Violet #C82AEF */
+  --accent-deep: 148 37 228;
+  --card-2: 236 232 240;
+  --accent-ink: 255 255 255;
+  --accent-tint: 243 219 252;
+  --accent-strong: 142 22 172; /* Deep Violet #8E16AC - 7.5:1 on white */
+
+  --gold: 239 188 42;          /* Signal Gold #EFBC2A */
+  --gold-ink: 10 10 12;
+  --gold-tint: 253 240 199;
+  --gold-strong: 138 106 0;    /* Bronze #8A6A00 - 5.2:1 on white */
+
+  --inverse: 4 4 4;
+  --inverse-ink: 245 245 247;
+  --inverse-ink-2: 139 139 139;
+
+  --success: 34 197 94;
+  --warning: 239 188 42;
+  --error: 239 68 68;
+
+  --glass-bg: 255 255 255;
+  --glass-alpha: 0.72;
+  --glass-border: 10 10 12;
+  --glass-border-alpha: 0.08;
+  --glass-shadow: 0 12px 40px rgba(10, 10, 12, 0.08);
+
+  color-scheme: light;
+}
+
+/* Values locked in design.md (studied DNA of marketixstudio.com). Neutrals are
+ * tinted toward the accent hue 318 so greys don't read flat (Hallmark gate 22). */
+.dark {
+  --bg: 7 6 8;                 /* paper    #070608 (live #040404) */
+  --surface: 14 14 14;         /* #0E0E0E, the live site's card base (user request 2026-09-26) */
+  --card: 14 14 14;            /* #0E0E0E card base, neutral like the live site */
+  --card-2: 31 31 31;          /* #1F1F1F card light corner, as on the live site */
+  --ink: 216 213 217;          /* #D8D5D9 - headings, matched to the live site's soft #D1D1D1 */
+  --ink-hi: 247 245 248;       /* #F7F5F8 - the one emphasised phrase in a heading */
+  --ink-2: 186 182 188;        /* #BAB6BC - secondary text */
+  --muted: 149 144 150;        /* #959096 (live #8B8B8B) - 6.46:1 on paper */
+  --line: 40 40 40;            /* #282828 thin neutral border, as on the live site */
+
+  --accent: 200 42 239;        /* #C82AEF */
+  --accent-deep: 148 37 228;   /* #9425E4 */
+  --accent-ink: 245 242 246;   /* 3.76:1 on accent - icons & large text only */
+  --accent-tint: 232 190 250;
+  --accent-strong: 214 108 245; /* #D66CF5 - 7.1:1 on carbon */
+
+  --gold: 239 188 42;
+  --gold-ink: 10 10 12;
+  --gold-tint: 253 240 199;
+  --gold-strong: 239 188 42;   /* 11.7:1 on carbon, no softening needed */
+
+  --inverse: 244 244 245;
+  --inverse-ink: 10 10 12;
+  --inverse-ink-2: 82 82 91;
+
+  --glass-bg: 16 16 16;
+  --glass-alpha: 0.7;
+  --glass-border: 255 255 255;
+  --glass-border-alpha: 0.1;
+  --glass-shadow: 0 12px 40px rgba(0, 0, 0, 0.45);
+
+  color-scheme: dark;
+}
+
+/*
+ * Visitor accent options (components/v2/accent-switcher.tsx, lib/theme.ts).
+ * Violet is the brand default and needs no attribute. Each option sets the
+ * accent family for light mode; .dark[data-accent] adjusts the text-safe shade.
+ * --accent-ink is the colour on top of an accent fill (dark on bright accents).
+ */
+[data-accent="blue"] {
+  --accent: 61 123 255;        /* #3D7BFF */
+  --accent-deep: 38 88 224;
+  --accent-ink: 255 255 255;
+  --accent-tint: 214 227 255;
+  --accent-strong: 29 78 205;  /* on white */
+}
+.dark[data-accent="blue"] { --accent-strong: 132 170 255; --accent-tint: 190 210 255; }
+
+[data-accent="teal"] {
+  --accent: 23 195 207;        /* #17C3CF */
+  --accent-deep: 12 150 163;
+  --accent-ink: 10 10 12;
+  --accent-tint: 200 242 245;
+  --accent-strong: 10 110 120;
+}
+.dark[data-accent="teal"] { --accent-strong: 60 214 224; --accent-tint: 170 236 240; }
+
+[data-accent="orange"] {
+  --accent: 255 122 26;        /* #FF7A1A */
+  --accent-deep: 224 86 10;
+  --accent-ink: 10 10 12;
+  --accent-tint: 255 224 199;
+  --accent-strong: 170 72 0;
+}
+.dark[data-accent="orange"] { --accent-strong: 255 154 77; --accent-tint: 255 210 176; }
+
+[data-accent="pink"] {
+  --accent: 255 46 138;        /* #FF2E8A */
+  --accent-deep: 214 20 107;
+  --accent-ink: 255 255 255;
+  --accent-tint: 255 210 230;
+  --accent-strong: 176 16 90;
+}
+.dark[data-accent="pink"] { --accent-strong: 255 106 170; --accent-tint: 255 190 220; }
+
+[data-accent="gold"] {
+  --accent: 239 188 42;        /* #EFBC2A, the brand's secondary */
+  --accent-deep: 209 154 0;
+  --accent-ink: 10 10 12;
+  --accent-tint: 253 240 199;
+  --accent-strong: 128 98 0;
+}
+.dark[data-accent="gold"] { --accent-strong: 239 188 42; --accent-tint: 250 226 160; }
+
+/* Light mode refinements for effects tuned on dark. */
+html:not(.dark) .mx-icon-tile {
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 -6px 12px rgb(var(--accent) / 0.06);
+}
+html:not(.dark) .group:hover .mx-icon-tile,
+html:not(.dark) .group:focus-visible .mx-icon-tile {
+  box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.9), inset 0 -6px 12px rgb(var(--accent) / 0.06),
+    0 0 0 3px rgb(var(--accent) / 0.14);
+}
+
+@layer base {
+  * {
+    border-color: rgb(var(--line) / 1);
+  }
+
+  html {
+    scroll-behavior: smooth;
+    max-width: 100%;
+    overflow-x: clip;
+  }
+
+  body {
+    width: 100%;
+    max-width: 100%;
+    overflow-x: clip;
+    background-color: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-weight: 500;
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+
+  /* Headings: bold (not extra-bold), natural spacing, balanced line breaks (live site DNA). */
+  h1,
+  h2,
+  h3 {
+    text-wrap: balance;
+  }
+
+  ::selection {
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+  }
+
+  :focus-visible {
+    outline: 2px solid rgb(var(--accent-strong));
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+}
+
+@layer components {
+  .container-edge {
+    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-10;
+  }
+
+  .glass {
+    background: rgb(var(--glass-bg) / var(--glass-alpha));
+    border: 1px solid rgb(var(--glass-border) / var(--glass-border-alpha));
+    -webkit-backdrop-filter: blur(18px);
+    backdrop-filter: blur(18px);
+    box-shadow: var(--glass-shadow);
+  }
+
+  .glass-hover {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1),
+      border-color 220ms ease, box-shadow 220ms ease;
+  }
+  .glass-hover:hover {
+    transform: translateY(-3px);
+    border-color: rgb(var(--accent) / 0.5);
+  }
+
+  .dropdown-glass {
+    position: relative;
+    isolation: isolate;
+    background: linear-gradient(
+      145deg,
+      rgb(var(--glass-bg) / 0.95) 0%,
+      rgb(var(--glass-bg) / 0.86) 100%
+    );
+    border: 1px solid rgb(var(--glass-border) / 0.13);
+    -webkit-backdrop-filter: blur(32px) saturate(165%);
+    backdrop-filter: blur(32px) saturate(165%);
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.22) inset,
+      0 24px 70px rgb(10 10 12 / 0.16),
+      0 8px 24px rgb(10 10 12 / 0.08);
+  }
+
+  .dark .dropdown-glass {
+    box-shadow:
+      0 1px 0 rgb(255 255 255 / 0.08) inset,
+      0 24px 70px rgb(0 0 0 / 0.6),
+      0 8px 24px rgb(0 0 0 / 0.4);
+  }
+
+  .dropdown-glass::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    border-radius: inherit;
+    background:
+      radial-gradient(circle at 8% 0%, rgb(255 255 255 / 0.16), transparent 34%),
+      radial-gradient(circle at 92% 100%, rgb(var(--accent) / 0.12), transparent 32%);
+  }
+
+  .nav-link-motion::after {
+    content: "";
+    position: absolute;
+    left: 0.625rem;
+    right: 0.625rem;
+    bottom: 0.15rem;
+    height: 2px;
+    border-radius: 999px;
+    background: rgb(var(--accent));
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 260ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .nav-link-motion:hover::after,
+  .nav-link-motion:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+
+  /* Violet gradient for highlighted headline fragments. */
+  .text-gradient-brand {
+    background: linear-gradient(
+      100deg,
+      rgb(var(--accent)) 0%,
+      rgb(216 122 247) 55%,
+      rgb(var(--accent)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Display headings fade from full ink into muted, as on the current site. */
+  .text-gradient-ink {
+    background: linear-gradient(
+      105deg,
+      rgb(var(--ink)) 0%,
+      rgb(var(--ink)) 38%,
+      rgb(var(--muted)) 100%
+    );
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+  }
+
+  /* Neon-outlined icon tile: dark fill, violet ring, violet bloom. */
+  .icon-tile {
+    @apply inline-flex items-center justify-center rounded-2xl text-accent;
+    background: rgb(var(--card));
+    border: 1px solid rgb(var(--accent) / 0.45);
+    box-shadow:
+      0 0 0 1px rgb(var(--accent) / 0.08),
+      0 0 18px rgb(var(--accent) / 0.28),
+      inset 0 0 18px rgb(var(--accent) / 0.12);
+  }
+
+  /* Large content container matching the current site's card language. */
+  .panel {
+    @apply rounded-3xl;
+    background: rgb(var(--card));
+    border: 1px solid rgb(var(--line));
+  }
+
+  .panel-glow {
+    transition: border-color 260ms ease, box-shadow 260ms ease, transform 260ms
+      cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .panel-glow:hover {
+    border-color: rgb(var(--accent) / 0.5);
+    box-shadow: 0 0 40px rgb(var(--accent) / 0.16);
+    transform: translateY(-3px);
+  }
+
+  /* Pill button with a violet neon ring, as used across the current site. */
+  .btn-neon {
+    @apply inline-flex items-center justify-between gap-4 rounded-full py-2 pl-7 pr-2
+      font-sans text-sm font-semibold text-ink transition-all duration-200 ease-premium;
+    background: rgb(var(--card));
+    border: 1px solid rgb(var(--accent) / 0.5);
+    box-shadow: 0 0 18px rgb(var(--accent) / 0.22);
+  }
+
+  .btn-neon:hover {
+    box-shadow: 0 0 30px rgb(var(--accent) / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-neon__arrow {
+    @apply inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full
+      text-accent-ink transition-transform duration-200 ease-premium;
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(155 31 199));
+    box-shadow: 0 0 20px rgb(var(--accent) / 0.5);
+  }
+
+  .btn-neon:hover .btn-neon__arrow {
+    transform: translateX(2px);
+  }
+
+  /* Gradient fill keeps white button text above 4.5:1 on the brand violet. */
+  .btn-primary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full px-6 py-3
+      font-sans text-sm font-semibold text-accent-ink
+      transition-all duration-200 ease-premium
+      active:scale-[0.97] focus-visible:outline-2;
+    background-image: linear-gradient(
+      135deg,
+      rgb(var(--accent)) 0%,
+      rgb(155 31 199) 100%
+    );
+    box-shadow: 0 10px 30px rgb(var(--accent) / 0.28);
+  }
+
+  .btn-primary:hover {
+    box-shadow: 0 0 0 1px rgb(var(--accent) / 0.4),
+      0 16px 42px rgb(var(--accent) / 0.4);
+    transform: translateY(-2px);
+  }
+
+  .btn-gold {
+    @apply inline-flex items-center justify-center gap-2 rounded-full bg-gold px-6 py-3
+      font-sans text-sm font-semibold text-gold-ink
+      transition-all duration-200 ease-premium hover:brightness-105
+      active:scale-[0.97];
+    box-shadow: 0 10px 30px rgb(var(--gold) / 0.26);
+  }
+
+  .btn-gold:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 16px 42px rgb(var(--gold) / 0.36);
+  }
+
+  .btn-primary svg,
+  .btn-secondary svg,
+  .btn-gold svg {
+    transition: transform 220ms cubic-bezier(0.22, 1, 0.36, 1);
+  }
+
+  .btn-primary:hover svg,
+  .btn-secondary:hover svg,
+  .btn-gold:hover svg {
+    transform: translateX(3px);
+  }
+
+  .btn-secondary {
+    @apply inline-flex items-center justify-center gap-2 rounded-full border border-line/15
+      bg-card/60 px-6 py-3 font-sans text-sm font-semibold text-ink
+      transition-all duration-200 ease-premium hover:border-accent/50 active:scale-[0.97];
+  }
+
+  .btn-ghost {
+    @apply inline-flex items-center gap-1.5 font-sans text-sm font-semibold text-accent-strong
+      transition-all duration-200 hover:gap-2.5;
+  }
+
+  .eyebrow {
+    @apply font-sans text-xs font-semibold uppercase tracking-[0.16em] text-accent-strong;
+  }
+
+  /* Ambient violet bloom behind hero / section headers. */
+  .brand-glow {
+    position: relative;
+    isolation: isolate;
+  }
+
+  .brand-glow::before {
+    content: "";
+    position: absolute;
+    inset: -20% -10% auto;
+    height: 70%;
+    z-index: -1;
+    pointer-events: none;
+    background:
+      radial-gradient(ellipse 60% 55% at 50% 0%, rgb(var(--accent) / 0.22), transparent 70%),
+      radial-gradient(ellipse 35% 40% at 78% 18%, rgb(var(--gold) / 0.08), transparent 70%);
+  }
+}
+
+.logo-marquee-track {
+  display: flex;
+  width: max-content;
+  align-items: center;
+  animation: logo-marquee 24s linear infinite;
+}
+
+.logo-marquee:hover .logo-marquee-track {
+  animation-play-state: paused;
+}
+
+@keyframes logo-marquee {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+/* ───────────────────────────────────────────────────────────────────────────
+ * Hallmark · genre: atmospheric · design-system: design.md · designed-as-app
+ * Component layer for the rebuilt pages. Every colour is a token (gate 48);
+ * no transition-all (gate 10); glow only on :hover / :focus-visible.
+ * ─────────────────────────────────────────────────────────────────────────── */
+@layer components {
+  /* The live site's signature surface: lighter corner fading into the card base.
+   * Elevation by lightness, never a coloured halo. */
+  .mx-card {
+    border-radius: 24px;
+    border: 1px solid rgb(var(--line));
+    background: radial-gradient(at top left, rgb(var(--card-2)) 0%, rgb(var(--card)) 70%);
+  }
+
+  /* Corner glow (the live site's violet bloom): a soft accent pool in one corner
+   * of a card that intensifies on hover. Pair with .mx-card; content sits above it. */
+  .mx-glow {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+  }
+  /* The violet corner glow was removed at the user's request (2026-09-26): cards use the
+   * live site's plain neutral gradient instead. The class stays as a harmless hook. */
+  .mx-glow::before {
+    display: none;
+    content: "";
+    position: absolute;
+    z-index: -1;
+    right: -30%;
+    bottom: -45%;
+    width: 75%;
+    aspect-ratio: 1;
+    border-radius: 999px;
+    background: radial-gradient(circle, rgb(var(--accent) / 0.32) 0%, rgb(var(--accent) / 0) 65%);
+    opacity: 0.85;
+    transition: opacity 320ms cubic-bezier(0.16, 1, 0.3, 1), transform 320ms cubic-bezier(0.16, 1, 0.3, 1);
+    pointer-events: none;
+  }
+  .mx-glow:hover::before,
+  .mx-glow:focus-within::before {
+    opacity: 1;
+    transform: scale(1.15);
+  }
+  .mx-glow--tl::before {
+    right: auto;
+    bottom: auto;
+    left: -30%;
+    top: -45%;
+  }
+
+  /* Icon tile (live site DNA): dark rounded square, inset depth, violet line icon. */
+  .mx-icon-tile {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.75rem;
+    height: 2.75rem;
+    border-radius: 0.875rem;
+    border: 1px solid rgb(var(--line));
+    background: rgb(var(--bg));
+    color: rgb(var(--accent));
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), inset 0 -6px 12px rgb(0 0 0 / 0.45);
+    transition: border-color 220ms cubic-bezier(0.16, 1, 0.3, 1), box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .group:hover .mx-icon-tile,
+  .group:focus-visible .mx-icon-tile {
+    border-color: rgb(var(--accent) / 0.7);
+    box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), inset 0 -6px 12px rgb(0 0 0 / 0.45),
+      0 0 0 3px rgb(var(--accent) / 0.14);
+  }
+
+  /* Logo marquee: two copies of the track slide by half their width for a seamless loop. */
+  .mx-marquee {
+    mask-image: linear-gradient(to right, transparent, #000 8%, #000 92%, transparent);
+  }
+  .mx-marquee__track {
+    display: flex;
+    width: max-content;
+    animation: mx-marquee var(--mx-marquee-duration, 40s) linear infinite;
+  }
+  .mx-marquee--reverse .mx-marquee__track {
+    animation-direction: reverse;
+  }
+  .mx-marquee:hover .mx-marquee__track {
+    animation-play-state: paused;
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mx-marquee__track {
+      animation: none;
+    }
+  }
+
+  /* Primary CTA: dark pill, 1px violet ring, violet circle carrying the arrow.
+   * The ring glows only when the button is hovered or focused. */
+  .mx-cta {
+    display: inline-flex;
+    align-items: center;
+    gap: 1rem;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--accent) / 0.55);
+    background: rgb(var(--card));
+    padding: 0.375rem 0.375rem 0.375rem 1.5rem;
+    font-weight: 600;
+    font-size: 0.9375rem;
+    line-height: 1;
+    white-space: nowrap;
+    color: rgb(var(--ink));
+    transition: box-shadow 220ms cubic-bezier(0.16, 1, 0.3, 1),
+      border-color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mx-cta:hover,
+  .mx-cta:focus-visible {
+    border-color: rgb(var(--accent));
+    box-shadow: 3px 3px 7px 0 rgb(var(--accent) / 0.35), -3px -3px 7px 0 rgb(var(--accent) / 0.35);
+  }
+  .mx-cta:active { background: rgb(var(--card-2)); }
+  .mx-cta__arrow {
+    display: inline-flex;
+    height: 2.5rem;
+    width: 2.5rem;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    border-radius: 999px;
+    color: rgb(var(--accent-ink));
+    background: linear-gradient(135deg, rgb(var(--accent)), rgb(var(--accent-deep)));
+  }
+
+  /* Secondary action: text only, arrow in the accent. */
+  .mx-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.4rem;
+    font-weight: 600;
+    color: rgb(var(--ink-2));
+    white-space: nowrap;
+    text-underline-offset: 4px;
+    transition: color 220ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mx-link:hover { color: rgb(var(--ink)); text-decoration: underline; }
+  .mx-link svg { color: rgb(var(--accent)); }
+
+  /* One violet light pool per hero, fixed, not animated, plus near-invisible grain.
+   * Replaces the WebGL aurora (Hallmark: Aurora-blob background). */
+  .mx-pool {
+    position: relative;
+    isolation: isolate;
+  }
+  .mx-pool::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -2;
+    pointer-events: none;
+    background: radial-gradient(ellipse 50% 45% at 50% 0%, rgb(var(--accent) / 0.08), transparent 70%);
+  }
+  .mx-pool::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0.07;
+    mix-blend-mode: soft-light;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  /* Placeholder for content the client still has to supply (Hallmark gate 46 fix). */
+  .mx-todo {
+    border-radius: 24px;
+    border: 1px dashed rgb(var(--line));
+    background: rgb(var(--card) / 0.6);
+    color: rgb(var(--muted));
+  }
+
+  /* Display headings must break long words rather than overflow (gate 51). */
+  .mx-display { overflow-wrap: anywhere; min-width: 0; }
+}
+
+@keyframes mx-marquee {
+  to {
+    transform: translateX(-50%);
+  }
+}
+
+/* WhatsApp widget: a gentle idle float, and the chat card's pop-in (both motion-safe only). */
+@keyframes mx-float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-6px); }
+}
+@keyframes mx-pop {
+  from { opacity: 0; transform: translateY(8px) scale(0.96); }
+  to { opacity: 1; transform: none; }
+}

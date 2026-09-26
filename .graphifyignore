@@ -1,0 +1,11 @@
+# Vendored third-party skills - not this project's knowledge
+.claude/skills/
+# Binary assets - logos and photos add no knowledge, only vision-pass cost
+public/
+app/icon.png
+app/apple-icon.png
+# Generated / lockfiles
+package-lock.json
+tsconfig.tsbuildinfo
+next-env.d.ts
+graphify-out/

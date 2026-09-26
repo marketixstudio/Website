@@ -1,0 +1,72 @@
+/**
+ * Every URL from the WordPress site maps to its Next.js equivalent so no
+ * existing ranking or backlink lands on a 404 after the cutover.
+ * Source paths are written without trailing slashes - Next normalises them.
+ */
+const legacyRedirects = [
+  // Legacy service + city pages
+  ["/digital-marketing-agency-pune", "/locations/pune"],
+  ["/web-design-agency-in-pune", "/services/web-design-development"],
+  ["/branding-agency-in-pune", "/services/branding-design"],
+  ["/social-media-marketing-agency-pune", "/services/social-media-marketing"],
+  ["/ppc-advertising-agency", "/services/google-ads-ppc"],
+  ["/content-marketing-seo", "/services/seo-services"],
+  ["/email-marketing-automation", "/services/email-marketing-automation"],
+
+  // Company pages
+  ["/about-us", "/about"],
+  ["/contact-us", "/contact"],
+  ["/case-studies", "/work"],
+  ["/partnership", "/partners"],
+  ["/terms-and-conditions", "/terms"],
+
+  // Tools and commerce
+  ["/review", "/r/jayganesh"],
+  ["/shop", "/gmb-toolkit"],
+  ["/product/google-maps-ranking-toolkit", "/gmb-toolkit"],
+
+  // WooCommerce routes that no longer exist
+  ["/cart", "/gmb-toolkit"],
+  ["/checkout", "/gmb-toolkit"],
+  ["/my-account", "/gmb-toolkit"],
+
+  // Stale WordPress artefacts
+  ["/hello-world", "/blog"],
+  ["/test", "/"],
+  ["/category/blog", "/blog"],
+  // Testimonials now live on the case studies hub (design.md: quotes belong with the work).
+  ["/testimonials", "/work"],
+];
+
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  reactStrictMode: true,
+  images: {
+    formats: ["image/avif", "image/webp"],
+  },
+  async redirects() {
+    return legacyRedirects.map(([source, destination]) => ({
+      source,
+      destination,
+      permanent: true,
+    }));
+  },
+  async headers() {
+    return [
+      {
+        source: "/:path*",
+        headers: [
+          { key: "X-Content-Type-Options", value: "nosniff" },
+          { key: "Referrer-Policy", value: "strict-origin-when-cross-origin" },
+          { key: "X-Frame-Options", value: "SAMEORIGIN" },
+          {
+            key: "Permissions-Policy",
+            value: "camera=(), microphone=(), geolocation=()",
+          },
+        ],
+      },
+    ];
+  },
+};
+
+export default nextConfig;
