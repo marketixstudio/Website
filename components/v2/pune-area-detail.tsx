@@ -14,7 +14,8 @@ import { answerSchema, breadcrumbSchema, faqSchema, graph, localBusinessSchema }
 
 export function PuneAreaDetail({ content }: { content: PuneArea }) {
   const path = `/locations/pune/${content.slug}`;
-  const others = puneAreas.filter((a) => a.slug !== content.slug);
+  // Balewadi is only linked from the Pune page grid (user request), not repeated on every area page.
+  const others = puneAreas.filter((a) => a.slug !== content.slug && a.slug !== "balewadi");
 
   const hero: ServiceHeroContent = {
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: "Pune", path: "/locations/pune" }, { name: content.area, path }, ],

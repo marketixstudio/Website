@@ -455,7 +455,7 @@ export const blogPosts: BlogPost[] = [
       {
         heading: "Target Pune by micro-market, not the whole city",
         paragraphs: [
-          "Pune is several property markets in one. Buyers looking in Hinjewadi and Wakad are often IT professionals comparing commute times. Baner and Balewadi attract a different budget. Kharadi and Wagholi, Hadapsar and the PCMC side each have their own buyers and competition.",
+          "Pune is several property markets in one. Buyers looking in Hinjewadi and Wakad are often IT professionals comparing commute times. Baner and Aundh attract a different budget. Kharadi and Wagholi, Hadapsar and the PCMC side each have their own buyers and competition.",
           "Build separate campaigns and landing pages for each micro-market you sell in, with the landmarks, commute times and prices that matter there. Our [Pune page](/locations/pune) and [real estate page](/industries/real-estate) explain how we segment.",
         ],
       },

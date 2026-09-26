@@ -126,7 +126,7 @@ export default function Page() {
             </ul>
             <h3 className="mt-10 text-sm font-semibold text-ink">Pune neighbourhoods</h3>
             <ul className="mt-4 flex flex-wrap gap-2">
-              {puneAreas.map((a) => (
+              {puneAreas.filter((a) => a.slug !== "balewadi").map((a) => (
                 <li key={a.slug}>
                   <Link
                     href={`/locations/pune/${a.slug}`}

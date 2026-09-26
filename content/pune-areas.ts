@@ -49,7 +49,7 @@ export const puneAreas: PuneArea[] = [
     metaTitle: "Digital Marketing Agency in Balewadi, Pune",
     metaDescription:
       "Digital marketing agency in Balewadi, Pune: Google Ads, SEO, Google Maps, social media and websites for Balewadi restaurants, studios, clinics and projects.",
-    title: { before: "Digital marketing agency on", accent: "Balewadi", after: "High Street" },
+    title: { before: "Digital marketing agency in", accent: "Balewadi" },
     lede:
       "Balewadi is a neighbourhood we know well. We help Balewadi cafes, restaurants, studios, clinics and real estate projects get found on Google and turn that attention into bookings and enquiries.",
     nearby: ["Baner", "Aundh", "Pashan", "Wakad", "Hinjewadi", "Mahalunge"],
@@ -112,7 +112,7 @@ export const puneAreas: PuneArea[] = [
     title: { before: "Digital marketing company in", accent: "Baner" },
     lede:
       "We help Baner businesses, from Baner Road retail and clinics to startups and residential projects, win the searches their customers are making every day.",
-    nearby: ["Balewadi", "Aundh", "Pashan", "Sus", "Mahalunge", "Bavdhan"],
+    nearby: ["Aundh", "Pashan", "Sus", "Mahalunge", "Bavdhan", "Pimple Nilakh"],
     answer: {
       question: "How do I choose a digital marketing company in Baner?",
       answer:
@@ -172,7 +172,7 @@ export const puneAreas: PuneArea[] = [
     title: { before: "Digital marketing services for", accent: "Aundh", after: "businesses" },
     lede:
       "Aundh is one of Pune's established neighbourhoods, with long-running shops, restaurants, clinics and schools alongside newer brands. We help Aundh businesses stay first choice when locals search, working as a Pune team that knows the area.",
-    nearby: ["Baner", "Balewadi", "Pashan", "Sanghvi", "Pimple Saudagar", "University Road"],
+    nearby: ["Baner", "Pashan", "Sanghvi", "Pimple Saudagar", "University Road"],
     answer: {
       question: "What digital marketing services do Aundh businesses need most?",
       answer:
@@ -232,7 +232,7 @@ export const puneAreas: PuneArea[] = [
     title: { before: "Digital marketing for", accent: "Hinjewadi", after: "and its IT park" },
     lede:
       "Hinjewadi is built around the Rajiv Gandhi Infotech Park and the housing that grew up around it. We help the startups, SaaS teams and real estate developers here win customers, and the local businesses that serve the IT crowd fill their tables and slots.",
-    nearby: ["Wakad", "Marunji", "Maan", "Balewadi", "Baner", "Tathawade"],
+    nearby: ["Wakad", "Marunji", "Maan", "Baner", "Tathawade"],
     answer: {
       question: "What kind of digital marketing works in Hinjewadi?",
       answer:
@@ -292,7 +292,7 @@ export const puneAreas: PuneArea[] = [
     title: { before: "Digital marketing company in", accent: "Wakad" },
     lede:
       "Wakad has grown into one of Pune's busiest residential hubs, with the shops, clinics, schools and classes that come with it. We help Wakad businesses and real estate projects reach the families moving in.",
-    nearby: ["Hinjewadi", "Pimple Saudagar", "Tathawade", "Punawale", "Ravet", "Balewadi"],
+    nearby: ["Hinjewadi", "Pimple Saudagar", "Tathawade", "Punawale", "Ravet"],
     answer: {
       question: "How can a Wakad business get more customers online?",
       answer:

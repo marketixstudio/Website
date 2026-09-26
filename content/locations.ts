@@ -79,7 +79,7 @@ export const locations: Record<string, LocationContent> = {
     slug: "pune",
     title: "Digital Marketing Agency in Pune",
     area: "Pune",
-    nearby: ["Balewadi", "Baner", "Hinjewadi", "Wakad", "Kharadi", "Viman Nagar", "Kothrud", "Hadapsar"],
+    nearby: ["Baner", "Hinjewadi", "Wakad", "Kharadi", "Viman Nagar", "Kothrud", "Hadapsar", "Aundh"],
     eyebrow: "Locations",
     countryCode: "IN",
     countryName: "India",
@@ -121,7 +121,7 @@ export const locations: Record<string, LocationContent> = {
     faqs: [
       { q: "Where are you based?", a: "In Pune. Our full address is on the contact page. Most work runs on calls, WhatsApp and shared reporting, and we meet when it helps." },
       { q: "Do you only work with Pune businesses?", a: "No. Pune is our home market, and we also work with brands across India and plan campaigns for the UAE, the UK and the US." },
-      { q: "Which Pune areas do you cover?", a: "All of it: Balewadi, Baner, Hinjewadi, Wakad, Kharadi, Viman Nagar, Kothrud, Hadapsar, Pimpri-Chinchwad and the rest. For local SEO we build area-specific pages and targeting for whichever corridors matter to you." },
+      { q: "Which Pune areas do you cover?", a: "All of it: Baner, Hinjewadi, Wakad, Kharadi, Viman Nagar, Kothrud, Hadapsar, Pimpri-Chinchwad and the rest. For local SEO we build area-specific pages and targeting for whichever corridors matter to you." },
       { q: "Do you work with Pune real estate developers?", a: "Yes. We optimise those campaigns for site visits rather than form fills, which matters in a market where many leads never turn into a visit." },
     ],
   },
