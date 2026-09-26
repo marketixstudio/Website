@@ -13,7 +13,7 @@ import { breadcrumbSchema, graph } from "@/lib/structured-data";
 export const metadata: Metadata = buildMetadata({
   title: "Careers at Marketix Studio, Pune",
   description:
-    "Careers at Marketix Studio in Balewadi, Pune: performance marketing, SEO, creative and social media. No open roles right now; introductions welcome.",
+    "Careers at Marketix Studio in Pune: performance marketing, SEO, creative and social media. No open roles right now; introductions welcome.",
   path: "/careers",
 });
 
@@ -35,7 +35,7 @@ export default function Page() {
         label="Careers, Marketix Studio Pune"
         title="Careers at"
         accent="Marketix Studio"
-        lede="We are a small team on Balewadi High Street, working on ads, SEO, websites, creative and social media for brands across India and abroad."
+        lede="We are a small team in Pune, working on ads, SEO, websites, creative and social media for brands across India and abroad."
         cta={null}
         secondary={{ label: "Meet the team", href: "/team" }}
       />

@@ -44,7 +44,7 @@ import { clientLogos } from "@/content/testimonials";
 import type { AnswerBlock, QA } from "@/lib/content-types";
 import { footerNav, primaryNav } from "@/lib/nav";
 import { buildMetadata } from "@/lib/seo";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 import {
   answerSchema,
   faqSchema,
@@ -63,7 +63,7 @@ export const metadata: Metadata = buildMetadata({
 const answer: AnswerBlock = {
   question: "What does Marketix Studio do?",
   answer:
-    "Marketix Studio is a performance marketing agency on Balewadi High Street in Pune. We help real estate developers, startups, SaaS companies and eCommerce brands grow with Google and Meta ads, SEO and local SEO, websites, landing pages and creative, and we judge the work on the enquiries and sales it brings in.",
+    "Marketix Studio is a performance marketing agency in Pune. We help real estate developers, startups, SaaS companies and eCommerce brands grow with Google and Meta ads, SEO and local SEO, websites, landing pages and creative, and we judge the work on the enquiries and sales it brings in.",
   keyFacts: [
     `Based in ${business.address.locality}, ${business.address.city}, serving brands since ${business.foundingDate}`,
     "Clients across India, with campaigns for the UAE, the UK and the US",
@@ -75,7 +75,7 @@ const answer: AnswerBlock = {
 const faqs: QA[] = [
   {
     q: "Where is Marketix Studio based?",
-    a: `Our office is at ${fullAddress}. We work with brands across India and run campaigns for clients in the UAE, the UK and the US.`,
+    a: `We are based in Pune and work with brands across India and run campaigns for clients in the UAE, the UK and the US.`,
   },
   {
     q: "Which industries do you work with?",
@@ -182,7 +182,7 @@ export default function HomePage() {
             </h1>
             <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-2">
               <p className="hidden self-end text-sm font-medium text-muted lg:block">
-                Balewadi High Street, Pune
+                Pune, India
               </p>
               <div>
                 <p className="max-w-[46ch] text-lg leading-[1.6] text-ink-2">
@@ -396,12 +396,12 @@ export default function HomePage() {
               Pune first, then wherever your customers are
             </h2>
             <p className="mt-5 max-w-[48ch] text-[1.0625rem] leading-relaxed text-muted">
-              Our team works from Balewadi High Street. We plan and run campaigns for the Indian metros
+              Our team works from Pune. We plan and run campaigns for the Indian metros
               and for brands selling into the UAE, the UK and the US.
             </p>
             <p className="mt-6 flex items-start gap-3 text-[0.9375rem] text-ink-2">
               <MapPin className="mt-0.5 h-5 w-5 shrink-0 text-accent" strokeWidth={1.9} aria-hidden="true" />
-              {fullAddress}
+              Pune, Maharashtra, India
             </p>
           </div>
           <div className="mx-card p-7 sm:p-8">

@@ -62,7 +62,7 @@ export default function Page() {
         label="Team, Marketix Studio Pune"
         title="The people who do"
         accent="the work"
-        lede="A small team on Balewadi High Street. Strategy, ads, SEO, creative, social and client success, all under one roof."
+        lede="A small team in Pune. Strategy, ads, SEO, creative, social and client success, all under one roof."
         cta={{ label: "Work with us", href: "/contact" }}
         secondary={{ label: "About the studio", href: "/about" }}
       />
@@ -121,7 +121,7 @@ export default function Page() {
               Want to meet the team?
             </h2>
             <p className="mt-5 max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted">
-              Start with a free growth audit, or visit us on Balewadi High Street.
+              Start with a free growth audit, or get in touch.
             </p>
           </div>
           <div className="flex flex-col items-start gap-5">

@@ -15,7 +15,7 @@ import { team } from "@/content/team";
 import { clientLogos } from "@/content/testimonials";
 import type { AnswerBlock, QA } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 import { answerSchema, breadcrumbSchema, faqSchema, graph, localBusinessSchema } from "@/lib/structured-data";
 
 const path = "/about";
@@ -23,13 +23,13 @@ const path = "/about";
 export const metadata: Metadata = buildMetadata({
   title: "About Marketix Studio, Marketing Agency in Pune",
   description:
-    "Marketix Studio is a performance marketing agency on Balewadi High Street, Pune, serving real estate, startups and eCommerce brands since 2023.",
+    "Marketix Studio is a performance marketing agency in Pune, serving real estate, startups and eCommerce brands since 2023.",
   path,
 });
 
 const answer: AnswerBlock = {
   question: "Who is Marketix Studio?",
-  answer: `Marketix Studio is a performance marketing agency on Balewadi High Street in Pune, serving brands since ${business.foundingDate}. A team of ${team.length} plans and runs paid ads, SEO, websites, creative and social media for real estate developers, startups and eCommerce brands, and measures the work on enquiries and sales.`,
+  answer: `Marketix Studio is a performance marketing agency in Pune, serving brands since ${business.foundingDate}. A team of ${team.length} plans and runs paid ads, SEO, websites, creative and social media for real estate developers, startups and eCommerce brands, and measures the work on enquiries and sales.`,
   keyFacts: [
     `Founded in ${business.foundingDate}, based in ${business.address.locality}, ${business.address.city}`,
     `${serviceList.length} services, from Google Ads to branding`,
@@ -52,7 +52,7 @@ const faqs: QA[] = [
   },
   {
     q: "Where is Marketix Studio based?",
-    a: `Our only office is at ${fullAddress}. We meet Pune clients in person and work remotely with brands across India and abroad.`,
+    a: `We are based in Pune and work with brands across India and abroad over calls, WhatsApp and shared reporting. Our full address is on the contact page.`,
   },
   {
     q: "How do you charge?",
@@ -102,7 +102,7 @@ export default function Page() {
         label="About Marketix Studio"
         title="A performance marketing agency that shows its"
         accent="working"
-        lede={`We have worked from Balewadi High Street, Pune since ${business.foundingDate}, planning and running ads, SEO, websites and creative for real estate, startups and eCommerce brands.`}
+        lede={`We have worked from Pune since ${business.foundingDate}, planning and running ads, SEO, websites and creative for real estate, startups and eCommerce brands.`}
         secondary={{ label: "Meet the team", href: "/team" }}
       />
 

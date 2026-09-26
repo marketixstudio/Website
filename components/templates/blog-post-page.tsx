@@ -185,7 +185,7 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
               <aside aria-label="About this article" className="mx-card mt-14 p-6 sm:p-7">
                 <p className="font-semibold text-ink">Written by {post.author}</p>
                 <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">
-                  Marketix Studio is a performance marketing agency on Balewadi High Street, Pune, working on ads, SEO,
+                  Marketix Studio is a performance marketing agency in Pune, working on ads, SEO,
                   websites and creative. Platform and regulatory facts are linked to their source. Examples are
                   illustrations, not client results. Articles are general guidance, not advice for your specific
                   business.

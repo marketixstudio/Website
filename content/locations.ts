@@ -6,13 +6,13 @@ export const locationsOverview: OverviewContent = {
   title: "Based in Pune, planning campaigns for",
   highlight: "twelve markets",
   subtitle:
-    "Campaigns planned around each market's currency, language and buying habits, from Balewadi to Dubai Marina.",
+    "Campaigns planned around each market's currency, language and buying habits, from Pune to Dubai Marina.",
   metaTitle: "Locations We Serve | Marketing Agency Pune & International",
   metaDescription:
     "Marketix Studio serves Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Ahmedabad in India, plus Dubai, London, the US, Australia, Canada and Singapore.",
   cardsTitle: "Where we work",
   cards: [
-    { label: "Pune", href: "/locations/pune", body: "Our home city. Office on Balewadi High Street, meetings in person.", icon: MapPin },
+    { label: "Pune", href: "/locations/pune", body: "Our home city, where the team is based.", icon: MapPin },
     { label: "Mumbai", href: "/locations/mumbai", body: "Real estate, finance and media brands at national scale.", icon: Building2 },
     { label: "Bangalore", href: "/locations/bangalore", body: "SaaS, startups and D2C brands selling globally.", icon: TrendingUp },
     { label: "Delhi NCR", href: "/locations/delhi-ncr", body: "Education, real estate and manufacturing across the capital region.", icon: Building2 },
@@ -37,7 +37,7 @@ export const locationsOverview: OverviewContent = {
     ],
   },
   faqs: [
-    { q: "Do you have offices in all these cities?", a: "No. We are headquartered in Balewadi, Pune, and work remotely with clients elsewhere. We are straightforward about that because claiming virtual offices is both misleading and, for Google Business Profile purposes, against the rules." },
+    { q: "Do you have offices in all these cities?", a: "No. We are based in Pune and work remotely with clients elsewhere. We are straightforward about that because claiming virtual offices is both misleading and, for Google Business Profile purposes, against the rules." },
     { q: "How do you handle time zone differences?", a: "The UAE and Singapore overlap closely with Indian hours, the UK morning is the Indian afternoon, and calls with the US and Canada are scheduled at a time that suits both sides. Reports and written updates cover the rest." },
   ],
 };
@@ -84,10 +84,10 @@ export const locations: Record<string, LocationContent> = {
     countryCode: "IN",
     countryName: "India",
     subtitle:
-      "Our home city. Our office is on Balewadi High Street, so meeting in person is easy when the work needs it.",
+      "Our home city, where the whole team is based.",
     metaTitle: "Digital Marketing Agency in Pune",
     metaDescription:
-      "Performance marketing agency in Balewadi, Pune. Google Ads, Meta Ads, SEO and web design for real estate, eCommerce and D2C brands across Pune.",
+      "Performance marketing agency in Pune. Google Ads, Meta Ads, SEO and web design for real estate, eCommerce and D2C brands across Pune.",
     answerBlock: {
       question: "How much does a digital marketing agency in Pune cost?",
       answer:
@@ -96,11 +96,11 @@ export const locations: Record<string, LocationContent> = {
         "Fees depend on the channels and work in scope",
         "Ad spend is separate from management fees and paid directly to platforms",
         "A free growth audit comes before any quote",
-        "Our office is in Balewadi High Street, Balewadi, Pune 411045",
+        "Based in Pune, working across the whole city",
       ],
     },
     reasons: [
-      { icon: MapPin, title: "Actually based here", body: "Balewadi High Street, not a virtual address. In-person meetings across Pune are genuinely available." },
+      { icon: MapPin, title: "Based in Pune", body: "The whole team works from Pune and knows how each part of the city buys." },
       { icon: Building2, title: "Real estate depth", body: "Hinjewadi, Baner, Kharadi and Wakad attract different buyers, so we plan each corridor separately." },
       { icon: Users, title: "Local buyer knowledge", body: "IT-corridor buyers, Pune Camp businesses and Kothrud retail each need a different approach." },
       { icon: Clock, title: "Same time zone, same day", body: "No overnight lag. Issues get resolved in hours, not on tomorrow's call." },
@@ -119,7 +119,7 @@ export const locations: Record<string, LocationContent> = {
     services: indiaServices,
     process: indiaProcess,
     faqs: [
-      { q: "Where exactly is your Pune office?", a: "Balewadi High Street, Balewadi, Pune 411045. You are welcome to visit, and we do in-person strategy sessions for Pune clients." },
+      { q: "Where are you based?", a: "In Pune. Our full address is on the contact page. Most work runs on calls, WhatsApp and shared reporting, and we meet when it helps." },
       { q: "Do you only work with Pune businesses?", a: "No. Pune is our home market, and we also work with brands across India and plan campaigns for the UAE, the UK and the US." },
       { q: "Which Pune areas do you cover?", a: "All of it: Balewadi, Baner, Hinjewadi, Wakad, Kharadi, Viman Nagar, Kothrud, Hadapsar, Pimpri-Chinchwad and the rest. For local SEO we build area-specific pages and targeting for whichever corridors matter to you." },
       { q: "Do you work with Pune real estate developers?", a: "Yes. We optimise those campaigns for site visits rather than form fills, which matters in a market where many leads never turn into a visit." },

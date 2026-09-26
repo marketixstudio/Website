@@ -242,7 +242,7 @@ export default function Page() {
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
-              Anything else, ask us directly. We&apos;re on Balewadi High Street.
+              Anything else, ask us directly. We&apos;re based in Pune.
             </p>
             <div className="mt-8">
               <Cta href="/contact">Ask a question</Cta>

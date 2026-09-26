@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import createGlobe, { type Arc, type Marker } from "cobe";
 import { THEME_EVENT } from "@/lib/theme";
+import { PUNE, type LatLng } from "@/lib/geo";
 
 /**
  * A real, slowly spinning 3D Earth (cobe, MIT, ~20 KB, WebGL) that replaces the old
@@ -11,25 +12,6 @@ import { THEME_EVENT } from "@/lib/theme";
  * Pauses when off-screen; reduced-motion users get a still globe facing the focus.
  * Colours follow the current theme and accent (lib/theme.ts).
  */
-
-export type LatLng = [number, number];
-export const PUNE: LatLng = [18.5204, 73.8567];
-
-/** City coordinates for the location pages (city centres). */
-export const cityCoords: Record<string, LatLng> = {
-  pune: PUNE,
-  mumbai: [19.076, 72.8777],
-  bangalore: [12.9716, 77.5946],
-  "delhi-ncr": [28.6139, 77.209],
-  hyderabad: [17.385, 78.4867],
-  ahmedabad: [23.0225, 72.5714],
-  "dubai-uae": [25.2048, 55.2708],
-  "london-uk": [51.5074, -0.1278],
-  usa: [40.7128, -74.006],
-  australia: [-33.8688, 151.2093],
-  canada: [43.6532, -79.3832],
-  singapore: [1.3521, 103.8198],
-};
 
 /** cobe's rotation angles that put a lat/lng in front of the viewer. */
 const facing = ([lat, lng]: LatLng) => ({ phi: Math.PI - ((lng * Math.PI) / 180 - Math.PI / 2), theta: (lat * Math.PI) / 180 });

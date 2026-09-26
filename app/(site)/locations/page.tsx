@@ -11,7 +11,7 @@ import { globalLocations, indiaLocations, locationsOverview } from "@/content/lo
 import { puneAreas } from "@/content/pune-areas";
 import type { AnswerBlock } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 import { answerSchema, breadcrumbSchema, collectionSchema, faqSchema, graph } from "@/lib/structured-data";
 import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
@@ -20,7 +20,7 @@ const path = "/locations";
 export const metadata: Metadata = buildMetadata({
   title: "Where We Work: Pune, India and Abroad",
   description:
-    "Marketix Studio works from Balewadi, Pune with brands across India, and plans campaigns for the UAE, the UK, the US, Australia, Canada and Singapore.",
+    "Marketix Studio works from Pune with brands across India, and plans campaigns for the UAE, the UK, the US, Australia, Canada and Singapore.",
   path,
 });
 
@@ -35,9 +35,9 @@ const zones: Record<string, { place: string; zone: string; offset: number }> = {
 
 const answer: AnswerBlock = {
   question: "Where does Marketix Studio work?",
-  answer: `Marketix Studio is based at ${fullAddress}. It works with brands in Pune and across India, including Mumbai, Bangalore, Delhi NCR, Hyderabad and Ahmedabad, and plans campaigns for businesses selling into the UAE, the UK, the US, Australia, Canada and Singapore. There are no other offices; everything runs from Pune.`,
+  answer: `Marketix Studio is based in Pune. It works with brands in Pune and across India, including Mumbai, Bangalore, Delhi NCR, Hyderabad and Ahmedabad, and plans campaigns for businesses selling into the UAE, the UK, the US, Australia, Canada and Singapore. There are no other offices; everything runs from Pune.`,
   keyFacts: [
-    "One office, on Balewadi High Street in Pune",
+    "Based in Pune, with one team for every market",
     "In-person meetings in Pune, remote work everywhere else",
     "Campaigns planned in each market's language and currency",
     `Office hours ${business.openingHours.opens} to ${business.openingHours.closes} IST, Monday to Saturday`,
@@ -95,21 +95,16 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div className="mx-card flex flex-col p-8">
             <MapPin className="h-7 w-7 text-accent" strokeWidth={1.8} aria-hidden="true" />
-            <h2 className="mt-5 font-display text-2xl font-bold text-ink">Our office</h2>
-            <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">{fullAddress}</p>
+            <h2 className="mt-5 font-display text-2xl font-bold text-ink">Based in Pune</h2>
+            <p className="mt-3 text-[0.9375rem] leading-relaxed text-ink-2">Our team plans and runs every campaign from Pune, for clients across India and abroad.</p>
             <p className="mt-2 text-sm text-muted">
               Monday to Saturday, {business.openingHours.opens} to {business.openingHours.closes} IST
             </p>
             <div className="mt-auto pt-8">
-              <a
-                href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(`${business.name}, ${fullAddress}`)}`}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="mx-link text-sm"
-              >
-                Open in Google Maps
+              <Link href="/contact" className="mx-link text-sm">
+                Contact details
                 <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden="true" />
-              </a>
+              </Link>
             </div>
           </div>
           <div>

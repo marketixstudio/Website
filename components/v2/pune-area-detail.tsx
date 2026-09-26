@@ -156,7 +156,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
             </p>
             <div className="mt-8 flex flex-col items-start gap-5">
               <Cta href="/growth-audit">Get a free growth audit</Cta>
-              <TextLink href="/contact">Visit our Balewadi office</TextLink>
+              <TextLink href="/contact">Contact us</TextLink>
             </div>
           </div>
           <FaqList items={content.faqs} />

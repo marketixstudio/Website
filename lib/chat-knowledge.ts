@@ -9,7 +9,7 @@ import { puneAreas } from "@/content/pune-areas";
 import { serviceList, servicesOverview } from "@/content/services";
 import { publishedCaseStudies } from "@/content/work";
 import { blogPosts } from "@/content/blog";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 
 const keyPages: { label: string; href: string; body: string }[] = [
   { label: "Free growth audit", href: "/growth-audit", body: "A free, no-obligation review of ads, website, tracking, Google profile and lead handling, with recommended priorities. Short form." },
@@ -33,7 +33,7 @@ export function buildChatKnowledge(): string {
 
   lines.push(`Company: ${business.name} ("${business.tagline}")`);
   lines.push(business.description);
-  lines.push(`Office: ${fullAddress}. Open Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.`);
+  lines.push(`Based in Pune, Maharashtra, India. Say "Pune" when asked where we are; the full address is on the contact page (/contact). Open Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.`);
   lines.push(`Phone and WhatsApp: ${business.phoneDisplay}. Email: ${business.email}.`);
   lines.push(`Markets: ${business.areaServed.join(", ")}.`);
   lines.push("");

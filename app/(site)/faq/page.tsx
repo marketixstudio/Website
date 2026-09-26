@@ -10,7 +10,7 @@ import { Cta, TextLink } from "@/components/v2/primitives";
 import { products } from "@/content/products-catalog";
 import type { QA } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 import { breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
 
 export const metadata: Metadata = buildMetadata({
@@ -83,7 +83,7 @@ const groups: { title: string; items: QA[] }[] = [
     items: [
       {
         q: "Where is Marketix Studio based?",
-        a: `${fullAddress}, India. We are open Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.`,
+        a: `We are based in Pune, Maharashtra. Our full address and hours are on the contact page, and we are open Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.`,
       },
       {
         q: "Do you have offices in other cities?",

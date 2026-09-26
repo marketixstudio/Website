@@ -540,9 +540,9 @@
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1790196194.5511577,
-    "seen": 1790196449.985136,
-    "ast_hash": "5e3ef26615d8a32adb17c1ccc441e84d",
+    "mtime": 1790429333.0525908,
+    "seen": 1790429520.285581,
+    "ast_hash": "8ec9e289f8c5cea58a1bef6e7beaf272",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -612,9 +612,9 @@
     "semantic_hash": ""
   },
   "components/v2/nav.tsx": {
-    "mtime": 1790429227.7715995,
-    "seen": 1790429316.6575308,
-    "ast_hash": "a72b60b86b8dbe4128b0afe7a3665146",
+    "mtime": 1790429480.003691,
+    "seen": 1790429520.285563,
+    "ast_hash": "98f58481b72458ea89f1f262b95373a2",
     "semantic_hash": ""
   },
   "components/v2/newsletter-form.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790429314.7952812,
-    "seen": 1790429316.6575518,
-    "ast_hash": "d82abcb46f3d467e1687e450256b4469",
+    "mtime": 1790429518.4704974,
+    "seen": 1790429520.285585,
+    "ast_hash": "06210986925088dab5cebce490e0c3db",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -702,9 +702,9 @@
     "semantic_hash": ""
   },
   "components/v2/location-detail.tsx": {
-    "mtime": 1790429185.16522,
-    "seen": 1790429316.65753,
-    "ast_hash": "02f1e4567aac1e0cca9fbc7970cda0fe",
+    "mtime": 1790429429.3333514,
+    "seen": 1790429520.285562,
+    "ast_hash": "bc19959577f29896eabef5b9edf03b83",
     "semantic_hash": ""
   },
   "components/v2/market-visuals.tsx": {
@@ -762,9 +762,9 @@
     "semantic_hash": ""
   },
   "components/v2/pune-area-detail.tsx": {
-    "mtime": 1790429185.1656096,
-    "seen": 1790429316.657532,
-    "ast_hash": "5a34a9b27acf289774db9d70007705e2",
+    "mtime": 1790429429.3329816,
+    "seen": 1790429520.285564,
+    "ast_hash": "d62eaa920f0f671e05d86b7a206f87da",
     "semantic_hash": ""
   },
   "content/pune-areas.ts": {
@@ -849,6 +849,12 @@
     "mtime": 1790429174.4123569,
     "seen": 1790429316.657525,
     "ast_hash": "f57ef463c31836feba3a29f515b31139",
+    "semantic_hash": ""
+  },
+  "components/v2/globe.tsx": {
+    "mtime": 1790429429.306188,
+    "seen": 1790429520.2855601,
+    "ast_hash": "8dbd399ce4f2ad82c70435d6255b84c4",
     "semantic_hash": ""
   }
 }
