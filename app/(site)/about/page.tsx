@@ -17,6 +17,7 @@ import type { AnswerBlock, QA } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
 import { business } from "@/lib/site-config";
 import { answerSchema, breadcrumbSchema, faqSchema, graph, localBusinessSchema } from "@/lib/structured-data";
+import { ElectricMonogram } from "@/components/v2/electric-monogram";
 
 const path = "/about";
 
@@ -104,6 +105,7 @@ export default function Page() {
         accent="working"
         lede={`We have worked from Pune since ${business.foundingDate}, planning and running ads, SEO, websites and creative for real estate, startups and eCommerce brands.`}
         secondary={{ label: "Meet the team", href: "/team" }}
+        visual={<ElectricMonogram className="h-[200px] w-full sm:h-[240px]" />}
       />
 
       {/* 1 · The studio at a glance: the page's centrepiece. Every number is counted from content. */}

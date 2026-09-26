@@ -11,6 +11,7 @@ import type { QA } from "@/lib/content-types";
 import { buildMetadata, siteUrl } from "@/lib/seo";
 import { business, fullAddress } from "@/lib/site-config";
 import { breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
+import { ElectricMonogram } from "@/components/v2/electric-monogram";
 
 export const metadata: Metadata = buildMetadata({
   title: "Contact Marketix Studio, Pune",
@@ -99,6 +100,7 @@ export default function Page() {
         accent="work better"
         lede="Tell us what is happening with your marketing today and what should be happening instead. We'll give you a straight answer about whether we can help."
         cta={null}
+        visual={<ElectricMonogram className="h-[200px] w-full sm:h-[240px]" />}
       />
 
       {/* 1 · Three ways in: the page's centrepiece. */}

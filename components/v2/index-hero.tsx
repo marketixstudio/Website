@@ -15,6 +15,7 @@ export function IndexHero({
   cta = { label: "Get a free growth audit", href: "/growth-audit" },
   secondary,
   crumbs,
+  visual,
   children,
 }: {
   label: string;
@@ -26,6 +27,8 @@ export function IndexHero({
   secondary?: { label: string; href: string };
   /** Breadcrumb trail shown above the title (replaces the label). */
   crumbs?: Crumb[];
+  /** Optional decorative visual shown above the lede (e.g. the electric monogram). */
+  visual?: ReactNode;
   /** Optional content under the lede, e.g. contact details. */
   children?: ReactNode;
 }) {
@@ -44,6 +47,7 @@ export function IndexHero({
             )}
           </h1>
           <div>
+            {visual && <div className="mb-6">{visual}</div>}
             <p className="max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted sm:text-lg">{lede}</p>
             {children}
             {(cta || secondary) && (
