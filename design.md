@@ -238,8 +238,9 @@ must use tokens (`--accent`, `--accent-ink`, `--ink`, `--card`...) and never har
 or black, so it works in both themes and all six accents. Logos: dark mode uses marketix-logo.png,
 light mode uses marketix-logo-light.png (Wordmark handles this).
 
-## Cards (2026-09-26, user request)
-Dark cards match the live site exactly: neutral #0E0E0E base with a #1F1F1F top-left corner
-(`.mx-card` radial gradient) and a thin #282828 border. No violet corner glow on cards
-(`.mx-glow` is disabled). Violet appears only on icons, links' underlines and actions.
+## Cards (2026-09-26, user request; values read from the live site's CSS)
+`.mx-card` = the live marketixstudio.com container: `radial-gradient(at 0% 0%, #1F1F1F 0%, #0E0E0E 60%)`,
+1px #1F1F1F border, 24px radius, on a #040404 page. No glow at rest. On hover or keyboard focus:
+violet border (accent at 55%) plus the live site's violet glow `0 0 10px rgba(200,42,239,0.44)`.
+The old always-on corner glow (`.mx-glow`) stays disabled.
 

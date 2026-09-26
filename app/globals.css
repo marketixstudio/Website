@@ -50,15 +50,15 @@
 /* Values locked in design.md (studied DNA of marketixstudio.com). Neutrals are
  * tinted toward the accent hue 318 so greys don't read flat (Hallmark gate 22). */
 .dark {
-  --bg: 7 6 8;                 /* paper    #070608 (live #040404) */
-  --surface: 14 14 14;         /* #0E0E0E, the live site's card base (user request 2026-09-26) */
-  --card: 14 14 14;            /* #0E0E0E card base, neutral like the live site */
-  --card-2: 31 31 31;          /* #1F1F1F card light corner, as on the live site */
+  --bg: 4 4 4;                 /* #040404, the live site page background (measured 2026-09-26) */
+  --surface: 14 14 14;         /* #0E0E0E, live site card base (read from its CSS 2026-09-26) */
+  --card: 14 14 14;            /* #0E0E0E live site card base (from its CSS) */
+  --card-2: 31 31 31;          /* #1F1F1F live site card highlight (from its CSS) */
   --ink: 216 213 217;          /* #D8D5D9 - headings, matched to the live site's soft #D1D1D1 */
   --ink-hi: 247 245 248;       /* #F7F5F8 - the one emphasised phrase in a heading */
   --ink-2: 186 182 188;        /* #BAB6BC - secondary text */
   --muted: 149 144 150;        /* #959096 (live #8B8B8B) - 6.46:1 on paper */
-  --line: 40 40 40;            /* #282828 thin neutral border, as on the live site */
+  --line: 31 31 31;            /* #1F1F1F live site card border and dividers (from its CSS) */
 
   --accent: 200 42 239;        /* #C82AEF */
   --accent-deep: 148 37 228;   /* #9425E4 */
@@ -464,10 +464,19 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
 @layer components {
   /* The live site's signature surface: lighter corner fading into the card base.
    * Elevation by lightness, never a coloured halo. */
+  /* Live-site container, values read from marketixstudio.com's CSS (2026-09-26):
+   * radial light from the top-left corner, #1F1F1F to #0E0E0E by 60%, 1px #1F1F1F border.
+   * On hover or keyboard focus it gets the live site's violet glow border. */
   .mx-card {
     border-radius: 24px;
     border: 1px solid rgb(var(--line));
-    background: radial-gradient(at top left, rgb(var(--card-2)) 0%, rgb(var(--card)) 70%);
+    background: radial-gradient(at 0% 0%, rgb(var(--card-2)) 0%, rgb(var(--card)) 60%);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+  .mx-card:hover,
+  .mx-card:focus-within {
+    border-color: rgb(var(--accent) / 0.55);
+    box-shadow: 0 0 10px 0 rgb(var(--accent) / 0.44);
   }
 
   /* Corner glow (the live site's violet bloom): a soft accent pool in one corner
