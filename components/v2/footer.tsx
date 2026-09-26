@@ -5,7 +5,7 @@ import { Cta } from "@/components/v2/primitives";
 import { NewsletterForm } from "@/components/v2/newsletter-form";
 import { footerNav } from "@/lib/nav";
 import { socialProfiles } from "@/lib/social-links";
-import { business, fullAddress } from "@/lib/site-config";
+import { business } from "@/lib/site-config";
 
 const icons = { Instagram, LinkedIn: Linkedin, Facebook, YouTube: Youtube } as const;
 
@@ -102,7 +102,9 @@ export function SiteFooter() {
           <ul className="mt-6 space-y-3 text-[0.9375rem]">
             <li className="flex gap-3 text-ink-2">
               <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={2} aria-hidden="true" />
-              <address className="not-italic">{fullAddress}</address>
+              <address className="not-italic">
+                {business.address.city}, {business.address.region}
+              </address>
             </li>
             <li className="flex gap-3 text-ink-2">
               <Clock className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={2} aria-hidden="true" />
