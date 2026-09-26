@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useMemo, useRef, useState } from "react";
+import dynamic from "next/dynamic";
 import { RotateCcw } from "lucide-react";
 import { Globe } from "@/components/v2/globe";
 import { cityCoords, PUNE } from "@/lib/geo";
@@ -10,12 +11,16 @@ import { punePlaces } from "@/lib/pune-places";
 /**
  * Location zoom: the spinning Earth turns to face India, zooms into a Maharashtra
  * outline (Natural Earth, public domain) with Pune marked, then, for Pune pages,
- * into Pune with the neighbourhoods at their approximate positions. Plays once
+ * into a real street map of Pune (MapLibre + OpenFreeMap, loaded on demand) with the
+ * neighbourhoods marked. Plays once
  * when scrolled into view; the step chips jump between stages; Replay restarts.
  * Reduced motion: no auto-play, the final stage is shown and the chips still work.
  */
 
 type Stage = 0 | 1 | 2;
+
+// The real street map (MapLibre, ~800 KB) loads only when the Pune step is first reached.
+const PuneStreetMap = dynamic(() => import("@/components/v2/pune-street-map"), { ssr: false });
 const STEP_MS = 2600;
 
 // Square viewBox around the Maharashtra outline, with breathing room.
@@ -46,6 +51,12 @@ export function ZoomJourney({
   const [run, setRun] = useState(0);
   const boxRef = useRef<HTMLDivElement>(null);
   const reduceRef = useRef(false);
+  /** Once the visitor picks a step, auto-play never takes over again. */
+  const userRef = useRef(false);
+  const [reachedPune, setReachedPune] = useState(false);
+  useEffect(() => {
+    if (stage === 2) setReachedPune(true);
+  }, [stage]);
 
   // Start once, when the figure is on screen.
   useEffect(() => {
@@ -59,7 +70,7 @@ export function ZoomJourney({
     const io = new IntersectionObserver(
       ([e]) => {
         if (e.isIntersecting) {
-          setAuto(true);
+          if (!userRef.current) setAuto(true);
           io.disconnect();
         }
       },
@@ -80,6 +91,7 @@ export function ZoomJourney({
   }, [auto, run, lastStage]);
 
   const jump = (s: Stage) => {
+    userRef.current = true;
     setAuto(false);
     setStage(s);
   };
@@ -153,8 +165,12 @@ export function ZoomJourney({
 
         {/* 2 · Pune */}
         {hasPune && (
-          <div className="absolute inset-0" style={{ ...t(stage === 2, "scale(0.55)"), transformOrigin: "50% 50%" }} aria-hidden="true">
-            <PuneMap area={area} nearby={nearby} />
+          <div className="absolute inset-0" style={{ ...t(stage === 2, "scale(0.55)"), transformOrigin: "50% 50%" }}>
+            {reachedPune ? (
+              <PuneStreetMap area={area} nearby={nearby} fallback={<PuneMap area={area} nearby={nearby} />} />
+            ) : (
+              <PuneMap area={area} nearby={nearby} />
+            )}
           </div>
         )}
       </div>
@@ -182,7 +198,7 @@ export function ZoomJourney({
           <RotateCcw className="h-4 w-4" strokeWidth={2} aria-hidden="true" />
         </button>
       </figcaption>
-      {hasPune && <p className="mt-3 text-center text-xs text-muted">Neighbourhood positions are approximate.</p>}
+      {hasPune && <p className="mt-3 text-center text-xs text-muted">Neighbourhood markers show approximate centres.</p>}
     </figure>
   );
 }
