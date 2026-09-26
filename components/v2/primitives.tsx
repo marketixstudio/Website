@@ -8,10 +8,10 @@ export function serviceHref(slug: string) {
   return `/services/${slug}`;
 }
 
-/** Main pill button. Gently pulls toward the cursor (React Bits Magnet, the user's settings). */
+/** Main pill button. Gently pulls toward the cursor (React Bits Magnet: padding 50, strength 10). */
 export function Cta({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Magnet padding={50} magnetStrength={50}>
+    <Magnet padding={50} magnetStrength={10}>
       <Link href={href} className="mx-cta">
         {children}
         <span className="mx-cta__arrow" aria-hidden="true">
