@@ -1,11 +1,11 @@
 /* Hallmark · genre: atmospheric · template: Pune neighbourhood page · hero: shared ServiceHero
- * centrepiece: AreaMap (the neighbourhood and the areas around it)
+ * centrepiece: AreaGlobe (spinning 3D Earth on Pune, with the nearby areas named)
  * honest: local facts are general knowledge; searches are labelled as examples; no invented results
  */
 import Link from "next/link";
 import { ArrowRight, Search } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { AreaMap } from "@/components/v2/market-visuals";
+import { AreaGlobe } from "@/components/v2/globe";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { puneAreas, type PuneArea } from "@/content/pune-areas";
@@ -80,7 +80,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
               ))}
             </ul>
           </div>
-          <AreaMap city={content.area} areas={content.nearby} />
+          <AreaGlobe city={content.area} areas={content.nearby} />
         </div>
       </section>
 

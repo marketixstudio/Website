@@ -204,7 +204,8 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
 
 @layer components {
   .container-edge {
-    @apply mx-auto w-full max-w-container px-5 sm:px-8 lg:px-10;
+    /* Full-width like the live site: content runs close to the edges on large screens. */
+    @apply mx-auto w-full max-w-[1880px] px-4 sm:px-5 lg:px-6;
   }
 
   .glass {

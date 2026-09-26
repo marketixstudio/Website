@@ -1,11 +1,12 @@
 /* Hallmark · genre: atmospheric · template: location page · hero: shared ServiceHero (market labels)
- * centrepiece: AreaMap (India) or HoursOverlap (international), computed from real offsets
+ * centrepiece: AreaGlobe (India: spinning Earth, arc from Pune) or HoursOverlap (international), computed from real offsets
  * honest: pass (46: invented prices, capabilities and wrong time-zone claims fixed in content/locations.ts)
  */
 import Link from "next/link";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { AreaMap, HoursOverlap } from "@/components/v2/market-visuals";
+import { HoursOverlap } from "@/components/v2/market-visuals";
+import { AreaGlobe, cityCoords } from "@/components/v2/globe";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { locationList } from "@/content/locations";
@@ -94,7 +95,7 @@ export function LocationDetail({ content }: { content: LocationContent }) {
             </p>
           </div>
           {isIndia || !f.zone ? (
-            <AreaMap city={content.area} areas={content.nearby.slice(0, 8)} />
+            <AreaGlobe city={content.area} areas={content.nearby.slice(0, 8)} focus={cityCoords[content.slug]} arcFromPune={content.slug !== "pune" && Boolean(cityCoords[content.slug])} />
           ) : (
             <HoursOverlap place={f.zone.place} zone={f.zone.zone} offset={f.zone.offset} />
           )}

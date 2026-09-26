@@ -172,15 +172,16 @@ export function SiteNav() {
     "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink transition-colors hover:bg-accent-deep";
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-4 sm:top-4">
-      {/* ── Desktop: floating pill ─────────────────────────────── */}
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-4 sm:top-4 sm:px-5 lg:px-6">
+      {/* ── Desktop: full-width bar (live-site layout): logo, menu centred, actions ─ */}
       <nav
         ref={navRef}
         aria-label="Primary"
-        className="pointer-events-auto relative hidden items-center rounded-full border border-line bg-card/85 py-1.5 pl-5 pr-1.5 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
+        className="pointer-events-auto relative hidden w-full max-w-[1880px] items-center justify-between rounded-[24px] border border-line bg-card/85 py-3 pl-7 pr-3 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
       >
-        <Wordmark height={34} className="mr-5" priority />
+        <Wordmark height={40} priority />
 
+        <div className="flex items-center">
         {trigger("services", "Services", isActive(["/services", "/v2/services"]))}
         {trigger("industries", "Industries", isActive(["/industries"]))}
         {trigger("about", "About", isActive(aboutMatch))}
@@ -199,10 +200,12 @@ export function SiteNav() {
             </Link>
           );
         })}
-        <ThemeToggle className="ml-2" />
-        <span className="ml-2">
+        </div>
+
+        <div className="flex items-center gap-3">
+          <ThemeToggle />
           <Cta href="/growth-audit">Free audit</Cta>
-        </span>
+        </div>
 
         {open === "services" && (
           <div
