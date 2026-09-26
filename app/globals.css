@@ -473,24 +473,22 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   .mx-card {
     border-radius: 24px;
     border: 1px solid rgb(var(--line));
-    /* Layer 1: the glare (React Bits GlareHover look: white 30%, -30deg, 300% size),
-     * parked off the top-left corner until hover. Layer 2: the live-site card gradient. */
+    background: radial-gradient(at 0% 0%, rgb(var(--card-2)) 0%, rgb(var(--card)) 60%);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+  /* Glare (React Bits GlareHover look: white 30%, -30deg, 300% size, 800ms). Opt-in only:
+   * used on the team member cards (user request), not on every card. */
+  .mx-card.mx-glare {
     background:
       linear-gradient(-30deg, transparent 60%, rgb(var(--glare)) 70%, transparent 100%) -100% -100% / 300% 300% no-repeat,
       radial-gradient(at 0% 0%, rgb(var(--card-2)) 0%, rgb(var(--card)) 60%);
     transition: border-color 220ms ease, box-shadow 220ms ease, background-position 800ms ease;
   }
-  /* Hover: the glare sweeps across the card (GlareHover, transition 800ms, plays every hover). */
-  .mx-card:hover {
+  .mx-card.mx-glare:hover {
     background-position: 100% 100%, 0 0;
   }
-  /* No glare on the nav mega menus, the chat panel or other opted-out cards. */
-  .mx-card[data-no-spot]:hover,
-  .mx-card[data-no-glare]:hover {
-    background-position: -100% -100%, 0 0;
-  }
   @media (prefers-reduced-motion: reduce) {
-    .mx-card {
+    .mx-card.mx-glare {
       transition: border-color 220ms ease, box-shadow 220ms ease;
     }
   }

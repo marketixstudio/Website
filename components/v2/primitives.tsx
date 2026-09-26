@@ -1,20 +1,24 @@
 import Link from "next/link";
 import { ArrowRight, Plus } from "lucide-react";
 import type { AnswerBlock, QA } from "@/lib/content-types";
+import Magnet from "@/components/ui/bits/Magnet";
 
 /** Canonical URL for a service page. */
 export function serviceHref(slug: string) {
   return `/services/${slug}`;
 }
 
+/** Main pill button. Gently pulls toward the cursor (React Bits Magnet, the user's settings). */
 export function Cta({ href, children }: { href: string; children: React.ReactNode }) {
   return (
-    <Link href={href} className="mx-cta">
-      {children}
-      <span className="mx-cta__arrow" aria-hidden="true">
-        <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-      </span>
-    </Link>
+    <Magnet padding={50} magnetStrength={50}>
+      <Link href={href} className="mx-cta">
+        {children}
+        <span className="mx-cta__arrow" aria-hidden="true">
+          <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+        </span>
+      </Link>
+    </Magnet>
   );
 }
 

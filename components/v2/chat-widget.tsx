@@ -160,7 +160,6 @@ export function ChatWidget() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             exit={reduce ? { opacity: 0 } : { opacity: 0, y: 10, scale: 0.98 }}
             transition={{ duration: 0.22, ease: [0.16, 1, 0.3, 1] }}
-            data-no-glare
             className="mx-card absolute bottom-0 right-0 flex h-[min(76dvh,640px)] w-[calc(100vw-2rem)] origin-bottom-right flex-col rounded-[24px] shadow-[0_28px_80px_-20px_rgb(0_0_0/0.9)] sm:w-[400px]"
           >
             {/* Header */}

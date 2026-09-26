@@ -69,7 +69,7 @@ export default function Page() {
       <section aria-label="Team members" className="pb-24">
         <ul className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-3">
           {team.map((member) => (
-            <li key={member.slug} id={member.slug} className="mx-card flex h-full flex-col p-7 sm:p-8">
+            <li key={member.slug} id={member.slug} className="mx-card mx-glare flex h-full flex-col p-7 sm:p-8">
               <Portrait member={member} size={112} />
               <h2 className="mt-6 font-display text-2xl font-bold text-ink">{member.name}</h2>
               <p className="mt-1 font-semibold text-accent">{member.role}</p>

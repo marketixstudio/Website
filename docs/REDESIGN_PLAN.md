@@ -223,3 +223,4 @@ Decisions and inputs needed from you are collected in docs/PROJECT_CONTEXT.md se
 - 2026-09-26 (user): no glow/glare on the client logo strip chips (data-no-spot).
 - 2026-09-26 (user): removed unused marquee CSS (.logo-marquee*, .mx-marquee*, both keyframes).
 - 2026-09-26 (user): Balewadi removed from other pages: nearby lists (Baner, Aundh, Hinjewadi, Wakad, Pune city), other-area chips on area pages, Locations chips, Pune FAQ, blog sentence (now Baner and Aundh). Balewadi page kept, linked only from the Pune page grid; its H1 now 'Digital marketing agency in Balewadi'. Full address remains only on /contact.
+- 2026-09-26 (user): glare is opt-in (.mx-card.mx-glare), used only on team member cards. Every main pill button (Cta) wrapped in React Bits Magnet (components/ui/bits/Magnet.tsx, padding 50, strength 50; local speed fix: state only updates near the cursor; off on touch and reduced motion). Verified: moves toward cursor, resets on leave.
