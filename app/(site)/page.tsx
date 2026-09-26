@@ -174,7 +174,7 @@ export default function HomePage() {
       {/* 1 · Hero: the live site's composition. One large card with the wave visual,
           a wide left-aligned headline, and the lede + action offset to the right. */}
       <section className="pb-20 pt-24 sm:pb-24 sm:pt-28">
-        <div className="container-edge">
+        <div className="container-wide">
           <div className="relative isolate flex min-h-[min(86vh,780px)] flex-col justify-between overflow-hidden rounded-[28px] border border-line bg-card px-6 pb-8 pt-12 sm:px-12 sm:pb-12 sm:pt-16 lg:px-16 lg:pb-16">
             <WaveField className="absolute inset-0 -z-10" />
             <h1 className="max-w-[18ch] font-display text-[clamp(2.6rem,6.4vw+0.2rem,6.25rem)] font-bold leading-[1.1] tracking-[-0.015em] text-ink">
