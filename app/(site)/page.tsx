@@ -65,7 +65,7 @@ const answer: AnswerBlock = {
   answer:
     "Marketix Studio is a performance marketing agency in Pune. We help real estate developers, startups, SaaS companies and eCommerce brands grow with Google and Meta ads, SEO and local SEO, websites, landing pages and creative, and we judge the work on the enquiries and sales it brings in.",
   keyFacts: [
-    `Based in ${business.address.locality}, ${business.address.city}, serving brands since ${business.foundingDate}`,
+    `Based in ${business.address.city}, serving brands since ${business.foundingDate}`,
     "Clients across India, with campaigns for the UAE, the UK and the US",
     "Paid ads, SEO, websites and creative under one roof",
     "Every enquiry tracked back to the channel that produced it",

@@ -31,7 +31,7 @@ const answer: AnswerBlock = {
   question: "Who is Marketix Studio?",
   answer: `Marketix Studio is a performance marketing agency in Pune, serving brands since ${business.foundingDate}. A team of ${team.length} plans and runs paid ads, SEO, websites, creative and social media for real estate developers, startups and eCommerce brands, and measures the work on enquiries and sales.`,
   keyFacts: [
-    `Founded in ${business.foundingDate}, based in ${business.address.locality}, ${business.address.city}`,
+    `Founded in ${business.foundingDate}, based in ${business.address.city}`,
     `${serviceList.length} services, from Google Ads to branding`,
     `Campaigns planned for ${locationList.length} markets in India and abroad`,
     "Tagline: Marketing That Clicks",
