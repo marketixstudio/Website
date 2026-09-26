@@ -9,7 +9,8 @@ type Logo = { name: string; src: string };
  * Client logo strip: React Bits LogoLoop (the user's settings: speed 120, leftward,
  * stops on hover, scale on hover, faded edges) with the site's chip design (logo in a
  * circle plus the company name). The edge fade uses the page background so it works in
- * light and dark mode. LogoLoop handles reduced motion itself.
+ * light and dark mode. Chips opt out of the card glow and glare (data-no-spot).
+ * LogoLoop handles reduced motion itself.
  */
 export function ClientLogoLoop({ logos }: { logos: Logo[] }) {
   return (
@@ -28,7 +29,7 @@ export function ClientLogoLoop({ logos }: { logos: Logo[] }) {
         renderItem={(item) => {
           const logo = item as { src: string; alt?: string };
           return (
-            <span className="mx-card flex items-center gap-4 rounded-full py-2.5 pl-2.5 pr-6 text-base transition-transform duration-300 group-hover/item:scale-[1.06] motion-reduce:transition-none">
+            <span data-no-spot className="mx-card flex items-center gap-4 rounded-full py-2.5 pl-2.5 pr-6 text-base transition-transform duration-300 group-hover/item:scale-[1.06] motion-reduce:transition-none">
               <Image src={logo.src} alt={logo.alt ?? ""} width={52} height={52} className="h-[52px] w-[52px] rounded-full object-cover" />
               <span className="whitespace-nowrap text-[0.9375rem] font-semibold text-ink-2">{logo.alt}</span>
             </span>
