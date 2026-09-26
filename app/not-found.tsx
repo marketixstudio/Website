@@ -4,6 +4,7 @@ import { SiteFooter } from "@/components/v2/footer";
 import { WhatsAppFloat } from "@/components/v2/whatsapp-float";
 import { ChatWidget } from "@/components/v2/chat-widget";
 import { AccentSwitcher } from "@/components/v2/accent-switcher";
+import { CardSpotlight } from "@/components/v2/card-spotlight";
 import SiteNotFound from "@/app/(site)/not-found";
 
 export const metadata: Metadata = { title: "Page not found", robots: { index: false, follow: true } };
@@ -23,6 +24,7 @@ export default function NotFound() {
       <WhatsAppFloat />
       <ChatWidget />
       <AccentSwitcher />
+      <CardSpotlight />
     </>
   );
 }

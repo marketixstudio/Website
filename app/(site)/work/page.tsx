@@ -67,7 +67,7 @@ export default function Page() {
       {lead && (
         <section aria-label="Featured case study" className="pb-24">
           <div className="container-edge">
-            <article className="mx-card group relative grid grid-cols-[minmax(0,1fr)] gap-10 overflow-hidden p-8 transition-colors hover:border-accent/60 sm:p-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-center">
+            <article className="mx-card group relative grid grid-cols-[minmax(0,1fr)] gap-10 overflow-clip [overflow-clip-margin:24px] p-8 transition-colors hover:border-accent/60 sm:p-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-center">
               <div>
                 <div className="flex items-center gap-3">
                   {lead.logo && (

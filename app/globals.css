@@ -466,17 +466,56 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
    * Elevation by lightness, never a coloured halo. */
   /* Live-site container, values read from marketixstudio.com's CSS (2026-09-26):
    * radial light from the top-left corner, #1F1F1F to #0E0E0E by 60%, 1px #1F1F1F border.
-   * On hover or keyboard focus it gets the live site's violet glow border. */
+   * On hover a violet glow follows the cursor along the border (see below). */
   .mx-card {
     border-radius: 24px;
     border: 1px solid rgb(var(--line));
     background: radial-gradient(at 0% 0%, rgb(var(--card-2)) 0%, rgb(var(--card)) 60%);
     transition: border-color 220ms ease, box-shadow 220ms ease;
   }
-  .mx-card:hover,
-  .mx-card:focus-within {
-    border-color: rgb(var(--accent) / 0.55);
-    box-shadow: 0 0 10px 0 rgb(var(--accent) / 0.44);
+  /* Cursor spotlight: only the stretch of border near the pointer lights up violet, with a
+   * soft glow just outside it (live site's rgba(200,42,239,.44)). --mx-x/--mx-y are set by
+   * components/v2/card-spotlight.tsx. Keyboard focus gets the full violet border instead. */
+  .mx-card {
+    position: relative;
+  }
+  .mx-card::after,
+  .mx-card::before {
+    content: "";
+    position: absolute;
+    pointer-events: none;
+    border-radius: inherit;
+    opacity: 0;
+    transition: opacity 260ms ease;
+  }
+  /* the lit border ring */
+  .mx-card::after {
+    inset: -1px;
+    padding: 1px;
+    background: radial-gradient(420px circle at var(--mx-x, 50%) var(--mx-y, 50%), rgb(var(--accent)) 0%, rgb(var(--accent) / 0.5) 40%, transparent 75%);
+    -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask: linear-gradient(#000 0 0) content-box exclude, linear-gradient(#000 0 0);
+  }
+  /* the soft glow outside the edge, behind the card */
+  .mx-card::before {
+    inset: -22px;
+    z-index: -1;
+    background: radial-gradient(380px circle at calc(var(--mx-x, 50%) + 22px) calc(var(--mx-y, 50%) + 22px), rgb(var(--accent) / 0.5), transparent 70%);
+    filter: blur(14px);
+  }
+  .mx-card[data-spot]::after,
+  .mx-card[data-spot]::before {
+    opacity: 1;
+  }
+  .mx-card:focus-within:not([data-spot]) {
+    border-color: rgb(var(--accent) / 0.6);
+  }
+  @media (hover: none) {
+    .mx-card::after,
+    .mx-card::before {
+      display: none;
+    }
   }
 
   /* Corner glow (the live site's violet bloom): a soft accent pool in one corner

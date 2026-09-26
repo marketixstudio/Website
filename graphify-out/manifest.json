@@ -96,9 +96,9 @@
     "semantic_hash": ""
   },
   "app/(site)/layout.tsx": {
-    "mtime": 1790276906.2410226,
-    "seen": 1790315273.5686212,
-    "ast_hash": "d4ad3706ab0c0dcd251d9b0aaacb5359",
+    "mtime": 1790428928.7294197,
+    "seen": 1790429041.3596642,
+    "ast_hash": "fa3d83d6a0e263e5c955015f1a5b11f7",
     "semantic_hash": ""
   },
   "app/(site)/locations/[slug]/page.tsx": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "app/(site)/page.tsx": {
-    "mtime": 1790271991.6284773,
-    "seen": 1790272103.0694988,
-    "ast_hash": "b956b3a56ed605998d3ef3a3adebca92",
+    "mtime": 1790428966.3418205,
+    "seen": 1790429041.359667,
+    "ast_hash": "ae1a67407466f2d7e94e2a856d65ad15",
     "semantic_hash": ""
   },
   "app/(site)/partners/page.tsx": {
@@ -192,9 +192,9 @@
     "semantic_hash": ""
   },
   "app/(site)/work/page.tsx": {
-    "mtime": 1790270258.3176887,
-    "seen": 1790270378.263702,
-    "ast_hash": "d959089ddac3091cc5ee7e664fafbc1f",
+    "mtime": 1790428966.3416126,
+    "seen": 1790429041.359673,
+    "ast_hash": "bb6814a0c75164886f620b7ae69380d3",
     "semantic_hash": ""
   },
   "app/api/checkout/route.ts": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790428879.0658486,
-    "seen": 1790428880.860896,
-    "ast_hash": "67efe6ee9e03f7615ef254d295ff1dcb",
+    "mtime": 1790429039.5649943,
+    "seen": 1790429041.359723,
+    "ast_hash": "cc347fdeed6fb1bdc9a520549f7599c4",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -732,9 +732,9 @@
     "semantic_hash": ""
   },
   "app/not-found.tsx": {
-    "mtime": 1790276906.2412355,
-    "seen": 1790315273.568644,
-    "ast_hash": "dc8ea921bc9b3a0b87f4603e3b327cb7",
+    "mtime": 1790428928.7299044,
+    "seen": 1790429041.3596768,
+    "ast_hash": "f873c08405ddaabf0b1a92726f698693",
     "semantic_hash": ""
   },
   "components/home/logo-marquee.tsx": {
@@ -786,9 +786,9 @@
     "semantic_hash": ""
   },
   "components/v2/chat-widget.tsx": {
-    "mtime": 1790276906.2406666,
-    "seen": 1790315273.568678,
-    "ast_hash": "02c32283a571025ecad8f4409c774413",
+    "mtime": 1790429015.4174216,
+    "seen": 1790429041.3596969,
+    "ast_hash": "24451c217940cf9c8c595e988859ecf3",
     "semantic_hash": ""
   },
   "lib/ai.ts": {
@@ -837,6 +837,12 @@
     "mtime": 1790428278.2069538,
     "seen": 1790428880.860888,
     "ast_hash": "53b3d8ba7d0edfb2c862c7e5857a0e0a",
+    "semantic_hash": ""
+  },
+  "components/v2/card-spotlight.tsx": {
+    "mtime": 1790428928.713012,
+    "seen": 1790429041.359696,
+    "ast_hash": "9f0c3789c202da0f24fca1201bed1be5",
     "semantic_hash": ""
   }
 }

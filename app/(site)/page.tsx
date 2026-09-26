@@ -340,7 +340,7 @@ export default function HomePage() {
       {featured && !featured.draft && (
         <section className="border-t border-line py-24 sm:py-28">
           <div className="container-edge">
-            <article className="mx-card grid gap-10 overflow-hidden p-8 sm:p-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
+            <article className="mx-card grid gap-10 overflow-clip [overflow-clip-margin:24px] p-8 sm:p-12 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
               <div>
                 <p className="text-sm font-semibold text-muted">
                   Case study · {featured.industry} · {featured.locationLabel}

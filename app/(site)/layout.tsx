@@ -3,6 +3,7 @@ import { SiteFooter } from "@/components/v2/footer";
 import { WhatsAppFloat } from "@/components/v2/whatsapp-float";
 import { ChatWidget } from "@/components/v2/chat-widget";
 import { AccentSwitcher } from "@/components/v2/accent-switcher";
+import { CardSpotlight } from "@/components/v2/card-spotlight";
 
 /**
  * Marketing chrome (design.md: N5 nav, Ft5 footer). Client-facing tools under /r
@@ -23,6 +24,7 @@ export default function SiteLayout({ children }: { children: React.ReactNode }) 
       <WhatsAppFloat />
       <ChatWidget />
       <AccentSwitcher />
+      <CardSpotlight />
     </>
   );
 }
