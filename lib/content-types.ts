@@ -224,6 +224,8 @@ export type ReviewClient = {
   /** Tone hints passed to the model when drafting the review. */
   tone?: string;
   active: boolean;
+  /** Optional "What stood out?" chips on the review page; the customer taps up to 3. */
+  highlights?: string[];
 };
 
 export type BlogSection = { heading?: string; paragraphs: string[]; points?: string[] };

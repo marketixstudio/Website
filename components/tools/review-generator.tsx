@@ -12,6 +12,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [rating, setRating] = useState(0);
   const [service, setService] = useState("");
   const [feedback, setFeedback] = useState("");
+  const [picked, setPicked] = useState<string[]>([]);
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -38,7 +39,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ client: config.slug, rating, service, feedback }),
+        body: JSON.stringify({ client: config.slug, rating, service, feedback, highlights: picked }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -140,6 +141,34 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               </select>
             </div>
 
+            {config.highlights && config.highlights.length > 0 && (
+              <fieldset className="mt-6">
+                <legend className="text-sm font-semibold">
+                  What stood out? <span className="font-normal text-neutral-400">(optional, up to 3)</span>
+                </legend>
+                <div className="mt-3 flex flex-wrap gap-2">
+                  {config.highlights.map((h) => {
+                    const on = picked.includes(h);
+                    return (
+                      <button
+                        key={h}
+                        type="button"
+                        aria-pressed={on}
+                        disabled={!on && picked.length >= 3}
+                        onClick={() => setPicked((p) => (on ? p.filter((x) => x !== h) : [...p, h]))}
+                        className={`rounded-full border px-3.5 py-2 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+                          on ? "border-transparent text-[#0A0A0C]" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400"
+                        }`}
+                        style={on ? { background: config.accent, color: config.accentInk } : undefined}
+                      >
+                        {h}
+                      </button>
+                    );
+                  })}
+                </div>
+              </fieldset>
+            )}
+
             <div className="mt-6">
               <label htmlFor="feedback" className="text-sm font-semibold">
                 Tell us about your experience
@@ -153,8 +182,9 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 placeholder={config.placeholder}
                 className="mt-2 w-full resize-none rounded-xl border-0 bg-neutral-100 px-4 py-3.5 text-[15px] text-neutral-800 placeholder:text-neutral-400 focus:outline focus:outline-2 focus:outline-offset-2"
               />
-              <p className="mt-1.5 text-right text-xs text-neutral-400">
-                {feedback.length}/600
+              <p className="mt-1.5 flex justify-between gap-3 text-xs text-neutral-400">
+                <span>Write in English, मराठी or हिंदी, whatever feels natural.</span>
+                <span>{feedback.length}/600</span>
               </p>
             </div>
 

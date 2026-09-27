@@ -25,16 +25,27 @@ export class AiRateLimitError extends Error {}
 export class AiRefusalError extends Error {}
 
 /** Plain-text completion. */
-export async function aiText({ system, messages, maxTokens = 400 }: { system: string; messages: AiTurn[]; maxTokens?: number }) {
+export async function aiText({
+  system,
+  messages,
+  maxTokens = 400,
+  temperature = 0.6,
+}: {
+  system: string;
+  messages: AiTurn[];
+  maxTokens?: number;
+  /** Higher = more varied wording (0 to 1). */
+  temperature?: number;
+}) {
   if (aiProvider() === "openai") {
-    const data = await openai({ messages: [{ role: "system", content: system }, ...messages], max_tokens: maxTokens, temperature: 0.6 });
+    const data = await openai({ messages: [{ role: "system", content: system }, ...messages], max_tokens: maxTokens, temperature });
     const choice = data?.choices?.[0];
     if (choice?.message?.refusal) throw new AiRefusalError(choice.message.refusal);
     return String(choice?.message?.content ?? "").trim();
   }
 
   try {
-    const message = await new Anthropic().messages.create({ model: ANTHROPIC_MODEL, max_tokens: maxTokens, system, messages });
+    const message = await new Anthropic().messages.create({ model: ANTHROPIC_MODEL, max_tokens: maxTokens, system, messages, temperature });
     if (message.stop_reason === "refusal") throw new AiRefusalError("refused");
     return message.content
       .filter((b): b is Anthropic.TextBlock => b.type === "text")
