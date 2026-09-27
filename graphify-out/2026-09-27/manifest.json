@@ -654,15 +654,15 @@
     "semantic_hash": ""
   },
   "components/home/demand-map.tsx": {
-    "mtime": 1790191065.084459,
-    "seen": 1790191135.1527581,
-    "ast_hash": "131ca8d137a6bdca61b36a6e1ff49bc6",
+    "mtime": 1790527011.9609902,
+    "seen": 1790527039.421004,
+    "ast_hash": "3b17da9100622ccb17409749abd3a90d",
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790526782.7527752,
-    "seen": 1790526817.187405,
-    "ast_hash": "f1a682e0d895ee4ad7cb5b8ccd18c06a",
+    "mtime": 1790527031.9666047,
+    "seen": 1790527039.421221,
+    "ast_hash": "431f3a480e6af84d0a39df12078014f9",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
