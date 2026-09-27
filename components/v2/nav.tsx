@@ -38,7 +38,7 @@ const plainLinks = [
 ];
 
 /**
- * Desktop (lg+): floating pill — Services ▾ · Industries ▾ · About ▾ · Blog ·
+ * Desktop (lg+): floating pill — Home · Services ▾ · Industries ▾ · About ▾ · Blog ·
  * Contact · Free audit. About holds team, approach, case studies, careers, partners. Dropdowns open on hover or click; close on Escape or outside click.
  *
  * Mobile + tablet: the live site's pattern — a full-width rounded bar with the logo
@@ -182,6 +182,15 @@ export function SiteNav() {
         <Wordmark height={40} priority />
 
         <div className="flex items-center">
+        <Link
+          href="/"
+          aria-current={pathname === "/" ? "page" : undefined}
+          className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
+            pathname === "/" ? "text-ink" : "text-ink-2 hover:text-ink"
+          }`}
+        >
+          Home
+        </Link>
         {trigger("services", "Services", isActive(["/services", "/v2/services"]))}
         {trigger("industries", "Industries", isActive(["/industries"]))}
         {trigger("about", "About", isActive(aboutMatch))}

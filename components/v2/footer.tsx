@@ -53,7 +53,7 @@ const columns = [
 /**
  * Site footer: a call-to-action card (audit, call, WhatsApp, newsletter), the brand
  * column (contact details, socials), three short link columns (each a <nav>) and the legal row.
- * On phones the link columns sit two across.
+ * On phones the link columns stack full width (row buttons need the room); two across from sm.
  */
 export function SiteFooter() {
   const whatsapp = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent("Hi Marketix Studio, I'd like to talk about marketing for my business.")}`;
@@ -95,8 +95,8 @@ export function SiteFooter() {
       </div>
 
       {/* 2 · Brand + link columns */}
-      <div className="container-edge grid grid-cols-2 gap-x-8 gap-y-12 py-16 sm:py-20 md:grid-cols-3 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
-        <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-10">
+      <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-x-8 gap-y-12 py-16 sm:grid-cols-2 sm:py-20 md:grid-cols-3 lg:grid-cols-[minmax(0,1.6fr)_repeat(3,minmax(0,1fr))]">
+        <div className="sm:col-span-2 md:col-span-3 lg:col-span-1 lg:pr-10">
           <Wordmark height={40} />
           <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
             Performance marketing agency in Pune for real estate, startups and eCommerce brands, across India and abroad.
@@ -150,22 +150,19 @@ export function SiteFooter() {
             <h2 id={`footer-${col.title.toLowerCase()}`} className="text-sm font-semibold text-ink">
               {col.title}
             </h2>
-            <ul className="mt-4 space-y-1">
-              {col.items.map((item) => (
+            <ul className="mt-4 grid grid-cols-[minmax(0,1fr)] gap-1.5">
+              {[...col.items, ...(col.all ? [col.all] : [])].map((item) => (
                 <li key={item.href}>
-                  <Link href={item.href} className="block py-1 text-[0.9375rem] leading-snug text-muted transition-colors hover:text-ink">
-                    {item.label}
+                  <Link href={item.href} className="mx-row mx-row--sm">
+                    <span className={`min-w-0 flex-1 text-balance text-sm leading-snug ${item === col.all ? "font-semibold text-ink" : "font-medium text-ink-2"}`}>
+                      {item.label}
+                    </span>
+                    <span className="mx-row-go" aria-hidden="true">
+                      <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.2} />
+                    </span>
                   </Link>
                 </li>
               ))}
-              {col.all && (
-                <li>
-                  <Link href={col.all.href} className="mx-link mt-2 inline-flex py-1 text-sm font-semibold">
-                    {col.all.label}
-                    <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.25} aria-hidden="true" />
-                  </Link>
-                </li>
-              )}
             </ul>
           </nav>
         ))}

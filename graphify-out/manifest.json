@@ -606,15 +606,15 @@
     "semantic_hash": ""
   },
   "components/v2/footer.tsx": {
-    "mtime": 1790440637.2616484,
-    "seen": 1790445239.3305972,
-    "ast_hash": "af823c851f8ee11a05bdf03d11f6b00b",
+    "mtime": 1790526421.353468,
+    "seen": 1790526472.063253,
+    "ast_hash": "41dc87360cca88942bfd12abec0fb28a",
     "semantic_hash": ""
   },
   "components/v2/nav.tsx": {
-    "mtime": 1790525673.510556,
-    "seen": 1790525764.44959,
-    "ast_hash": "6d57c6f2be4835b024098593a9438da7",
+    "mtime": 1790526350.623525,
+    "seen": 1790526472.063262,
+    "ast_hash": "0581948d1032fa4cdc4a873abe3a70d8",
     "semantic_hash": ""
   },
   "components/v2/newsletter-form.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790526247.717991,
-    "seen": 1790526251.5820212,
-    "ast_hash": "62592d82a812686668c36769be4edc12",
+    "mtime": 1790526452.5075145,
+    "seen": 1790526472.0633202,
+    "ast_hash": "da37d2ed8a6b457fadd76514bf61f092",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {

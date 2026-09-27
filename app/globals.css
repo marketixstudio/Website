@@ -672,6 +672,17 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   .group:focus-within .mx-row-go svg {
     transform: translateX(2px);
   }
+  /* Compact row for dense lists (footer): 44px tap target, smaller arrow button. */
+  .mx-row--sm {
+    gap: 0.625rem;
+    min-height: 2.75rem;
+    padding: 0.375rem 0.375rem 0.375rem 0.875rem;
+    border-radius: 0.875rem;
+  }
+  .mx-row--sm .mx-row-go {
+    width: 1.75rem;
+    height: 1.75rem;
+  }
   @media (prefers-reduced-motion: reduce) {
     .mx-row,
     .mx-row-go svg {
