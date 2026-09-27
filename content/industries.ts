@@ -106,8 +106,10 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Optimise to visits", body: "Feed visit and booking outcomes back so spend concentrates on sources that show up." },
     ],
     faqs: [
+      { q: "How much does real estate digital marketing cost?", a: "The budget depends on the project: its location, price point, how many units need to sell and how fast. Ad spend usually makes up most of it, with separate costs for creative, landing pages and management. We plan it backwards from the site visits and bookings a project needs rather than starting from a fixed package." },
+      { q: "Google Ads vs Meta ads for real estate: which works better?", a: "They play different roles. Google Ads captures buyers already searching for a location and configuration, such as a 2 BHK in a particular area, and those leads tend to be closer to a site visit. Meta ads reach buyers before they search and produce more leads at a lower cost, but need faster qualification. Most projects do best with both." },
+      { q: "What are the best real estate marketing strategies in India?", a: "Search ads for location and configuration keywords, Meta lead campaigns with fast phone follow-up, project landing pages with RERA details, pricing and floor plans, WhatsApp for quick responses, and retargeting through the long decision cycle. Tracking each lead through to site visit and booking is what shows which of these is working." },
       { q: "What is a realistic cost per site visit?", a: "It varies with the location, price segment and how strong the project is, so any single number would mislead you. We estimate it for your project during the free growth audit. Cost per lead on its own tells you very little." },
-      { q: "Do you work with brokers or only developers?", a: "Both. Developers usually need project launch campaigns and inventory movement; brokers need consistent buyer flow and a way to compete against portals. The campaign structure differs meaningfully between the two." },
       { q: "Can you help with RERA compliance in ads?", a: "We ensure RERA registration numbers and required disclosures appear correctly in creative and on landing pages. We are a marketing agency, not a legal advisor, so your legal team should sign off the final disclosure language." },
       { q: "How do you handle NRI buyers?", a: "NRI campaigns are targeted by country with time-zone-aware call scheduling, currency context in the creative, and video walkthroughs plus virtual site visits, since the buyer usually cannot attend in person." },
     ],
@@ -164,7 +166,9 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Own retention", body: "Lifecycle flows that make the second purchase cheaper than the first." },
     ],
     faqs: [
-      { q: "Do you work with Shopify?", a: "Yes. We also work with WooCommerce and custom Next.js storefronts, and can plan a move between platforms without losing your search rankings." },
+      { q: "How much should an eCommerce brand spend on marketing?", a: "Set the budget from your own numbers rather than a percentage rule: gross margin, average order value and what a customer is worth over time decide how much you can pay per order. Brands with strong repeat purchase can afford more per new customer than one-time-purchase brands. We work out a break-even ROAS before setting any budget." },
+      { q: "How do I market my Shopify store?", a: "Start with tracking: Shopify connected to Google Ads, Meta and Google Analytics with purchase values. Then run Meta ads for discovery, Google Shopping and search for people looking for your products, email and WhatsApp flows for abandoned carts and repeat orders, and SEO for collection and product pages. Judge each channel on revenue, not clicks." },
+      { q: "What are the best eCommerce marketing strategies?", a: "Profitable brands usually combine a clear offer and strong product pages, Meta ads with frequent creative testing, Google Shopping and search, retention through email and WhatsApp, and reviews on every product. The measure that matters most is profit after ad spend and returns, not revenue alone." },
       { q: "What monthly ad budget do we need?", a: "Enough to test several creative angles and give the platforms conversion data to learn from. The right figure depends on your price point and margin, so we work it out with you during the free growth audit." },
       { q: "Can you improve our repeat purchase rate?", a: "Yes, and it is usually where the fastest margin improvement sits. Post-purchase email and WhatsApp flows, replenishment timing and a considered subscription or bundle offer typically move repeat rate more than any ad change." },
       { q: "How do you handle returns in the reporting?", a: "We report net revenue after returns wherever the platform data allows it. A 4x ROAS on a category with 30% returns is really 2.8x, and pretending otherwise leads to scaling something unprofitable." },
@@ -222,10 +226,11 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Compound", body: "Budget concentrated into the channels with the shortest payback." },
     ],
     faqs: [
+      { q: "How much should a startup spend on marketing?", a: "There is no universal percentage. Early on, spend enough to learn which channel and message bring paying customers, then scale what works. The ceiling is what a customer is worth: once you know lifetime value and payback period, you know how much you can afford to acquire one." },
+      { q: "What is the best marketing strategy for a SaaS company?", a: "It depends on price and sales motion. Low-priced self-serve products usually grow through SEO, content, free trials and search ads. Higher-priced B2B products rely on LinkedIn, search ads for problem keywords, case studies and a demo-led sales process. Either way, measure on qualified sign-ups, demos and revenue rather than traffic." },
       { q: "We are pre-product-market-fit. Should we run paid ads?", a: "Usually not at scale. Paid media amplifies whatever is already there, including a weak offer. Before product-market fit, spend is better used on small experiments that teach you something about the message than on scaling acquisition." },
       { q: "Does SEO work for a brand-new category?", a: "Not for category terms nobody searches yet. It works well for the problem your product solves, which people do search for. You rank against the pain first and introduce the category second." },
       { q: "Should we target India or go international first?", a: "It depends on where your pricing works. Dollar pricing against Indian buyers is a hard sell, while Indian-market pricing rarely funds a US go-to-market. We help model both before committing budget." },
-      { q: "Can you work with our in-house growth team?", a: "Yes, and that is often the best arrangement. Typically we own paid acquisition and measurement while your team owns product marketing and lifecycle, with a shared weekly review." },
     ],
   },
 
@@ -280,10 +285,11 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Close the loop", body: "Call tracking and CRM so marketing is measured on appointments booked." },
     ],
     faqs: [
-      { q: "Is it ethical to advertise medical services?", a: "Informing people that a service exists is entirely legitimate. Guaranteeing outcomes, exploiting fear or making comparative superiority claims is not, and in India much of it is also illegal. We write to the former standard." },
+      { q: "How can a hospital or clinic get more patients online?", a: "Most patients start with a search, so the foundations are a complete Google Business Profile for each location, genuine patient reviews, and a website with a page for each treatment and doctor. Search ads for specific treatments bring patients ready to book, and fast phone or WhatsApp follow-up turns enquiries into appointments." },
+      { q: "What are the best marketing ideas for a clinic?", a: "Ask satisfied patients for a Google review, keep your Google profile current with timings and services, publish clear pages that answer what patients search, such as what a treatment involves and recovery time, and run local search ads for your main treatments. Educational content from your doctors builds more trust than promotions." },
       { q: "Why do our health ads keep getting rejected?", a: "Most often because the copy implies the platform knows something about the viewer's condition. Phrasing like 'suffering from back pain?' triggers personalised health advertising policies. Rewriting to describe the service rather than address the condition usually resolves it." },
+      { q: "Is it ethical to advertise medical services?", a: "Informing people that a service exists is entirely legitimate. Guaranteeing outcomes, exploiting fear or making comparative superiority claims is not, and in India much of it is also illegal. We write to the former standard." },
       { q: "How do we compete with Practo and similar platforms?", a: "You will rarely outrank aggregators on broad category terms, and chasing that is a poor use of budget. You can win on your doctors' names, your specific treatments, your locality and the map pack, and those searches bring higher-intent patients anyway." },
-      { q: "Do you handle multi-location hospital groups?", a: "Yes. That means a Google Business Profile and location page per facility, department-level content, and careful internal linking so locations reinforce rather than compete with each other." },
     ],
   },
 
@@ -297,7 +303,7 @@ export const industries: Record<string, IndustryContent> = {
     metaDescription:
       "Digital marketing for schools, colleges, edtech and coaching institutes. Admission campaigns, counsellor enablement and enrolment-focused funnels.",
     answerBlock: {
-      question: "How do educational institutions generate admission enquiries?",
+      question: "How can schools and coaching institutes get more admissions?",
       answer:
         "Admission enquiries come from campaigns timed to the intake cycle, targeting both the student and the parent who usually funds the decision. The highest-converting formats are campus or curriculum content, alumni outcome proof, and fast counsellor follow-up, since enquiry-to-enrolment depends heavily on how quickly a human makes contact.",
       keyFacts: [
@@ -338,6 +344,8 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Enable counsellors", body: "Lead context, WhatsApp templates and follow-up sequences that convert enquiries." },
     ],
     faqs: [
+      { q: "What are the best marketing strategies for school admissions?", a: "Start campaigns before the admission season peaks, show the campus, teachers and activities through video, target parents on Google and Meta with local searches such as schools near them, keep the enquiry form short, and call back within minutes. Parent reviews on Google and campus visits help turn enquiries into admissions." },
+      { q: "How can a coaching institute get more students?", a: "Search ads for course and exam keywords in your area, Meta ads featuring faculty and genuine student results, a Google Business Profile with reviews, a free demo class or counselling session as the offer, and quick follow-up by phone and WhatsApp. Timing campaigns around exam and result dates makes a big difference." },
       { q: "When should admission campaigns start?", a: "Awareness should begin three to four months before the intake window and conversion campaigns four to six weeks before the deadline. Starting once admissions open means competing at peak cost with no warm audience." },
       { q: "Should we target students or parents?", a: "Both, with different messages. Students respond to campus life, peer proof and aspiration on Instagram and YouTube. Parents respond to placement records, fee clarity and safety, and are more reachable on Facebook, search and WhatsApp." },
       { q: "How do we reduce unqualified enquiries?", a: "Indicate the fee range in creative, ask for the intended programme and preferred location on the form, and qualify on the first counsellor call. Volume drops, enrolment rate rises, and counsellor time goes further." },
@@ -396,9 +404,10 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Fill the shoulder", body: "Demand generation campaigns aimed at the quiet months, not the full ones." },
     ],
     faqs: [
+      { q: "How much should a hotel spend on marketing?", a: "Compare it with what you already pay online travel agencies in commission. Every booking moved from an OTA to your own website saves that commission, and that saving is the budget direct-booking marketing can use: brand search ads, metasearch, your Google Business Profile and retargeting past visitors." },
+      { q: "Hotel direct bookings vs OTAs: which is better?", a: "OTAs bring visibility and bookings you might not otherwise get, but take a commission on each one and keep the guest relationship. Direct bookings cost less per booking and let you build a guest list for repeat stays. Most hotels need both; the aim is to shift repeat guests and people searching your name to direct." },
+      { q: "How do I promote a restaurant?", a: "Get the Google Business Profile right with photos, menu, timings and regular posts, because most diners choose from Google Maps. Ask happy guests for reviews, post food and behind-the-scenes content on Instagram, run local ads around meal times, and make ordering or reserving possible in one tap." },
       { q: "Is bidding on our own brand name worth it?", a: "Almost always, when OTAs are bidding on it too. The clicks are inexpensive and each one converted directly saves a commission far larger than the cost of the click." },
-      { q: "How do we handle rate parity agreements?", a: "Rate parity generally restricts the published room rate, not the total value. Room upgrades, late checkout, complimentary breakfast, spa credit and loyalty points are usually permitted, though you should check your specific contract." },
-      { q: "Do you work with restaurants as well as hotels?", a: "Yes. Restaurant marketing leans more heavily on local SEO, Google Business Profile, reservation platform visibility and Instagram than on paid search." },
       { q: "How important are reviews for hotels?", a: "Critically important. They influence OTA ranking, Google map pack position, conversion rate and the rate you can command. A systematic review programme is usually the highest-return work available to a hotel." },
     ],
   },
@@ -413,7 +422,7 @@ export const industries: Record<string, IndustryContent> = {
     metaDescription:
       "Lead generation for interior design and architecture firms. Portfolio-led campaigns that attract high-budget clients and filter out tyre-kickers.",
     answerBlock: {
-      question: "How do interior designers get high-value clients online?",
+      question: "How do interior designers get quality leads online?",
       answer:
         "High-value design clients come from portfolio-led marketing paired with explicit budget qualification. Showing completed projects at the price level you want to attract, stating a minimum project value in the creative, and asking about scope and timeline on the enquiry form filters out low-budget enquiries before they consume consultation time.",
       keyFacts: [
@@ -454,9 +463,11 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Nurture patiently", body: "Content that keeps you present across a six-month decision." },
     ],
     faqs: [
+      { q: "What are the best marketing ideas for interior designers?", a: "A portfolio of completed projects with strong photography, before-and-after posts and walkthrough videos on Instagram, a Google Business Profile with reviews from past clients, search ads for your city and service, and a website that states your project types and starting budget." },
+      { q: "Should interior designers buy leads?", a: "Leads from lead-selling platforms are usually shared with several designers at once, so you compete on price from the first call. Leads from your own ads and website come to you alone, from people who have already seen your work, which makes them easier to convert at the budget you want." },
       { q: "Should we really state our minimum budget in ads?", a: "Yes. It reduces enquiry volume and increases enquiry quality, which is the trade every design firm wants. Consultation hours are your scarcest resource and they should not be spent educating people about your price floor." },
-      { q: "Is Pinterest worth the effort?", a: "For residential interiors, often yes. Pinterest users are actively collecting ideas for projects they intend to execute, and pins keep driving traffic for years, unlike most social content." },
       { q: "How important is project photography?", a: "Very. Design is bought visually, so well-shot completed projects make every ad, post and page work harder than phone photos can." },
+      { q: "Is Pinterest worth the effort?", a: "For residential interiors, often yes. Pinterest users are actively collecting ideas for projects they intend to execute, and pins keep driving traffic for years, unlike most social content." },
       { q: "Can you help with commercial as well as residential?", a: "Yes, though the channels differ. Commercial and hospitality projects come through LinkedIn, search and industry publications far more than through Instagram." },
     ],
   },
@@ -471,9 +482,9 @@ export const industries: Record<string, IndustryContent> = {
     metaDescription:
       "Digital marketing for car dealerships, service centres and auto accessory brands. Test drive campaigns, local SEO and review generation.",
     answerBlock: {
-      question: "How do car dealerships generate test drive bookings?",
+      question: "How can a car dealership increase sales with digital marketing?",
       answer:
-        "Test drive bookings come from campaigns that combine model-specific search capture with local targeting around the showroom, an offer that justifies the visit, and immediate follow-up. Because most buyers research online and purchase in person, the measurable outcome is footfall, which requires tracking what happens after the lead is captured.",
+        "By turning online research into showroom visits. Test drive bookings come from campaigns that combine model-specific search capture with local targeting around the showroom, an offer that justifies the visit, and immediate follow-up. Because most buyers research online and purchase in person, the measurable outcome is footfall, which requires tracking what happens after the lead is captured.",
       keyFacts: [
         "Most car buyers research extensively online but purchase in person",
         "Model-specific search terms carry far higher intent than category terms",
@@ -512,10 +523,11 @@ export const industries: Record<string, IndustryContent> = {
       { title: "Monetise service", body: "Reminder automation and accessory campaigns against your existing customer base." },
     ],
     faqs: [
+      { q: "What are the best marketing ideas for a car dealership?", a: "Model-specific search ads, local Meta campaigns around the showroom with a reason to visit, such as a test drive or exchange offer, a Google Business Profile with reviews, stock and offer pages that are easy to enquire from, and follow-up by phone and WhatsApp within minutes of an enquiry." },
+      { q: "How do car accessories shops get more customers?", a: "Most customers search locally for a specific product, such as seat covers or a dash cam for their car model, then compare shops on Google Maps. Reviews, photos of installed work, clear product information and local search ads for your main products bring them in. Asking every happy customer for a review compounds over time." },
       { q: "How do we track showroom visits from online ads?", a: "Through unique landing page offers redeemed in person, call tracking numbers, and importing visit outcomes from the DMS back into the ad platforms as offline conversions." },
       { q: "Should dealers advertise if the OEM already does?", a: "Yes. Manufacturer campaigns create brand demand but do not decide which dealership captures it. Local campaigns are how you make sure that demand converts at your showroom rather than a competitor's." },
       { q: "Is marketing worth it for service centres?", a: "Often more so than for vehicle sales. Service has better margins, shorter decision cycles and a repeat customer base that responds extremely well to WhatsApp reminder automation." },
-      { q: "Do you work with car accessory brands?", a: "Yes. Accessory and customisation businesses sit somewhere between local service marketing and D2C eCommerce, and we run both sides of that." },
     ],
   },
 };

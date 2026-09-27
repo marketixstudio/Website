@@ -52,8 +52,8 @@ const faqs: QA[] = [
     a: "We plan and run the marketing that brings a business enquiries: Google and Meta ads, SEO and local SEO, landing pages and websites, branding and creative, and the email and WhatsApp follow-up. Each campaign is measured on enquiries, bookings or sales rather than clicks.",
   },
   {
-    q: "Where is Marketix Studio based?",
-    a: `We are based in Pune and work with brands across India and abroad over calls, WhatsApp and shared reporting. Our full address is on the contact page.`,
+    q: "Is it better to hire a digital marketing agency or an in-house team?",
+    a: `An in-house marketer knows the business deeply; an agency brings specialists across ads, SEO, websites and tracking that one hire cannot cover, plus experience from many accounts. Many growing businesses do both: an in-house owner of marketing, with an agency running the specialist channels. We work either way, from Pune, with clients across India and abroad.`,
   },
   {
     q: "How do you charge?",
@@ -62,10 +62,6 @@ const faqs: QA[] = [
   {
     q: "Do you guarantee results?",
     a: "No. Outcomes depend on your market, offer, budget and how your team follows up on enquiries, so any guarantee would be a guess. We agree clear targets before starting and report honestly against them.",
-  },
-  {
-    q: "Can you work alongside our in-house team?",
-    a: "Yes. A common setup is that we run paid media and measurement while your team owns brand and content, with shared reporting so everyone sees the same numbers.",
   },
 ];
 

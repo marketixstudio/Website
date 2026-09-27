@@ -112,10 +112,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Google Ads", "Meta Ads Manager", "LinkedIn Campaign Manager", "GA4", "Google Tag Manager", "Looker Studio", "Hotjar"],
     faqs: [
-      { q: "What ad budget do I need to start?", a: "It depends on your market, your cost per click and how many enquiries you need. We work it out with you during the free growth audit, so the budget is based on your numbers rather than a rule of thumb." },
-      { q: "How quickly will I see results?", a: "Paid campaigns can bring enquiries as soon as they go live. The first weeks are also when we learn which audiences and searches convert, so cost per enquiry tends to improve as data builds up." },
-      { q: "Can you work with our in-house team?", a: "Yes. A common setup is that we own media buying and measurement while your team owns brand and content. We document everything in a shared workspace so nothing depends on a single person." },
-      { q: "What happens if the campaigns do not work?", a: "We review results against the targets agreed before launch. If the numbers are not there, you get a plain explanation of why and an honest recommendation, even if that means paid media is the wrong channel for your business right now." },
+      { q: "How much does performance marketing cost in India?", a: "There are two costs: the ad budget, paid directly to Google, Meta or LinkedIn, and the agency's management fee. Neither has a fixed industry price. The budget depends on how many enquiries or sales you need and what a click costs in your market; the fee depends on the channels and campaigns involved. We quote after a free audit, so the number is based on your account rather than a package." },
+      { q: "What is the difference between performance marketing and digital marketing?", a: "Digital marketing is the umbrella for all online marketing, including awareness work. Performance marketing is the part that is paid for and judged on a measurable action, such as a lead, a sale or a booking, with every rupee tracked back to the ad and search that produced the result." },
+      { q: "Performance marketing vs brand marketing: which do I need?", a: "Most businesses need both, in different proportions. Performance marketing captures people who are ready to act now; brand marketing builds the familiarity that makes them choose you when they are. A business in a category with little existing demand usually has to create some awareness first, or performance campaigns run out of people to convert." },
+      { q: "Does performance marketing work for small businesses?", a: "Yes, because you can start with a modest budget and pay only for clicks or results that are tracked. The constraint is usually setup rather than budget: conversion tracking, a landing page that converts and fast follow-up on enquiries. Without those, even a large budget produces leads you cannot measure or close." },
+      { q: "How long does performance marketing take to show results?", a: "Paid campaigns can bring enquiries within days of going live. The first weeks are a learning period in which the platforms find out which audiences, searches and ads convert, so the cost per result usually improves over the first months as data builds up." },
+      { q: "Which channels does performance marketing include?", a: "Search ads on Google, social ads on Meta, LinkedIn and YouTube, shopping and marketplace ads, and retargeting across all of them. SEO, email and WhatsApp are included when they are measured the same way, on leads and revenue rather than reach." },
     ],
   },
 
@@ -166,10 +168,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Google Ads", "Google Merchant Center", "GA4", "Google Tag Manager", "Looker Studio", "Semrush"],
     faqs: [
-      { q: "How is Google Ads management priced?", a: "We quote on the scope of the account after a free audit. Ad spend is separate and paid directly to Google." },
-      { q: "Will you use my existing Google Ads account?", a: "Yes, wherever possible. Keeping the account preserves its conversion history, which Google's bidding algorithms rely on. We only recommend a fresh account when the existing one carries a policy strike or irreparable structural damage." },
-      { q: "Is Performance Max worth running?", a: "It is, but only with brand exclusions, a clean product feed and proper conversion values in place. Run carelessly it will happily take credit for branded searches you would have won for free." },
-      { q: "Do you handle Google Ads for other countries?", a: "Yes. We plan campaigns for brands selling into the UAE, the UK, the US, Australia and Singapore, including currency, time zone and local landing pages." },
+      { q: "How much does Google Ads cost per month in India?", a: "Google Ads has no minimum spend. You set a daily budget and, for Search ads, pay when someone clicks, so the monthly cost is what you choose to spend. Click prices vary widely: niche local searches can be inexpensive, while competitive categories such as real estate, loans or education cost much more. Agency management is a separate fee." },
+      { q: "Is Google Ads worth it for a small business?", a: "Yes, when people already search for what you sell. Google Ads puts you in front of them at the moment they are looking, and you pay only when they click. It stops being worth it when tracking is missing, when the landing page does not convert, or when a small budget is spread across too many keywords to learn anything." },
+      { q: "How long do Google Ads take to work?", a: "Most ads are reviewed within one business day and can show straight after. Automated bidding then needs a learning period of around one to two weeks, and results take longer to judge fairly, so we assess a new account over its first month or two rather than its first few days." },
+      { q: "Google Ads vs Meta ads: which is better?", a: "They do different jobs. Google Ads reaches people who are actively searching, so enquiries tend to be higher intent. Meta ads reach people before they search, which suits creating demand, visual products and lower-cost lead forms. Many businesses, especially in real estate and eCommerce, do best running both with shared tracking." },
+      { q: "Google Ads vs SEO: which should I choose?", a: "Google Ads buys visibility immediately and stops when the budget stops. SEO takes months to build but keeps bringing visitors without a cost per click. If you need enquiries this month, start with Google Ads; if you plan to be in the market for years, build SEO alongside it and use ad data to see which searches are worth ranking for." },
+      { q: "Can you work in our existing Google Ads account?", a: "Yes, wherever possible. Keeping the account preserves its conversion history, which Google's bidding algorithms rely on. We only recommend a fresh account when the existing one carries a policy strike or irreparable structural damage." },
     ],
   },
 
@@ -183,9 +187,9 @@ export const services: Record<string, ServiceContent> = {
     metaDescription:
       "Facebook and Instagram ad management focused on creative testing, Conversions API tracking and profitable cost per acquisition.",
     answerBlock: {
-      question: "What makes Meta ads work in 2026?",
+      question: "Are Facebook and Instagram ads worth it?",
       answer:
-        "Since Meta's targeting moved to broad, machine-learned audiences, creative is the main variable an advertiser still controls. Accounts that ship a steady volume of distinct creative angles each month consistently outperform those that refine audiences, because the algorithm needs varied material to find pockets of demand.",
+        "Yes, for most businesses that sell to consumers or need leads, as long as the creative keeps changing. Since Meta's targeting moved to broad, machine-learned audiences, creative is the main variable an advertiser still controls. Accounts that ship a steady volume of distinct creative angles each month tend to outperform those that keep refining audiences, because the algorithm needs varied material to find pockets of demand.",
       keyFacts: [
         "Creative volume and variety now outweigh manual audience targeting",
         "Conversions API recovers events lost to iOS opt-outs and ad blockers",
@@ -220,10 +224,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Meta Ads Manager", "Meta Conversions API", "Meta Commerce Manager", "Triple Whale", "Figma", "CapCut"],
     faqs: [
-      { q: "Do you produce the ad creative?", a: "Yes. We design static ads and carousels and edit short-form video. Original video shoots and creator partnerships are scoped separately because their costs vary a lot by brief." },
-      { q: "How many creatives do you test each month?", a: "It depends on budget. The number that matters is distinct angles, not file count: ten variations of one idea is one test, not ten." },
-      { q: "Why did my results drop after iOS 14?", a: "Most of that drop was measurement, not performance. Conversions genuinely happened but the browser pixel could not see them. Server-side tracking through the Conversions API recovers many of the apparently missing events." },
-      { q: "Can Meta ads work for high-ticket B2B?", a: "For long sales cycles Meta works better as a demand-generation and retargeting layer than a direct-response channel. We usually pair it with LinkedIn or search for the bottom of the funnel." },
+      { q: "How much do Facebook ads cost in India?", a: "Meta lets you set any daily or lifetime budget, so you control the total. What each result costs depends on your audience, competition, the time of year and, above all, the creative. Rather than quoting a typical figure, we start from what a lead or sale is worth to you and work back to a budget that can reach that cost per result." },
+      { q: "Are Facebook ads worth it for a small business?", a: "Usually, if you sell to consumers or need leads and can keep producing fresh creative. Meta is strong for visual products, local services and instant lead forms. It is weaker for things people only buy when they search, where Google Ads tends to convert better." },
+      { q: "What is the difference between boosting a post and running Facebook ads?", a: "Boosting promotes one existing post with a few simple settings. Ads Manager gives full control: the campaign objective, conversion tracking, audiences, placements, creative testing and lead forms. Boosts are fine for extra reach; for enquiries or sales, campaigns built in Ads Manager are almost always more efficient." },
+      { q: "Facebook ads vs Instagram ads: which is better?", a: "Both run from the same Meta Ads Manager, and one campaign can show on both. Instagram suits younger audiences and visual, lifestyle products; Facebook still reaches a broader and older audience in India. We normally let Meta's placement optimisation decide, and separate them only when results show a clear difference." },
+      { q: "How long do Facebook ads take to work?", a: "Most ads are reviewed within 24 hours. Each ad set then goes through a learning phase until it records about 50 optimisation events within a week, and results are less stable until it exits. We judge creative once it has had enough spend to leave learning, not after the first day." },
+      { q: "Why did my Facebook ad results drop after iOS 14?", a: "Most of that drop was measurement, not performance. Conversions genuinely happened but the browser pixel could not see them. Server-side tracking through the Conversions API recovers many of the apparently missing events." },
     ],
   },
 
@@ -275,10 +281,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Semrush", "Ahrefs", "Google Search Console", "Screaming Frog", "GA4", "Schema.org"],
     faqs: [
+      { q: "How much does SEO cost per month in India?", a: "SEO is usually charged as a monthly retainer, and the price depends on the size of the site, how competitive your searches are, and how much content and technical work is needed. A local business needs far less than an eCommerce store competing nationally. We quote after an audit, based on what it will take to rank for the searches that bring you customers." },
+      { q: "SEO vs Google Ads: which is better?", a: "Neither is better in general. Google Ads brings traffic from the day it starts and stops when you stop paying. SEO is slower to build but compounds: pages that rank keep bringing visitors without a cost per click. Most businesses use ads for immediate enquiries and build SEO for the long term, using ad data to pick the keywords worth ranking for." },
+      { q: "What is the difference between SEO, AEO and GEO?", a: "SEO (search engine optimisation) is about ranking in Google's results. AEO (answer engine optimisation) is about being the answer shown in featured snippets, AI Overviews and voice search. GEO (generative engine optimisation) is about being cited by AI assistants such as ChatGPT, Perplexity and Gemini. All three rest on the same foundation: clear, factual pages that answer real questions on a trustworthy, well-structured site." },
+      { q: "Is SEO worth it for a small business?", a: "Yes, especially for local searches. People searching for a service near them are close to buying, and ranking on Google and Google Maps brings those enquiries without paying per click. It is worth it when you plan to be in business for years, because results build over months rather than days." },
+      { q: "What does an SEO agency do every month?", a: "Technical fixes so Google can crawl and understand the site, improvements to existing pages, new pages for searches you should rank for, earning links and mentions from relevant sites, and reporting on rankings, traffic and the enquiries it produced. The mix shifts month to month depending on what is holding the site back." },
       { q: "Do you guarantee first page rankings?", a: "No, and you should be wary of anyone who does. Nobody controls Google's ranking systems. What we commit to is a documented workload, transparent reporting and measurable movement on the keywords we agree at kickoff." },
-      { q: "What is answer engine optimisation?", a: "It is structuring content so AI systems like Google's AI Overviews, ChatGPT and Perplexity can extract and cite it. In practice that means direct answers near the top of the page, clean heading hierarchy, structured data and factual claims a model can verify." },
-      { q: "Do you buy backlinks?", a: "No. We earn links through digital PR, original data, expert commentary and genuine partnerships. Bought links are a manual action waiting to happen, and recovering from one costs far more than the links saved." },
-      { q: "Can you do SEO for an international audience?", a: "Yes. That involves hreflang configuration where you run country-specific pages, local keyword research since search language differs by market, and building authority within each target country rather than assuming Indian links will rank you in the UK." },
     ],
   },
 
@@ -292,7 +300,7 @@ export const services: Record<string, ServiceContent> = {
     metaDescription:
       "Local SEO and Google Business Profile optimisation to rank in the map pack, earn more reviews and drive calls, direction requests and store visits.",
     answerBlock: {
-      question: "How do you rank in the Google map pack?",
+      question: "How do I rank higher on Google Maps?",
       answer:
         "Google ranks local results on relevance, distance and prominence. In practice that means a fully completed Google Business Profile with the right primary category, consistent name, address and phone details across directories, a steady flow of recent reviews, and location-relevant pages on your website.",
       keyFacts: [
@@ -330,10 +338,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Google Business Profile", "Local Falcon", "BrightLocal", "Semrush Local", "Google Search Console"],
     faqs: [
-      { q: "How long until I appear in the map pack?", a: "For a profile that is already verified and moderately complete, meaningful movement usually appears within six to ten weeks. A brand-new profile in a competitive city takes longer, often four to six months, because prominence takes time to accumulate." },
+      { q: "Is Google Business Profile free?", a: "Yes. Creating, verifying and managing a Google Business Profile is free, and there is no charge to appear on Google Maps. What businesses pay for is help: setting it up properly, optimising it, managing reviews and posts, or running Google Ads, which are separate from the free profile." },
+      { q: "How long does Google Business Profile verification take?", a: "It depends on the method Google offers. Video verification is usually reviewed within a few business days; postcard verification takes longer because the code arrives by post. Google sometimes asks for extra evidence, such as signage or business documents, which adds time." },
+      { q: "How long does it take to rank on Google Maps?", a: "A newly verified profile can appear on Maps within days, but reaching the top three results for competitive searches usually takes months of steady reviews, accurate details and relevant website pages. Distance matters too: you rank best for searches made near your address." },
+      { q: "Is Google Business Profile worth it?", a: "For any business that serves customers locally, yes. It is free, it appears on Google Search and Maps when people search for what you offer nearby, and it lets customers call, message or get directions in one tap. For many local businesses it brings more calls than the website does." },
+      { q: "Google Business Profile vs website: do I need both?", a: "Yes. The profile wins the local search and the quick call; the website answers the detailed questions that make a customer choose you, and it is one of the signals Google uses to rank the profile. A profile linked to a clear website with location pages usually ranks better than either on its own." },
       { q: "Can you help us get more Google reviews?", a: "Yes, and it is one of the highest-leverage things we do. We build an AI-assisted review flow that helps a happy customer articulate their experience in seconds, then hands them straight to your Google review form. It stays within Google's rules: the customer reads, edits and submits their own words." },
-      { q: "Do you handle multiple locations?", a: "Yes. Multi-location work involves a profile per branch, a location page per branch and careful internal linking so the locations support rather than cannibalise each other." },
-      { q: "What if we have no physical storefront?", a: "Service-area businesses can still rank. The profile is configured with a service radius and a hidden address, and location relevance is built through service-area pages and local citations instead of a storefront." },
     ],
   },
 
@@ -385,8 +395,10 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Semrush", "Ahrefs", "Google Search Console", "Surfer SEO", "Notion", "Figma"],
     faqs: [
-      { q: "How much content do we need each month?", a: "Four to eight substantial pieces is a typical cadence, but consistency beats volume. Two excellent articles a month published reliably for a year will outperform twelve rushed ones followed by six months of silence." },
-      { q: "Do you write for technical or niche industries?", a: "Yes. For specialised subjects we run short interviews with your internal experts and build from that material, because credible technical content cannot be researched entirely from secondary sources." },
+      { q: "Does content marketing still work?", a: "Yes, but the bar is higher. Generic articles written to fill a calendar no longer rank or get cited by AI assistants. Content that answers the specific questions your buyers search, with real expertise and examples, still brings steady traffic and enquiries, and it keeps working long after it is published." },
+      { q: "How much does content marketing cost in India?", a: "It depends on how much you publish and in what form: a blog post, an in-depth guide, a case study and a video all cost differently. The better way to set a budget is to start from the searches and questions you need to win, then plan how many pieces that takes. We scope content after auditing what you already rank for." },
+      { q: "Content marketing vs social media marketing: what is the difference?", a: "Content marketing builds assets people find when they search: guides, articles, case studies and videos that rank and get cited. Social media marketing reaches people in their feeds, where a post is seen for a day or two. They work best together, with social used to distribute and test ideas that content turns into lasting pages." },
+      { q: "What type of content generates the most leads?", a: "Pages that answer buying questions: cost explainers, comparisons, case studies and how-to guides for the problems your service solves. They attract people close to a decision, unlike broad awareness articles, and give your sales team a page to send prospects." },
       { q: "Will AI-written content hurt our rankings?", a: "Google's position is that it judges quality and usefulness, not the production method. In practice, unedited AI output performs badly because it is generic and unverifiable. We use AI for research and structure, then write and fact-check with humans." },
       { q: "How do you measure content performance?", a: "Organic sessions and rankings are the leading indicators. The metrics that matter commercially are assisted conversions, pipeline influenced and sales-cycle impact, which we track through GA4 and your CRM." },
     ],
@@ -440,9 +452,11 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Next.js", "React", "Tailwind CSS", "WordPress", "Shopify", "Figma", "Vercel"],
     faqs: [
-      { q: "How long does a website take?", a: "It depends on the number of pages, custom features and how quickly content is ready. We agree a timeline in writing before work starts." },
+      { q: "How much does website design cost in India?", a: "It depends on what the site has to do. A few-page brochure site, a lead-generation site with landing pages and an eCommerce store with integrations are very different builds. Cost is driven by the number of page templates, custom design, content writing, integrations such as a CRM or payments, and ongoing maintenance. We quote once the scope is clear, so you pay for what the business needs." },
+      { q: "How long does it take to build a website?", a: "It depends on the number of pages, custom features and how quickly content is ready. We agree a timeline in writing before work starts." },
+      { q: "Website design vs website development: what is the difference?", a: "Design decides how the site looks and works for the visitor: layout, content structure, visuals and the path to an enquiry. Development builds it: code, speed, forms, integrations, hosting and the SEO foundations. A site needs both done well; a good-looking design on slow or badly built code still loses visitors and rankings." },
       { q: "Should we use WordPress or Next.js?", a: "WordPress suits teams who publish frequently and want familiar editing. Next.js suits brands where speed, custom interaction and scale matter more, and it is what we recommend for competitive SEO. We will give you a straight recommendation based on who maintains the site day to day." },
-      { q: "Will our existing SEO rankings survive a rebuild?", a: "Yes, with proper migration planning. Every existing URL gets a 301 redirect to its new equivalent, metadata is carried across deliberately, and we watch Search Console closely after launch so any drop is caught and fixed early." },
+      { q: "Will a website redesign affect our SEO rankings?", a: "Yes, with proper migration planning. Every existing URL gets a 301 redirect to its new equivalent, metadata is carried across deliberately, and we watch Search Console closely after launch so any drop is caught and fixed early." },
       { q: "Do you provide hosting and maintenance?", a: "We deploy to Vercel or your preferred host and offer an optional monthly maintenance plan covering updates, backups, security monitoring and small content changes." },
     ],
   },
@@ -495,10 +509,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Next.js", "Figma", "Google Optimize alternatives", "Hotjar", "Zapier", "GA4"],
     faqs: [
+      { q: "Landing page vs website: what is the difference?", a: "A website serves every visitor with many pages and links. A landing page is built for one campaign and one action, such as an enquiry or a booking, with nothing pulling people away. Sending ad traffic to a focused landing page instead of the homepage usually lowers the cost per lead, because every visitor sees the offer that brought them there." },
+      { q: "How much does a landing page cost?", a: "It depends on whether you need copywriting, design, development, form and CRM integration, and ongoing testing. One page for one campaign is a smaller job than a set of pages per location or product with A/B tests. We quote per scope, and landing pages are often included when we run the ads." },
+      { q: "How long should a landing page be?", a: "As long as the decision needs. A free consultation or simple offer can convert on a short page with one form. A high-value purchase, such as property or a premium service, needs more proof: details, pricing context, testimonials and answers to objections. The rule is one goal per page, not a word count." },
+      { q: "How many landing pages should I have?", a: "One for each distinct offer, audience or ad group that needs a different message. A developer with three projects needs at least three; a clinic advertising two treatments needs two. Pages that repeat exactly what the visitor searched for usually convert better than one page trying to serve everyone." },
       { q: "How fast can you build a landing page?", a: "A single campaign page is quick once the copy and creative direction are approved. Multi-step funnels with conditional logic take longer. We agree the timeline before we start." },
-      { q: "Do you write the copy?", a: "Yes. Conversion copywriting is included, and we write it before design because the layout should follow the argument." },
       { q: "Can you integrate with our CRM?", a: "Yes. Forms can send leads straight into common CRMs, or into others through webhooks or Zapier. Instant WhatsApp or email alerts help your team reply quickly, which matters a lot for conversion." },
-      { q: "How many variants should we test?", a: "Two at a time, with enough traffic to reach significance. Testing five variants simultaneously on modest traffic produces noise that looks like insight." },
     ],
   },
 
@@ -550,10 +566,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Figma", "Adobe Illustrator", "Adobe Photoshop", "Canva (team templates)"],
     faqs: [
+      { q: "How much does branding cost for a small business in India?", a: "It depends on the scope: a logo alone, a full visual identity with colours, typography and guidelines, or a complete brand with positioning, naming and messaging. Each step adds strategy and design work. We scope it after a conversation about where the business is going, because a brand has to last years, not just the launch." },
+      { q: "Branding vs marketing: what is the difference?", a: "Branding defines who you are: positioning, name, visual identity, voice and promise. Marketing is how you take that to customers: ads, content, social media and sales. Good branding makes every rupee of marketing work harder, because people recognise and trust you faster." },
+      { q: "Should a new business do branding or performance marketing first?", a: "Get the basics of the brand right first: a clear name, positioning, logo and a consistent look. They need not be expensive, but ads built on a confusing or inconsistent brand convert worse. Then use performance marketing to grow, and invest further in the brand as you learn what customers respond to." },
       { q: "How long does a branding project take?", a: "A focused identity project is shorter than a full rebrand with positioning research, naming and rollout. We agree the scope and timeline before work starts." },
-      { q: "Do we get the source files?", a: "Yes. You receive full ownership of all source files, fonts licensing guidance and the editable design system. There is no dependency on us to make future changes." },
       { q: "Can you refresh our brand without starting over?", a: "Often that is the better call. A refresh keeps recognition while fixing the practical problems: contrast, legibility at small sizes, missing variants and inconsistent use." },
-      { q: "Do you design for print as well?", a: "Yes. Brochures, hoardings, packaging, exhibition stands and stationery are all within scope, supplied print-ready with correct bleed and colour profiles." },
+      { q: "Do we get the source files?", a: "Yes. You receive full ownership of all source files, fonts licensing guidance and the editable design system. There is no dependency on us to make future changes." },
     ],
   },
 
@@ -567,9 +585,9 @@ export const services: Record<string, ServiceContent> = {
     metaDescription:
       "Social media management, content production and community growth on Instagram, LinkedIn, Facebook and YouTube for brands in India and abroad.",
     answerBlock: {
-      question: "Does organic social media still drive business results?",
+      question: "Is social media marketing worth it for a business?",
       answer:
-        "Organic social rarely drives direct sales at volume, but it does three measurable things: it lowers paid acquisition costs by warming audiences, it provides social proof buyers check before purchasing, and it supplies a continuous stream of creative that can be tested as paid ads.",
+        "It is, if you judge it on the right things. Organic social rarely drives direct sales at volume, but it does three measurable things: it lowers paid acquisition costs by warming audiences, it provides social proof buyers check before purchasing, and it supplies a continuous stream of creative that can be tested as paid ads.",
       keyFacts: [
         "Short-form video reaches furthest organically across every major platform",
         "LinkedIn favours personal profiles over company pages for reach",
@@ -605,10 +623,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Meta Business Suite", "LinkedIn", "Buffer", "Figma", "CapCut", "Canva"],
     faqs: [
-      { q: "Which platforms should we be on?", a: "Two done properly beats five done occasionally. For B2B that is usually LinkedIn plus YouTube. For D2C and local businesses it is Instagram plus WhatsApp. We recommend based on where your buyers are, not where the reach numbers look biggest." },
-      { q: "Do you handle the video shoots?", a: "We handle editing, motion graphics and short-form cutdowns. Full production shoots with a crew are scoped separately, and raw footage shot on a phone to a clear brief often works well." },
+      { q: "How much does social media marketing cost in India?", a: "It depends on the platforms, how many posts and videos a month, whether shoots are needed, and whether community management and paid promotion are included. Content production is usually the largest part. We scope it after agreeing what social needs to achieve for the business, so you are not paying for a posting calendar with no goal." },
+      { q: "Social media marketing vs performance marketing: what is the difference?", a: "Social media marketing covers the content you post and the community you build on your own pages. Performance marketing is paid advertising judged on leads and sales, often on the same platforms. Organic content builds trust and supplies creative; paid campaigns turn that into measurable enquiries." },
+      { q: "Which social media platform is best for business?", a: "Two done properly beats five done occasionally. For B2B that is usually LinkedIn plus YouTube. For D2C and local businesses it is Instagram plus WhatsApp. We recommend based on where your buyers are, not where the reach numbers look biggest." },
+      { q: "How long does social media marketing take to work?", a: "Paid social can bring enquiries within days. Organic growth is slower: expect a few months of consistent posting before reach and engagement build, and longer before it shows clearly in enquiries. Consistency matters more than volume." },
       { q: "How do you measure social media ROI?", a: "Reach and engagement are process metrics. The ones we report against are profile-to-website traffic, assisted conversions in GA4, direct message enquiries, and the measured effect on paid campaign costs." },
-      { q: "Will you respond to comments and messages?", a: "Yes, if it is part of your scope. We agree a response guide and escalation rules upfront, and anything that needs your expertise goes to your team." },
+      { q: "Do you handle the video shoots?", a: "We handle editing, motion graphics and short-form cutdowns. Full production shoots with a crew are scoped separately, and raw footage shot on a phone to a clear brief often works well." },
     ],
   },
 
@@ -660,10 +680,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["Klaviyo", "Mailchimp", "HubSpot", "Zoho Campaigns", "Brevo", "Customer.io"],
     faqs: [
-      { q: "Which email platform do you recommend?", a: "Klaviyo for eCommerce because of its revenue attribution and Shopify integration. HubSpot or Zoho for B2B where email needs to sit inside a CRM. Brevo where budget is the primary constraint." },
+      { q: "Does email marketing still work?", a: "Yes. It is one of the few channels you own outright: no algorithm decides whether your subscribers see a message. It works best for businesses with repeat purchases or long decisions, such as eCommerce, education and B2B, where automated emails follow up at the right moment instead of relying on manual sends." },
+      { q: "How much does email marketing cost?", a: "There are two parts: the email platform, which usually charges by the number of contacts or emails sent, and the work of writing, designing and automating the emails. Several platforms have free tiers for small lists. The bigger cost is usually setting up the automations, which then keep running without extra effort." },
+      { q: "Which email marketing platform is best?", a: "Klaviyo for eCommerce because of its revenue attribution and Shopify integration. HubSpot or Zoho for B2B where email needs to sit inside a CRM. Brevo where budget is the primary constraint." },
+      { q: "Email marketing vs WhatsApp marketing: which is better in India?", a: "WhatsApp messages are usually read faster and more often in India, which makes WhatsApp better for reminders, time-sensitive updates and quick replies. Email is cheaper per message, carries longer content and suits newsletters, receipts and nurture sequences. Most businesses benefit from both, each used for what it does best." },
       { q: "Why do our emails land in spam?", a: "Usually missing or misconfigured authentication: SPF, DKIM and DMARC records. Beyond that, sending to old unengaged addresses damages sender reputation. Both are fixable, usually within a few weeks." },
       { q: "How often should we email our list?", a: "For eCommerce, two to four campaigns a month alongside always-on automated flows. For B2B, a genuinely useful monthly or fortnightly send. The correct frequency is the highest one at which engagement holds steady." },
-      { q: "Can you handle WhatsApp alongside email?", a: "Yes, and in India WhatsApp often outperforms email for transactional and time-sensitive messages. We usually run both, with WhatsApp carrying urgency and email carrying depth." },
     ],
   },
 
@@ -715,10 +737,12 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["WhatsApp Business API", "Meta Business Manager", "Interakt", "WATI", "Zoho CRM"],
     faqs: [
+      { q: "How much does the WhatsApp Business API cost in India?", a: "Meta charges per template message delivered, and the rate depends on the category: marketing messages cost the most, utility and authentication messages less, and replies inside the 24-hour customer service window are free. Rates are published per country on Meta's pricing page and change from time to time. Most businesses use a provider (a BSP) that adds its own platform fee." },
+      { q: "What is the difference between WhatsApp marketing and utility messages?", a: "Meta classifies every template message. Utility messages relate to something the customer already did, such as an order update, appointment reminder or payment confirmation. Marketing messages promote something: offers, launches or re-engagement. Marketing messages cost more and face stricter limits, so classifying templates correctly affects both cost and delivery." },
+      { q: "WhatsApp Business app vs WhatsApp Business API: which do I need?", a: "The free WhatsApp Business app suits a small business replying from one or a few phones. The API is for businesses that need several team members on one number, automated replies and chatbots, broadcasts at scale, CRM integration or detailed tracking of enquiries from ads. The app is free; the API has per-message charges." },
+      { q: "Does WhatsApp marketing work?", a: "It works when people have opted in and the messages are useful to them. Messages get read because WhatsApp is where people already talk, but that also means spammy broadcasts get blocked and reported quickly, which can restrict your number. The best results come from fast replies to enquiries, reminders, and offers sent to customers who asked for them." },
       { q: "Is WhatsApp marketing legal in India?", a: "Yes, when you use the official Business API and message only contacts who have opted in. Bulk messaging from a personal number breaches WhatsApp's terms and generally results in a ban." },
-      { q: "How much does WhatsApp API cost?", a: "Meta charges for messages at rates that vary by country and message type, and it changes them from time to time. Your WhatsApp provider adds a platform fee on top. We confirm current costs for your use case before you commit." },
-      { q: "Can we get the green tick?", a: "Green tick verification is granted by Meta based on brand notability, and approval is not guaranteed. We prepare and submit the application with supporting press and brand evidence." },
-      { q: "Will this work outside India?", a: "Yes, though adoption varies. WhatsApp dominates in India, the UAE, Brazil and much of Europe. In the US, SMS and email generally remain the stronger channels." },
+      { q: "How do I get the verified badge on WhatsApp Business?", a: "WhatsApp now shows a blue verified badge in place of the old green tick. A business can get it through Meta Verified, a paid subscription with identity checks, or as an official business account, which Meta grants on notability and does not guarantee. We prepare the application and the supporting brand evidence." },
     ],
   },
 
@@ -770,9 +794,11 @@ export const services: Record<string, ServiceContent> = {
     ],
     tools: ["GA4", "Hotjar", "Microsoft Clarity", "VWO", "Google Tag Manager", "Looker Studio"],
     faqs: [
+      { q: "What is a good website conversion rate?", a: "There is no single good number. It depends on the industry, the price of what you sell, the traffic source and what counts as a conversion: a free enquiry converts far more often than an expensive purchase. The useful benchmark is your own, measured by page and channel, then improved one test at a time." },
+      { q: "How do I increase my website's conversion rate?", a: "Start where visitors drop off. Common fixes are a headline that matches the ad or search, fewer form fields, faster pages on mobile, reviews and case studies near the call to action, and a quicker way to get in touch, such as WhatsApp or click to call. Change one thing at a time so you know what worked." },
+      { q: "How much do CRO services cost?", a: "It depends on your traffic, the number of pages and funnels in scope, and whether research, design and development of the changes are included. We quote after an analytics audit, which also shows whether you have enough traffic for testing to be worthwhile." },
       { q: "How much traffic do we need for CRO?", a: "A/B testing needs enough traffic and conversions to give a trustworthy result. With less traffic we still improve things through analysis, user research and proven fixes, we just cannot prove each change on its own." },
       { q: "How long does a test need to run?", a: "At least two full business cycles, so weekday and weekend behaviour are both counted. Stopping a test early because it looks like it is winning is the most common way teams fool themselves." },
-      { q: "What if a test loses?", a: "Many well-designed tests lose or come out flat. That is the process working: a losing test tells you something real about your customers and stops you shipping a change that would have cost money." },
       { q: "Do you implement the changes or just recommend them?", a: "We implement. Recommendations that sit in a slide deck do not earn anything. Our team builds and ships the variants, and hands over the winners as production code." },
     ],
   },

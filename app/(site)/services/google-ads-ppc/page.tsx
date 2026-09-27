@@ -12,6 +12,7 @@ import { SearchJourney } from "@/components/v2/search-journey";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink, serviceHref } from "@/components/v2/primitives";
 import type { AnswerBlock, QA } from "@/lib/content-types";
+import { services } from "@/content/services";
 import { buildMetadata } from "@/lib/seo";
 import { answerSchema, breadcrumbSchema, faqSchema, graph, serviceSchema } from "@/lib/structured-data";
 
@@ -51,24 +52,8 @@ const hero: ServiceHeroContent = {
   ],
 };
 
-const faqs: QA[] = [
-  {
-    q: "Can you work in our existing Google Ads account?",
-    a: "Yes, where it's in reasonable shape. An existing account carries its conversion history, which Google's bidding learns from. If the structure is past saving, we'll explain why before suggesting a rebuild.",
-  },
-  {
-    q: "How soon do enquiries start?",
-    a: "Campaigns can bring enquiries as soon as they go live. The first weeks are also when we learn which searches convert, so the cost per enquiry tends to improve as the account collects data.",
-  },
-  {
-    q: "Do you run Meta ads as well?",
-    a: "Yes. Google reaches people who are already searching; Meta reaches people before they start looking. Many accounts need both, and they share the same tracking and reporting.",
-  },
-  {
-    q: "What does the monthly report cover?",
-    a: "Where the budget went and what it produced: cost per lead, conversion rate and return on ad spend, with the changes we made that month and why.",
-  },
-];
+// Questions people actually search about Google Ads (shared with content/services.ts).
+const faqs: QA[] = services["google-ads-ppc"].faqs;
 
 const audiences = [
   {

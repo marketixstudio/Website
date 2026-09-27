@@ -1,9 +1,9 @@
 {
   ".claude/launch.json": {
-    "mtime": 1790097124.8440967,
-    "seen": 1790188491.424839,
-    "ast_hash": "e777e95ba76f6f92543848d17fc74236",
-    "semantic_hash": "e777e95ba76f6f92543848d17fc74236"
+    "mtime": 1790528728.8557878,
+    "seen": 1790529030.1691241,
+    "ast_hash": "19270d4331a9098740506392c5d1b45a",
+    "semantic_hash": ""
   },
   ".claude/settings.json": {
     "mtime": 1790188090.0383372,
@@ -534,15 +534,15 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1790528392.3546636,
-    "seen": 1790528521.1542559,
-    "ast_hash": "9a0bba74a4e7eedca7aaede1efb05fd3",
+    "mtime": 1790528728.8543603,
+    "seen": 1790529030.1692731,
+    "ast_hash": "2f0b112751dd5e8cbf3d1bf48f4b82f0",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1790525194.5036447,
-    "seen": 1790525307.5661418,
-    "ast_hash": "ba32ad4a0f56bc2c6578f759b81616d2",
+    "mtime": 1790528728.8548293,
+    "seen": 1790529030.169274,
+    "ast_hash": "6adce7ca38753876b7702b46ef38a2d3",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -558,10 +558,10 @@
     "semantic_hash": ""
   },
   "tsconfig.json": {
-    "mtime": 1784634311.0,
-    "seen": 1790188491.424918,
-    "ast_hash": "7be438653edbea6ae3d9b22d0ed7a1f5",
-    "semantic_hash": "7be438653edbea6ae3d9b22d0ed7a1f5"
+    "mtime": 1790528993.290956,
+    "seen": 1790529030.169278,
+    "ast_hash": "0df59b16af3c77c56d7d4a66451a3746",
+    "semantic_hash": ""
   },
   "vercel.json": {
     "mtime": 1790524781.5051486,
@@ -576,10 +576,10 @@
     "semantic_hash": "9b31786b637be3c13978bec4c2330752"
   },
   "CLAUDE.md": {
-    "mtime": 1790188218.4003186,
-    "seen": 1790188491.42492,
-    "ast_hash": "bbe3a0cac7098285e29d4a65125f58f4",
-    "semantic_hash": "bbe3a0cac7098285e29d4a65125f58f4"
+    "mtime": 1790529025.9618165,
+    "seen": 1790529030.169281,
+    "ast_hash": "8b6abcbc4d8d840abeec2e894aef776c",
+    "semantic_hash": ""
   },
   "README.md": {
     "mtime": 1790188264.9732685,
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790528513.0419688,
-    "seen": 1790528521.15427,
-    "ast_hash": "1c67a5929cb282c6f831c3d3a42beb68",
+    "mtime": 1790529025.9646406,
+    "seen": 1790529030.169284,
+    "ast_hash": "953f8eb20832ff1bb775908248504c15",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {

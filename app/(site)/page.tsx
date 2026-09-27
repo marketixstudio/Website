@@ -72,14 +72,24 @@ const answer: AnswerBlock = {
   ],
 };
 
+// Questions business owners actually search before hiring an agency (Google autocomplete,
+// India, researched 2026-09-27). Company-only questions live on the About and contact pages.
 const faqs: QA[] = [
   {
-    q: "Where is Marketix Studio based?",
-    a: `We are based in Pune and work with brands across India and run campaigns for clients in the UAE, the UK and the US.`,
+    q: "How much do digital marketing agencies charge in India?",
+    a: "Most charge a monthly management fee, and the ad budget is paid separately, straight to Google or Meta. Fees depend on the channels, the number of campaigns and the content involved, so fixed packages rarely fit. We quote after a free growth audit, based on what your business actually needs.",
   },
   {
-    q: "Which industries do you work with?",
-    a: "Mostly real estate, startups and SaaS, and eCommerce and D2C brands. We also work with healthcare, education, hospitality, interior and architecture firms, and automotive businesses.",
+    q: "Are digital marketing agencies worth it?",
+    a: "They are when they are accountable for business results rather than activity. A good agency brings skills across ads, SEO, websites and tracking that are expensive to hire in-house, and reports on leads and revenue. Before you sign, ask any agency how it tracks enquiries back to campaigns.",
+  },
+  {
+    q: "How do I choose a digital marketing agency?",
+    a: "Ask to see work in your industry, how leads and sales are tracked, who will run your account day to day and what you will see in each report. Be wary of guaranteed rankings or results, and of arrangements that keep your ad accounts in the agency's name: your accounts and data should always belong to you.",
+  },
+  {
+    q: "How long does digital marketing take to show results?",
+    a: "Paid ads can bring enquiries within days of going live and improve over the first months as data builds. SEO and content take longer; Google itself says SEO usually needs four months to a year to show its benefit. A good plan uses ads for early results while the slower channels build.",
   },
   {
     q: "Can you handle ads, SEO and the website together?",
@@ -88,10 +98,6 @@ const faqs: QA[] = [
   {
     q: "Do you guarantee results?",
     a: "No honest agency can guarantee rankings or revenue, because both depend on your market, offer and budget. What we commit to is clear targets agreed before we start and reporting you can check against them.",
-  },
-  {
-    q: "How do we start?",
-    a: "Book a free growth audit. We look at your current ads, website and Google Business Profile, then tell you where enquiries are being lost and what we would fix first.",
   },
 ];
 
