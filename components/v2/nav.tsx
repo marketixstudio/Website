@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
 import { Wordmark } from "@/components/ui/wordmark";
 import { Cta, serviceHref } from "@/components/v2/primitives";
 import { primaryNav } from "@/lib/nav";
@@ -142,31 +142,30 @@ export function SiteNav() {
   const panelClass =
     "mx-card absolute left-1/2 top-[calc(100%+0.75rem)] -translate-x-1/2 p-6 shadow-[0_24px_60px_-20px_rgb(10_10_12/0.16)] dark:shadow-[0_24px_60px_-20px_rgb(0_0_0/0.8)]";
 
-  /** Drawer accordion row, after the live site: label left, chevron in a violet pill right. */
+  /** Drawer accordion: the section header is a row button; its round button carries the chevron. */
   const drawerSection = (label: string, active: boolean, children: ReactNode) => (
-    <details className="group" open={active || undefined}>
-      <summary
-        className={`flex cursor-pointer list-none items-center justify-between py-3.5 text-lg font-semibold [&::-webkit-details-marker]:hidden ${
-          active ? "text-accent" : "text-ink"
-        }`}
-      >
-        {label}
-        <span className="inline-flex h-7 w-12 items-center justify-center rounded-full border border-accent/70 text-accent">
-          <ChevronDown
-            className="h-4 w-4 transition-transform duration-200 group-open:rotate-180"
-            strokeWidth={2}
-            aria-hidden="true"
-          />
+    <details className="group/sec" open={active || undefined}>
+      <summary className="mx-row cursor-pointer list-none pl-4 [&::-webkit-details-marker]:hidden">
+        <span className={`min-w-0 flex-1 text-lg font-semibold ${active ? "text-accent-strong" : "text-ink"}`}>{label}</span>
+        <span className="mx-row-go" aria-hidden="true">
+          <ChevronDown className="h-4 w-4 transition-transform duration-200 group-open/sec:rotate-180" strokeWidth={2.2} />
         </span>
       </summary>
-      <div className="pb-4">{children}</div>
+      <div className="px-1 pb-2 pt-3">{children}</div>
     </details>
   );
 
-  const drawerLinkClass = (active: boolean) =>
-    `block py-3.5 text-lg font-semibold ${active ? "text-accent" : "text-ink"}`;
-  const drawerSubLinkClass = (active: boolean) =>
-    `block py-1.5 text-[0.9375rem] ${active ? "text-accent" : "text-ink-2"}`;
+  /** Drawer link as a row button; `small` for links inside a section. */
+  const drawerLink = (href: string, label: string, active: boolean, small = false) => (
+    <Link href={href} aria-current={active ? "page" : undefined} className={small ? "mx-row mx-row--sm" : "mx-row pl-4"}>
+      <span className={`min-w-0 flex-1 text-balance leading-snug ${small ? "text-[0.9375rem] font-medium" : "text-lg font-semibold"} ${active ? "" : small ? "text-ink-2" : "text-ink"}`}>
+        {label}
+      </span>
+      <span className="mx-row-go" aria-hidden="true">
+        <ArrowRight className={small ? "h-3.5 w-3.5" : "h-4 w-4"} strokeWidth={2.2} />
+      </span>
+    </Link>
+  );
 
   const menuButtonClass =
     "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink transition-colors hover:bg-accent-deep";
@@ -362,26 +361,18 @@ export function SiteNav() {
         </div>
 
         <nav aria-label="Mobile" className="flex-1 overflow-y-auto px-6 pb-6 pt-2">
-          <ul className="divide-y divide-line">
-            <li>
-              <Link href="/" className={drawerLinkClass(pathname === "/")}>
-                Home
-              </Link>
-            </li>
+          <ul className="grid grid-cols-[minmax(0,1fr)] gap-2">
+            <li>{drawerLink("/", "Home", pathname === "/")}</li>
             <li>
               {drawerSection(
                 "Services",
                 isActive(["/services", "/v2/services"]),
                 serviceGroups.map((group) => (
                   <div key={group.title} className="mb-4 last:mb-0">
-                    <p className="text-xs font-semibold text-muted">{group.title}</p>
-                    <ul className="mt-1.5">
+                    <p className="px-1 text-xs font-semibold text-muted">{group.title}</p>
+                    <ul className="mt-2 grid grid-cols-[minmax(0,1fr)] gap-1.5">
                       {group.items.map((item) => (
-                        <li key={item.href}>
-                          <Link href={item.href} className={drawerSubLinkClass(pathname === item.href)}>
-                            {item.label}
-                          </Link>
-                        </li>
+                        <li key={item.href}>{drawerLink(item.href, item.label, pathname === item.href, true)}</li>
                       ))}
                     </ul>
                   </div>
@@ -392,13 +383,9 @@ export function SiteNav() {
               {drawerSection(
                 "Industries",
                 isActive(["/industries"]),
-                <ul>
+                <ul className="grid grid-cols-[minmax(0,1fr)] gap-1.5">
                   {industries.map((item) => (
-                    <li key={item.href}>
-                      <Link href={item.href} className={drawerSubLinkClass(pathname === item.href)}>
-                        {item.label}
-                      </Link>
-                    </li>
+                    <li key={item.href}>{drawerLink(item.href, item.label, pathname === item.href, true)}</li>
                   ))}
                 </ul>,
               )}
@@ -407,23 +394,15 @@ export function SiteNav() {
               {drawerSection(
                 "About",
                 isActive(aboutMatch),
-                <ul>
+                <ul className="grid grid-cols-[minmax(0,1fr)] gap-1.5">
                   {aboutLinks.map((item) => (
-                    <li key={item.href}>
-                      <Link href={item.href} className={drawerSubLinkClass(pathname === item.href)}>
-                        {item.label}
-                      </Link>
-                    </li>
+                    <li key={item.href}>{drawerLink(item.href, item.label, pathname === item.href, true)}</li>
                   ))}
                 </ul>,
               )}
             </li>
             {plainLinks.map((link) => (
-              <li key={link.href}>
-                <Link href={link.href} className={drawerLinkClass(isActive(link.match))}>
-                  {link.label}
-                </Link>
-              </li>
+              <li key={link.href}>{drawerLink(link.href, link.label, isActive(link.match))}</li>
             ))}
           </ul>
         </nav>

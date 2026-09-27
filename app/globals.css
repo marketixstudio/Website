@@ -672,6 +672,12 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   .group:focus-within .mx-row-go svg {
     transform: translateX(2px);
   }
+  /* The page you are on (menus): accent edge and tint, accent label. */
+  .mx-row[aria-current="page"] {
+    border-color: rgb(var(--accent) / 0.6);
+    background: rgb(var(--accent) / 0.08);
+    color: rgb(var(--accent-strong));
+  }
   /* Compact row for dense lists (footer): 44px tap target, smaller arrow button. */
   .mx-row--sm {
     gap: 0.625rem;
