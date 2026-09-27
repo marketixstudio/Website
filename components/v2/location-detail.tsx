@@ -126,7 +126,9 @@ export function LocationDetail({ content }: { content: LocationContent }) {
                     className="flex items-center justify-between gap-3 font-display text-lg font-bold text-ink after:absolute after:inset-0 after:rounded-[24px] after:content-['']"
                   >
                     {a.area}
-                    <ArrowRight className="h-4 w-4 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                    <span className="mx-row-go" aria-hidden="true">
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
                   </Link>
                   <p className="mt-1 truncate text-sm text-muted">{a.nearby.slice(0, 3).join(", ")}</p>
                 </li>
@@ -178,15 +180,14 @@ export function LocationDetail({ content }: { content: LocationContent }) {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
           <div className="mx-card p-8">
             <h2 className="font-display text-2xl font-bold leading-[1.15] text-ink">Services in {content.area}</h2>
-            <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-1">
+            <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-2">
               {content.services.map((s) => (
                 <li key={s.href}>
-                  <Link
-                    href={s.href}
-                    className="group flex items-center justify-between gap-4 rounded-xl px-3 py-2.5 text-[0.9375rem] font-semibold text-ink transition-colors hover:bg-bg/50"
-                  >
-                    <span className="truncate">{s.label}</span>
-                    <ArrowRight className="h-4 w-4 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                  <Link href={s.href} className="mx-row pl-4">
+                    <span className="min-w-0 flex-1 text-balance text-[0.9375rem] font-semibold leading-snug text-ink">{s.label}</span>
+                    <span className="mx-row-go" aria-hidden="true">
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
                   </Link>
                 </li>
               ))}

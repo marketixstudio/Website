@@ -76,7 +76,9 @@ export function BlogIndex({ posts }: { posts: Card[] }) {
             <span>
               {formatDate(featured.date)} · {featured.readTime}
             </span>
-            <ArrowRight className="h-5 w-5 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+            <span className="mx-row-go" aria-hidden="true">
+              <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+            </span>
           </p>
         </article>
       )}
@@ -95,7 +97,9 @@ export function BlogIndex({ posts }: { posts: Card[] }) {
               <span>
                 {formatDate(p.date)} · {p.readTime}
               </span>
-              <ArrowRight className="h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+              <span className="mx-row-go" aria-hidden="true">
+                <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+              </span>
             </p>
           </li>
         ))}

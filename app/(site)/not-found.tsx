@@ -33,7 +33,9 @@ export default function NotFound() {
                 {r.title}
               </Link>
               <p className="mt-1.5 text-sm text-muted">{r.body}</p>
-              <ArrowRight className="mt-4 h-5 w-5 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+              <span className="mx-row-go mt-4 ml-0" aria-hidden="true">
+                <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+              </span>
             </li>
           ))}
         </ul>

@@ -93,13 +93,24 @@ export async function listLocations(token: string) {
   return out;
 }
 
-/** Newest reviews first (one page of up to 50 is plenty for a daily run). */
-export async function listReviews(token: string, accountId: string, locationId: string) {
-  const data = await gget<{ reviews?: GbpReview[] }>(
-    `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews?pageSize=50&orderBy=updateTime%20desc`,
-    token,
-  );
-  return data.reviews ?? [];
+/** Newest reviews first. One page (50) is plenty for a daily run; the report asks for more. */
+export async function listReviews(token: string, accountId: string, locationId: string, maxPages = 1) {
+  const reviews: GbpReview[] = [];
+  let averageRating = 0;
+  let totalReviewCount = 0;
+  let pageToken = "";
+  for (let page = 0; page < maxPages; page++) {
+    const data = await gget<{ reviews?: GbpReview[]; averageRating?: number; totalReviewCount?: number; nextPageToken?: string }>(
+      `https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews?pageSize=50&orderBy=updateTime%20desc${pageToken ? `&pageToken=${pageToken}` : ""}`,
+      token,
+    );
+    reviews.push(...(data.reviews ?? []));
+    averageRating = data.averageRating ?? averageRating;
+    totalReviewCount = data.totalReviewCount ?? totalReviewCount;
+    pageToken = data.nextPageToken ?? "";
+    if (!pageToken) break;
+  }
+  return Object.assign(reviews, { averageRating, totalReviewCount });
 }
 
 export async function postReply(token: string, accountId: string, locationId: string, reviewId: string, comment: string) {
@@ -112,4 +123,8 @@ export async function postReply(token: string, accountId: string, locationId: st
     const data = await res.json().catch(() => ({}));
     throw new Error(`Reply failed ${res.status}: ${data.error?.message || ""}`);
   }
+}
+
+export function getReview(token: string, accountId: string, locationId: string, reviewId: string) {
+  return gget<GbpReview>(`https://mybusiness.googleapis.com/v4/accounts/${accountId}/locations/${locationId}/reviews/${reviewId}`, token);
 }

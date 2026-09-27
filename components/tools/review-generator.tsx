@@ -255,7 +255,12 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 href={config.googleReviewUrl}
                 target="_blank"
                 rel="noopener noreferrer"
-                onClick={copyReview}
+                onClick={() => {
+                  copyReview();
+                  try {
+                    navigator.sendBeacon("/api/review/track", new Blob([JSON.stringify({ client: config.slug })], { type: "application/json" }));
+                  } catch {}
+                }}
                 style={accentStyle}
                 className="inline-flex flex-[2] items-center justify-center gap-2 rounded-full px-5 py-3.5 text-sm font-bold transition-transform hover:-translate-y-0.5"
               >

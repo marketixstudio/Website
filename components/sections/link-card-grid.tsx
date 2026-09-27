@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 import { Reveal } from "@/components/ui/reveal";
 import { SectionHeading } from "@/components/ui/section-heading";
 import type { OverviewCard } from "@/lib/content-types";
@@ -55,11 +55,9 @@ export function LinkCardGrid({
                     </p>
                   </div>
 
-                  <ArrowUpRight
-                    className="h-4 w-4 shrink-0 text-muted transition-all group-hover:-translate-y-0.5 group-hover:translate-x-0.5 group-hover:text-accent-strong"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
+                  <span className="mx-row-go" aria-hidden="true">
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                  </span>
                 </Link>
               </li>
             </Reveal>

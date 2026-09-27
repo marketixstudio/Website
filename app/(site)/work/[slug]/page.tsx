@@ -253,13 +253,15 @@ export default function Page({ params }: { params: { slug: string } }) {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
           <div className="mx-card p-8">
             <h2 className="font-display text-2xl font-bold text-ink">Services used</h2>
-            <ul className="mt-6 space-y-3">
+            <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-2">
               {study.services.map((s) => (
                 <li key={s.href}>
-                  <Link href={s.href} className="group flex items-center gap-3 font-semibold text-ink transition-colors hover:text-accent">
+                  <Link href={s.href} className="mx-row pl-4">
                     <Check className="h-4 w-4 shrink-0 text-accent" strokeWidth={2.5} aria-hidden="true" />
-                    {s.label}
-                    <ArrowRight className="h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                    <span className="min-w-0 flex-1 text-balance text-[0.9375rem] font-semibold leading-snug text-ink">{s.label}</span>
+                    <span className="mx-row-go" aria-hidden="true">
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
                   </Link>
                 </li>
               ))}

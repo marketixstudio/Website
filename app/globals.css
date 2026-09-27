@@ -9,8 +9,10 @@
  * The site ships dark (<html class="dark">); light mode is a supported alternate.
  */
 :root {
-  --bg: 255 255 255;
-  --surface: 248 246 251;
+  /* Light: a faintly violet-tinted paper page with pure white cards on it, so cards read
+   * as raised surfaces (on a white page they had no depth). */
+  --bg: 247 246 249;           /* #F7F6F9 */
+  --surface: 241 239 244;
   --card: 255 255 255;
   --ink: 10 10 12;
   --ink-hi: 0 0 0;
@@ -18,11 +20,11 @@
   --glare: 10 10 12 / 0.06;
   --ink-2: 31 31 35;
   --muted: 108 105 115;
-  --line: 231 227 236;
+  --line: 229 226 234;
 
   --accent: 200 42 239;        /* Electric Violet #C82AEF */
   --accent-deep: 148 37 228;
-  --card-2: 236 232 240;
+  --card-2: 255 255 255;       /* no corner light in light mode: it read as a grey smudge */
   --accent-ink: 255 255 255;
   --accent-tint: 243 219 252;
   --accent-strong: 142 22 172; /* Deep Violet #8E16AC - 7.5:1 on white */
@@ -192,6 +194,13 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+  }
+  /* On white the silver fade read as greyed-out, unfinished text. Light mode keeps only a
+   * whisper of it: ink to a soft graphite. */
+  html:not(.dark) #main h1,
+  html:not(.dark) #main .text-h2,
+  html:not(.dark) #main .text-display {
+    background-image: linear-gradient(322deg, rgb(var(--heading) / 0.62) 0%, rgb(var(--heading)) 62%);
   }
 
   ::selection {
@@ -478,6 +487,10 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
     background: radial-gradient(at 0% 0%, rgb(var(--card-2)) 0%, rgb(var(--card)) 60%);
     transition: border-color 220ms ease, box-shadow 220ms ease;
   }
+  /* Light mode: elevation by a soft, tight shadow instead of the dark corner light. */
+  html:not(.dark) .mx-card {
+    box-shadow: 0 1px 2px rgb(10 10 12 / 0.04), 0 14px 34px -18px rgb(10 10 12 / 0.14);
+  }
   /* Glare (React Bits GlareHover look: white 30%, -30deg, 300% size, 800ms). Opt-in only:
    * used on the team member cards (user request), not on every card. */
   .mx-card.mx-glare {
@@ -600,6 +613,73 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
     border-color: rgb(var(--accent) / 0.7);
     box-shadow: inset 0 1px 0 rgb(255 255 255 / 0.04), inset 0 -6px 12px rgb(0 0 0 / 0.45),
       0 0 0 3px rgb(var(--accent) / 0.14);
+  }
+
+  /* Row button: a list item that is clearly a link. Visible resting tile (fill + 1px
+   * border), the arrow in its own round button, 56px min height for thumbs. Hover: accent
+   * border, arrow button fills with the accent; press: slight sink; keyboard: accent ring. */
+  .mx-row {
+    display: flex;
+    align-items: center;
+    gap: 0.875rem;
+    min-height: 3.5rem;
+    padding: 0.5rem 0.5rem 0.5rem 0.5rem;
+    border-radius: 1.125rem;
+    border: 1px solid rgb(var(--line));
+    background: rgb(var(--bg) / 0.55);
+    transition: border-color 200ms ease, background-color 200ms ease, transform 160ms cubic-bezier(0.16, 1, 0.3, 1);
+    -webkit-tap-highlight-color: transparent;
+  }
+  .mx-row:hover {
+    border-color: rgb(var(--accent) / 0.45);
+    background: rgb(var(--accent) / 0.05);
+  }
+  .mx-row:active {
+    transform: scale(0.985);
+  }
+  .mx-row:focus-visible {
+    outline: none;
+    border-color: rgb(var(--accent));
+    box-shadow: 0 0 0 3px rgb(var(--accent) / 0.25);
+  }
+  .mx-row-go {
+    display: inline-flex;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+    width: 2.25rem;
+    height: 2.25rem;
+    margin-left: auto;
+    border-radius: 999px;
+    border: 1px solid rgb(var(--accent) / 0.35);
+    color: rgb(var(--accent));
+    transition: background-color 200ms ease, border-color 200ms ease, color 200ms ease;
+  }
+  .mx-row-go svg {
+    transition: transform 200ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .mx-row:hover .mx-row-go,
+  .mx-row:focus-visible .mx-row-go,
+  .group:hover .mx-row-go,
+  .group:focus-within .mx-row-go {
+    background: rgb(var(--accent));
+    border-color: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+  }
+  .mx-row:hover .mx-row-go svg,
+  .mx-row:focus-visible .mx-row-go svg,
+  .group:hover .mx-row-go svg,
+  .group:focus-within .mx-row-go svg {
+    transform: translateX(2px);
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .mx-row,
+    .mx-row-go svg {
+      transition: none;
+    }
+    .mx-row:active {
+      transform: none;
+    }
   }
 
   /* Primary CTA: dark pill, 1px violet ring, violet circle carrying the arrow.

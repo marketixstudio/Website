@@ -125,7 +125,9 @@ export default function Page() {
                   className="mt-6 inline-flex items-center gap-2 whitespace-nowrap font-semibold text-ink after:absolute after:inset-0 after:rounded-[24px] after:content-[''] group-hover:text-accent"
                 >
                   {r.action}
-                  <ArrowRight className="h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                  <span className="mx-row-go" aria-hidden="true">
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                  </span>
                 </a>
               </li>
             ))}

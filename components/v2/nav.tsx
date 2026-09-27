@@ -140,7 +140,7 @@ export function SiteNav() {
   );
 
   const panelClass =
-    "mx-card absolute left-1/2 top-[calc(100%+0.75rem)] -translate-x-1/2 p-6 shadow-[0_24px_60px_-20px_rgb(0_0_0/0.8)]";
+    "mx-card absolute left-1/2 top-[calc(100%+0.75rem)] -translate-x-1/2 p-6 shadow-[0_24px_60px_-20px_rgb(10_10_12/0.16)] dark:shadow-[0_24px_60px_-20px_rgb(0_0_0/0.8)]";
 
   /** Drawer accordion row, after the live site: label left, chevron in a violet pill right. */
   const drawerSection = (label: string, active: boolean, children: ReactNode) => (
@@ -177,7 +177,7 @@ export function SiteNav() {
       <nav
         ref={navRef}
         aria-label="Primary"
-        className="pointer-events-auto relative hidden w-full max-w-[1880px] items-center justify-between rounded-[24px] border border-line bg-card/85 py-3 pl-7 pr-3 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
+        className="pointer-events-auto relative hidden w-full max-w-[1880px] items-center justify-between rounded-[24px] border border-line bg-card/85 py-3 pl-7 pr-3 shadow-[0_10px_30px_-12px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
       >
         <Wordmark height={40} priority />
 
@@ -307,7 +307,7 @@ export function SiteNav() {
       </nav>
 
       {/* ── Mobile + tablet: full-width bar, logo left, menu right ─ */}
-      <div className="pointer-events-auto flex h-[4.25rem] w-full items-center justify-between rounded-[20px] border border-line bg-card/90 pl-5 pr-3 shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md sm:h-[4.75rem] sm:pl-6 sm:pr-4 lg:hidden">
+      <div className="pointer-events-auto flex h-[4.25rem] w-full items-center justify-between rounded-[20px] border border-line bg-card/90 pl-5 pr-3 shadow-[0_10px_30px_-12px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md sm:h-[4.75rem] sm:pl-6 sm:pr-4 lg:hidden">
         <Wordmark height={40} priority />
         <div className="flex items-center gap-2">
           <ThemeToggle className="hidden min-[360px]:inline-flex" />
@@ -341,7 +341,7 @@ export function SiteNav() {
         aria-modal="true"
         aria-label="Menu"
         {...(drawerOpen ? {} : ({ inert: "" } as object))}
-        className={`pointer-events-auto fixed inset-y-0 left-0 flex w-[min(22rem,88vw)] flex-col border-r border-line bg-card shadow-[24px_0_60px_-20px_rgb(0_0_0/0.8)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none lg:hidden ${
+        className={`pointer-events-auto fixed inset-y-0 left-0 flex w-[min(22rem,88vw)] flex-col border-r border-line bg-card shadow-[24px_0_60px_-20px_rgb(10_10_12/0.16)] dark:shadow-[24px_0_60px_-20px_rgb(0_0_0/0.8)] transition-transform duration-300 ease-[cubic-bezier(0.16,1,0.3,1)] motion-reduce:transition-none lg:hidden ${
           drawerOpen ? "translate-x-0" : "-translate-x-full"
         }`}
       >

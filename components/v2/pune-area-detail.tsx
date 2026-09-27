@@ -116,7 +116,9 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
                   </Link>
                 </h3>
                 <p className="mt-2 flex-1 text-sm leading-relaxed text-muted">{f.why}</p>
-                <ArrowRight className="mt-5 h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                <span className="mx-row-go mt-5 ml-0" aria-hidden="true">
+                  <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                </span>
               </li>
             ))}
           </ul>

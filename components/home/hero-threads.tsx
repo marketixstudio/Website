@@ -16,13 +16,14 @@ const toHex = (rgb: string) => {
 };
 
 export function HeroThreads() {
-  const [look, setLook] = useState({ accent: "#C82AEF", light: false });
+  const [look, setLook] = useState({ accent: "#C82AEF", deep: "#9425E4", light: false });
 
   useEffect(() => {
     const read = () => {
       const root = document.documentElement;
       setLook({
         accent: toHex(getComputedStyle(root).getPropertyValue("--accent")),
+        deep: toHex(getComputedStyle(root).getPropertyValue("--accent-deep")),
         light: !root.classList.contains("dark"),
       });
     };
@@ -34,8 +35,10 @@ export function HeroThreads() {
   return (
     <WebThreads
       color1={look.accent}
-      color2="#E7B6F7"
-      color3="#FFFFFF"
+      // Pale pink and white threads vanish into a haze on white, so light mode uses the
+      // accent's deeper shade instead.
+      color2={look.light ? look.deep : "#E7B6F7"}
+      color3={look.light ? look.accent : "#FFFFFF"}
       speed={0.2}
       threadCount={6}
       frequency={5.0}
@@ -46,7 +49,7 @@ export function HeroThreads() {
       glow={0.02}
       falloff={0.6}
       thickness={1.1}
-      brightness={0.5}
+      brightness={look.light ? 0.75 : 0.5}
       opacity={1.0}
       mirror
       shimmer={false}

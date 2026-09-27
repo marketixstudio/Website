@@ -231,7 +231,7 @@ export function AccentSwitcher() {
           aria-label={`Choose accent colour (current: ${current.label}). Drag to move.`}
           title="Accent colour"
           aria-expanded={open}
-          className="flex h-11 w-11 touch-none select-none items-center justify-center rounded-full border border-line bg-card shadow-[0_10px_30px_-10px_rgb(0_0_0/0.6)] transition-[border-color,box-shadow] hover:border-accent hover:shadow-[0_0_0_5px_rgb(var(--accent)/0.12),0_10px_30px_-10px_rgb(0_0_0/0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
+          className="flex h-11 w-11 touch-none select-none items-center justify-center rounded-full border border-line bg-card shadow-[0_10px_30px_-10px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-10px_rgb(0_0_0/0.6)] transition-[border-color,box-shadow] hover:border-accent hover:shadow-[0_0_0_5px_rgb(var(--accent)/0.12),0_10px_30px_-10px_rgb(0_0_0/0.6)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-accent"
         >
           <Palette className="h-5 w-5" strokeWidth={2} style={{ color: current.swatch }} aria-hidden="true" />
         </button>
@@ -240,7 +240,7 @@ export function AccentSwitcher() {
           <div
             role="group"
             aria-label="Accent colours"
-            className={`absolute top-1/2 flex -translate-y-1/2 items-center gap-1.5 rounded-full border border-line bg-card p-1.5 shadow-[0_16px_40px_-12px_rgb(0_0_0/0.6)] ${
+            className={`absolute top-1/2 flex -translate-y-1/2 items-center gap-1.5 rounded-full border border-line bg-card p-1.5 shadow-[0_16px_40px_-12px_rgb(10_10_12/0.16)] dark:shadow-[0_16px_40px_-12px_rgb(0_0_0/0.6)] ${
               side === "left" ? "left-full ml-2" : "right-full mr-2"
             }`}
           >

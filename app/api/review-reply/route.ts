@@ -1,7 +1,7 @@
 import { reviewClients } from "@/content/review-clients";
 import { aiProvider, AiRateLimitError, AiRefusalError } from "@/lib/ai";
 import { generateReply } from "@/lib/review-reply";
-import { isReviewAdmin } from "@/lib/review-admin";
+import { hasAdminAccess } from "@/lib/admin-auth";
 
 export const runtime = "nodejs";
 
@@ -13,7 +13,7 @@ export async function POST(request: Request) {
   } catch {
     return Response.json({ error: "Invalid request." }, { status: 400 });
   }
-  if (!isReviewAdmin(body.key)) return Response.json({ error: "Not allowed." }, { status: 403 });
+  if (!hasAdminAccess(body.key)) return Response.json({ error: "Not allowed." }, { status: 403 });
 
   const client = typeof body.client === "string" ? reviewClients[body.client] : undefined;
   if (!client) return Response.json({ error: "Unknown business." }, { status: 404 });

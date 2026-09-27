@@ -243,7 +243,9 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
                   <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">{r.excerpt}</p>
                   <p className="mt-5 flex items-center justify-between border-t border-line pt-4 text-sm text-muted">
                     {r.readTime}
-                    <ArrowRight className="h-4 w-4 text-accent transition-transform duration-200 group-hover:translate-x-1" strokeWidth={2} aria-hidden="true" />
+                    <span className="mx-row-go" aria-hidden="true">
+                      <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                    </span>
                   </p>
                 </li>
               ))}

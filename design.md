@@ -251,3 +251,15 @@ toward the bottom-right (`linear-gradient(322deg, …18% floor…, #D1D1D1 70%)`
 Card titles and small headings stay solid. Inner pages show a visible breadcrumb trail
 (Home in violet, underlined) built from the same list as the BreadcrumbList schema.
 
+
+## Light mode (2026-09-27)
+
+Dark is the reference; light is tuned separately, never a straight inversion.
+- Page `#F7F6F9`, cards pure white, raised by a soft shadow (`0 1px 2px / .04`, `0 14px 34px -18px / .14`), no corner light.
+- Heading fade is only a whisper (floor 0.62); the dark silver fade reads as greyed-out text on white.
+- Shadows written for dark (black 50-80%) need a light twin: `shadow-[...rgb(10_10_12/0.12-0.16)] dark:shadow-[...]`.
+- Canvas effects use the accent and its deep shade on white; pale or white strokes vanish.
+
+## Row buttons (2026-09-27)
+
+Lists of links (service groups and similar) use `.mx-row` with the arrow in `.mx-row-go`, never a bare icon + text + arrow line, which reads as a bullet list. Labels wrap; don't truncate.

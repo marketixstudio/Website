@@ -82,7 +82,7 @@ export function WhatsAppFloat() {
         role="dialog"
         aria-label="Chat with Marketix Studio on WhatsApp"
         hidden={!open}
-        className="absolute bottom-[4.5rem] left-0 w-[min(22rem,calc(100vw-2rem))] origin-bottom-left overflow-hidden rounded-[20px] border border-line bg-card shadow-[0_24px_60px_-16px_rgb(0_0_0/0.85)] motion-safe:animate-[mx-pop_220ms_cubic-bezier(0.16,1,0.3,1)]"
+        className="absolute bottom-[4.5rem] left-0 w-[min(22rem,calc(100vw-2rem))] origin-bottom-left overflow-hidden rounded-[20px] border border-line bg-card shadow-[0_24px_60px_-16px_rgb(10_10_12/0.16)] dark:shadow-[0_24px_60px_-16px_rgb(0_0_0/0.85)] motion-safe:animate-[mx-pop_220ms_cubic-bezier(0.16,1,0.3,1)]"
       >
         <div className="flex items-center gap-3 bg-[#075E54] px-4 py-3.5 text-white">
           <span className="flex h-10 w-10 shrink-0 items-center justify-center overflow-hidden rounded-full bg-white">
@@ -166,7 +166,7 @@ export function WhatsAppFloat() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Close WhatsApp chat" : "Chat with us on WhatsApp"}
-        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-8px_rgb(0_0_0/0.7)] ring-1 ring-black/10 transition-shadow duration-200 hover:shadow-[0_0_0_6px_rgb(37_211_102/0.18),0_12px_32px_-8px_rgb(37_211_102/0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] motion-safe:animate-[mx-float_3.2s_ease-in-out_infinite] motion-safe:hover:[animation-play-state:paused]"
+        className="group relative flex h-14 w-14 items-center justify-center rounded-full bg-[#25D366] text-white shadow-[0_10px_30px_-8px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-8px_rgb(0_0_0/0.7)] ring-1 ring-black/10 transition-shadow duration-200 hover:shadow-[0_0_0_6px_rgb(37_211_102/0.18),0_12px_32px_-8px_rgb(37_211_102/0.55)] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-[#25D366] motion-safe:animate-[mx-float_3.2s_ease-in-out_infinite] motion-safe:hover:[animation-play-state:paused]"
       >
         {open ? <X className="h-6 w-6" strokeWidth={2.25} aria-hidden="true" /> : <Glyph className="h-7 w-7" />}
         {!open && (

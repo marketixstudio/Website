@@ -269,24 +269,22 @@ export default function HomePage() {
                       <p className="mt-1.5 text-[0.9375rem] leading-relaxed text-muted">{serviceBlurbs[group.title]}</p>
                     </div>
                   </div>
-                  <ul className="mt-7 grid grid-cols-[minmax(0,1fr)] gap-1 border-t border-line pt-5">
+                  <ul className="mt-7 grid grid-cols-[minmax(0,1fr)] gap-2 border-t border-line pt-6">
                     {group.items.map((item) => {
                       const Icon = serviceIcons[item.href] ?? ArrowRight;
                       return (
                         <li key={item.href}>
                           <Link
                             href={item.href}
-                            className="group flex items-center gap-3 rounded-2xl px-1.5 py-2.5 transition-colors hover:bg-bg/60 sm:gap-4 sm:px-2"
+                            className="group mx-row"
                           >
-                            <span className="mx-icon-tile">
+                            <span className="mx-icon-tile h-10 w-10">
                               <Icon className="h-5 w-5" strokeWidth={1.8} aria-hidden="true" />
                             </span>
-                            <span className="min-w-0 flex-1 text-base font-semibold leading-snug text-ink sm:truncate sm:text-[1.0625rem]">{item.label}</span>
-                            <ArrowRight
-                              className="h-5 w-5 shrink-0 text-accent transition-transform duration-200 group-hover:translate-x-1"
-                              strokeWidth={2}
-                              aria-hidden="true"
-                            />
+                            <span className="min-w-0 flex-1 text-balance text-[0.9375rem] font-semibold leading-snug text-ink sm:text-base">{item.label}</span>
+                            <span className="mx-row-go">
+                              <ArrowRight className="h-4 w-4" strokeWidth={2.2} aria-hidden="true" />
+                            </span>
                           </Link>
                         </li>
                       );
@@ -339,11 +337,9 @@ export default function HomePage() {
                     <span className="block text-xs font-semibold text-ink-2">Measured on</span>
                     {industryMeasures[item.href] ?? item.desc}
                   </p>
-                  <ArrowRight
-                    className="mt-4 h-5 w-5 text-accent transition-transform duration-200 group-hover:translate-x-1"
-                    strokeWidth={2}
-                    aria-hidden="true"
-                  />
+                  <span className="mx-row-go mt-4 ml-0" aria-hidden="true">
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                  </span>
                 </li>
               );
             })}
