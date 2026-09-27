@@ -41,6 +41,9 @@ const legacyRedirects = [
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   reactStrictMode: true,
+  // `npm run preview` builds into its own folder, so it can run next to `npm run dev`
+  // without corrupting the dev server's .next.
+  distDir: process.env.NEXT_DIST_DIR || ".next",
   images: {
     formats: ["image/avif", "image/webp"],
   },

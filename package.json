@@ -7,7 +7,8 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "report-login": "node scripts/report-login.mjs"
+    "report-login": "node scripts/report-login.mjs",
+    "preview": "NEXT_DIST_DIR=.next-preview next build && NEXT_DIST_DIR=.next-preview next start -p 3001"
   },
   "dependencies": {
     "@anthropic-ai/sdk": "^0.128.0",

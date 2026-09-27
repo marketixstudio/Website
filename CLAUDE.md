@@ -22,6 +22,7 @@ WordPress. Content lives in typed TS files under `content/` — there is no CMS.
 - Every component in `components/ui/bits/` (react-bits) needs `"use client"`.
 - `grep` is aliased to ugrep in this shell — use `/usr/bin/grep` or Python for searches.
 - Dev server: `.claude/launch.json` → `marketix-dev` on port 3000.
+- Real (production) speed: `npm run preview` / launch config `marketix-preview` on port 3001. It builds into `.next-preview`, so it is safe to run while dev is up. The dev server compiles each page on first visit and always feels slow; judge speed on the preview.
 
 ## graphify
 

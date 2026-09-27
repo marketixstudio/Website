@@ -11,3 +11,4 @@ tsconfig.tsbuildinfo
 .vercel
 .stitch-home-ref.png
 /.data
+/.next-preview
