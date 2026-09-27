@@ -162,9 +162,9 @@
     "semantic_hash": ""
   },
   "app/(site)/team/page.tsx": {
-    "mtime": 1790502584.2896423,
-    "seen": 1790502745.399332,
-    "ast_hash": "8d194f36b6c3cbc10bd5806fbc8ca23c",
+    "mtime": 1790445270.6216865,
+    "seen": 1790445525.836402,
+    "ast_hash": "cf8998c71c50ad4030e57c843ad79736",
     "semantic_hash": ""
   },
   "app/(site)/terms/page.tsx": {
@@ -624,9 +624,9 @@
     "semantic_hash": ""
   },
   "components/v2/primitives.tsx": {
-    "mtime": 1790445566.8416789,
-    "seen": 1790502745.399441,
-    "ast_hash": "f9d2c244aebdc338280669c0db678e8e",
+    "mtime": 1790445343.3018453,
+    "seen": 1790445525.836468,
+    "ast_hash": "2a87f8c6b802dc3d286bd714e513de0c",
     "semantic_hash": ""
   },
   "components/v2/search-journey.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790502738.9680562,
-    "seen": 1790502745.3995311,
-    "ast_hash": "b6e89abd1b4e7e2a157aa22b2cc6806c",
+    "mtime": 1790445522.0545971,
+    "seen": 1790445525.836511,
+    "ast_hash": "50e89e9207a8fc036f69231278bf1fd9",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -891,12 +891,6 @@
     "mtime": 1790445343.3011065,
     "seen": 1790445525.836449,
     "ast_hash": "98ee73964b138f550d6c93df4b265192",
-    "semantic_hash": ""
-  },
-  "components/ui/bits/ChromaGrid.tsx": {
-    "mtime": 1790502633.5182962,
-    "seen": 1790502745.399387,
-    "ast_hash": "4181f5ac7fde2382ce00e13068c5c0c4",
     "semantic_hash": ""
   }
 }

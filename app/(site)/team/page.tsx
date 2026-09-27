@@ -2,15 +2,13 @@
  * honest: pass (46: names, roles and photos from the live site; missing photo shown as a placeholder, not a stock face)
  */
 import type { Metadata } from "next";
-import Image from "next/image";
-import { Linkedin } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { IndexHero } from "@/components/v2/index-hero";
 import { Cta, TextLink } from "@/components/v2/primitives";
 import { team } from "@/content/team";
-import type { TeamMember } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
 import { breadcrumbSchema, graph, personSchema } from "@/lib/structured-data";
+import ChromaGrid, { type ChromaItem } from "@/components/ui/bits/ChromaGrid";
 
 export const metadata: Metadata = buildMetadata({
   title: "Our Team in Pune",
@@ -26,27 +24,29 @@ const initials = (name: string) =>
     .join("")
     .slice(0, 2);
 
-function Portrait({ member, size }: { member: TeamMember; size: number }) {
-  return member.image ? (
-    <Image
-      src={member.image}
-      alt={member.name}
-      width={size}
-      height={size}
-      className="rounded-full border border-line object-cover"
-      style={{ width: size, height: size }}
-    />
-  ) : (
-    <span
-      role="img"
-      aria-label={`${member.name}, photo to supply`}
-      className="mx-todo inline-flex items-center justify-center rounded-full font-display text-xl font-bold"
-      style={{ width: size, height: size }}
-    >
-      {initials(member.name)}
-    </span>
-  );
-}
+
+/** Violet-family shades so the colour reveal stays on brand. */
+const shades = ["#C82AEF", "#9425E4", "#D66CF5", "#7C3AED", "#E040FB", "#A855F7"];
+
+/** Initials card for members whose photo is still to come. */
+const initialsImage = (name: string) =>
+  `data:image/svg+xml;charset=utf-8,${encodeURIComponent(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="400" height="500" viewBox="0 0 400 500"><rect width="400" height="500" fill="#161616"/><text x="200" y="285" text-anchor="middle" font-family="Helvetica, Arial, sans-serif" font-size="120" font-weight="700" fill="#D66CF5">${initials(name)}</text></svg>`,
+  )}`;
+
+const chromaItems: ChromaItem[] = team.map((m, i) => {
+  const shade = shades[i % shades.length];
+  return {
+    image: m.image ?? initialsImage(m.name),
+    title: m.name,
+    subtitle: m.role,
+    location: "Pune",
+    description: m.bio,
+    borderColor: shade,
+    gradient: `linear-gradient(${145 + i * 15}deg, ${shade}, #000)`,
+    url: m.linkedin,
+  };
+});
 
 export default function Page() {
   return (
@@ -65,38 +65,12 @@ export default function Page() {
         secondary={{ label: "About the studio", href: "/about" }}
       />
 
-      {/* Every member, the founder included, gets the same card at the same size (user request). */}
+      {/* Team: React Bits ChromaGrid (user request). Every member gets the same card; the
+          photos are greyscale until the cursor passes, revealing each card's violet shade. */}
       <section aria-label="Team members" className="pb-24">
-        <ul className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 sm:grid-cols-2 lg:grid-cols-3">
-          {team.map((member) => (
-            <li key={member.slug} id={member.slug} className="mx-card mx-glare flex h-full flex-col p-7 sm:p-8">
-              <Portrait member={member} size={112} />
-              <h2 className="mt-6 font-display text-2xl font-bold text-ink">{member.name}</h2>
-              <p className="mt-1 font-semibold text-accent">{member.role}</p>
-              <p className="mt-4 flex-1 text-[0.9375rem] leading-relaxed text-muted">{member.bio}</p>
-              {member.expertise && member.expertise.length > 0 && (
-                <ul className="mt-5 flex flex-wrap gap-2">
-                  {member.expertise.map((item) => (
-                    <li key={item} className="rounded-full border border-line px-3 py-1 text-sm text-ink-2">
-                      {item}
-                    </li>
-                  ))}
-                </ul>
-              )}
-              {member.linkedin && (
-                <a
-                  href={member.linkedin}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  aria-label={`${member.name} on LinkedIn`}
-                  className="mt-5 inline-flex h-9 w-9 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-accent hover:text-ink"
-                >
-                  <Linkedin className="h-4 w-4" strokeWidth={1.75} aria-hidden="true" />
-                </a>
-              )}
-            </li>
-          ))}
-        </ul>
+        <div className="container-edge">
+          <ChromaGrid items={chromaItems} radius={300} damping={0.45} fadeOut={0.6} ease="power3.out" />
+        </div>
       </section>
 
       <section className="border-t border-line py-24 sm:py-28">
