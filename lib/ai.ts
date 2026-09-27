@@ -1,7 +1,7 @@
 import Anthropic from "@anthropic-ai/sdk";
 
 /**
- * One place for the site's AI calls (review drafts at /r/[client], the Shalz
+ * One place for the site's AI calls (review drafts at /r/[client], the Riya
  * assistant at /api/chat). Works with either provider, whichever key is set:
  * OPENAI_API_KEY (preferred when present) or ANTHROPIC_API_KEY. OpenAI is
  * called over REST, so no extra package is needed.

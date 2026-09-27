@@ -47,6 +47,6 @@ export const fullAddress = `${business.address.street}, ${business.address.local
 
 /** The site's AI assistant (chat widget bottom right, /api/chat). Always presented as an AI, never as a person. */
 export const assistant = {
-  name: "Shalz",
-  avatar: "/brand/assistant-shalz.webp",
+  name: "Riya",
+  avatar: "/brand/assistant-riya.webp",
 } as const;

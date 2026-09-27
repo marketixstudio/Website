@@ -5,7 +5,7 @@ import { assistant, business } from "@/lib/site-config";
 import { chatLeadEmail, emailAttachments, leadRecipients } from "@/lib/emails";
 
 /**
- * Site assistant ("Shalz", name set in lib/site-config.ts). Structure adapted from the Vistrow assistant: the
+ * Site assistant ("Riya", name set in lib/site-config.ts). Structure adapted from the Vistrow assistant: the
  * model answers only from lib/chat-knowledge.ts, returns 0 to 3 whitelisted
  * links, and when a visitor leaves a name plus phone or email the lead is
  * emailed to the team through Resend. Uses lib/ai (OPENAI_API_KEY or

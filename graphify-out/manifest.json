@@ -516,9 +516,9 @@
     "semantic_hash": ""
   },
   "lib/site-config.ts": {
-    "mtime": 1790276462.52603,
-    "seen": 1790276475.241629,
-    "ast_hash": "ca4825f169493ad080ca9e2338c8f185",
+    "mtime": 1790526782.7352922,
+    "seen": 1790526817.187391,
+    "ast_hash": "8001bdaf15cc02e19fcfd55688fbc943",
     "semantic_hash": ""
   },
   "lib/social-links.ts": {
@@ -588,9 +588,9 @@
     "semantic_hash": "5122e6e59104073c6bcd761be24e35c1"
   },
   "design.md": {
-    "mtime": 1790526027.8142138,
-    "seen": 1790526032.624556,
-    "ast_hash": "ccbfe07bde1757d7cec31db929b7a274",
+    "mtime": 1790526782.7521076,
+    "seen": 1790526817.187403,
+    "ast_hash": "d40199fdc0554159f606df0bcd3dd121",
     "semantic_hash": ""
   },
   "docs/PROJECT_CONTEXT.md": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790526667.3367906,
-    "seen": 1790526670.1364238,
-    "ast_hash": "d7429a9133ba9aaa471ed85a02e38267",
+    "mtime": 1790526782.7527752,
+    "seen": 1790526817.187405,
+    "ast_hash": "f1a682e0d895ee4ad7cb5b8ccd18c06a",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -768,9 +768,9 @@
     "semantic_hash": ""
   },
   "app/api/chat/route.ts": {
-    "mtime": 1790439465.1168735,
-    "seen": 1790439768.014821,
-    "ast_hash": "0372a9f676ea63e38e8d4c8b931390dd",
+    "mtime": 1790526782.7392972,
+    "seen": 1790526817.1872928,
+    "ast_hash": "0dda0df1a0f6cc302743bc924bee8822",
     "semantic_hash": ""
   },
   "components/v2/chat-widget.tsx": {
@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "lib/ai.ts": {
-    "mtime": 1790503416.2035573,
-    "seen": 1790504175.849165,
-    "ast_hash": "c74d4009534e3035cf468843066d1989",
+    "mtime": 1790526782.74806,
+    "seen": 1790526817.187378,
+    "ast_hash": "c6d2586a65ea4dabe00124c31fd83fa4",
     "semantic_hash": ""
   },
   "lib/chat-knowledge.ts": {
@@ -816,9 +816,9 @@
     "semantic_hash": ""
   },
   "lib/emails.ts": {
-    "mtime": 1790524824.6726856,
-    "seen": 1790525083.223131,
-    "ast_hash": "b9c1f782d38395044d5f0bac2fc978f9",
+    "mtime": 1790526782.7439866,
+    "seen": 1790526817.187383,
+    "ast_hash": "4a9c768a9d377f364ee8159ed9fc45ac",
     "semantic_hash": ""
   },
   "lib/email-logo.ts": {

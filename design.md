@@ -226,7 +226,7 @@ The idle float is the one sanctioned looping motion; it is motion-safe and pause
 messages never include the page URL (user rejected it).
 
 ## AI assistant (2026-09-25, user request)
-Bottom right, every site page: pill with "Ask Shalz / AI assistant" and the avatar. Panel is a plain
+Bottom right, every site page: pill with "Ask Riya / AI assistant" and the avatar. Panel is a plain
 card (no glass, no eyebrows); violet only on the visitor's bubbles and actions. Always labelled as an
 AI assistant; "Talk to a person" (WhatsApp) sits in the header. No idle motion on this trigger, so
 only the WhatsApp button floats.

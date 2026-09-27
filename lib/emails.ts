@@ -1,6 +1,6 @@
 /**
  * Branded HTML emails sent by the site (via Resend): enquiry and growth-audit
- * leads to the team, the visitor's confirmation, Shalz chat leads and newsletter
+ * leads to the team, the visitor's confirmation, Riya chat leads and newsletter
  * sign-ups. One shared layout so every email looks the same.
  *
  * Email-client rules followed: tables for layout, inline styles, web-safe font
@@ -299,7 +299,7 @@ export function confirmationEmail(opts: { type: "contact" | "growth-audit"; name
   };
 }
 
-/** To the team: a lead captured by the Shalz chat assistant. */
+/** To the team: a lead captured by the Riya chat assistant. */
 export function chatLeadEmail(opts: { botName: string; name: string; phone: string; email: string; summary: string; transcript: Turn[]; assetBase?: string }): Email {
   assetBaseForRender = opts.assetBase;
   const subject = `Chat lead from ${opts.botName}: ${opts.name}`;
