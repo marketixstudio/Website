@@ -18,9 +18,9 @@
     "semantic_hash": "248f2002b4f078af61910d88240f0d72"
   },
   "app/(site)/about/page.tsx": {
-    "mtime": 1790440424.1703267,
-    "seen": 1790440575.811126,
-    "ast_hash": "ed60a73090609d01d890e126ec78e514",
+    "mtime": 1790530740.8868036,
+    "seen": 1790530786.291432,
+    "ast_hash": "668bd46e17f8dffa5012d29389027dcf",
     "semantic_hash": ""
   },
   "app/(site)/approach/page.tsx": {
@@ -120,9 +120,9 @@
     "semantic_hash": ""
   },
   "app/(site)/page.tsx": {
-    "mtime": 1790526138.9515266,
-    "seen": 1790526251.581887,
-    "ast_hash": "d03cc8b8c28342dcda1c740d0b380b2f",
+    "mtime": 1790530729.10367,
+    "seen": 1790530786.291449,
+    "ast_hash": "e61620b8912bdc2e9c7df948c6083cdb",
     "semantic_hash": ""
   },
   "app/(site)/partners/page.tsx": {
@@ -426,9 +426,9 @@
     "semantic_hash": ""
   },
   "content/industries.ts": {
-    "mtime": 1790194282.2995465,
-    "seen": 1790194385.2151291,
-    "ast_hash": "04abef7afc5bdccf47465038fd588130",
+    "mtime": 1790530691.7269993,
+    "seen": 1790530786.291548,
+    "ast_hash": "5d7c71cb2249b8cbaab5087dbbac07cc",
     "semantic_hash": ""
   },
   "content/legal.ts": {
@@ -456,9 +456,9 @@
     "semantic_hash": ""
   },
   "content/services.ts": {
-    "mtime": 1790196281.313567,
-    "seen": 1790196449.985122,
-    "ast_hash": "20e9c078a47ac147456fbcc9d6910df0",
+    "mtime": 1790530691.7244277,
+    "seen": 1790530786.291553,
+    "ast_hash": "2d752d9a41b578c4d22ae12955dc72b3",
     "semantic_hash": ""
   },
   "content/team.ts": {
@@ -642,9 +642,9 @@
     "semantic_hash": ""
   },
   "app/(site)/services/google-ads-ppc/page.tsx": {
-    "mtime": 1790429185.1647146,
-    "seen": 1790429316.657501,
-    "ast_hash": "684344c4507fca5b9addac298f6b5406",
+    "mtime": 1790530708.2604494,
+    "seen": 1790530786.291455,
+    "ast_hash": "6613e1d58a15ae3048b78c57c420ae4d",
     "semantic_hash": ""
   },
   "app/(site)/services/local-seo-gmb/page.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790529025.9646406,
-    "seen": 1790529030.169284,
-    "ast_hash": "953f8eb20832ff1bb775908248504c15",
+    "mtime": 1790530782.8812215,
+    "seen": 1790530786.291585,
+    "ast_hash": "6be24fb08e1049b5456caf278ab801ba",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -1053,6 +1053,12 @@
     "mtime": 1790525194.4444222,
     "seen": 1790525307.566143,
     "ast_hash": "18eba135809eed34160d7fba019eb82d",
+    "semantic_hash": ""
+  },
+  "docs/SEARCH_DEMAND.md": {
+    "mtime": 1790530774.290314,
+    "seen": 1790530786.291587,
+    "ast_hash": "e7a246a43a6adf81e34ad00e654bd45d",
     "semantic_hash": ""
   }
 }

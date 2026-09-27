@@ -86,12 +86,16 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "How do we get started?",
-        a: "Book a free growth audit or message us on WhatsApp. We review your Google profile, website and social accounts, and tell you what to fix first.",
+        q: "How can a Balewadi restaurant or cafe get more customers?",
+        a: "Yes. For restaurants and cafes the biggest levers are usually the Google Business Profile, reviews, photos and a simple booking path, supported by local Meta ads for events and quiet nights.",
       },
       {
-        q: "Can you help my Balewadi restaurant or cafe get more bookings?",
-        a: "Yes. For restaurants and cafes the biggest levers are usually the Google Business Profile, reviews, photos and a simple booking path, supported by local Meta ads for events and quiet nights.",
+        q: "How can a gym or fitness studio in Balewadi get more members?",
+        a: "People search \"best gym in Balewadi\" and compare what they find on Google Maps, so start there: a complete Google Business Profile with real photos of the space, class timings, and a steady flow of member reviews. Add Instagram content that shows trainers and transformations members agree to share, and a trial class offer on local Meta ads aimed at people living and working within a few kilometres.",
+      },
+      {
+        q: "How can a residential project in Balewadi get more site visits?",
+        a: "Balewadi buyers search by location and configuration and compare projects across Baner, Balewadi and Mahalunge before visiting. Search ads on those project and area keywords, Meta lead campaigns with fast phone follow-up, and a project page with RERA details, floor plans and a clear price range turn that research into site visits. Tracking each lead through to the visit shows which channel is working.",
       },
       {
         q: "Do you offer SEO services in Balewadi?",
@@ -146,20 +150,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you work with businesses in Baner?",
-        a: "Yes. We're a Pune team and work with Baner businesses over calls, WhatsApp and shared reporting, and meet when it helps.",
-      },
-      {
-        q: "Do you offer SEO services in Baner?",
-        a: "Yes. We do local SEO and Google Business Profile optimisation for Baner businesses, plus website SEO for the services you want to be found for.",
+        q: "How can a Baner business rank higher on Google Maps?",
+        a: "Most people in Baner choose a clinic, salon, cafe or shop from the top three map results, so the profile matters as much as the website. Pick the right primary category, keep hours and photos current, reply to every review, and ask satisfied customers for new ones regularly. A website page that mentions Baner and the services you offer there helps Google match you to local searches.",
       },
       {
         q: "Can you run Google Ads for my Baner clinic or shop?",
         a: "Yes. We target Baner and nearby areas specifically, write ads for the exact searches people make, and track calls and forms so you can see what each rupee produced.",
       },
       {
+        q: "Do you design websites for Baner businesses?",
+        a: "Yes. We design and build fast, mobile-first websites for Baner clinics, shops, startups and real estate projects, with the SEO foundations and enquiry tracking built in from the start, so the site brings leads rather than just looking good.",
+      },
+      {
+        q: "Do you offer SEO services in Baner?",
+        a: "Yes. We do local SEO and Google Business Profile optimisation for Baner businesses, plus website SEO for the services you want to be found for.",
+      },
+      {
         q: "What does digital marketing in Baner cost?",
-        a: "It depends on the channels and work in scope. We quote after a free growth audit; ad spend is separate and paid directly to the platforms.",
+        a: "The price follows the work in scope: a Baner clinic or shop may need only Google Maps and local ads, while a startup or residential project needs search, social and a landing page. We quote after a free growth audit, and ad spend is paid directly to the platforms.",
       },
     ],
   },
@@ -206,20 +214,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you provide digital marketing services in Aundh?",
-        a: "Yes. We work with Aundh businesses on Google Maps, SEO, Google Ads, social media and websites.",
+        q: "How can a salon or spa in Aundh get more bookings online?",
+        a: "Aundh customers search for the best salon or spa nearby and book from what they see on Google Maps and Instagram. Keep your Google Business Profile full of recent photos and services with prices, reply to reviews, and make booking possible in one tap through WhatsApp or an online calendar. Local Instagram and Meta ads showing real results help new customers choose you.",
       },
       {
         q: "My Aundh business has loyal customers but few Google reviews. Can you help?",
         a: "Yes. We set up a simple way for customers to leave a genuine review in seconds, such as a QR code and a WhatsApp link, without breaking Google's rules.",
       },
       {
-        q: "Can you redesign our website?",
-        a: "Yes. We build fast, mobile-first websites that make it easy to call, visit or book.",
+        q: "How can a restaurant in Aundh show up for \"best restaurants in Aundh\"?",
+        a: "Those searches are answered mostly from Google Maps, where rating, review count, photos and relevance decide the order. A complete profile with the menu, timings and fresh photos, regular review requests from happy diners, and Instagram content that gets people talking give you the signals Google looks for.",
       },
       {
-        q: "How do I get started?",
-        a: "Book a free growth audit. We'll review your Google profile, website and any ads, and tell you what to fix first.",
+        q: "Do you provide digital marketing services in Aundh?",
+        a: "Yes. We work with Aundh businesses on Google Maps, SEO, Google Ads, social media and websites.",
+      },
+      {
+        q: "Can you redesign our website?",
+        a: "Yes. We build fast, mobile-first websites that make it easy to call, visit or book.",
       },
     ],
   },
@@ -266,20 +278,28 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you work with IT and SaaS companies in Hinjewadi?",
-        a: "Yes. For SaaS and B2B teams we focus on search, content and landing pages measured on qualified demos and pipeline rather than raw lead counts.",
-      },
-      {
         q: "Can you market a residential project in Hinjewadi?",
         a: "Yes. We build campaigns for specific configurations and budgets, target people who work nearby, and measure them on site visits rather than cheap leads.",
       },
       {
-        q: "Is there a digital marketing agency near Hinjewadi?",
-        a: "Yes. We're a Pune team and work with Hinjewadi businesses over calls, WhatsApp and shared reporting, and meet when it helps.",
+        q: "How do Hinjewadi real estate projects reach IT professionals?",
+        a: "Most buyers around Hinjewadi work in the IT parks and research on their phones in the evenings and at weekends. Search ads for Hinjewadi and phase-specific project keywords, Meta ads targeted around the IT parks and nearby residential areas, and fast WhatsApp and phone follow-up work best. Weekend site visit slots offered right in the ad make the next step easy.",
+      },
+      {
+        q: "Do you work with IT and SaaS companies in Hinjewadi?",
+        a: "Yes. For SaaS and B2B teams we focus on search, content and landing pages measured on qualified demos and pipeline rather than raw lead counts.",
       },
       {
         q: "Do you offer Google Ads management in Hinjewadi?",
         a: "Yes. We set up and manage Google Ads targeted at Hinjewadi and nearby areas, with call and form tracking so you can see what each campaign produced.",
+      },
+      {
+        q: "Which is the best digital marketing company in Hinjewadi?",
+        a: "The best one for you is the one that can show work in your industry, tracks leads and sales rather than clicks, and gives you ownership of your ad accounts and data. Ask who will run your account each day and what the monthly report contains. Being close to Hinjewadi helps for shoots and meetings, but the reporting matters more than the address.",
+      },
+      {
+        q: "Is there a digital marketing agency near Hinjewadi?",
+        a: "Yes. We're a Pune team and work with Hinjewadi businesses over calls, WhatsApp and shared reporting, and meet when it helps.",
       },
     ],
   },
@@ -326,20 +346,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you offer digital marketing services in Wakad?",
-        a: "Yes. We work with Wakad businesses on Google Maps, Google Ads, Meta ads, websites and WhatsApp follow-up.",
-      },
-      {
         q: "Can you help a coaching class in Wakad get more admissions?",
         a: "Yes. Admissions campaigns work best planned around your intake dates, with separate messages for students and parents and fast follow-up on every enquiry.",
+      },
+      {
+        q: "How can a real estate project in Wakad get more enquiries?",
+        a: "Wakad buyers compare projects on location, connectivity and price, and many search for price trends before they enquire. Search ads for Wakad project and configuration keywords, Meta lead ads with quick callbacks, and a project page that answers the price, possession date and RERA questions up front bring better-qualified enquiries.",
+      },
+      {
+        q: "Which is the best digital marketing agency in Wakad?",
+        a: "Judge agencies on proof, not promises: work in your industry, tracking that ties enquiries to campaigns, clear monthly reporting, and ad accounts kept in your name. Ask what they would change first in your current marketing; a good agency can answer that after a short audit.",
       },
       {
         q: "Do you do social media marketing in Wakad?",
         a: "Yes. We plan and produce posts, reels and local ads that keep your business visible to people living nearby.",
       },
       {
-        q: "How do we get started?",
-        a: "Book a free growth audit or message us on WhatsApp, and we'll tell you what to fix first.",
+        q: "Do you offer digital marketing services in Wakad?",
+        a: "Yes. We work with Wakad businesses on Google Maps, Google Ads, Meta ads, websites and WhatsApp follow-up.",
       },
     ],
   },
@@ -386,16 +410,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you offer digital marketing in Pimpri Chinchwad (PCMC)?",
-        a: "Yes. We work with PCMC manufacturers, dealers and local businesses on Google Ads, SEO, websites and Google Maps.",
-      },
-      {
         q: "Can you generate B2B leads for a manufacturing company in MIDC?",
         a: "Yes. We focus on search for product and specification terms, a website that builds trust with buyers, and tracking calls and WhatsApp as the main conversion.",
       },
       {
         q: "Is IndiaMART enough for B2B enquiries?",
         a: "It brings volume but puts you side by side with competitors on price. Your own search presence brings buyers who are choosing you specifically.",
+      },
+      {
+        q: "Do you design websites for businesses in Pimpri Chinchwad?",
+        a: "Yes. For PCMC manufacturers and service businesses we build websites that work as a sales tool: product and capability pages buyers can find on Google, clear enquiry forms and WhatsApp, and tracking so you know which enquiries came from the site. For B2B, a detailed catalogue and industry pages usually matter more than design flourishes.",
+      },
+      {
+        q: "Do you offer SEO services in Pimpri Chinchwad?",
+        a: "Yes. For PCMC businesses that means ranking for what buyers search, such as the product or process plus the city, a Google Business Profile for each unit or office, and pages that answer the technical questions procurement teams ask. For manufacturers, SEO often brings enquiries from outside Pune as well.",
+      },
+      {
+        q: "Do you offer digital marketing in Pimpri Chinchwad (PCMC)?",
+        a: "Yes. We work with PCMC manufacturers, dealers and local businesses on Google Ads, SEO, websites and Google Maps.",
       },
       {
         q: "Do you have an office in PCMC?",
@@ -446,20 +478,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you offer digital marketing in Pimple Saudagar?",
-        a: "Yes. We work with Pimple Saudagar restaurants, clinics, classes and shops on Google Maps, local ads, social media and WhatsApp follow-up.",
+        q: "How can a clinic in Pimple Saudagar get more patients?",
+        a: "Residents here search for the best dentist, dermatologist, gynaecologist or paediatrician nearby and decide largely on Google reviews. A complete Google Business Profile for the clinic, a steady flow of genuine patient reviews, treatment pages on your website and local search ads for your main treatments bring patients who are ready to book. Everything has to follow medical advertising rules, with no promised outcomes.",
       },
       {
         q: "Can you help my restaurant or cloud kitchen get more orders?",
         a: "Yes. We start with your Google profile, photos and reviews, then use local ads and WhatsApp to bring nearby customers back.",
       },
       {
+        q: "How can a salon, spa or gym in Pimple Saudagar get more customers?",
+        a: "These are chosen from Google Maps and Instagram, so photos, reviews and easy booking do most of the work. Keep the profile current, show real results on Instagram, run local Meta ads with a first-visit offer to people nearby, and let customers book or ask questions on WhatsApp.",
+      },
+      {
         q: "Do you do social media marketing for local businesses here?",
         a: "Yes. We plan posts and reels, and run ads targeted at the societies and streets around you.",
       },
       {
-        q: "How do we get started?",
-        a: "Book a free growth audit or message us on WhatsApp, and we'll tell you what to fix first.",
+        q: "Do you offer digital marketing in Pimple Saudagar?",
+        a: "Yes. We work with Pimple Saudagar restaurants, clinics, classes and shops on Google Maps, local ads, social media and WhatsApp follow-up.",
       },
     ],
   },
@@ -506,20 +542,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you provide digital marketing services in Kharadi?",
-        a: "Yes. We run Google Ads, SEO, landing pages and Google Maps work for Kharadi and East Pune businesses.",
-      },
-      {
         q: "Can you promote a residential project in Kharadi or Wagholi?",
         a: "Yes. We build campaigns around configuration and budget, state the price bracket openly and measure results on site visits and bookings.",
+      },
+      {
+        q: "How do Kharadi businesses reach people working in the IT parks?",
+        a: "Kharadi's offices and business parks mean a large weekday audience nearby. Local Meta and Google ads targeted around the IT parks at lunch and after-work hours, a Google Business Profile that shows up for searches near the office towers, and offers built around office routines work well for cafes, gyms, salons and clinics.",
       },
       {
         q: "Do you offer SEO for Kharadi businesses?",
         a: "Yes, both local SEO for the map pack and website SEO for the services and products you want to be found for.",
       },
       {
-        q: "Can you work with us in Kharadi?",
-        a: "Yes. Most work runs on calls, WhatsApp and shared reporting, and we meet when it helps.",
+        q: "Which is the best digital marketing company in Kharadi?",
+        a: "Look for real work in your industry, tracking that connects enquiries to campaigns, a clear monthly report and ad accounts kept in your name. A good company can tell you what it would change first after a short audit of your current marketing.",
+      },
+      {
+        q: "Do you provide digital marketing services in Kharadi?",
+        a: "Yes. We run Google Ads, SEO, landing pages and Google Maps work for Kharadi and East Pune businesses.",
       },
     ],
   },
@@ -566,10 +606,6 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Is there a digital marketing agency for Viman Nagar businesses?",
-        a: "Yes. Marketix Studio works with Viman Nagar cafes, restaurants, salons and clinics on Google Maps, Instagram, Meta ads and Google Ads.",
-      },
-      {
         q: "Do you manage Instagram for cafes and restaurants?",
         a: "Yes. We plan and produce reels and posts, and run local ads for events, new menus and quiet days.",
       },
@@ -578,8 +614,20 @@ export const puneAreas: PuneArea[] = [
         a: "Yes. We target the treatments people search for in Viman Nagar and nearby areas, and track calls and bookings. Healthcare ads follow Google's policies, which we plan around from the start.",
       },
       {
-        q: "How much does it cost?",
-        a: "It depends on the channels and work in scope. We quote after a free growth audit; ad spend is paid directly to Google or Meta.",
+        q: "How can real estate agents in Viman Nagar get more leads?",
+        a: "Buyers and tenants around Viman Nagar and Kalyani Nagar search for agents and properties by locality, then check reviews. A Google Business Profile with genuine client reviews, listings pages for the localities you cover, search ads for rent and buy keywords, and quick WhatsApp replies win most of those enquiries.",
+      },
+      {
+        q: "Which is the best digital marketing agency in Viman Nagar?",
+        a: "Choose on evidence: work in your industry, enquiries tracked back to campaigns, clear monthly reporting and your ad accounts kept in your name. Ask what they would fix first after looking at your current marketing.",
+      },
+      {
+        q: "Is there a digital marketing agency for Viman Nagar businesses?",
+        a: "Yes. Marketix Studio works with Viman Nagar cafes, restaurants, salons and clinics on Google Maps, Instagram, Meta ads and Google Ads.",
+      },
+      {
+        q: "How much does digital marketing cost in Viman Nagar?",
+        a: "It varies with what you need: a cafe mainly needs Google Maps and Instagram, while a clinic or real estate agent usually needs search ads as well. We quote after a free growth audit of your current marketing. Ad spend is separate and goes straight to Google or Meta.",
       },
     ],
   },
@@ -626,20 +674,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you provide digital marketing services in Hadapsar?",
-        a: "Yes. We work with Hadapsar, Magarpatta and Amanora businesses on Google Ads, SEO, Google Maps and landing pages.",
+        q: "Can you promote a residential project in Hadapsar or Undri?",
+        a: "Yes. Buyers here weigh commute to Magarpatta and Kharadi, schools and price against newer projects in Undri and Mohammadwadi. We lead with those points and an open price bracket, target people working in the nearby IT parks, and measure the campaign on site visits and bookings rather than raw leads.",
       },
       {
-        q: "Can you promote a residential project in Hadapsar or Undri?",
-        a: "Yes. We build campaigns around configuration and budget, state the price bracket openly and measure them on site visits and bookings.",
+        q: "How can a hospital or clinic in Hadapsar get more patients online?",
+        a: "Hadapsar and Magarpatta residents search for hospitals and specialists nearby and compare reviews before booking. A Google Business Profile for each department or clinic, genuine patient reviews, a page for each treatment and doctor, and local search ads for key treatments bring patients who are ready to book, within medical advertising rules.",
+      },
+      {
+        q: "Do you design websites for businesses in Hadapsar?",
+        a: "Yes. We build fast, mobile-first websites with SEO foundations and enquiry tracking for Hadapsar and Magarpatta businesses, from clinics and schools to real estate projects and IT services firms.",
       },
       {
         q: "Do you offer SEO services in Hadapsar?",
-        a: "Yes, local SEO for the map pack and website SEO for the services and products you want to be found for.",
+        a: "Yes. For Hadapsar and Magarpatta that usually means a Google Business Profile that ranks in the map pack for searches around Hadapsar, Magarpatta and Amanora, plus website pages for each service, so both nearby residents and people working in the IT parks can find you.",
       },
       {
-        q: "Can you work with us in Hadapsar?",
-        a: "Yes. Most work runs on calls, WhatsApp and shared reporting, and we meet when it helps.",
+        q: "Do you provide digital marketing services in Hadapsar?",
+        a: "Yes. We work with Hadapsar, Magarpatta and Amanora businesses on Google Ads, SEO, Google Maps and landing pages.",
       },
     ],
   },
@@ -690,6 +742,10 @@ export const puneAreas: PuneArea[] = [
         a: "Yes. We handle Instagram, Google profile, local ads and websites for restaurants, bars and cafes, planned around your events and busiest nights.",
       },
       {
+        q: "How can a cafe or pub in Koregaon Park get more footfall?",
+        a: "Koregaon Park is one of Pune's most searched areas for cafes, breakfast and pubs, and those searches are answered by Google Maps and Instagram. Current photos, menu and entry details on your Google profile, regular review requests, Instagram content around events and specials, and local ads on weekend evenings bring people through the door.",
+      },
+      {
         q: "Can you market a wellness studio or aesthetic clinic?",
         a: "Yes. We focus on brand-led content, reviews and targeted ads. Health-related ads follow Meta and Google policies, which we plan around from the start.",
       },
@@ -698,8 +754,8 @@ export const puneAreas: PuneArea[] = [
         a: "Yes. We design brand identities, menus and social templates so everything looks consistent.",
       },
       {
-        q: "How do we get started?",
-        a: "Book a free growth audit. We review your Google profile, Instagram and website, and tell you what to fix first.",
+        q: "Do you offer social media marketing in Koregaon Park?",
+        a: "Yes. For Koregaon Park restaurants, studios, clinics and boutiques we plan and produce content, run Instagram and Meta ads, and track which posts and campaigns bring bookings and visits, not just followers.",
       },
     ],
   },
@@ -746,20 +802,24 @@ export const puneAreas: PuneArea[] = [
     ],
     faqs: [
       {
-        q: "Do you offer digital marketing in Kothrud?",
-        a: "Yes. We work with Kothrud shops, clinics, classes and restaurants on Google Maps, social media, ads and websites.",
-      },
-      {
         q: "Can you create content in Marathi?",
         a: "Yes, where your audience calls for it we can plan Marathi and English content and review request messages.",
+      },
+      {
+        q: "How can real estate agents and developers in Kothrud get more leads?",
+        a: "Kothrud buyers are often local families upgrading or buying for the next generation, and they research rates and projects before contacting anyone. Search ads for Kothrud project and rate keywords, a Google Business Profile with reviews, Marathi and English content, and quick phone follow-up work best.",
+      },
+      {
+        q: "How can a school or coaching class in Kothrud get more admissions?",
+        a: "Parents in Kothrud compare schools and classes on Google reviews and word of mouth. Start campaigns before the admission window, show results, teachers and facilities through video, target parents locally on Meta and Google, keep the enquiry form short, and call back quickly.",
       },
       {
         q: "Do you do social media marketing for Kothrud businesses?",
         a: "Yes. We plan posts and reels that show your products and expertise, and run local ads when you want to promote something specific.",
       },
       {
-        q: "How do we start?",
-        a: "Book a free growth audit. We review your Google profile, website and social accounts, and tell you what to fix first.",
+        q: "Do you offer digital marketing in Kothrud?",
+        a: "Yes. We work with Kothrud shops, clinics, classes and restaurants on Google Maps, social media, ads and websites.",
       },
     ],
   },
