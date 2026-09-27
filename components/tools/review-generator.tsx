@@ -64,6 +64,8 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
     }
   }
 
+  const utm = `utm_source=review-page&utm_medium=referral&utm_campaign=${config.slug}`;
+
   return (
     <div className="min-h-screen bg-white px-5 py-12 text-[#0A0A0C] sm:py-16">
       <div className="mx-auto w-full max-w-xl">
@@ -94,7 +96,9 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               <legend className="text-sm font-semibold">How would you rate us?</legend>
               {/* React Bits PeekRating. Starts empty on purpose: a preset rating would nudge
                   customers, and the rating must be their own choice. */}
-              <div className="mt-3">
+              {/* PeekRating keeps room above the stars for its label tip; pull it up so that room
+                  overlaps the question instead of leaving an empty gap. */}
+              <div className="-mt-5">
                 <PeekRating
                   value={rating}
                   count={5}
@@ -245,6 +249,46 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
           This tool helps you put your own experience into words. You review and edit
           everything before posting, and your review is submitted by you on Google.
         </p>
+
+        {/* Marketix branding for business owners who see this page. Links open in a new tab so
+            a customer never loses a half-written review, and carry UTM tags for Analytics. */}
+        <aside aria-label="About this review page" className="mt-12 border-t border-neutral-200 pt-8 text-center">
+          <a
+            href={`https://www.marketixstudio.com/?${utm}`}
+            target="_blank"
+            rel="noopener"
+            className="inline-flex items-center gap-2 text-xs font-medium text-neutral-400 transition-colors hover:text-neutral-700"
+          >
+            Powered by
+            <Image src="/brand/marketix-logo-light.png" alt="Marketix Studio" width={98} height={21} className="h-[21px] w-auto" />
+          </a>
+          <div className="mt-6 rounded-2xl bg-neutral-50 p-6">
+            <p className="text-base font-bold text-[#0A0A0C]">Want more Google reviews for your business?</p>
+            <p className="mx-auto mt-2 max-w-[42ch] text-sm leading-relaxed text-neutral-500">
+              Marketix Studio built this review page for {config.businessName}. We set up review pages, Google
+              Maps profiles and ads for local businesses in Pune.
+            </p>
+            <div className="mt-5 flex flex-col items-center gap-3 sm:flex-row sm:justify-center">
+              <a
+                href={`https://www.marketixstudio.com/growth-audit?${utm}`}
+                target="_blank"
+                rel="noopener"
+                className="inline-flex items-center gap-1.5 rounded-full bg-[#C82AEF] px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+              >
+                Get a free growth audit
+                <ArrowRight className="h-4 w-4" strokeWidth={2.25} aria-hidden="true" />
+              </a>
+              <a
+                href={`https://www.marketixstudio.com/work/jayganesh-review-system?${utm}`}
+                target="_blank"
+                rel="noopener"
+                className="text-sm font-semibold text-neutral-600 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-[#0A0A0C]"
+              >
+                See how this page works
+              </a>
+            </div>
+          </div>
+        </aside>
       </div>
     </div>
   );
