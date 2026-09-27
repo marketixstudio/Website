@@ -2,14 +2,14 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { ArrowRight, Check, Copy, Loader2, RefreshCw, Star } from "lucide-react";
+import { ArrowRight, Check, Copy, Loader2, RefreshCw } from "lucide-react";
 import type { ReviewClient } from "@/lib/content-types";
+import PeekRating from "@/components/ui/bits/PeekRating";
 
 type Status = "idle" | "loading" | "ready" | "error";
 
 export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [rating, setRating] = useState(0);
-  const [hovered, setHovered] = useState(0);
   const [service, setService] = useState("");
   const [feedback, setFeedback] = useState("");
   const [review, setReview] = useState("");
@@ -92,29 +92,28 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
           <div className="mt-4 border-t border-neutral-100 pt-6">
             <fieldset>
               <legend className="text-sm font-semibold">How would you rate us?</legend>
-              <div className="mt-3 flex gap-1.5">
-                {[1, 2, 3, 4, 5].map((value) => (
-                  <button
-                    key={value}
-                    type="button"
-                    aria-label={`${value} star${value > 1 ? "s" : ""}`}
-                    aria-pressed={rating === value}
-                    onClick={() => setRating(value)}
-                    onMouseEnter={() => setHovered(value)}
-                    onMouseLeave={() => setHovered(0)}
-                    className="rounded p-1 transition-transform hover:scale-110 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2"
-                  >
-                    <Star
-                      className="h-9 w-9 transition-colors"
-                      strokeWidth={1.5}
-                      style={
-                        value <= (hovered || rating)
-                          ? { fill: config.accent, color: config.accent }
-                          : { fill: "#E5E5E5", color: "#E5E5E5" }
-                      }
-                    />
-                  </button>
-                ))}
+              {/* React Bits PeekRating. Starts empty on purpose: a preset rating would nudge
+                  customers, and the rating must be their own choice. */}
+              <div className="mt-3">
+                <PeekRating
+                  value={rating}
+                  count={5}
+                  shape="star"
+                  labels={["Poor", "Fair", "Good", "Great", "Superb"]}
+                  activeColor="#f5b400"
+                  idleColor="#52525b"
+                  tipColor="#27272a"
+                  tipTextColor="#f5f5f5"
+                  size={32}
+                  lift={7}
+                  magnify={1.15}
+                  riseDuration={320}
+                  popScale={1.3}
+                  showTip
+                  allowClear
+                  onChange={setRating}
+                  ariaLabel="How would you rate us?"
+                />
               </div>
             </fieldset>
 

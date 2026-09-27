@@ -182,9 +182,11 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
    * fading toward the bottom-right, linear-gradient(322deg, transparent, #D1D1D1 70%).
    * A faint floor keeps the last letters of long lines readable. Page titles and
    * section headings only; small card titles stay solid. */
-  h1,
-  .text-h2,
-  .text-display {
+  /* Site pages only (inside <main id="main">): client tools like /r/[client] have their
+   * own light design and keep solid headings. */
+  #main h1,
+  #main .text-h2,
+  #main .text-display {
     color: rgb(var(--heading));
     background-image: linear-gradient(322deg, rgb(var(--heading) / 0.18) 0%, rgb(var(--heading)) 70%);
     -webkit-background-clip: text;
