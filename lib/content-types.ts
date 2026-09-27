@@ -226,6 +226,13 @@ export type ReviewClient = {
   active: boolean;
   /** Optional "What stood out?" chips on the review page; the customer taps up to 3. */
   highlights?: string[];
+  /** Shown in replies to low ratings so the customer can reach the shop, e.g. a phone number. */
+  replyContact?: string;
+  /**
+   * Google Business Profile ids for automatic replies (from /api/gbp/locations after the
+   * one-time sign-in). Leave unset to keep automatic replies off for this client.
+   */
+  gbp?: { accountId: string; locationId: string };
 };
 
 export type BlogSection = { heading?: string; paragraphs: string[]; points?: string[] };
