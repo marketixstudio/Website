@@ -106,14 +106,6 @@ export const websiteSchema: JsonLdValue = {
   alternateName: business.legalName,
   publisher: { "@id": `${siteUrl}/#organization` },
   inLanguage: "en",
-  potentialAction: {
-    "@type": "SearchAction",
-    target: {
-      "@type": "EntryPoint",
-      urlTemplate: `${siteUrl}/blog?q={search_term_string}`,
-    },
-    "query-input": "required name=search_term_string",
-  },
 };
 
 export function graph(items: JsonLdValue[]): JsonLdValue {
@@ -144,8 +136,9 @@ export function faqSchema(items: QA[]): JsonLdValue {
 }
 
 /**
- * Answer-first block marked up as a standalone Question so assistants can lift
- * it verbatim. Pairs with the visible TL;DR at the top of the page.
+ * Answer-first block marked up as a standalone Question so assistants can lift it verbatim.
+ * Pairs with the visible TL;DR at the top of the page. Deliberately not QAPage: Google
+ * reserves that for pages where users post answers (forums), and misuse counts as spam.
  */
 export function answerSchema(input: {
   question: string;
@@ -153,16 +146,14 @@ export function answerSchema(input: {
   path: string;
 }): JsonLdValue {
   return {
-    "@type": "QAPage",
+    "@type": "Question",
     "@id": `${siteUrl}${input.path}#answer`,
-    mainEntity: {
-      "@type": "Question",
-      name: input.question,
-      acceptedAnswer: {
-        "@type": "Answer",
-        text: input.answer,
-        url: `${siteUrl}${input.path}`,
-      },
+    name: input.question,
+    url: `${siteUrl}${input.path}`,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: input.answer,
+      url: `${siteUrl}${input.path}`,
     },
   };
 }

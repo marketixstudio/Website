@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 const content = legalPages["disclaimer"];
 export const metadata: Metadata = buildMetadata({
   title: content.title,
-  description: "General disclaimer for the Marketix Studio website and services.",
+  description: "Marketix Studio disclaimer: no guaranteed marketing outcomes, not professional advice, how we use AI, and third-party links and platforms.",
   path: "/disclaimer",
 });
 

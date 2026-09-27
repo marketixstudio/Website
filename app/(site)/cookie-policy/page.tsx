@@ -6,7 +6,7 @@ import { buildMetadata } from "@/lib/seo";
 const content = legalPages["cookie-policy"];
 export const metadata: Metadata = buildMetadata({
   title: content.title,
-  description: "How Marketix Studio uses cookies and similar technologies.",
+  description: "How marketixstudio.com uses cookies and browser storage: essential preferences, analytics, and how to manage or turn them off.",
   path: "/cookie-policy",
 });
 

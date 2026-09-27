@@ -10,7 +10,7 @@ const legacyRedirects = [
   ["/branding-agency-in-pune", "/services/branding-design"],
   ["/social-media-marketing-agency-pune", "/services/social-media-marketing"],
   ["/ppc-advertising-agency", "/services/google-ads-ppc"],
-  ["/content-marketing-seo", "/services/seo-services"],
+  ["/content-marketing-seo", "/services/content-marketing"],
   ["/email-marketing-automation", "/services/email-marketing-automation"],
 
   // Company pages

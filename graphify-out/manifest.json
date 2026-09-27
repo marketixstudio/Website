@@ -54,16 +54,16 @@
     "semantic_hash": ""
   },
   "app/(site)/cookie-policy/page.tsx": {
-    "mtime": 1790096736.4704974,
-    "seen": 1790188491.42485,
-    "ast_hash": "26057f666eba8816dab62f7c3fbb2386",
-    "semantic_hash": "26057f666eba8816dab62f7c3fbb2386"
+    "mtime": 1790528392.3537328,
+    "seen": 1790528521.153942,
+    "ast_hash": "bb07e659f4d186f0295cd267064f24f4",
+    "semantic_hash": ""
   },
   "app/(site)/disclaimer/page.tsx": {
-    "mtime": 1790096736.466527,
-    "seen": 1790188491.424851,
-    "ast_hash": "c1be0c5a47ba8ad7aee6ad6948b40fed",
-    "semantic_hash": "c1be0c5a47ba8ad7aee6ad6948b40fed"
+    "mtime": 1790528392.35408,
+    "seen": 1790528521.153945,
+    "ast_hash": "e9ad33ff30f31332f368c8b2719efca1",
+    "semantic_hash": ""
   },
   "app/(site)/faq/page.tsx": {
     "mtime": 1790429743.9179192,
@@ -186,15 +186,15 @@
     "semantic_hash": ""
   },
   "app/(site)/work/[slug]/page.tsx": {
-    "mtime": 1790526138.9486217,
-    "seen": 1790526251.5819001,
-    "ast_hash": "dcfab0f869e063b515ead3bfeefd8d02",
+    "mtime": 1790528392.3573065,
+    "seen": 1790528521.153995,
+    "ast_hash": "6b43ec6b9773319dbfa3b5fa2811fa09",
     "semantic_hash": ""
   },
   "app/(site)/work/page.tsx": {
-    "mtime": 1790429211.4977155,
-    "seen": 1790429316.657504,
-    "ast_hash": "227f4e574e2501982df3c1867068dbb2",
+    "mtime": 1790528392.3570645,
+    "seen": 1790528521.153997,
+    "ast_hash": "c364080c2c194588399d1bca3b8a7111",
     "semantic_hash": ""
   },
   "app/api/checkout/route.ts": {
@@ -528,15 +528,15 @@
     "semantic_hash": "41fd2b0489a9056f883c78606df97a45"
   },
   "lib/structured-data.ts": {
-    "mtime": 1790095815.0664005,
-    "seen": 1790188491.4249148,
-    "ast_hash": "19aaf0f393dedfbf47d99033cfc895bf",
-    "semantic_hash": "19aaf0f393dedfbf47d99033cfc895bf"
+    "mtime": 1790528392.3553636,
+    "seen": 1790528521.154252,
+    "ast_hash": "37330e44b6942e1a3779d24528d4f834",
+    "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1790195709.458694,
-    "seen": 1790195816.485574,
-    "ast_hash": "9bc22ad5dcaf43d36363685039a18408",
+    "mtime": 1790528392.3546636,
+    "seen": 1790528521.1542559,
+    "ast_hash": "9a0bba74a4e7eedca7aaede1efb05fd3",
     "semantic_hash": ""
   },
   "package.json": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790528050.7593102,
-    "seen": 1790528054.089571,
-    "ast_hash": "3ba6236ccebf48f0d7ef3e5b713f001c",
+    "mtime": 1790528513.0419688,
+    "seen": 1790528521.15427,
+    "ast_hash": "1c67a5929cb282c6f831c3d3a42beb68",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {

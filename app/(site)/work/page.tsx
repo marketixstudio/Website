@@ -11,7 +11,7 @@ import { Cta, TextLink } from "@/components/v2/primitives";
 import { clientLogos, testimonials } from "@/content/testimonials";
 import { publishedCaseStudies, workOverview } from "@/content/work";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbSchema, collectionSchema, graph, reviewSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, collectionSchema, graph } from "@/lib/structured-data";
 import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const path = "/work";
@@ -42,7 +42,6 @@ export default function Page() {
             path,
             items: publishedCaseStudies.map((s) => ({ name: s.headline, path: `/work/${s.slug}` })),
           }),
-          ...reviewSchema(quotes),
         ])}
       />
 

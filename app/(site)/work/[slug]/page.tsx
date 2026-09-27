@@ -15,7 +15,7 @@ import { locations } from "@/content/locations";
 import { testimonials } from "@/content/testimonials";
 import { caseStudies, publishedCaseStudies } from "@/content/work";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbSchema, caseStudySchema, graph, reviewSchema } from "@/lib/structured-data";
+import { breadcrumbSchema, caseStudySchema, graph } from "@/lib/structured-data";
 import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 /** Real, working client pages that can be shown as proof (rendered inert). */
@@ -71,7 +71,6 @@ export default function Page({ params }: { params: { slug: string } }) {
             client: study.anonymised ? undefined : study.client,
             image: study.image,
           }),
-          ...(testimonial ? reviewSchema([testimonial]) : []),
         ])}
       />
 
