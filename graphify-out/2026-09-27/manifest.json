@@ -210,9 +210,9 @@
     "semantic_hash": ""
   },
   "app/api/review/route.ts": {
-    "mtime": 1790275921.411965,
-    "seen": 1790275940.128732,
-    "ast_hash": "82ac1a1bce527a0a00166ea48504410e",
+    "mtime": 1790504145.9779103,
+    "seen": 1790504175.849086,
+    "ast_hash": "c66afeb3eaf2645d1474c5e936f75526",
     "semantic_hash": ""
   },
   "app/layout.tsx": {
@@ -384,9 +384,9 @@
     "semantic_hash": "e44d6097d39be7debe41ba9a2351563d"
   },
   "components/tools/review-generator.tsx": {
-    "mtime": 1790502970.6246796,
-    "seen": 1790503082.407477,
-    "ast_hash": "0c09134a12a745dc53b7bf99ed28d3f8",
+    "mtime": 1790503534.46795,
+    "seen": 1790504175.849123,
+    "ast_hash": "0cd7fd55f05c372cc99764a0d10be105",
     "semantic_hash": ""
   },
   "components/ui/breadcrumb.tsx": {
@@ -450,9 +450,9 @@
     "semantic_hash": ""
   },
   "content/review-clients.ts": {
-    "mtime": 1790276436.365846,
-    "seen": 1790276475.241618,
-    "ast_hash": "0558779e6c3de2ac1a1585fd3727092e",
+    "mtime": 1790504085.3884535,
+    "seen": 1790504175.84916,
+    "ast_hash": "9fa2a7f3c83db4e3f0840f6646794cdb",
     "semantic_hash": ""
   },
   "content/services.ts": {
@@ -498,9 +498,9 @@
     "semantic_hash": "f63b39a49b020b19fa8c709878ab26c4"
   },
   "lib/content-types.ts": {
-    "mtime": 1790273341.5040839,
-    "seen": 1790273680.067925,
-    "ast_hash": "549236115ff83af66fa925895de4e108",
+    "mtime": 1790503430.0543523,
+    "seen": 1790504175.8491678,
+    "ast_hash": "0b86067273d8b701765188e4792ff8c0",
     "semantic_hash": ""
   },
   "lib/nav.ts": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790503063.1418989,
-    "seen": 1790503082.407541,
-    "ast_hash": "e59d88b298d5adb71c438029e46d9dbb",
+    "mtime": 1790504172.1316204,
+    "seen": 1790504175.849185,
+    "ast_hash": "ffa2901a8a7d2b861d0f558551ef696e",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -780,9 +780,9 @@
     "semantic_hash": ""
   },
   "lib/ai.ts": {
-    "mtime": 1790276462.528628,
-    "seen": 1790276475.241623,
-    "ast_hash": "9d35577fb3748c269e5f407a73eb3916",
+    "mtime": 1790503416.2035573,
+    "seen": 1790504175.849165,
+    "ast_hash": "c74d4009534e3035cf468843066d1989",
     "semantic_hash": ""
   },
   "lib/chat-knowledge.ts": {

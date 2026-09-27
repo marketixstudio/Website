@@ -49,9 +49,7 @@ export const reviewClients: Record<string, ReviewClient> = {
     slug: "marketix",
     businessName: "Marketix Studio",
     logo: "/brand/marketix-mark.png",
-    // TODO: paste the Marketix Studio "write a review" link from Google Business Profile,
-    // then set active: true to open the public review page at /r/marketix.
-    googleReviewUrl: "",
+    googleReviewUrl: "https://g.page/r/CYRBbwwKmFc3EBM/review",
     headline: "How Was Working With",
     highlight: "Marketix Studio?",
     subheadline: "We'll help you write your review in seconds",
@@ -71,8 +69,7 @@ export const reviewClients: Record<string, ReviewClient> = {
     highlights: ["More enquiries", "Clear reporting", "Quick replies", "Good ideas", "Honest advice", "On-time delivery"],
     tone: "Plain, professional Indian English from a business owner or marketing manager. Specific, never exaggerated.",
     replyContact: "+91 90217 53876",
-    // Public review page stays off until the Google review link is added above.
-    active: false,
+    active: true,
   },
 };
 

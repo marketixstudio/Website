@@ -282,6 +282,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
 
         {/* Marketix branding for business owners who see this page. Links open in a new tab so
             a customer never loses a half-written review, and carry UTM tags for Analytics. */}
+        {config.slug !== "marketix" && (
         <aside aria-label="About this review page" className="mt-12 border-t border-neutral-200 pt-8 text-center">
           <a
             href={`https://www.marketixstudio.com/?${utm}`}
@@ -319,6 +320,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
             </div>
           </div>
         </aside>
+        )}
       </div>
     </div>
   );
