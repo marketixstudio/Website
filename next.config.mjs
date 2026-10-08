@@ -54,8 +54,20 @@ const nextConfig = {
       permanent: true,
     }));
   },
+  // Each demo is a static site in public/demo/<slug> (see scripts/import-demo-site.py); its
+  // clean URL /demo/<slug> maps to index.html. Demos are for sharing by link, so they are
+  // kept out of search (header below) and out of the sitemap.
+  async rewrites() {
+    return {
+      beforeFiles: [{ source: "/demo/:slug", destination: "/demo/:slug/index.html" }],
+    };
+  },
   async headers() {
     return [
+      {
+        source: "/demo/:path*",
+        headers: [{ key: "X-Robots-Tag", value: "noindex, nofollow" }],
+      },
       {
         source: "/:path*",
         headers: [
