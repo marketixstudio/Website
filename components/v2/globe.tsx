@@ -65,7 +65,10 @@ export function Globe({
     const arcs: Arc[] = arcFromPune ? [{ from: PUNE, to: focus }] : [];
 
     const c = readColours();
-    const globe = createGlobe(canvas, {
+    // No WebGL: leave the globe out instead of crashing the page.
+    let globe: ReturnType<typeof createGlobe>;
+    try {
+      globe = createGlobe(canvas, {
       devicePixelRatio: dpr,
       width: width * dpr,
       height: width * dpr,
@@ -84,7 +87,10 @@ export function Globe({
       markerElevation: 0.02,
       markers,
       arcs,
-    });
+      });
+    } catch {
+      return;
+    }
 
     let raf = 0;
     const loop = () => {

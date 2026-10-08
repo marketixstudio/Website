@@ -534,9 +534,9 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1791478136.2820628,
-    "seen": 1791479432.674571,
-    "ast_hash": "84a8ee78dcd04b44db2f32742b543235",
+    "mtime": 1791480683.7285237,
+    "seen": 1791481309.3475,
+    "ast_hash": "23ce7d7416d01185a44189d984327ff9",
     "semantic_hash": ""
   },
   "package.json": {
@@ -594,9 +594,9 @@
     "semantic_hash": ""
   },
   "docs/PROJECT_CONTEXT.md": {
-    "mtime": 1790315270.3123164,
-    "seen": 1790315273.568723,
-    "ast_hash": "495b467f7d3db301c6f79f19475edb84",
+    "mtime": 1791480123.4673107,
+    "seen": 1791481309.34752,
+    "ast_hash": "537c01868d3366a1393b17729dc763c2",
     "semantic_hash": ""
   },
   "components/v2/fill-heading.tsx": {
@@ -840,9 +840,9 @@
     "semantic_hash": ""
   },
   "components/v2/globe.tsx": {
-    "mtime": 1790437277.7352424,
-    "seen": 1790437450.363162,
-    "ast_hash": "2f442736541ee93088fa0617773cf8d7",
+    "mtime": 1791480818.4657567,
+    "seen": 1791481309.347415,
+    "ast_hash": "7663226da4eab79e015dc66950180b5a",
     "semantic_hash": ""
   },
   "lib/geo.ts": {
@@ -858,15 +858,15 @@
     "semantic_hash": ""
   },
   "components/ui/bits/WebThreads.tsx": {
-    "mtime": 1790439631.135044,
-    "seen": 1790439768.014864,
-    "ast_hash": "b407dccd43dd3d497a964e9089f6d83f",
+    "mtime": 1791480818.4650302,
+    "seen": 1791481309.347389,
+    "ast_hash": "e9631da6ef79407caac3d12e810c4e6a",
     "semantic_hash": ""
   },
   "components/ui/bits/ElectricLogo.tsx": {
-    "mtime": 1790440331.335055,
-    "seen": 1790440575.8111942,
-    "ast_hash": "4f8e34dce79c93af5107e535fdafee44",
+    "mtime": 1791480818.464563,
+    "seen": 1791481309.347383,
+    "ast_hash": "1e2b238a9b34d12ad64b8f2beef70245",
     "semantic_hash": ""
   },
   "components/v2/electric-monogram.tsx": {
@@ -1071,6 +1071,30 @@
     "mtime": 1791463730.1373122,
     "seen": 1791479432.674582,
     "ast_hash": "c616a053749846787681590c9d4653ca",
+    "semantic_hash": ""
+  },
+  "app/(site)/preview/home/page.tsx": {
+    "mtime": 1791482001.7928982,
+    "seen": 1791482061.934604,
+    "ast_hash": "40ca49535734a57c581e999d79455f8f",
+    "semantic_hash": ""
+  },
+  "components/LogoTraceLoader.tsx": {
+    "mtime": 1791481231.7485723,
+    "seen": 1791481309.34731,
+    "ast_hash": "85eb58f6f9103749a6ef927fe5182a05",
+    "semantic_hash": ""
+  },
+  "components/home-v2/gloss-icon.tsx": {
+    "mtime": 1791481911.6179028,
+    "seen": 1791482061.9346461,
+    "ast_hash": "eaa9138f4084520f954bfff4f9217845",
+    "semantic_hash": ""
+  },
+  "components/home-v2/reveal-root.tsx": {
+    "mtime": 1791480597.0959783,
+    "seen": 1791481309.347331,
+    "ast_hash": "9baf286beeb379e9a5c056591769054b",
     "semantic_hash": ""
   }
 }

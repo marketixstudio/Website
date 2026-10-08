@@ -206,13 +206,20 @@ const WebThreads: React.FC<WebThreadsProps> = ({
     const container = containerRef.current;
     if (!container) return;
 
-    const renderer = new Renderer({
-      webgl: 2,
-      alpha: true,
-      premultipliedAlpha: true,
-      antialias: false,
-      dpr: Math.min(window.devicePixelRatio || 1, 1.5)
-    });
+    // No WebGL: skip the threads (the hero card still renders) instead of crashing the page.
+    let renderer: Renderer;
+    try {
+      renderer = new Renderer({
+        webgl: 2,
+        alpha: true,
+        premultipliedAlpha: true,
+        antialias: false,
+        dpr: Math.min(window.devicePixelRatio || 1, 1.5)
+      });
+    } catch {
+      return;
+    }
+    if (!renderer.gl) return;
 
     const gl = renderer.gl;
     gl.clearColor(0, 0, 0, 0);

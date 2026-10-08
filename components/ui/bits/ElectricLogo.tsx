@@ -727,12 +727,20 @@ const ElectricLogo = ({
     const container = containerRef.current;
     if (!container) return undefined;
 
-    const renderer = new Renderer({
-      dpr: Math.min(window.devicePixelRatio || 1, 2),
-      alpha: true,
-      premultipliedAlpha: true,
-      antialias: false
-    });
+    // No WebGL (old devices, hardware acceleration off, headless crawlers): skip the effect.
+    // ogl throws when it cannot get a context, and an uncaught effect error blanks the page.
+    let renderer: Renderer;
+    try {
+      renderer = new Renderer({
+        dpr: Math.min(window.devicePixelRatio || 1, 2),
+        alpha: true,
+        premultipliedAlpha: true,
+        antialias: false
+      });
+    } catch {
+      return undefined;
+    }
+    if (!renderer.gl) return undefined;
     const gl = renderer.gl;
     const gl2 = gl as WebGL2RenderingContext;
     if (!renderer.isWebgl2) {
