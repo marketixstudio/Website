@@ -18,6 +18,7 @@ import {
   MonitorSmartphone,
   MousePointerClick,
   Palette,
+  Quote,
   Rocket,
   Search,
   Share2,
@@ -157,6 +158,12 @@ const faqs: QA[] = [
 /** Whole years since the studio started (2023 → "3+" in 2026). */
 const yearsActive = new Date().getFullYear() - Number(business.foundingDate);
 
+/** Live-site section heading size. */
+const H2 = "font-display text-[clamp(2.3rem,4.2vw,4rem)] font-bold leading-[1.12] tracking-[-0.01em] text-ink";
+
+/** Computed from the verified quotes shown, never typed in. */
+const averageRating = (proof.reduce((sum, t) => sum + (t.rating ?? 5), 0) / Math.max(1, proof.length)).toFixed(1);
+
 const delay = (ms: number) => ({ ["--mx-delay" as string]: `${ms}ms` }) as React.CSSProperties;
 
 function Stars() {
@@ -177,7 +184,7 @@ export default async function HomePreviewPage() {
       <RevealRoot />
 
       {/* 1 · Hero, unchanged: the live site's composition (the page's one designed entrance). */}
-      <section className="pb-20 pt-24 sm:pb-24 sm:pt-28">
+      <section className="pb-20 pt-24 sm:pb-24 sm:pt-28 lg:pt-36">
         <div className="container-wide">
           <div className="relative isolate flex min-h-[min(86vh,780px)] flex-col justify-between overflow-hidden rounded-[28px] border border-line bg-card px-6 pb-8 pt-12 sm:px-12 sm:pb-12 sm:pt-16 lg:px-16 lg:pb-16">
             <div className="absolute inset-0 -z-10">
@@ -295,7 +302,7 @@ export default async function HomePreviewPage() {
       </section>
 
       {/* 3 · Who we grow, with the real client logos. */}
-      <section className="border-t border-line py-20 sm:py-24">
+      <section className="py-20 sm:py-24">
         <div className="container-edge mx-reveal grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
           <h2 className="max-w-[18ch] font-display text-h2 font-bold leading-[1.15] text-ink">
             Digital marketing that drives real business growth
@@ -312,7 +319,7 @@ export default async function HomePreviewPage() {
 
       {/* 4 · Why choose us, as on the live site: three staggered pillar cards with the icon set
        * into their left edge, and the promise with a notched photo and card on the right. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-16 lg:grid-cols-2 lg:gap-16">
           <ul className="order-2 grid grid-cols-[minmax(0,1fr)] gap-5 lg:order-1">
             {pillars.map((p, i) => (
@@ -366,48 +373,48 @@ export default async function HomePreviewPage() {
         </div>
       </section>
 
-      {/* 6 · Core services: six cards with glossy icons and a "View details" pill, like the live site. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      {/* 5 · Core services, as on the live site: centred heading, cards with the icon beside the
+       * title, a full-width "View details" button, and the custom-solution line. */}
+      <section className="py-24 sm:py-32">
         <div className="container-edge">
-          <div className="mx-reveal mx-auto max-w-3xl text-center">
+          <div className="mx-reveal mx-auto max-w-4xl text-center">
             <Eyebrow>Our core services</Eyebrow>
-            <h2 className="mt-5 font-display text-h2 font-bold leading-[1.15] text-ink">Digital solutions that drive real results</h2>
+            <h2 className={`mt-6 ${H2}`}>Digital solutions that drive real results</h2>
           </div>
-          <ul className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-3">
+          <ul className="mt-16 grid grid-cols-[minmax(0,1fr)] gap-6 md:grid-cols-2 lg:grid-cols-3">
             {coreServices.map((s, i) => (
               <li key={s.href} className="mx-reveal mx-card mx-glow group flex flex-col p-7 transition-colors hover:border-accent/50 sm:p-8" style={delay((i % 3) * 120)}>
-                <div className="flex items-center gap-4">
-                  <GlossIcon icon={s.icon} />
-                  <h3 className="font-display text-xl font-bold leading-snug text-ink">{s.title}</h3>
+                <div className="flex items-center gap-5">
+                  <GlossIcon icon={s.icon} size="lg" />
+                  <h3 className="font-display text-2xl font-bold leading-snug text-ink">{s.title}</h3>
                 </div>
-                <p className="mt-5 flex-1 text-[0.9375rem] leading-relaxed text-muted">{s.body}</p>
-                <div className="mt-7">
-                  <Link href={s.href} className="mx-cta mx-cta--sm" aria-label={`View details: ${s.title}`}>
-                    View details
-                    <span className="mx-cta__arrow" aria-hidden="true">
-                      <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
-                    </span>
-                  </Link>
-                </div>
+                <p className="mt-6 flex-1 text-base leading-relaxed text-muted">{s.body}</p>
+                <Link href={s.href} className="mx-cta mt-8 w-full" aria-label={`View details: ${s.title}`}>
+                  <span className="flex-1 text-center">View details</span>
+                  <span className="mx-cta__arrow" aria-hidden="true">
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.5} />
+                  </span>
+                </Link>
               </li>
             ))}
           </ul>
-          <p className="mx-reveal mt-10 text-center text-[0.9375rem] text-muted">
-            Need something else? We offer 13 services, from WhatsApp marketing to conversion rate optimisation.{" "}
-            <Link href="/services" className="font-semibold text-ink underline-offset-4 hover:underline">
-              All services
+          <p className="mx-reveal mt-12 text-center text-base font-medium text-ink-2">
+            Need a custom solution? Let&apos;s build a marketing strategy tailored to your business.{" "}
+            <Link href="/growth-audit" className="whitespace-nowrap font-semibold text-accent underline-offset-4 hover:underline">
+              Get a free strategy call &rarr;
             </Link>
           </p>
         </div>
       </section>
 
-      {/* 7 · Where customers come from: our interactive demand map. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      {/* 6 · Where customers come from: our interactive demand map, in the slot where the live
+       * site shows template case studies (those numbers were not ours to publish). */}
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.85fr)_minmax(0,1.15fr)]">
           <div className="mx-reveal">
             <Eyebrow>Where customers come from</Eyebrow>
-            <h2 className="mt-5 max-w-[16ch] font-display text-h2 font-bold text-ink">Search, social and maps, working as one</h2>
-            <p className="mt-5 max-w-[46ch] text-lg leading-[1.6] text-muted">
+            <h2 className={`mt-6 max-w-[14ch] ${H2}`}>Search, social and maps, working as one</h2>
+            <p className="mt-6 max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted">
               Most customers find you in one of three places: a Google search, a social feed or Google Maps. This is
               how each of them turns into an enquiry.
             </p>
@@ -421,118 +428,143 @@ export default async function HomePreviewPage() {
         </div>
       </section>
 
-      {/* 8 · What our clients say: verified quotes only, no counters. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      {/* 7 · What our clients say, as on the live site: a stats card beside the headline card (with
+       * its violet base), then the quotes. Verified quotes only; every number is computed from them. */}
+      <section className="py-24 sm:py-32">
         <div className="container-edge">
-          <div className="grid gap-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-end">
-            <div className="mx-reveal">
-              <Eyebrow>What our clients say</Eyebrow>
-              <h2 className="mt-5 max-w-[16ch] font-display text-h2 font-bold leading-[1.15] text-ink">Real clients, in their own words</h2>
-            </div>
-            <div className="mx-reveal lg:justify-self-end" style={delay(120)}>
-              <div className="flex items-center gap-4">
+          <div className="grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-[minmax(0,0.36fr)_minmax(0,0.64fr)]">
+            <div className="mx-reveal mx-glow-card flex flex-col p-7 sm:p-8">
+              <div className="flex items-center justify-center gap-4">
                 <div className="flex -space-x-3">
                   {proof.map((t) => (
-                    <Image
-                      key={t.id}
-                      src={t.image ?? ""}
-                      alt=""
-                      width={48}
-                      height={48}
-                      className="h-12 w-12 rounded-full border-2 border-bg bg-white object-contain"
-                    />
+                    <Image key={t.id} src={t.image ?? ""} alt="" width={48} height={48} className="h-12 w-12 rounded-full border-2 border-accent bg-white object-contain" />
                   ))}
                 </div>
-                <p className="max-w-[34ch] text-[0.9375rem] leading-snug text-muted">
-                  Businesses in education, D2C drinks and car accessories, on social media, websites and Google Maps.
+                <p className="font-display text-lg font-bold leading-tight text-ink">
+                  Verified
+                  <br />
+                  client reviews
+                </p>
+              </div>
+              <div className="mt-8 grid grid-cols-2 divide-x divide-line text-center">
+                <div>
+                  <p className="font-display text-5xl font-bold text-ink">{averageRating}</p>
+                  <p className="mt-2 text-sm text-muted">Average rating</p>
+                </div>
+                <div>
+                  <p className="font-display text-5xl font-bold text-ink">{clientLogos.length}</p>
+                  <p className="mt-2 text-sm text-muted">Brands we work with</p>
+                </div>
+              </div>
+              <ul className="mt-8 grid gap-3">
+                {["Social media growth", "Performance marketing"].map((chip) => (
+                  <li key={chip} className="flex items-center justify-center gap-2.5 rounded-2xl border border-line bg-bg px-4 py-3.5 text-[0.9375rem] font-medium text-ink-2">
+                    <span className="inline-flex h-5 w-5 items-center justify-center rounded-full border-[1.5px] border-accent text-accent">
+                      <Check className="h-3 w-3" strokeWidth={3} aria-hidden="true" />
+                    </span>
+                    {chip}
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            <div className="mx-reveal rounded-[28px] bg-accent pb-6" style={delay(120)}>
+              <div className="mx-card h-full p-8 sm:p-10">
+                <Eyebrow>What our clients say</Eyebrow>
+                <h2 className={`mt-6 ${H2}`}>Real clients. Real results. Real growth.</h2>
+                <p className="mt-6 max-w-[60ch] text-[1.0625rem] leading-relaxed text-muted">
+                  How businesses in education, food and drink and car accessories grew their social media, websites
+                  and Google presence with Marketix Studio.
                 </p>
               </div>
             </div>
           </div>
 
-          <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-3">
+          <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-6 lg:grid-cols-3">
             {proof.map((t, i) => (
               <li key={t.id} className="mx-reveal mx-card flex flex-col p-7 sm:p-8" style={delay(i * 120)}>
                 <Stars />
-                <blockquote className="mt-5 flex-1 text-[1.0625rem] leading-relaxed text-ink-2">&ldquo;{t.quote}&rdquo;</blockquote>
-                <div className="mt-7 flex items-center gap-3 border-t border-line pt-5">
-                  <Image src={t.image ?? ""} alt="" width={44} height={44} className="h-11 w-11 rounded-full bg-white object-contain" />
-                  <div className="min-w-0">
-                    <p className="font-semibold text-ink">{t.author}</p>
-                    <p className="text-sm text-muted">{t.author === t.company ? t.role : `${t.role}, ${t.company}`}</p>
+                <div className="mt-6 flex items-start gap-4">
+                  <Image src={t.image ?? ""} alt="" width={56} height={56} className="h-14 w-14 shrink-0 rounded-full bg-white object-contain" />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-display text-lg font-bold leading-snug text-ink">{t.author}</p>
+                    <p className="mt-0.5 text-sm text-muted">{t.role}</p>
                   </div>
+                  <Quote className="h-10 w-10 shrink-0 rotate-180 text-accent" strokeWidth={1.75} aria-hidden="true" />
                 </div>
+                <blockquote className="mt-6 flex-1 text-base leading-relaxed text-ink-2">&ldquo;{t.quote}&rdquo;</blockquote>
               </li>
             ))}
           </ul>
-          <div className="mx-reveal mt-8">
-            <TextLink href="/work/jayganesh-review-system">Read the Jay Ganesh case study</TextLink>
-          </div>
         </div>
       </section>
 
-      {/* 9 · How it works: the same four steps as /approach, as connected cards. */}
-      <section className="border-t border-line py-24 sm:py-32">
-        <div className="container-edge">
-          <div className="grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
-            <div className="mx-reveal">
-              <Eyebrow>How it works</Eyebrow>
-              <h2 className="mt-5 max-w-[16ch] font-display text-h2 font-bold leading-[1.15] text-ink">Our 4-step digital marketing process</h2>
-            </div>
-            <div className="mx-reveal lg:justify-self-end" style={delay(120)}>
-              <p className="max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted">
-                A clear path from where you are to where you want to be, built around your goals. No guesswork, no
-                wasted budget.
-              </p>
-              <div className="mt-6">
-                <Cta href="/growth-audit">Get a free growth audit</Cta>
+      {/* 8 · How it works, as on the live site: one large panel, the heading beside the intro,
+       * and the four steps as columns divided by violet lines. Same steps as /approach. */}
+      <section className="py-16 sm:py-24">
+        <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8">
+          <div className="mx-reveal mx-card relative overflow-hidden rounded-[32px] px-6 py-14 sm:px-12 sm:py-20 lg:px-16">
+            <div aria-hidden="true" className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(45%_60%_at_50%_100%,rgb(var(--accent)/0.22),transparent_75%)]" />
+            <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+              <div>
+                <Eyebrow>How it works</Eyebrow>
+                <h2 className={`mt-6 max-w-[14ch] ${H2}`}>Our 4-step digital marketing process</h2>
+              </div>
+              <div className="lg:pb-2">
+                <p className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">
+                  A clear path built around your business goals, from strategy to execution to scale. No guesswork, no
+                  wasted budget.
+                </p>
+                <div className="mt-6">
+                  <TextLink href="/growth-audit">Get a free strategy call</TextLink>
+                </div>
               </div>
             </div>
-          </div>
 
-          <ol className="relative mt-14 grid grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 lg:grid-cols-4">
-            <span aria-hidden="true" className="absolute left-[12%] right-[12%] top-[3.75rem] hidden h-px bg-[linear-gradient(90deg,transparent,rgb(var(--accent)/0.55),transparent)] lg:block" />
-            {process.map((step, i) => (
-              <li key={step.title} className="mx-reveal mx-card relative flex flex-col p-7" style={delay(i * 120)}>
-                <div className="flex items-start justify-between">
-                  <GlossIcon icon={step.icon} />
-                  <span aria-hidden="true" className="font-display text-5xl font-bold leading-none text-transparent [-webkit-text-stroke:1px_rgb(var(--accent)/0.6)]">
-                    {String(i + 1).padStart(2, "0")}
-                  </span>
-                </div>
-                <h3 className="mt-7 font-display text-xl font-bold text-ink">
-                  <span className="sr-only">Step {i + 1}: </span>
-                  {step.title}
-                </h3>
-                <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
-              </li>
-            ))}
-          </ol>
+            <ol className="relative mt-12 grid grid-cols-[minmax(0,1fr)] gap-8 rounded-[24px] border border-accent/60 bg-bg/60 p-6 sm:p-8 md:grid-cols-2 lg:grid-cols-4 lg:gap-0">
+              {process.map((step, i) => (
+                <li key={step.title} className={`flex flex-col ${i > 0 ? "lg:border-l lg:border-accent/35" : ""} lg:px-7 ${i === 0 ? "lg:pl-0" : ""} ${i === 3 ? "lg:pr-0" : ""}`}>
+                  <div className="flex items-start justify-between">
+                    <GlossIcon icon={step.icon} size="sm" />
+                    <span aria-hidden="true" className="font-display text-sm font-bold text-ink-2">
+                      {String(i + 1).padStart(2, "0")}
+                    </span>
+                  </div>
+                  <h3 className="mt-6 font-display text-xl font-bold leading-snug text-ink">
+                    <span className="sr-only">Step {i + 1}: </span>
+                    {step.title}
+                  </h3>
+                  <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
+                </li>
+              ))}
+            </ol>
+          </div>
         </div>
       </section>
 
-      {/* 10 · Insights: the three latest articles. */}
+      {/* 9 · Insights, as on the live site: the heading beside the intro, then the latest articles. */}
       {posts.length > 0 && (
-        <section className="border-t border-line py-24 sm:py-32">
+        <section className="py-24 sm:py-32">
           <div className="container-edge">
-            <div className="grid gap-6 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+            <div className="grid gap-8 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)] lg:items-center">
               <div className="mx-reveal">
                 <Eyebrow>Insights and strategies</Eyebrow>
-                <h2 className="mt-5 max-w-[18ch] font-display text-h2 font-bold leading-[1.15] text-ink">Marketing strategies that actually work</h2>
+                <h2 className={`mt-6 max-w-[16ch] ${H2}`}>Marketing strategies that actually work</h2>
               </div>
-              <div className="mx-reveal lg:justify-self-end" style={delay(120)}>
+              <div className="mx-reveal" style={delay(120)}>
                 <p className="max-w-[48ch] text-[1.0625rem] leading-relaxed text-muted">
-                  Practical guides on ads, SEO and Google Maps, written from the work we do for clients.
+                  Practical guides on ads, SEO and Google Maps for real estate developers, startups and growing brands,
+                  written from the work we do for clients.
                 </p>
-                <div className="mt-5">
+                <div className="mt-6">
                   <TextLink href="/blog">View all articles</TextLink>
                 </div>
               </div>
             </div>
-            <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-3">
+            <ul className="mt-14 grid grid-cols-[minmax(0,1fr)] gap-6 md:grid-cols-3">
               {posts.map((post, i) => (
                 <li key={post.slug} className="mx-reveal mx-card group relative flex flex-col p-7 transition-colors hover:border-accent/60 focus-within:border-accent/60" style={delay(i * 120)}>
-                  <p className="text-sm font-semibold text-muted">{post.category}</p>
+                  <p className="text-sm font-semibold text-accent">{post.category}</p>
                   <h3 className="mt-3 font-display text-xl font-bold leading-snug text-ink">
                     <Link href={`/blog/${post.slug}`} className="after:absolute after:inset-0 after:rounded-[24px] after:content-['']">
                       {post.title}
@@ -552,8 +584,8 @@ export default async function HomePreviewPage() {
         </section>
       )}
 
-      {/* 11 · The answer for AI search, then the questions people ask first. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      {/* 10 · The answer for AI search, then the questions people ask first. */}
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="mx-reveal">
             <AnswerCard block={answer} id="answer" />

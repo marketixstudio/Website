@@ -1074,9 +1074,9 @@
     "semantic_hash": ""
   },
   "app/(site)/preview/home/page.tsx": {
-    "mtime": 1791480678.1352649,
-    "seen": 1791481309.347153,
-    "ast_hash": "e810a0cfd4fc5085efa928850b4d7e8d",
+    "mtime": 1791482001.7928982,
+    "seen": 1791482061.934604,
+    "ast_hash": "40ca49535734a57c581e999d79455f8f",
     "semantic_hash": ""
   },
   "components/LogoTraceLoader.tsx": {
@@ -1086,8 +1086,8 @@
     "semantic_hash": ""
   },
   "components/home-v2/gloss-icon.tsx": {
-    "mtime": 1791480597.0906649,
-    "seen": 1791481309.3473291,
+    "mtime": 1791481911.6179028,
+    "seen": 1791482061.9346461,
     "ast_hash": "eaa9138f4084520f954bfff4f9217845",
     "semantic_hash": ""
   },

@@ -179,7 +179,7 @@ export default function HomePage() {
 
       {/* 1 · Hero: the live site's composition. One large card with the wave visual,
           a wide left-aligned headline, and the lede + action offset to the right. */}
-      <section className="pb-20 pt-24 sm:pb-24 sm:pt-28">
+      <section className="pb-20 pt-24 sm:pb-24 sm:pt-28 lg:pt-36">
         <div className="container-wide">
           <div className="relative isolate flex min-h-[min(86vh,780px)] flex-col justify-between overflow-hidden rounded-[28px] border border-line bg-card px-6 pb-8 pt-12 sm:px-12 sm:pb-12 sm:pt-16 lg:px-16 lg:pb-16">
             <div className="absolute inset-0 -z-10">

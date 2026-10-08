@@ -2790,7 +2790,7 @@
       "file_type": "code",
       "norm_label": "delay()",
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L157"
+      "source_location": "L160"
     },
     {
       "id": "app_site_preview_home_page_homepreviewpage",
@@ -2802,7 +2802,7 @@
       "file_type": "code",
       "norm_label": "homepreviewpage()",
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L169"
+      "source_location": "L172"
     },
     {
       "id": "app_site_preview_home_page_stars",
@@ -2814,7 +2814,7 @@
       "file_type": "code",
       "norm_label": "stars()",
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L159"
+      "source_location": "L162"
     },
     {
       "id": "components_home_client_logo_loop_clientlogoloop",
@@ -15029,7 +15029,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L170",
+      "source_location": "L173",
       "weight": 1.0
     },
     {
@@ -15041,7 +15041,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L244",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -37271,7 +37271,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L157",
+      "source_location": "L160",
       "weight": 1.0
     },
     {
@@ -37282,7 +37282,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L159",
+      "source_location": "L162",
       "weight": 1.0
     },
     {
@@ -37293,7 +37293,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/(site)/preview/home/page.tsx",
-      "source_location": "L169",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -46322,5 +46322,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "2108173d081033fa328961d37f046fc1a6d6cc1f"
+  "built_at_commit": "a1719bc75e7b8da6f40507820f028d94ee46f0dd"
 }

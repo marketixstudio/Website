@@ -1,7 +1,7 @@
 # Graph Report - MARKETIX WEBSITE  (2026-10-08)
 
 ## Corpus Check
-- 183 files · ~146,309 words
+- 183 files · ~146,339 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .example 1, .ico 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2108173d`
+- Built from commit: `a1719bc7`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
@@ -358,11 +358,11 @@ Nodes (33): answer, faqs, metadata, values, include, metadata, faqs, metadata (+
 _Questions this graph is uniquely positioned to answer:_
 
 - **Why does `next` connect `next` to `footer.tsx`, `admin-auth.ts`, `graph`, `review-generator.tsx`, `gmb-toolkit/page.tsx`, `team/page.tsx`, `package.json`, `tools/[slug]/page.tsx`, `framer-motion`, `reveal.tsx`, `emails.ts`, `home/page.tsx`, `content-types.ts`, `lucide-react`, `tools/page.tsx`, `work/[slug]/page.tsx`, `review-report.ts`, `chat-knowledge.ts`, `sitemap.ts`, `replies/page.tsx`, `chat-widget.tsx`, `blog/page.tsx`, `locations/page.tsx`, `react`, `seo.ts`, `location-detail.tsx`, `structured-data.ts`, `service-finder.tsx`, `(site)/page.tsx`, `buy-button.tsx`, `primitives.tsx`?**
-  _High betweenness centrality (0.208) - this node is a cross-community bridge._
+  _High betweenness centrality (0.207) - this node is a cross-community bridge._
 - **Why does `lucide-react` connect `lucide-react` to `footer.tsx`, `admin-auth.ts`, `graph`, `review-generator.tsx`, `gmb-toolkit/page.tsx`, `package.json`, `tools/[slug]/page.tsx`, `framer-motion`, `reveal.tsx`, `growth-audit-form.tsx`, `home/page.tsx`, `content-types.ts`, `tools/page.tsx`, `work/[slug]/page.tsx`, `review-report.ts`, `sitemap.ts`, `replies/page.tsx`, `chat-widget.tsx`, `blog/page.tsx`, `locations/page.tsx`, `location-detail.tsx`, `structured-data.ts`, `service-finder.tsx`, `(site)/page.tsx`, `buy-button.tsx`, `primitives.tsx`?**
-  _High betweenness centrality (0.116) - this node is a cross-community bridge._
-- **Why does `Multi-tenant review tool /r/[client]` connect `README.md` to `review-autoreply.ts`, `Macrostructure family`, `PROJECT_CONTEXT.md`?**
   _High betweenness centrality (0.115) - this node is a cross-community bridge._
+- **Why does `Multi-tenant review tool /r/[client]` connect `README.md` to `review-autoreply.ts`, `Macrostructure family`, `PROJECT_CONTEXT.md`?**
+  _High betweenness centrality (0.114) - this node is a cross-community bridge._
 - **What connects `npx`, `metadata`, `answer` to the rest of the system?**
   _377 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ElectricLogo.tsx` be split into smaller, more focused modules?**

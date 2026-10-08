@@ -831,6 +831,38 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
     .mx-notch::before, .mx-notch::after { display: none; }
   }
 
+  /* Header call pill (live site): dark pill, violet edge light, violet round phone button. */
+  .mx-phone-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    padding: 5px 1.25rem 5px 5px;
+    border-radius: 9999px;
+    border: 1px solid rgb(var(--accent) / 0.35);
+    background: rgb(var(--bg));
+    color: rgb(var(--ink));
+    font-size: 1.125rem;
+    font-weight: 600;
+    white-space: nowrap;
+    box-shadow: 0 0 22px -8px rgb(var(--accent) / 0.55);
+    transition: border-color 220ms ease, box-shadow 220ms ease;
+  }
+  .mx-phone-pill:hover,
+  .mx-phone-pill:focus-visible {
+    border-color: rgb(var(--accent) / 0.7);
+    box-shadow: 0 0 28px -6px rgb(var(--accent) / 0.75);
+  }
+  .mx-phone-pill__icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 2.875rem;
+    height: 2.875rem;
+    border-radius: 9999px;
+    background: rgb(var(--accent));
+    color: rgb(var(--accent-ink));
+  }
+
   /* Dark card with the live site's violet edge light. */
   .mx-glow-card {
     border-radius: 28px;

@@ -3,11 +3,12 @@
 import { useEffect, useRef, useState, type ReactNode } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ChevronDown, Menu, X, ArrowRight } from "lucide-react";
+import { ChevronDown, Menu, X, ArrowRight, PhoneCall } from "lucide-react";
 import { Wordmark } from "@/components/ui/wordmark";
 import { Cta, serviceHref } from "@/components/v2/primitives";
 import { primaryNav } from "@/lib/nav";
 import { ThemeToggle } from "@/components/v2/theme-toggle";
+import { business } from "@/lib/site-config";
 
 type PanelId = "services" | "industries" | "about";
 
@@ -39,7 +40,7 @@ const plainLinks = [
 
 /**
  * Desktop (lg+): floating pill — Home · Services ▾ · Industries ▾ · About ▾ · Blog ·
- * Contact · Free audit. About holds team, approach, case studies, careers, partners. Dropdowns open on hover or click; close on Escape or outside click.
+ * Contact · call pill (the live site's phone button). About holds team, approach, case studies, careers, partners. Dropdowns open on hover or click; close on Escape or outside click.
  *
  * Mobile + tablet: the live site's pattern — a full-width rounded bar with the logo
  * left and a violet menu button right, opening a drawer that slides in from the left.
@@ -126,13 +127,13 @@ export function SiteNav() {
       onClick={() => clickToggle(id)}
       onMouseEnter={() => hoverOpen(id)}
       onMouseLeave={hoverClose}
-      className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-        active || open === id ? "text-ink" : "text-ink-2 hover:text-ink"
+      className={`inline-flex items-center gap-1 whitespace-nowrap rounded-full px-2.5 py-2 text-[0.9375rem] xl:px-3 xl:text-[1.0625rem] font-medium transition-colors ${
+        active ? "text-accent" : open === id ? "text-ink" : "text-ink-2 hover:text-ink"
       }`}
     >
       {label}
       <ChevronDown
-        className={`h-4 w-4 transition-transform duration-200 ${open === id ? "rotate-180" : ""}`}
+        className={`h-4 w-4 text-accent transition-transform duration-200 ${open === id ? "rotate-180" : ""}`}
         strokeWidth={2}
         aria-hidden="true"
       />
@@ -171,21 +172,21 @@ export function SiteNav() {
     "inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-[10px] bg-accent text-accent-ink transition-colors hover:bg-accent-deep";
 
   return (
-    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-4 sm:top-4 sm:px-5 lg:px-6">
+    <header className="pointer-events-none fixed inset-x-0 top-3 z-50 flex justify-center px-4 sm:top-4 sm:px-5 lg:top-6 lg:px-[30px]">
       {/* ── Desktop: full-width bar (live-site layout): logo, menu centred, actions ─ */}
       <nav
         ref={navRef}
         aria-label="Primary"
-        className="pointer-events-auto relative hidden w-full max-w-[1880px] items-center justify-between rounded-[24px] border border-line bg-card/85 py-3 pl-7 pr-3 shadow-[0_10px_30px_-12px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
+        className="pointer-events-auto relative hidden w-full max-w-[1880px] items-center justify-between rounded-[28px] border border-line bg-card/85 py-[18px] pl-8 pr-4 shadow-[0_10px_30px_-12px_rgb(10_10_12/0.16)] dark:shadow-[0_10px_30px_-12px_rgb(0_0_0/0.7)] backdrop-blur-md lg:flex"
       >
-        <Wordmark height={40} priority />
+        <Wordmark height={46} priority />
 
         <div className="flex items-center">
         <Link
           href="/"
           aria-current={pathname === "/" ? "page" : undefined}
-          className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-            pathname === "/" ? "text-ink" : "text-ink-2 hover:text-ink"
+          className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[0.9375rem] xl:px-3 xl:text-[1.0625rem] font-medium transition-colors ${
+            pathname === "/" ? "text-accent" : "text-ink-2 hover:text-ink"
           }`}
         >
           Home
@@ -200,8 +201,8 @@ export function SiteNav() {
               key={link.href}
               href={link.href}
               aria-current={active ? "page" : undefined}
-              className={`whitespace-nowrap rounded-full px-3 py-2 text-sm font-medium transition-colors ${
-                active ? "text-ink" : "text-ink-2 hover:text-ink"
+              className={`whitespace-nowrap rounded-full px-2.5 py-2 text-[0.9375rem] xl:px-3 xl:text-[1.0625rem] font-medium transition-colors ${
+                active ? "text-accent" : "text-ink-2 hover:text-ink"
               }`}
             >
               {link.label}
@@ -212,7 +213,15 @@ export function SiteNav() {
 
         <div className="flex items-center gap-3">
           <ThemeToggle />
-          <Cta href="/growth-audit">Free audit</Cta>
+          {/* The live site's call pill: a violet phone button and the number. */}
+          <a href={`tel:${business.phone}`} className="mx-phone-pill max-xl:!gap-0 max-xl:!pr-[5px]">
+            <span className="mx-phone-pill__icon" aria-hidden="true">
+              <PhoneCall className="h-5 w-5" strokeWidth={2} />
+            </span>
+            <span className="sr-only">Call us on </span>
+            {/* Below 1280px the bar is tight, so only the phone button shows. */}
+            <span className="max-xl:sr-only">{business.phoneDisplay}</span>
+          </a>
         </div>
 
         {open === "services" && (
