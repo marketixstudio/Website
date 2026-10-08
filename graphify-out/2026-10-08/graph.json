@@ -15822,7 +15822,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "components/v2/footer.tsx",
-      "source_location": "L180",
+      "source_location": "L193",
       "weight": 1.0
     },
     {
@@ -45191,5 +45191,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "ec2f803e02aa64d6769b0bb5941dd55d7ecafd63"
+  "built_at_commit": "861f4667a9fbb470803704b9737859a4d0e6d977"
 }

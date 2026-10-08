@@ -534,15 +534,15 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1790528728.8543603,
-    "seen": 1790529030.1692731,
-    "ast_hash": "2f0b112751dd5e8cbf3d1bf48f4b82f0",
+    "mtime": 1791478136.2820628,
+    "seen": 1791479432.674571,
+    "ast_hash": "84a8ee78dcd04b44db2f32742b543235",
     "semantic_hash": ""
   },
   "package.json": {
-    "mtime": 1790528728.8548293,
-    "seen": 1790529030.169274,
-    "ast_hash": "6adce7ca38753876b7702b46ef38a2d3",
+    "mtime": 1791479372.8005729,
+    "seen": 1791479432.674572,
+    "ast_hash": "97a0c7646a1fa5a899328137391fb403",
     "semantic_hash": ""
   },
   "postcss.config.mjs": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1791462450.532425,
-    "seen": 1791462452.688577,
-    "ast_hash": "76c473adac5147388de3d0512e9e8213",
+    "mtime": 1791479429.5026557,
+    "seen": 1791479432.6745842,
+    "ast_hash": "ae1bd10cd1de5b2df80320d7c02fe6ba",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
@@ -1059,6 +1059,18 @@
     "mtime": 1790531311.9717574,
     "seen": 1790531316.718111,
     "ast_hash": "91da90e170d220f8a33ea023bc023ac1",
+    "semantic_hash": ""
+  },
+  "scripts/import-demo-site.py": {
+    "mtime": 1791478226.4155874,
+    "seen": 1791479432.674575,
+    "ast_hash": "6e109db43006b9c521edc2a2b46552f2",
+    "semantic_hash": ""
+  },
+  "docs/DNS_RECORDS.md": {
+    "mtime": 1791463730.1373122,
+    "seen": 1791479432.674582,
+    "ast_hash": "c616a053749846787681590c9d4653ca",
     "semantic_hash": ""
   }
 }

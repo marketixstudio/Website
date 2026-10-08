@@ -588,9 +588,9 @@
     "semantic_hash": "5122e6e59104073c6bcd761be24e35c1"
   },
   "design.md": {
-    "mtime": 1790526782.7521076,
-    "seen": 1790526817.187403,
-    "ast_hash": "d40199fdc0554159f606df0bcd3dd121",
+    "mtime": 1791462450.531093,
+    "seen": 1791462452.688576,
+    "ast_hash": "3d1d83efada13f1c9affd6c2fd489a08",
     "semantic_hash": ""
   },
   "docs/PROJECT_CONTEXT.md": {
@@ -606,9 +606,9 @@
     "semantic_hash": ""
   },
   "components/v2/footer.tsx": {
-    "mtime": 1790526421.353468,
-    "seen": 1790526472.063253,
-    "ast_hash": "41dc87360cca88942bfd12abec0fb28a",
+    "mtime": 1791462426.1476378,
+    "seen": 1791462452.688549,
+    "ast_hash": "6f256deb1ca65cd00a26d0a5d232fbdc",
     "semantic_hash": ""
   },
   "components/v2/nav.tsx": {
@@ -660,9 +660,9 @@
     "semantic_hash": ""
   },
   "docs/REDESIGN_PLAN.md": {
-    "mtime": 1790531311.9729366,
-    "seen": 1790531316.718108,
-    "ast_hash": "8862bbe57cd9571bee62e4b7d29914a6",
+    "mtime": 1791462450.532425,
+    "seen": 1791462452.688577,
+    "ast_hash": "76c473adac5147388de3d0512e9e8213",
     "semantic_hash": ""
   },
   "components/services/service-finder.tsx": {
