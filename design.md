@@ -263,3 +263,5 @@ Dark is the reference; light is tuned separately, never a straight inversion.
 ## Row buttons (2026-09-27)
 
 Lists of links (service groups and similar) use `.mx-row` with the arrow in `.mx-row-go`, never a bare icon + text + arrow line, which reads as a bullet list. Labels wrap; don't truncate.
+
+Exception: the footer. Its link columns are a directory to scan, so they stay plain text links (arrow appears on hover/focus, 40px tap height). Boxing all 18 footer links was tried on 2026-09-27 and read as a wall of buttons.
