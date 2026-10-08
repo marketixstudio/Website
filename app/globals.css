@@ -795,3 +795,16 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
   from { opacity: 0; transform: translateY(8px) scale(0.96); }
   to { opacity: 1; transform: none; }
 }
+
+/* LogoTraceLoader (components/LogoTraceLoader.tsx) */
+@keyframes logo-trace-loader-loop {
+  to { stroke-dashoffset: -1; }
+}
+@keyframes logo-trace-loader-close {
+  from { stroke-dashoffset: 1; }
+  to { stroke-dashoffset: 0; }
+}
+@keyframes logo-trace-loader-fill {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
