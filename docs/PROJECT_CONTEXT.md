@@ -156,13 +156,13 @@ Next:
 - Pricing: nothing is published except the ₹99 toolkit. If you want package prices on
   /pricing, send them.
 - Confirm "no refunds once accessed" on the toolkit buy card matches your refund policy.
-- Legal pages were cloned from Vistrow: the privacy policy mentions a "site chat" and storing
-  "theme and accent colour" (neither exists here) and several pages mention "automation"
-  results. Needs a legal review.
+- Legal pages were cloned from Vistrow and need a legal review. The "site chat" and "theme and
+  accent colour" lines are now accurate (Riya and the accent picker exist), but the privacy
+  policy still lists "content management" and "CRM" providers we don't use, and several pages
+  mention "automation" results.
 - Confirm all 12 location pages should be live (especially Australia, Canada, Singapore).
-- API keys: Anthropic (review tool), Razorpay, Stripe, Resend, GA4.
+- API keys: OpenAI and Resend are live on Vercel (2026-10-08). Still missing: Razorpay/Stripe
+  (the Rs 99 toolkit cannot be bought until they are added) and the GA4 measurement ID.
 - GMB toolkit claims "500+ businesses" and "rank in 30 days" were NOT carried over; need
   evidence first.
-- Email templates (`app/api/inquiries/route.ts`) still use Vistrow lime #C6FF00 and a missing
-  `logo-light.png`.
 - Optional: a brand video for the hero.
