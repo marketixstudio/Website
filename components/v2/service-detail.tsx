@@ -3,11 +3,12 @@
  * testimonials: none (design.md: client quotes live on case studies) · eyebrows: none
  */
 import Link from "next/link";
+import { Eyebrow } from "@/components/ui/section-heading";
 import { AlertTriangle, ArrowRight, Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { FillHeading } from "@/components/v2/fill-heading";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
-import { StepRail } from "@/components/v2/step-rail";
+import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { AnswerCard, Cta, FaqList, TextLink, serviceHref } from "@/components/v2/primitives";
 import { services } from "@/content/services";
 import type { ServiceContent } from "@/lib/content-types";
@@ -148,10 +149,11 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
       </div>
 
       {/* 2 · The problem this service fixes. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
-            <FillHeading className="max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>The problem</Eyebrow>
+            <FillHeading className="mt-6 max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               {content.problem.title}
             </FillHeading>
             <p className="mt-6 max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted">{content.problem.body}</p>
@@ -168,17 +170,17 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
       </section>
 
       {/* 3 · How it works: the page's centrepiece. */}
-      <section id="how" className="scroll-mt-28 border-t border-line py-24 sm:py-28">
-        <div className="container-edge">
-          <h2 className="mb-12 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            How we run {content.title.toLowerCase().startsWith("seo") ? "SEO" : content.title.replace(/ & /g, " and ")}
-          </h2>
-          <StepRail steps={content.steps} />
-        </div>
-      </section>
+      <ProcessPanel
+        id="how"
+        title={`How we run ${content.title.toLowerCase().startsWith("seo") ? "SEO" : content.title.replace(/ & /g, " and ")}`}
+        intro="A clear path from where you are to where you want to be, built around your goals. No guesswork, no wasted budget."
+        aside={<TextLink href="/growth-audit">Get a free strategy call</TextLink>}
+      >
+        <StepRail steps={content.steps} />
+      </ProcessPanel>
 
       {/* 4 · Everything included, and the platforms we work in. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-5 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
           <div className="mx-card p-8 sm:p-10">
             <h2 className="font-display text-2xl font-bold text-ink sm:text-3xl">What&apos;s included</h2>
@@ -205,9 +207,10 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
       </section>
 
       {/* 5 · Where to go next: related services, industries, proof. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>Related services</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             Works well with
           </h2>
           <ul className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-3">
@@ -238,10 +241,11 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
       </section>
 
       {/* 6 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

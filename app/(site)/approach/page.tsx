@@ -1,11 +1,13 @@
 /* Hallmark · genre: atmospheric · template: company · centrepiece: StepRail of the method
  * honest: pass (46: principles describe process, no invented guarantees) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { FileCheck2, Map, Search, ShieldCheck, TrendingUp, Wrench } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { IndexHero } from "@/components/v2/index-hero";
-import { StepRail } from "@/components/v2/step-rail";
+import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { AnswerCard, Cta, TextLink } from "@/components/v2/primitives";
 import type { AnswerBlock } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
@@ -69,14 +71,13 @@ export default function Page() {
       />
 
       {/* 1 · The method: the page's centrepiece. */}
-      <section aria-labelledby="method" className="pb-24">
-        <div className="container-edge">
-          <h2 id="method" className="mb-12 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            How every engagement runs
-          </h2>
-          <StepRail steps={steps} />
-        </div>
-      </section>
+      <ProcessPanel
+        eyebrow="Our method"
+        title="How every engagement runs"
+        intro="The same four steps on every engagement, so growth is planned, measured and improved rather than left to chance."
+      >
+        <StepRail steps={steps} />
+      </ProcessPanel>
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
@@ -84,13 +85,14 @@ export default function Page() {
       </div>
 
       {/* 3 · Principles. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What guides the work</h2>
+          <Eyebrow>Our principles</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What guides the work</h2>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {principles.map((p) => (
               <li key={p.title} className="mx-card p-6">
-                <p.icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                <GlossIcon icon={p.icon} size="sm" />
                 <p className="mt-4 font-display text-lg font-bold text-ink">{p.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{p.body}</p>
               </li>
@@ -100,11 +102,14 @@ export default function Page() {
       </section>
 
       {/* 4 · Agreed before work starts. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <h2 className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            Agreed before the work begins
-          </h2>
+          <div>
+            <Eyebrow>Clear terms</Eyebrow>
+            <h2 className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+              Agreed before the work begins
+            </h2>
+          </div>
           <ul className="grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2">
             {agreed.map((a) => (
               <li key={a.title} className="mx-card p-7">
@@ -117,11 +122,14 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            Step one is free
-          </h2>
+          <div>
+            <Eyebrow>Free growth audit</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+              Step one is free
+            </h2>
+          </div>
           <div className="flex flex-col items-start gap-5">
             <Cta href="/growth-audit">Get a free growth audit</Cta>
             <TextLink href="/services">See our services</TextLink>

@@ -1,6 +1,8 @@
 /* Hallmark · genre: atmospheric · template: company · centrepiece: "studio at a glance" board, every number counted from content
  * honest: pass (46: removed invented retainer range, flat-fee and exclusivity claims, 90-day review) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -147,13 +149,14 @@ export default function Page() {
       </div>
 
       {/* 3 · How we work. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What we believe</h2>
+          <Eyebrow>Our values</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What we believe</h2>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {values.map((v) => (
               <li key={v.title} className="mx-card p-6">
-                <v.icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                <GlossIcon icon={v.icon} size="sm" />
                 <p className="mt-4 font-display text-lg font-bold text-ink">{v.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{v.body}</p>
               </li>
@@ -166,10 +169,11 @@ export default function Page() {
       </section>
 
       {/* 4 · The people. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="max-w-[14ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Our team</Eyebrow>
+            <h2 className="mt-6 max-w-[14ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               The team behind the work
             </h2>
             <p className="mt-5 max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -202,10 +206,11 @@ export default function Page() {
       </section>
 
       {/* 5 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <div className="mt-8 flex flex-col items-start gap-5">

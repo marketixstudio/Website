@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: conversion · centrepiece: "what the audit checks" board beside the form
  * honest: pass (46: Vistrow CRM/automation framing removed; describes only what the audit looks at) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { BarChart3, CalendarCheck, ListChecks, MapPin, MessagesSquare, MonitorSmartphone, Search } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -116,9 +117,10 @@ export default function Page() {
       </section>
 
       {/* 2 · What happens next. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What happens next</h2>
+          <Eyebrow>How it works</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What happens next</h2>
           <ol className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-3">
             {steps.map((s, i) => (
               <li key={s.title} className="mx-card p-7">
@@ -137,9 +139,12 @@ export default function Page() {
       </section>
 
       {/* 3 · Questions. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">About the audit</h2>
+          <div>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">About the audit</h2>
+          </div>
           <FaqList items={faqs} />
         </div>
       </section>

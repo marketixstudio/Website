@@ -2,11 +2,13 @@
  * design-system: design.md · nav: N5 · footer: Ft5 · honest: pass (46: invented claims removed from servicesOverview)
  * chrome: pass (47) · eyebrows: none
  */
+import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { FillHeading } from "@/components/v2/fill-heading";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { ServiceFinder, type FinderCard } from "@/components/services/service-finder";
 import { servicesOverview } from "@/content/services";
@@ -42,7 +44,7 @@ export default function Page() {
   const { cards, intro, process, faqs = [] } = servicesOverview;
   const finderCards: FinderCard[] = cards.map(({ icon: Icon, ...card }) => ({
     ...card,
-    icon: Icon ? <Icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" /> : undefined,
+    icon: Icon ? <GlossIcon icon={Icon} size="sm" /> : undefined,
   }));
 
   return (
@@ -100,48 +102,27 @@ export default function Page() {
 
       {/* 3 · Why plan them together, and how an engagement runs. */}
       {intro && process && (
-        <section className="border-t border-line py-24 sm:py-32">
-          <div className="container-edge">
-            <div className="grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-              <FillHeading className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-                {intro.title}
-              </FillHeading>
-              <div>
-                <p className="max-w-[54ch] text-[1.0625rem] leading-relaxed text-muted">{intro.body}</p>
-                <ul className="mt-6 space-y-3">
-                  {intro.points.map((point) => (
-                    <li key={point} className="flex gap-3 text-[0.9375rem] text-ink-2">
-                      <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={2.5} aria-hidden="true" />
-                      {point}
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </div>
-
-            <div className="relative mt-16">
-              <span aria-hidden="true" className="absolute bottom-6 left-[1.375rem] top-6 w-px bg-line lg:hidden" />
-              <span aria-hidden="true" className="absolute left-[12%] right-[12%] top-[1.375rem] hidden h-px bg-line lg:block" />
-              <ol className="relative grid gap-4 lg:grid-cols-4">
-                {process.map((step, i) => (
-                  <li key={step.title} className="relative flex gap-4 lg:block">
-                    <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent bg-bg text-sm font-bold text-accent lg:mx-auto lg:flex">
-                      {i + 1}
-                    </span>
-                    <div className="mx-card min-w-0 flex-1 p-6 lg:mt-5">
-                      <h3 className="font-display text-xl font-bold text-ink">{step.title}</h3>
-                      <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
-                    </div>
-                  </li>
-                ))}
-              </ol>
-            </div>
-          </div>
-        </section>
+        <ProcessPanel
+          eyebrow="Our services"
+          title={intro.title}
+          intro={intro.body}
+          aside={
+            <ul className="space-y-3">
+              {intro.points.map((point) => (
+                <li key={point} className="flex gap-3 text-[0.9375rem] text-ink-2">
+                  <Check className="mt-0.5 h-4 w-4 shrink-0 text-accent" strokeWidth={2.5} aria-hidden="true" />
+                  {point}
+                </li>
+              ))}
+            </ul>
+          }
+        >
+          <StepRail steps={process} />
+        </ProcessPanel>
       )}
 
       {/* 4 · Same services, by industry. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="mx-card grid gap-8 p-8 sm:p-10 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)] lg:items-center">
             <div>
@@ -169,10 +150,11 @@ export default function Page() {
       </section>
 
       {/* 5 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Get started</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Not sure where to start?
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: contact · centrepiece: three-route chooser (call, WhatsApp, form)
  * honest: pass (46: removed invented pricing, "a third international" and response-time promises) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -136,10 +137,11 @@ export default function Page() {
       </section>
 
       {/* 2 · The form, with the office alongside. */}
-      <section id="contact-form" className="scroll-mt-28 border-t border-line py-24 sm:py-28">
+      <section id="contact-form" className="scroll-mt-28 py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Before we talk</Eyebrow>
+            <h2 className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Start with the real problem
             </h2>
             <p className="mt-5 max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -177,10 +179,11 @@ export default function Page() {
       </section>
 
       {/* 3 · Questions. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Before you get in touch</h2>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Before you get in touch</h2>
             <div className="mt-6 flex flex-col items-start gap-4">
               <TextLink href="/faq">All questions</TextLink>
               <TextLink href="/pricing">How we price</TextLink>

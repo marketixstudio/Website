@@ -20,7 +20,7 @@ export function CtaBand({
   secondaryCta?: CtaLink;
 }) {
   return (
-    <section className="border-t border-line bg-surface">
+    <section className="bg-surface">
       <div className="container-edge py-section">
         <Reveal>
           <div className="grid gap-x-10 gap-y-8 lg:grid-cols-[1.25fr_1fr] lg:items-end">

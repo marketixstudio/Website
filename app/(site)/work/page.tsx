@@ -2,6 +2,7 @@
  * honest: pass (46: one published study, shown as one; client quotes are real and approved)
  * testimonials: allowed here (the case-study hub) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -125,9 +126,10 @@ export default function Page() {
 
       {/* 3 · Clients in their own words. */}
       {quotes.length > 0 && (
-        <section className="border-t border-line py-24 sm:py-28">
+        <section className="py-24 sm:py-28">
           <div className="container-edge">
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">In our clients&apos; words</h2>
+            <Eyebrow>What our clients say</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">In our clients&apos; words</h2>
             <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-5 md:grid-cols-2 xl:grid-cols-3">
               {quotes.map((t) => (
                 <li key={t.id}>
@@ -163,7 +165,7 @@ export default function Page() {
       )}
 
       {/* 4 · Everyone we've worked with. */}
-      <section className="border-t border-line py-20">
+      <section className="py-20">
         <div className="container-edge">
           <h2 className="text-base font-semibold text-ink-2">Brands we&apos;ve worked with</h2>
           <ul className="mt-8 grid grid-cols-2 gap-3 sm:grid-cols-4">
@@ -177,10 +179,11 @@ export default function Page() {
       </section>
 
       {/* 5 · Next step. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Coming soon</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               More write-ups are on the way
             </h2>
             <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">

@@ -172,7 +172,7 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
                 ))}
 
                 {post.faqs && post.faqs.length > 0 && (
-                  <section id="faq" className="scroll-mt-28 border-t border-line pt-12">
+                  <section id="faq" className="scroll-mt-28 pt-12">
                     <h2 className="mb-6 font-display text-[clamp(1.5rem,2.2vw,1.9rem)] font-bold leading-[1.25] text-ink">
                       Questions people ask
                     </h2>
@@ -225,7 +225,7 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
 
       {/* Related posts */}
       {morePosts.length > 0 && (
-        <section className="border-t border-line py-24 sm:py-28">
+        <section className="py-24 sm:py-28">
           <div className="container-edge">
             <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
               <h2 className="font-display text-h2 font-bold text-ink">Keep reading</h2>

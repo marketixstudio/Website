@@ -2,11 +2,13 @@
  * honest: pass (46: ₹99 / ₹999 and contents from the live page; "500+ businesses" and "30 days" NOT carried over)
  * chrome: pass (47: no drawn spreadsheet UI) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { BuyButton } from "@/components/tools/buy-button";
-import { StepRail } from "@/components/v2/step-rail";
+import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { AnswerCard, FaqList, TextLink } from "@/components/v2/primitives";
 import { products } from "@/content/products-catalog";
 import { buildMetadata } from "@/lib/seo";
@@ -77,12 +79,15 @@ export default function Page() {
       </section>
 
       {/* 2 · What's inside: the page's centrepiece. */}
-      <section aria-labelledby="inside" className="border-t border-line py-24 sm:py-28">
+      <section aria-labelledby="inside" className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
-            <h2 id="inside" className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              What&apos;s inside the file
-            </h2>
+            <div>
+              <Eyebrow>What you get</Eyebrow>
+              <h2 id="inside" className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+                What&apos;s inside the file
+              </h2>
+            </div>
             <p className="text-[0.9375rem] text-muted">One Excel file, 12 sheets. No course, no videos.</p>
           </div>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -94,7 +99,7 @@ export default function Page() {
                     {n ? (
                       <span className="font-display text-xl font-bold text-accent">{n}</span>
                     ) : (
-                      item.icon && <item.icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                      item.icon && <GlossIcon icon={item.icon} size="sm" />
                     )}
                   </span>
                   <span className="min-w-0">
@@ -109,12 +114,9 @@ export default function Page() {
       </section>
 
       {/* 3 · How to use it. */}
-      <section className="border-t border-line py-24 sm:py-28">
-        <div className="container-edge">
-          <h2 className="mb-12 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">How to use it</h2>
-          <StepRail steps={product.howItWorks} />
-        </div>
-      </section>
+      <ProcessPanel title="How to use it">
+        <StepRail steps={product.howItWorks} />
+      </ProcessPanel>
 
       {/* 4 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
@@ -122,10 +124,11 @@ export default function Page() {
       </div>
 
       {/* 5 · Questions, and the done-for-you option. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions</h2>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions</h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Rather have us do it for you? That is our local SEO service.
             </p>

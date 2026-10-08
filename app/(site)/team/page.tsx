@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: company · centrepiece: founder lead card + team grid of real people
  * honest: pass (46: names, roles and photos from the live site; missing photo shown as a placeholder, not a stock face)
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { IndexHero } from "@/components/v2/index-hero";
@@ -73,10 +74,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Work with us</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Want to meet the team?
             </h2>
             <p className="mt-5 max-w-[50ch] text-[1.0625rem] leading-relaxed text-muted">

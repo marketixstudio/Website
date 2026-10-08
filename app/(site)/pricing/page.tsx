@@ -2,6 +2,8 @@
  * honest: pass (46: the old tiers, prices, minimum spends and "no setup fee" were invented and are removed;
  * the only public price is the ₹99 toolkit) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { Layers, MapPin, Megaphone, PenTool, Search } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -110,13 +112,14 @@ export default function Page() {
       </div>
 
       {/* 3 · What shapes a quote. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What shapes a quote</h2>
+          <Eyebrow>How we price</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What shapes a quote</h2>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-5">
             {drivers.map((d) => (
               <li key={d.title} className="mx-card p-6">
-                <d.icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                <GlossIcon icon={d.icon} size="sm" />
                 <p className="mt-4 font-display text-lg font-bold text-ink">{d.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{d.body}</p>
               </li>
@@ -126,7 +129,7 @@ export default function Page() {
       </section>
 
       {/* 4 · The one fixed price we have. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="mx-card grid grid-cols-[minmax(0,1fr)] items-center gap-8 p-8 sm:p-10 lg:grid-cols-[minmax(0,1fr)_auto]">
             <div>
@@ -145,10 +148,11 @@ export default function Page() {
       </section>
 
       {/* 5 · Questions. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Pricing questions</h2>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Pricing questions</h2>
             <div className="mt-6">
               <TextLink href="/services">See all services</TextLink>
             </div>

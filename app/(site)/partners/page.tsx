@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: company · honest: pass (46: invented white-label programme,
  * technology integrations and "never approach your clients" promise removed) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { Handshake, Megaphone, Users } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -51,10 +52,11 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
           <div>
-            <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Get in touch</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Start with a conversation
             </h2>
             <p className="mt-5 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">

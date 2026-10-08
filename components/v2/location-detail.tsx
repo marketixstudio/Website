@@ -2,7 +2,10 @@
  * centrepiece: AreaGlobe (India: spinning Earth, arc from Pune) or HoursOverlap (international), computed from real offsets
  * honest: pass (46: invented prices, capabilities and wrong time-zone claims fixed in content/locations.ts)
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import Link from "next/link";
+import { Eyebrow } from "@/components/ui/section-heading";
+import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { ArrowRight } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { HoursOverlap } from "@/components/v2/market-visuals";
@@ -83,10 +86,11 @@ export function LocationDetail({ content }: { content: LocationContent }) {
       </div>
 
       {/* 2 · The market, drawn: the page's centrepiece. */}
-      <section id="market" className="scroll-mt-28 border-t border-line py-24 sm:py-28">
+      <section id="market" className="scroll-mt-28 py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Local focus</Eyebrow>
+            <h2 className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               {isIndia ? `Areas we target around ${content.area}` : `Your working day and ours`}
             </h2>
             <p className="mt-5 max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -110,9 +114,10 @@ export function LocationDetail({ content }: { content: LocationContent }) {
 
       {/* 2b · Pune only: the neighbourhood pages. */}
       {content.slug === "pune" && (
-        <section aria-labelledby="pune-areas" className="border-t border-line py-24 sm:py-28">
+        <section aria-labelledby="pune-areas" className="py-24 sm:py-28">
           <div className="container-edge">
-            <h2 id="pune-areas" className="max-w-[22ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Pune neighbourhoods</Eyebrow>
+            <h2 id="pune-areas" className="mt-6 max-w-[22ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Digital marketing across Pune&apos;s neighbourhoods
             </h2>
             <p className="mt-5 max-w-[60ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -139,16 +144,17 @@ export function LocationDetail({ content }: { content: LocationContent }) {
       )}
 
       {/* 3 · Why this market needs its own plan. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="max-w-[22ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>Our approach</Eyebrow>
+          <h2 className="mt-6 max-w-[22ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             {content.solution.title}
           </h2>
           <p className="mt-5 max-w-[60ch] text-[1.0625rem] leading-relaxed text-muted">{content.solution.body}</p>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {content.reasons.map((r) => (
               <li key={r.title} className="mx-card p-6">
-                {r.icon && <r.icon className="h-6 w-6 text-accent" strokeWidth={1.8} aria-hidden="true" />}
+                {r.icon && <GlossIcon icon={r.icon} size="sm" />}
                 <p className="mt-4 font-display text-lg font-bold text-ink">{r.title}</p>
                 <p className="mt-1.5 text-sm leading-relaxed text-muted">{r.body}</p>
               </li>
@@ -157,26 +163,13 @@ export function LocationDetail({ content }: { content: LocationContent }) {
         </div>
       </section>
 
-      {/* 4 · How an engagement runs here (static; the centrepiece carries the motion). */}
-      <section className="border-t border-line py-24 sm:py-28">
-        <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">How it runs</h2>
-          <ol className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-4">
-            {content.process.map((step, i) => (
-              <li key={step.title} className="mx-card p-6">
-                <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-accent text-sm font-bold text-accent">
-                  {i + 1}
-                </span>
-                <p className="mt-4 font-display text-lg font-bold text-ink">{step.title}</p>
-                <p className="mt-1.5 text-sm leading-relaxed text-muted">{step.body}</p>
-              </li>
-            ))}
-          </ol>
-        </div>
-      </section>
+      {/* 4 · How an engagement runs here, in the shared process panel. */}
+      <ProcessPanel title="How it runs">
+        <StepRail steps={content.process} />
+      </ProcessPanel>
 
       {/* 5 · Where to go next. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
           <div className="mx-card p-8">
             <h2 className="font-display text-2xl font-bold leading-[1.15] text-ink">Services in {content.area}</h2>
@@ -227,10 +220,11 @@ export function LocationDetail({ content }: { content: LocationContent }) {
       </section>
 
       {/* 6 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

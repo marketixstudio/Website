@@ -3,6 +3,7 @@
  * testimonials: none (case study card links out instead) · eyebrows: none
  */
 import Link from "next/link";
+import { Eyebrow } from "@/components/ui/section-heading";
 import { ArrowRight, TriangleAlert } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { FillHeading } from "@/components/v2/fill-heading";
@@ -79,9 +80,10 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
       </div>
 
       {/* 2 · What usually goes wrong. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="container-edge">
-          <FillHeading className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>The problem</Eyebrow>
+          <FillHeading className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             {`What usually goes wrong in ${f.sector} marketing`}
           </FillHeading>
           <ul className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-3 md:grid-cols-2">
@@ -99,10 +101,11 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
       </section>
 
       {/* 3 · The approach, drawn as a funnel: the page's centrepiece. */}
-      <section id="how" className="scroll-mt-28 border-t border-line py-24 sm:py-32">
+      <section id="how" className="scroll-mt-28 py-24 sm:py-32">
         <div className="container-edge grid items-center gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
-            <h2 className="max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Our approach</Eyebrow>
+            <h2 className="mt-6 max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               {content.solution.title}
             </h2>
             <p className="mt-6 max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">{content.solution.body}</p>
@@ -115,9 +118,10 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
       </section>
 
       {/* 4 · Services used for this sector. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>Services</Eyebrow>
+          <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             Services we use for {f.sector}
           </h2>
           <ul className="mt-10 grid grid-cols-[minmax(0,1fr)] gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -140,7 +144,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
       </section>
 
       {/* 5 · Proof where it exists, and where we run these campaigns. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-5 lg:grid-cols-2">
           {study ? (
             <article className="mx-card group relative flex flex-col p-8 transition-colors hover:border-accent/60">
@@ -188,10 +192,11 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
       </section>
 
       {/* 6 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

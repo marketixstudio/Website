@@ -3,6 +3,8 @@
  * nav: N5 · footer: Ft5 · honest: pass (46) · chrome: pass (47 — live page in a figure, no drawn device) · eyebrows: none
  * testimonials: none on service pages — the Jay Ganesh quote lives on its case study
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { FileSpreadsheet, MapPin, MessageSquareQuote, Star } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -111,10 +113,11 @@ export default function Page() {
       </div>
 
       {/* 3 · The real tool, shown live. */}
-      <section id="review-page" className="scroll-mt-28 border-t border-line py-24 sm:py-32">
+      <section id="review-page" className="scroll-mt-28 py-24 sm:py-32">
         <div className="container-edge grid items-center gap-14 lg:grid-cols-[minmax(0,1.1fr)_minmax(0,0.9fr)]">
           <div>
-            <FillHeading className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>Our review page</Eyebrow>
+            <FillHeading className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Happy customers rarely write reviews. We made it take seconds.
             </FillHeading>
             <p className="mt-6 max-w-[58ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -176,9 +179,10 @@ export default function Page() {
       </section>
 
       {/* 4 · Scope, in three unequal groups rather than a card grid. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="container-edge">
-          <FillHeading className="max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>What we do</Eyebrow>
+          <FillHeading className="mt-6 max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             What the work involves
           </FillHeading>
           <div className="mt-14 grid gap-5 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,1fr)]">
@@ -187,7 +191,7 @@ export default function Page() {
               const renderGroup = (group: (typeof workGroups)[number], large: boolean) => (
                 <div key={group.title} className={`mx-card p-8 ${large ? "sm:p-10 lg:row-span-2" : ""}`}>
                   <h3 className="flex items-center gap-3 font-display text-xl font-bold text-ink sm:text-2xl">
-                    <group.icon className="h-5 w-5 text-accent" strokeWidth={1.9} aria-hidden="true" />
+                    <GlossIcon icon={group.icon} size="sm" />
                     {group.title}
                   </h3>
                   <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{group.body}</p>
@@ -235,10 +239,11 @@ export default function Page() {
       </section>
 
       {/* 6 · Questions. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

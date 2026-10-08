@@ -55,7 +55,7 @@ const config: Config = {
         "display": ["clamp(2.6rem, 5vw + 0.5rem, 5.25rem)", { lineHeight: "1.2", letterSpacing: "normal", fontWeight: "700" }],
         "hero-lg": ["clamp(2.5rem, 4.4vw, 3.75rem)", { lineHeight: "1.08", letterSpacing: "-0.035em", fontWeight: "800" }],
         "hero": ["clamp(2.5rem, 4.5vw, 4rem)", { lineHeight: "1.05", letterSpacing: "-0.035em", fontWeight: "800" }],
-        "h2": ["clamp(1.9rem, 3.4vw, 3.1rem)", { lineHeight: "1.2", letterSpacing: "normal", fontWeight: "700" }],
+        "h2": ["clamp(2.25rem, 4vw, 3.75rem)", { lineHeight: "1.14", letterSpacing: "normal", fontWeight: "700" }],
         "h3": ["clamp(1.4rem, 2vw, 1.75rem)", { lineHeight: "1.25", letterSpacing: "-0.005em", fontWeight: "700" }],
         "metric": ["clamp(2.5rem, 4vw, 3.5rem)", { lineHeight: "1", letterSpacing: "-0.03em", fontWeight: "800" }],
       },

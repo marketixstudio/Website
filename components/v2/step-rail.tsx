@@ -1,51 +1,83 @@
-"use client";
+import type { ReactNode } from "react";
+import type { LucideIcon } from "lucide-react";
+import { Eyebrow } from "@/components/ui/section-heading";
 
-import { motion, useReducedMotion } from "framer-motion";
-
-type Step = { title: string; body: string };
+type Step = { title: string; body: string; icon?: LucideIcon };
 
 /**
- * Numbered steps on a connector rail: vertical on small screens, horizontal on
- * large. Node-by-node reveal is the page's single orchestrated entrance;
- * reduced motion shows it static.
+ * Steps in the live site's process box (the home page's "4-step process"): one violet
+ * bordered box, the steps as columns divided by violet lines, each led by a large outlined
+ * number. No 3D tiles here: one set of 3D icons per page is enough (user, 2026-10-08).
  */
 export function StepRail({ steps }: { steps: Step[] }) {
-  const reduce = useReducedMotion();
   const cols = steps.length >= 5 ? "lg:grid-cols-5" : steps.length === 3 ? "lg:grid-cols-3" : "lg:grid-cols-4";
 
   return (
-    <div className="relative">
-      <span aria-hidden="true" className="absolute bottom-8 left-[1.375rem] top-8 w-px bg-line lg:hidden" />
-      <span aria-hidden="true" className="absolute left-[12%] right-[12%] top-[1.375rem] hidden h-px bg-line lg:block" />
-      {/* The rail inks in violet as the steps arrive. */}
-      <motion.span
-        aria-hidden="true"
-        className="absolute left-[12%] right-[12%] top-[1.375rem] hidden h-px origin-left bg-accent/70 lg:block"
-        initial={reduce ? false : { scaleX: 0 }}
-        whileInView={reduce ? undefined : { scaleX: 1 }}
-        viewport={{ once: true, margin: "0px 0px -15% 0px" }}
-        transition={{ duration: 1.1, ease: [0.16, 1, 0.3, 1] }}
-      />
-      <ol className={`relative grid grid-cols-[minmax(0,1fr)] gap-4 ${cols}`}>
-        {steps.map((step, i) => (
-          <motion.li
-            key={step.title}
-            initial={reduce ? false : { opacity: 0, y: 14 }}
-            whileInView={reduce ? undefined : { opacity: 1, y: 0 }}
-            viewport={{ once: true, margin: "0px 0px -12% 0px" }}
-            transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
-            className="relative flex gap-4 lg:block"
+    <ol className={`relative grid grid-cols-[minmax(0,1fr)] gap-8 rounded-[24px] border border-accent/60 bg-bg/60 p-6 sm:p-8 md:grid-cols-2 lg:gap-0 ${cols}`}>
+      {steps.map((step, i) => (
+        <li
+          key={step.title}
+          className={`flex flex-col lg:px-7 ${i > 0 ? "lg:border-l lg:border-accent/35" : "lg:pl-0"} ${i === steps.length - 1 ? "lg:pr-0" : ""}`}
+        >
+          <span
+            aria-hidden="true"
+            className="font-display text-[3.25rem] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(var(--accent))]"
           >
-            <span className="relative z-10 inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full border border-accent bg-bg text-sm font-bold text-accent lg:mx-auto lg:flex">
-              {i + 1}
-            </span>
-            <div className="mx-card min-w-0 flex-1 p-6 transition-colors hover:border-accent/60 lg:mt-5">
-              <h3 className="font-display text-xl font-bold text-ink">{step.title}</h3>
-              <p className="mt-2 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
+            {String(i + 1).padStart(2, "0")}
+          </span>
+          <h3 className="mt-5 font-display text-xl font-bold leading-snug text-ink">
+            <span className="sr-only">Step {i + 1}: </span>
+            {step.title}
+          </h3>
+          <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{step.body}</p>
+        </li>
+      ))}
+    </ol>
+  );
+}
+
+/**
+ * The large panel the process sits in on the home page: label and heading on the left,
+ * an intro and link on the right, the steps below, and a soft violet light at the base.
+ */
+export function ProcessPanel({
+  eyebrow = "How it works",
+  title,
+  intro,
+  aside,
+  id,
+  children,
+}: {
+  eyebrow?: string;
+  title: ReactNode;
+  intro?: ReactNode;
+  aside?: ReactNode;
+  id?: string;
+  children: ReactNode;
+}) {
+  return (
+    <section id={id} className="scroll-mt-28 py-16 sm:py-24">
+      <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8">
+        <div className="mx-card relative overflow-hidden rounded-[32px] px-6 py-14 sm:px-12 sm:py-20 lg:px-16">
+          <div
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-1/2 bg-[radial-gradient(45%_60%_at_50%_100%,rgb(var(--accent)/0.22),transparent_75%)]"
+          />
+          <div className="relative grid gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
+            <div>
+              <Eyebrow>{eyebrow}</Eyebrow>
+              <h2 className="mt-6 max-w-[16ch] font-display text-h2 font-bold tracking-[-0.01em] text-ink">{title}</h2>
             </div>
-          </motion.li>
-        ))}
-      </ol>
-    </div>
+            {(intro || aside) && (
+              <div className="lg:pb-2">
+                {intro && <p className="max-w-[52ch] text-[1.0625rem] leading-relaxed text-muted">{intro}</p>}
+                {aside && <div className="mt-6">{aside}</div>}
+              </div>
+            )}
+          </div>
+          <div className="relative mt-12">{children}</div>
+        </div>
+      </div>
+    </section>
   );
 }

@@ -3,6 +3,7 @@
  * honest: local facts are general knowledge; searches are labelled as examples; no invented results
  */
 import Link from "next/link";
+import { Eyebrow } from "@/components/ui/section-heading";
 import { ArrowRight, Search } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { AreaGlobe } from "@/components/v2/globe";
@@ -60,10 +61,11 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
       </div>
 
       {/* 2 · The neighbourhood: profile beside the area map (the centrepiece). */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
           <div>
-            <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>The local market</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               {content.profile.title}
             </h2>
             <div className="mt-5 max-w-[56ch] space-y-4 text-[1.0625rem] leading-relaxed text-muted">
@@ -86,12 +88,15 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
       </section>
 
       {/* 3 · Where we'd start: services chosen for this area, with the searches behind them. */}
-      <section id="start" className="scroll-mt-28 border-t border-line py-24 sm:py-28">
+      <section id="start" className="scroll-mt-28 py-24 sm:py-28">
         <div className="container-edge">
           <div className="grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)] lg:items-end">
-            <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Where we&apos;d start in {content.area}
-            </h2>
+            <div>
+              <Eyebrow>Where we would start</Eyebrow>
+              <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+                Where we&apos;d start in {content.area}
+              </h2>
+            </div>
             <div>
               <p className="text-sm font-semibold text-muted">Examples of local searches we&apos;d plan for</p>
               <ul className="mt-3 flex flex-wrap gap-2">
@@ -126,7 +131,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
       </section>
 
       {/* 4 · Other Pune neighbourhoods, and the city page. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="flex flex-col gap-4 sm:flex-row sm:items-end sm:justify-between">
             <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Other Pune areas we cover</h2>
@@ -148,10 +153,11 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
       </section>
 
       {/* 5 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions from {content.area} businesses
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

@@ -2,6 +2,7 @@
  * honest: pass (46: invented retainer range, minimum term, notice period, budgets, weekly updates,
  * exclusivity, "a third international" and language claims removed) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
 import { FaqExplorer } from "@/components/v2/faq-explorer";
@@ -128,11 +129,14 @@ export default function Page() {
         </div>
       </section>
 
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            Still have a question?
-          </h2>
+          <div>
+            <Eyebrow>Get in touch</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+              Still have a question?
+            </h2>
+          </div>
           <div className="flex flex-col items-start gap-5">
             <Cta href="/contact">Ask us directly</Cta>
             <TextLink href="/growth-audit">Or get a free growth audit</TextLink>

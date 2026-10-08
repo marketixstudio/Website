@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: company · honest: pass (46: "remote-first" and automation/product
  * roles were invented or Vistrow's; no open roles are claimed) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import type { Metadata } from "next";
 import { Heart, Mail, Sparkles, TrendingUp } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -60,7 +61,7 @@ export default function Page() {
             <ul className="mt-6 grid grid-cols-[minmax(0,1fr)] gap-3">
               {include.map((i) => (
                 <li key={i.title} className="mx-card flex gap-5 p-6">
-                  <i.icon className="mt-0.5 h-6 w-6 shrink-0 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                  <GlossIcon icon={i.icon} size="sm" />
                   <span>
                     <span className="block font-display text-lg font-bold text-ink">{i.title}</span>
                     <span className="mt-1 block text-[0.9375rem] leading-relaxed text-muted">{i.body}</span>

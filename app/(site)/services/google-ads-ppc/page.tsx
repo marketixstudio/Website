@@ -3,6 +3,8 @@
  * nav: N5 · footer: Ft5 · honest: pass (46 — every claim traced to the live PPC page) · chrome: pass (47) · eyebrows: none
  * pre-emit critique: P5 H4 E4 S5 R4 V5
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { Building2, Rocket, ShoppingBag, TrendingUp } from "lucide-react";
@@ -109,9 +111,10 @@ export default function Page() {
       <ServiceHero content={hero} />
 
       {/* The search journey, from query to report. */}
-      <section id="journey" className="scroll-mt-28 border-t border-line py-24 sm:py-28">
+      <section id="journey" className="scroll-mt-28 py-24 sm:py-28">
         <div className="container-edge">
-          <FillHeading className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+          <Eyebrow>How it works</Eyebrow>
+          <FillHeading className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
             Follow one search from Google to your inbox
           </FillHeading>
           <p className="mb-10 mt-5 max-w-[60ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -128,11 +131,14 @@ export default function Page() {
       </div>
 
       {/* 3 · Who it's for — stacked, not a three-card grid. */}
-      <section className="border-t border-line py-24 sm:py-32">
+      <section className="py-24 sm:py-32">
         <div className="container-edge grid gap-14 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.1fr)]">
-          <FillHeading className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            Built around the enquiry your business needs
-          </FillHeading>
+          <div>
+            <Eyebrow>Our approach</Eyebrow>
+            <FillHeading className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+              Built around the enquiry your business needs
+            </FillHeading>
+          </div>
           <ul className="space-y-4">
             {audiences.map((a) => (
               <li key={a.name}>
@@ -140,7 +146,7 @@ export default function Page() {
                   href={a.href}
                   className="mx-card group flex items-start gap-5 p-6 transition-colors hover:border-accent/60 sm:p-7"
                 >
-                  <a.icon className="mt-1 h-6 w-6 shrink-0 text-accent" strokeWidth={1.8} aria-hidden="true" />
+                  <GlossIcon icon={a.icon} size="sm" />
                   <span className="min-w-0">
                     <span className="block font-display text-xl font-bold text-ink">{a.name}</span>
                     <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-muted">{a.goal}</span>
@@ -167,10 +173,11 @@ export default function Page() {
       </section>
 
       {/* 5 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Before you spend a rupee
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">

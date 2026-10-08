@@ -159,7 +159,7 @@ export default function Page({ params }: { params: { slug: string } }) {
         </section>
       )}
 
-      <section className="border-t border-line bg-surface py-section">
+      <section className="bg-surface py-section">
         <div className="container-edge">
           <Faq items={tool.faqs} />
         </div>

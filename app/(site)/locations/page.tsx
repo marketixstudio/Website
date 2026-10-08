@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: index · centrepiece: MarketBoard (all markets on one IST axis)
  * design-system: design.md · honest: pass (46: "eight markets" and "deepest network" claims removed) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
 import { ArrowRight, Check, MapPin } from "lucide-react";
@@ -142,10 +143,11 @@ export default function Page() {
       </section>
 
       {/* 3 · International: the working-hours board is the page's centrepiece. */}
-      <section aria-labelledby="international" className="border-t border-line py-24 sm:py-28">
+      <section aria-labelledby="international" className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,0.75fr)_minmax(0,1.25fr)]">
           <div>
-            <h2 id="international" className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>International</Eyebrow>
+            <h2 id="international" className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               International, from Pune
             </h2>
             <p className="mt-5 max-w-[44ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -176,11 +178,14 @@ export default function Page() {
 
       {/* 5 · How we work across markets. */}
       {intro && (
-        <section className="border-t border-line py-24 sm:py-28">
+        <section className="py-24 sm:py-28">
           <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <h2 className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              {intro.title}
-            </h2>
+            <div>
+              <Eyebrow>Locations</Eyebrow>
+              <h2 className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+                {intro.title}
+              </h2>
+            </div>
             <div>
               <p className="max-w-[54ch] text-[1.0625rem] leading-relaxed text-muted">{intro.body}</p>
               <ul className="mt-6 space-y-3">
@@ -197,10 +202,11 @@ export default function Page() {
       )}
 
       {/* 6 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <div className="mt-8 flex flex-col items-start gap-5">

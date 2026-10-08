@@ -2,6 +2,7 @@
  * honest: pass (46: TODO results render as "to confirm" blocks, never as numbers) · chrome: pass (47: real page, no drawn device)
  * testimonials: yes, here only (design.md) · eyebrows: none
  */
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -134,10 +135,11 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       {/* 3 · Where they started. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
           <div>
-            <h2 className="max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>The challenge</Eyebrow>
+            <h2 className="mt-6 max-w-[18ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               {study.challenge.title}
             </h2>
             <p className="mt-6 max-w-[54ch] text-[1.0625rem] leading-relaxed text-muted">{study.challenge.body}</p>
@@ -153,9 +155,10 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       {/* 4 · What we did: the centrepiece, beside the real thing where there is one. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge">
-          <h2 className="mb-12 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What we did</h2>
+          <Eyebrow>What we did</Eyebrow>
+          <h2 className="mb-12 mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">What we did</h2>
           {preview ? (
             <div className="grid grid-cols-[minmax(0,1fr)] items-start gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)]">
               <ol className="grid grid-cols-[minmax(0,1fr)] gap-3">
@@ -198,7 +201,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {/* 5 · The longer story. */}
       {study.detail && study.detail.length > 0 && (
-        <section className="border-t border-line py-24 sm:py-28">
+        <section className="py-24 sm:py-28">
           <div className="container-edge">
             <div className="mx-auto max-w-[68ch] space-y-14">
               {study.detail.map((block) => (
@@ -218,7 +221,7 @@ export default function Page({ params }: { params: { slug: string } }) {
 
       {/* 6 · In the client's words. */}
       {testimonial && (
-        <section className="border-t border-line py-24 sm:py-28">
+        <section className="py-24 sm:py-28">
           <div className="container-edge">
             <figure className="mx-card mx-auto max-w-[62rem] p-8 sm:p-12">
               <blockquote className="font-display text-[clamp(1.5rem,2.2vw+0.6rem,2.4rem)] font-bold leading-[1.25] tracking-[-0.01em] text-ink">
@@ -248,7 +251,7 @@ export default function Page({ params }: { params: { slug: string } }) {
       )}
 
       {/* 7 · Services used, and where to go next. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-5 lg:grid-cols-2">
           <div className="mx-card p-8">
             <h2 className="font-display text-2xl font-bold text-ink">Services used</h2>
@@ -293,11 +296,14 @@ export default function Page({ params }: { params: { slug: string } }) {
       </section>
 
       {/* 8 · Next step. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge flex flex-col items-start gap-8 lg:flex-row lg:items-end lg:justify-between">
-          <h2 className="max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-            Want the same kind of result for your business?
-          </h2>
+          <div>
+            <Eyebrow>Work with us</Eyebrow>
+            <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+              Want the same kind of result for your business?
+            </h2>
+          </div>
           <Cta href="/growth-audit">Get a free growth audit</Cta>
         </div>
       </section>

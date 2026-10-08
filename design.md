@@ -151,7 +151,8 @@ Never one padding value for every section.
 - Breadcrumbs: schema only; no visible trail on hero sections.
 
 ## Section labels (eyebrows)
-OFF. Allowed only on genuinely ordinal content (process steps). Never beside a heading.
+ON since 2026-10-08 (user chose the live site's template): `<Eyebrow>` (violet ring dot +
+uppercase label) above section headings, as on the live site. One per section, short, plain.
 
 ## Honest content (overrides every skill)
 No metric, testimonial, client name, logo, price, or result unless Marketix
@@ -160,8 +161,9 @@ confirm" in a labelled grey block. Real proof available now:
 Jay Ganesh (Maruti Kalbhor), PIBM, ReviveUp Drinks — see content/testimonials.ts.
 
 ## Imagery
-Real work only: client creatives, real screenshots in `<figure>` with at most a
-hairline border. No stock photos. No re-drawn browser/phone/dashboard chrome.
+Real work, plus the live site's own two team photos (public/home/, added 2026-10-08 at the
+user's request), shown in `.mx-notch-photo` with a card set into a cut-out corner. No new
+stock photos without the user's say-so. No re-drawn browser/phone/dashboard chrome.
 Hand-built SVG diagrams are allowed (they explain, they don't impersonate UI).
 
 ## Per-page allowances
@@ -265,3 +267,21 @@ Dark is the reference; light is tuned separately, never a straight inversion.
 Lists of links (service groups and similar) use `.mx-row` with the arrow in `.mx-row-go`, never a bare icon + text + arrow line, which reads as a bullet list. Labels wrap; don't truncate.
 
 Exception: the footer. Its link columns are a directory to scan, so they stay plain text links (arrow appears on hover/focus, 40px tap height). Boxing all 18 footer links was tried on 2026-09-27 and read as a wall of buttons.
+
+## Live-site template (2026-10-08, user request: "same on all the website")
+The home page was rebuilt in the live marketixstudio.com layout and its pieces are now the
+site-wide kit. Use these, not one-off variants:
+- **Headings:** `text-h2` (clamp 2.25rem to 3.75rem), with an `<Eyebrow>` above.
+- **Icons:** `GlossIcon` (components/home-v2/gloss-icon.tsx), our glossy 3D tile (`.mx-gloss`).
+  The user explicitly prefers it over the flat line-icon tile, but **one set of 3D icons per
+  page** (the user found the Approach page "only 3D icons" when every card had one). Other
+  cards use a small violet line icon; inline bullets keep small checks.
+- **Steps:** `ProcessPanel` + `StepRail` (components/v2/step-rail.tsx): one large panel, the
+  steps in a violet-bordered box with violet column dividers, each led by a large outlined
+  number ("01"), no icon tiles.
+- **Cards:** `.mx-card`; for highlighted cards `.mx-glow-card` (violet edge light, a static
+  glow: a deliberate exception to "glow only on hover", because the live site has it).
+- **Photo with card:** `.mx-notch-photo` + `.mx-notch--tl/--br`; on phones the card drops below.
+- **No divider lines between sections.** Sections are separated by space only.
+- **Header:** taller bar, violet active item and chevrons, violet call pill (`.mx-phone-pill`).
+- **Honesty still wins:** the live site's template case studies, counters and $ prices stay out.

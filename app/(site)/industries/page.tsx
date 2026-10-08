@@ -1,6 +1,8 @@
 /* Hallmark · genre: atmospheric · template: index · centrepiece: IndustryExplorer (tabbed sector panels)
  * design-system: design.md · honest: pass (46: invented history and exclusivity claims removed) · eyebrows: none
  */
+import { GlossIcon } from "@/components/home-v2/gloss-icon";
+import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -53,7 +55,7 @@ export default function Page() {
       slug,
       label,
       href,
-      icon: Icon ? <Icon className="h-5 w-5 text-accent" strokeWidth={1.8} aria-hidden="true" /> : undefined,
+      icon: Icon ? <GlossIcon icon={Icon} size="sm" /> : undefined,
       goal: goals[slug] ?? label,
       problem: { title: c.challenges[0].title, body: c.challenges[0].body },
       steps: c.workflow.map((w) => w.title),
@@ -87,7 +89,7 @@ export default function Page() {
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
               {industriesOverview.title}{" "}
-              <span className="text-ink-hi sm:whitespace-nowrap">{industriesOverview.highlight}</span>
+              <span className="text-ink-hi">{industriesOverview.highlight}</span>
             </h1>
             <div>
               <p className="max-w-[46ch] text-[1.0625rem] leading-relaxed text-muted sm:text-lg">
@@ -116,11 +118,14 @@ export default function Page() {
 
       {/* 4 · Why sector matters. */}
       {intro && (
-        <section className="border-t border-line py-24 sm:py-32">
+        <section className="py-24 sm:py-32">
           <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,1fr)_minmax(0,1fr)]">
-            <FillHeading className="max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              {intro.title}
-            </FillHeading>
+            <div>
+              <Eyebrow>Industries</Eyebrow>
+              <FillHeading className="mt-6 max-w-[16ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+                {intro.title}
+              </FillHeading>
+            </div>
             <div>
               <p className="max-w-[54ch] text-[1.0625rem] leading-relaxed text-muted">{intro.body}</p>
               <ul className="mt-6 space-y-3">
@@ -137,10 +142,11 @@ export default function Page() {
       )}
 
       {/* 5 · Questions, with the next step alongside. */}
-      <section className="border-t border-line py-24 sm:py-28">
+      <section className="py-24 sm:py-28">
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
-            <h2 className="font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
               Questions people ask first
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
