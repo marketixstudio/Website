@@ -3,7 +3,6 @@
  * nav: N5 · footer: Ft5 · honest: pass (46) · chrome: pass (47 — live page in a figure, no drawn device) · eyebrows: none
  * testimonials: none on service pages — the Jay Ganesh quote lives on its case study
  */
-import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { FileSpreadsheet, MapPin, MessageSquareQuote, Star } from "lucide-react";
@@ -21,6 +20,7 @@ const toolkit = products["gmb-toolkit"];
 const path = "/services/local-seo-gmb";
 
 const hero: ServiceHeroContent = {
+  scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Local SEO & Google Business", path }, ],
   label: "Local SEO & Google Business Profile, Pune",
   title: { before: "Get found by the customers searching", accent: "near you" },
@@ -191,7 +191,7 @@ export default function Page() {
               const renderGroup = (group: (typeof workGroups)[number], large: boolean) => (
                 <div key={group.title} className={`mx-card p-8 ${large ? "sm:p-10 lg:row-span-2" : ""}`}>
                   <h3 className="flex items-center gap-3 font-display text-xl font-bold text-ink sm:text-2xl">
-                    <GlossIcon icon={group.icon} size="sm" />
+                    <group.icon className="h-5 w-5 text-accent" strokeWidth={1.9} aria-hidden="true" />
                     {group.title}
                   </h3>
                   <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">{group.body}</p>

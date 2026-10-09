@@ -164,9 +164,7 @@ export default function Page({ params }: { params: { slug: string } }) {
               <ol className="grid grid-cols-[minmax(0,1fr)] gap-3">
                 {study.approach.map((step, i) => (
                   <li key={step.title} className="mx-card flex gap-5 p-6">
-                    <span className="inline-flex h-10 w-10 shrink-0 items-center justify-center rounded-full border border-accent text-sm font-bold text-accent">
-                      {i + 1}
-                    </span>
+                    <span aria-hidden="true" className="shrink-0 font-display text-[2.25rem] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(var(--accent))]">{String(i + 1).padStart(2, "0")}</span>
                     <span>
                       <span className="block font-display text-lg font-bold text-ink">{step.title}</span>
                       <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-muted">{step.body}</span>

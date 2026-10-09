@@ -863,6 +863,124 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
     color: rgb(var(--accent-ink));
   }
 
+  /* Scene3D (components/v2/scene-3d.tsx): CSS cuboids on a ground slab, isometric camera.
+   * Each .mx-box has a footprint (width x height) and a height --h, raised by --z. Faces:
+   * top at --h, side faces folded up from the footprint edges. --rx/--ry come from Tilt3D. */
+  .mx-scene {
+    --rx: 0deg;
+    --ry: 0deg;
+    position: relative;
+    width: min(100%, 360px);
+    aspect-ratio: 1;
+    perspective: 1000px;
+  }
+  .mx-scene__world {
+    position: absolute;
+    left: 50%;
+    top: 58%;
+    width: 240px;
+    height: 240px;
+    margin: -120px 0 0 -120px;
+    transform-style: preserve-3d;
+    transform: scale(var(--k, 1)) rotateX(calc(58deg + var(--rx))) rotateZ(calc(-45deg + var(--ry)));
+    transition: transform 700ms cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  @media (max-width: 639px) { .mx-scene__world { --k: 0.8; } }
+  .mx-scene__spin {
+    position: absolute;
+    inset: 0;
+    transform-style: preserve-3d;
+    animation: mx-scene-sway 14s ease-in-out infinite;
+  }
+  .mx-scene__glow {
+    position: absolute;
+    inset: 18% 10% 0;
+    z-index: -1;
+    border-radius: 50%;
+    background: radial-gradient(closest-side, rgb(var(--accent) / 0.28), transparent);
+    filter: blur(8px);
+  }
+  .mx-scene__ring {
+    position: absolute;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 2px solid rgb(var(--accent));
+    transform: translateZ(13px);
+    animation: mx-ring 2.4s ease-out infinite;
+  }
+  .mx-box {
+    position: absolute;
+    transform-style: preserve-3d;
+    transform: translateZ(var(--z));
+  }
+  .mx-box > i { position: absolute; display: block; }
+  .mx-box__top { inset: 0; transform: translateZ(var(--h)); }
+  .mx-box__s, .mx-box__n { left: 0; width: 100%; height: var(--h); transform-origin: top; transform: rotateX(90deg); }
+  .mx-box__s { top: 100%; }
+  .mx-box__n { top: 0; }
+  .mx-box__e, .mx-box__w { top: 0; width: var(--h); height: 100%; transform-origin: left; transform: rotateY(-90deg); }
+  .mx-box__e { left: 100%; }
+  .mx-box__w { left: 0; }
+
+  .mx-box--solid > i, .mx-box--tower > i, .mx-box--hot > i { background: rgb(var(--accent)); }
+  .mx-box--solid .mx-box__top, .mx-box--tower .mx-box__top { background: linear-gradient(135deg, rgb(var(--accent-tint)), rgb(var(--accent))); }
+  .mx-box--solid .mx-box__s, .mx-box--tower .mx-box__s { background: linear-gradient(to bottom, rgb(var(--accent-deep)), rgb(var(--accent))); }
+  .mx-box--solid .mx-box__e, .mx-box--tower .mx-box__e,
+  .mx-box--solid .mx-box__w, .mx-box--tower .mx-box__w { background: linear-gradient(to right, rgb(var(--accent-deep)), rgb(var(--accent-deep) / 0.85)); filter: brightness(0.7); }
+  /* Towers: rows of lit windows on the two visible walls. */
+  .mx-box--tower .mx-box__s,
+  .mx-box--tower .mx-box__e {
+    background-image:
+      repeating-linear-gradient(to right, transparent 0 7px, rgb(var(--bg) / 0.5) 7px 9px),
+      repeating-linear-gradient(to bottom, transparent 0 9px, rgb(255 255 255 / 0.22) 9px 13px),
+      linear-gradient(to bottom, rgb(var(--accent-deep)), rgb(var(--accent)));
+  }
+  .mx-box--tower .mx-box__e {
+    background-image:
+      repeating-linear-gradient(to bottom, transparent 0 7px, rgb(var(--bg) / 0.5) 7px 9px),
+      repeating-linear-gradient(to right, transparent 0 9px, rgb(255 255 255 / 0.18) 9px 13px),
+      linear-gradient(to right, rgb(var(--accent-deep)), rgb(var(--accent-deep)));
+  }
+  .mx-box--hot .mx-box__top { background: linear-gradient(135deg, #fff, rgb(var(--accent-tint))); box-shadow: 0 0 30px 6px rgb(var(--accent) / 0.7); }
+  .mx-box--hot .mx-box__s { background: linear-gradient(to bottom, rgb(var(--accent)), rgb(var(--accent-tint))); }
+  .mx-box--hot .mx-box__e, .mx-box--hot .mx-box__w { background: rgb(var(--accent)); filter: brightness(0.8); }
+
+  .mx-box--ground > i { background: rgb(var(--card-2)); }
+  .mx-box--ground .mx-box__top {
+    border: 1px solid rgb(var(--accent) / 0.35);
+    background:
+      repeating-linear-gradient(to right, transparent 0 39px, rgb(var(--accent) / 0.12) 39px 40px),
+      repeating-linear-gradient(to bottom, transparent 0 39px, rgb(var(--accent) / 0.12) 39px 40px),
+      rgb(var(--card));
+    box-shadow: 0 0 60px rgb(var(--accent) / 0.18);
+  }
+  .mx-box--ground .mx-box__e, .mx-box--ground .mx-box__w { filter: brightness(0.75); }
+
+  .mx-box--glass > i { background: rgb(var(--accent) / 0.35); }
+  .mx-box--glass .mx-box__top {
+    border: 1.5px solid rgb(var(--accent) / 0.8);
+    background:
+      linear-gradient(to bottom, rgb(var(--accent) / 0.35) 0 14%, transparent 14%),
+      linear-gradient(to right, transparent 8%, rgb(var(--accent) / 0.25) 8% 52%, transparent 52%) 0 32% / 100% 8% no-repeat,
+      linear-gradient(to right, transparent 8%, rgb(var(--accent) / 0.18) 8% 72%, transparent 72%) 0 50% / 100% 6% no-repeat,
+      rgb(var(--card-2) / 0.88);
+  }
+
+  .mx-anim-rise { animation: mx-rise 1.2s cubic-bezier(0.16, 1, 0.3, 1) var(--delay) both; }
+  .mx-anim-pulse { animation: mx-pulse 3.2s ease-in-out var(--delay) infinite; }
+  .mx-anim-bob { animation: mx-bob 3.6s ease-in-out var(--delay) infinite; }
+  .mx-anim-spread { animation: mx-spread 5s ease-in-out var(--delay) infinite; }
+  @keyframes mx-rise { from { transform: translateZ(var(--z)) scaleZ(0.02); } to { transform: translateZ(var(--z)) scaleZ(1); } }
+  @keyframes mx-pulse { 0%, 100% { transform: translateZ(var(--z)) scaleZ(1); } 50% { transform: translateZ(var(--z)) scaleZ(0.72); } }
+  @keyframes mx-bob { 0%, 100% { transform: translateZ(var(--z)); } 50% { transform: translateZ(calc(var(--z) + 16px)); } }
+  @keyframes mx-spread { 0%, 100% { transform: translateZ(var(--z)); } 50% { transform: translateZ(calc(var(--z) * 1.25)); } }
+  @keyframes mx-scene-sway { 0%, 100% { transform: rotateZ(-7deg); } 50% { transform: rotateZ(7deg); } }
+  @keyframes mx-ring { from { transform: translateZ(13px) scale(0.6); opacity: 1; } to { transform: translateZ(13px) scale(2.4); opacity: 0; } }
+  @media (prefers-reduced-motion: reduce) {
+    .mx-scene__spin, .mx-scene__ring, .mx-anim-rise, .mx-anim-pulse, .mx-anim-bob, .mx-anim-spread { animation: none; }
+  }
+
   /* Dark card with the live site's violet edge light. */
   .mx-glow-card {
     border-radius: 28px;

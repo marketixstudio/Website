@@ -59,17 +59,21 @@ export function SiteFooter() {
   const whatsapp = `https://wa.me/${business.whatsapp}?text=${encodeURIComponent("Hi Marketix Studio, I'd like to talk about marketing for my business.")}`;
 
   return (
-    <footer className="border-t border-line bg-bg">
+    <footer className="bg-bg">
       {/* 1 · Call to action */}
       <div className="container-edge pt-20 sm:pt-24">
-        <div className="mx-card grid grid-cols-[minmax(0,1fr)] gap-10 p-8 sm:p-10 lg:grid-cols-[160px_minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
+        <div className="mx-glow-card relative grid grid-cols-[minmax(0,1fr)] gap-10 overflow-hidden p-8 sm:p-12 lg:grid-cols-[160px_minmax(0,1.35fr)_minmax(0,1fr)] lg:items-center lg:gap-12">
+          <span
+            aria-hidden="true"
+            className="pointer-events-none absolute inset-x-0 bottom-0 h-2/3 bg-[radial-gradient(50%_70%_at_50%_100%,rgb(var(--accent)/0.22),transparent_75%)]"
+          />
           <ElectricMonogram className="hidden h-[170px] w-full lg:block" scale={0.6} />
           <div>
-            <h2 className="max-w-[24ch] font-display text-3xl font-bold leading-[1.2] text-ink sm:text-4xl">
+            <h2 className="relative max-w-[22ch] font-display text-3xl font-bold leading-[1.15] text-ink sm:text-[2.75rem]">
               Find out where your enquiries are being lost
             </h2>
-            <p className="mt-3 text-[0.9375rem] text-muted">A free growth audit of your ads, website and Google profile. No obligation.</p>
-            <div className="mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
+            <p className="relative mt-4 text-base text-muted">A free growth audit of your ads, website and Google profile. No obligation.</p>
+            <div className="relative mt-8 flex flex-col items-start gap-5 sm:flex-row sm:items-center sm:gap-7">
               <Cta href="/growth-audit">Get a free growth audit</Cta>
               <div className="flex items-center gap-5">
                 <a href={`tel:${business.phone}`} className="inline-flex items-center gap-2 whitespace-nowrap text-sm font-semibold text-ink-2 transition-colors hover:text-ink">
@@ -88,7 +92,7 @@ export function SiteFooter() {
               </div>
             </div>
           </div>
-          <div className="border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0">
+          <div className="relative border-t border-line pt-8 lg:border-l lg:border-t-0 lg:pl-14 lg:pt-0">
             <NewsletterForm />
           </div>
         </div>

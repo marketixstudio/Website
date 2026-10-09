@@ -24,10 +24,13 @@ export function Funnel({ steps, outcome }: { steps: Step[]; outcome: string }) {
             viewport={{ once: true, margin: "0px 0px -12% 0px" }}
             transition={{ duration: 0.55, delay: i * 0.12, ease: [0.16, 1, 0.3, 1] }}
             style={{ width: `min(100%, ${widths[i] ?? "60%"})` }}
-            className="mx-card flex min-w-[15rem] gap-4 p-5 sm:p-6"
+            className="mx-card flex min-w-0 gap-4 p-5 transition-colors hover:border-accent/60 sm:min-w-[15rem] sm:p-6"
           >
-            <span className="inline-flex h-9 w-9 shrink-0 items-center justify-center rounded-full border border-accent text-sm font-bold text-accent">
-              {i + 1}
+            <span
+              aria-hidden="true"
+              className="w-12 shrink-0 font-display text-[2.25rem] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(var(--accent))]"
+            >
+              {String(i + 1).padStart(2, "0")}
             </span>
             <span className="min-w-0">
               <span className="block font-display text-lg font-bold text-ink">{step.title}</span>

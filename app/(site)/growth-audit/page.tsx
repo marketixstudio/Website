@@ -125,9 +125,7 @@ export default function Page() {
             {steps.map((s, i) => (
               <li key={s.title} className="mx-card p-7">
                 <span className="flex items-center gap-3">
-                  <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-accent text-sm font-bold text-accent">
-                    {i + 1}
-                  </span>
+                  <span aria-hidden="true" className="shrink-0 font-display text-[2.25rem] font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(var(--accent))]">{String(i + 1).padStart(2, "0")}</span>
                   <s.icon className="h-5 w-5 text-muted" strokeWidth={1.8} aria-hidden="true" />
                 </span>
                 <p className="mt-5 font-display text-xl font-bold text-ink">{s.title}</p>

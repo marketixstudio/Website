@@ -3,7 +3,6 @@
  * nav: N5 · footer: Ft5 · honest: pass (46 — every claim traced to the live PPC page) · chrome: pass (47) · eyebrows: none
  * pre-emit critique: P5 H4 E4 S5 R4 V5
  */
-import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -34,6 +33,7 @@ const answer: AnswerBlock = {
 };
 
 const hero: ServiceHeroContent = {
+  scene: "bars",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Google Ads & PPC", path }, ],
   label: "Google Ads management, Pune",
   title: { before: "Google Ads that turn searches into", accent: "enquiries" },
@@ -146,7 +146,7 @@ export default function Page() {
                   href={a.href}
                   className="mx-card group flex items-start gap-5 p-6 transition-colors hover:border-accent/60 sm:p-7"
                 >
-                  <GlossIcon icon={a.icon} size="sm" />
+                  <a.icon className="mt-1 h-6 w-6 shrink-0 text-accent" strokeWidth={1.8} aria-hidden="true" />
                   <span className="min-w-0">
                     <span className="block font-display text-xl font-bold text-ink">{a.name}</span>
                     <span className="mt-1.5 block text-[0.9375rem] leading-relaxed text-muted">{a.goal}</span>

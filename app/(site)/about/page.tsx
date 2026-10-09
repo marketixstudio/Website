@@ -113,7 +113,7 @@ export default function Page() {
             {glance.map((g) => {
               const inner = (
                 <>
-                  <span className="block font-display text-[clamp(2.5rem,5vw,4rem)] font-bold leading-none tracking-[-0.01em] text-ink">
+                  <span className="block font-display text-[clamp(3rem,6vw,5rem)] font-bold leading-none tracking-[-0.01em] text-transparent transition-colors duration-300 [-webkit-text-stroke:2px_rgb(var(--accent))] group-hover:text-accent">
                     {g.value}
                   </span>
                   <span className="mt-3 flex items-center gap-2 text-sm font-semibold text-muted">
@@ -127,10 +127,10 @@ export default function Page() {
               return (
                 <li
                   key={g.label}
-                  className={`mx-card group relative p-6 transition-colors sm:p-8 ${g.href ? "hover:border-accent/60 focus-within:border-accent/60" : ""}`}
+                  className={`mx-glow-card group relative p-6 transition-shadow sm:p-8 ${g.href ? "hover:shadow-[0_0_36px_-6px_rgb(var(--accent)/0.7)] focus-within:shadow-[0_0_36px_-6px_rgb(var(--accent)/0.7)]" : ""}`}
                 >
                   {g.href ? (
-                    <Link href={g.href} className="after:absolute after:inset-0 after:rounded-[24px] after:content-['']">
+                    <Link href={g.href} className="after:absolute after:inset-0 after:rounded-[28px] after:content-['']">
                       {inner}
                     </Link>
                   ) : (
