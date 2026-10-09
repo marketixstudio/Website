@@ -36,7 +36,7 @@ const answer: AnswerBlock = {
     "Fees are quoted on scope, after a free audit",
     "Ad spend is paid directly to the platforms",
     "Single services and one-off projects are both possible",
-    `The Google Maps toolkit costs ₹${toolkit.priceInr}`,
+    ...(toolkit.onSale ? [`The Google Maps toolkit costs ₹${toolkit.priceInr}`] : []),
   ],
 };
 
@@ -128,7 +128,8 @@ export default function Page() {
         </div>
       </section>
 
-      {/* 4 · The one fixed price we have. */}
+      {/* 4 · The one fixed price we have (only while the toolkit is on sale). */}
+      {toolkit.onSale && (
       <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="mx-card grid grid-cols-[minmax(0,1fr)] items-center gap-8 p-8 sm:p-10 lg:grid-cols-[minmax(0,1fr)_auto]">
@@ -146,6 +147,7 @@ export default function Page() {
           </div>
         </div>
       </section>
+      )}
 
       {/* 5 · Questions. */}
       <section className="py-24 sm:py-28">

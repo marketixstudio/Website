@@ -9,7 +9,7 @@ import { Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { BuyButton } from "@/components/tools/buy-button";
 import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
-import { AnswerCard, FaqList, TextLink } from "@/components/v2/primitives";
+import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { products } from "@/content/products-catalog";
 import { buildMetadata } from "@/lib/seo";
 import { answerSchema, breadcrumbSchema, faqSchema, graph, productSchema } from "@/lib/structured-data";
@@ -36,14 +36,18 @@ export default function Page() {
             { name: "Home", path: "/" },
             { name: product.name, path },
           ]),
-          productSchema({
-            name: product.name,
-            description: product.metaDescription,
-            path,
-            price: String(product.priceInr),
-            priceCurrency: "INR",
-            availability: "InStock",
-          }),
+          ...(product.onSale
+            ? [
+                productSchema({
+                  name: product.name,
+                  description: product.metaDescription,
+                  path,
+                  price: String(product.priceInr),
+                  priceCurrency: "INR",
+                  availability: "InStock",
+                }),
+              ]
+            : []),
           answerSchema({ ...product.answerBlock, path }),
           faqSchema(product.faqs),
         ])}
@@ -68,12 +72,27 @@ export default function Page() {
             </ul>
           </div>
           <div className="lg:sticky lg:top-28">
-            <BuyButton
-              productSlug={product.slug}
-              priceInr={product.priceInr}
-              priceUsd={product.priceUsd}
-              compareAtInr={product.compareAtInr}
-            />
+            {product.onSale ? (
+              <BuyButton
+                productSlug={product.slug}
+                priceInr={product.priceInr}
+                priceUsd={product.priceUsd}
+                compareAtInr={product.compareAtInr}
+              />
+            ) : (
+              <div className="mx-glow-card p-7 sm:p-8">
+                <p className="text-sm font-semibold text-muted">Not on sale right now</p>
+                <p className="mt-2 font-display text-2xl font-bold leading-snug text-ink">Want help ranking on Google Maps?</p>
+                <p className="mt-3 text-[0.9375rem] leading-relaxed text-muted">
+                  The toolkit is not available to buy at the moment. We can run the same checks on your Google
+                  Business Profile in a free growth audit.
+                </p>
+                <div className="mt-7 flex flex-col items-start gap-4">
+                  <Cta href="/growth-audit">Get a free growth audit</Cta>
+                  <TextLink href="/services/local-seo-gmb">Local SEO and Google Business</TextLink>
+                </div>
+              </div>
+            )}
           </div>
         </div>
       </section>

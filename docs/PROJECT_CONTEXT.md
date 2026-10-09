@@ -148,21 +148,21 @@ Next:
 
 ## 10. Waiting on the user
 
+Confirmed by the user on 2026-10-09: all 12 location pages stay live; Bingle India gave
+permission for the /demo/bingle-india page; go-ahead on the legal pages (the privacy policy's
+provider list was corrected to what the site actually uses). A formal legal review is still
+advisable before scaling paid traffic.
+
 - Real creatives: 10 to 20 ads / social posts / reels + website screenshots (Chinmay).
 - Jay Ganesh: review counts before/after, current rating, measurement period (the case study
   shows "result to confirm" blocks until then). Spelling
   confirmed 2026-09-25: "Jay Ganesh" everywhere (URL slug /r/jayganesh kept for printed QR codes).
 - Prakash Sharma's photo (shown as a "PS" placeholder).
-- Pricing: nothing is published except the ₹99 toolkit. If you want package prices on
-  /pricing, send them.
-- Confirm "no refunds once accessed" on the toolkit buy card matches your refund policy.
-- Legal pages were cloned from Vistrow and need a legal review. The "site chat" and "theme and
-  accent colour" lines are now accurate (Riya and the accent picker exist), but the privacy
-  policy still lists "content management" and "CRM" providers we don't use, and several pages
-  mention "automation" results.
-- Confirm all 12 location pages should be live (especially Australia, Canada, Singapore).
-- API keys: OpenAI and Resend are live on Vercel (2026-10-08). Still missing: Razorpay/Stripe
-  (the Rs 99 toolkit cannot be bought until they are added) and the GA4 measurement ID.
+- Pricing: no prices are published. The ₹99 toolkit was taken off sale on 2026-10-09 (user:
+  dropping the ebook plan for now); flip `onSale` in content/products-catalog.ts to sell it again.
+  If you want package prices on /pricing, send them.
+- API keys: OpenAI and Resend are live on Vercel (2026-10-08). Still missing: the GA4
+  measurement ID (Razorpay/Stripe only needed if the toolkit goes back on sale).
 - GMB toolkit claims "500+ businesses" and "rank in 30 days" were NOT carried over; need
   evidence first.
 - Optional: a brand video for the hero.

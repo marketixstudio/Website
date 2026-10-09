@@ -8,10 +8,10 @@ import { FileCheck2, Map, Search, ShieldCheck, TrendingUp, Wrench } from "lucide
 import { JsonLd } from "@/components/seo/json-ld";
 import { IndexHero } from "@/components/v2/index-hero";
 import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
-import { AnswerCard, Cta, TextLink } from "@/components/v2/primitives";
-import type { AnswerBlock } from "@/lib/content-types";
+import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
+import type { AnswerBlock, QA } from "@/lib/content-types";
 import { buildMetadata } from "@/lib/seo";
-import { answerSchema, breadcrumbSchema, graph } from "@/lib/structured-data";
+import { answerSchema, breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
 
 const path = "/approach";
 
@@ -48,6 +48,25 @@ const answer: AnswerBlock = {
   keyFacts: ["Audit first, always", "Tracking set up before launch", "Channels planned together", "Monthly reporting in plain language"],
 };
 
+const faqs: QA[] = [
+  {
+    q: "What does a digital marketing agency do in the first month?",
+    a: "With us, the first weeks are an audit of your ads, website, Google Business Profile and tracking, then a written plan you agree to. Tracking is set up before any budget goes live, and campaigns, pages and creative launch together rather than one at a time.",
+  },
+  {
+    q: "How do you measure whether marketing is working?",
+    a: "On the enquiries, bookings and sales it produces, not on clicks or impressions. Every lead is tracked back to the channel and campaign that brought it, and each month you get a plain report on what changed and what it produced.",
+  },
+  {
+    q: "Will I own my ad accounts and data?",
+    a: "Yes. Ad accounts, analytics and your Google Business Profile stay in your name, with us added as managers. If we ever stop working together, everything stays with you.",
+  },
+  {
+    q: "How often will I hear from you?",
+    a: "You get a plain monthly report on what changed and what it produced, plus a message whenever something important happens, such as a campaign being paused or a new test going live.",
+  },
+];
+
 export default function Page() {
   return (
     <>
@@ -58,6 +77,7 @@ export default function Page() {
             { name: "Our Approach", path },
           ]),
           answerSchema({ ...answer, path }),
+          faqSchema(faqs),
         ])}
       />
 
@@ -119,6 +139,17 @@ export default function Page() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* FAQ: the questions people search before choosing an agency. */}
+      <section className="py-24 sm:py-28">
+        <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions about how we work</h2>
+          </div>
+          <FaqList items={faqs} />
         </div>
       </section>
 

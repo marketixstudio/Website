@@ -20,6 +20,8 @@ export type DigitalProduct = {
   tagline: string;
   subtitle: string;
   /** Prices are the source of truth for both the page and the checkout route. */
+  /** False takes it off sale everywhere: no buy card, no price, no Product schema, checkout refused. */
+  onSale: boolean;
   priceInr: number;
   /** Omit until a USD price is confirmed — the international (Stripe) option hides without it. */
   priceUsd?: number;
@@ -44,10 +46,12 @@ export const products: Record<string, DigitalProduct> = {
       "One Excel file, 12 sheets: the checklists, post templates and review scripts for ranking a business on Google Maps.",
     metaTitle: "Google Maps Ranking Toolkit (GMB)",
     metaDescription:
-      "The Marketix Studio GMB toolkit: audit checklists, local SEO checks, 30 post templates and review scripts in Hindi, English and Marathi. Instant download.",
+      "The Marketix Studio GMB toolkit: audit checklists, local SEO checks, 30 post templates and review scripts in Hindi, English and Marathi.",
     tagline: "Rank your business on Google Maps",
     subtitle:
       "A single Excel file with 12 sheets. Open it, work through the steps, and fix what's holding your Google Business Profile back, without running ads.",
+    // Off sale since 2026-10-09 (user: "we are dropping the plan currently for the ebook").
+    onSale: false,
     priceInr: 99,
     compareAtInr: 999,
     answerBlock: {
@@ -84,7 +88,7 @@ export const products: Record<string, DigitalProduct> = {
       { title: "Stay active", body: "Post from the templates and ask for reviews with the scripts." },
     ],
     faqs: [
-      { q: "What format is it in?", a: "One Excel file with 12 sheets, available to download straight after payment." },
+      { q: "What format is it in?", a: "One Excel file with 12 sheets." },
       { q: "Does it work for my type of business?", a: "It is written for any local business with a Google Business Profile: shops, clinics, showrooms, service businesses and more." },
       { q: "Which languages are the review scripts in?", a: "The WhatsApp scripts come in Hindi, English and Marathi. The SMS, email and in-person scripts are in English." },
     ],

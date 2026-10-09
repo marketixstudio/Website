@@ -57,7 +57,7 @@ ${puneAreas.map((a) => line(a.metaTitle, `/locations/pune/${a.slug}`, a.metaDesc
 
 ## Products
 
-${line("Google Maps Ranking Toolkit", "/gmb-toolkit", "A ₹99 Excel toolkit of checklists, post templates and review scripts for ranking on Google Maps.")}
+${line("Google Maps Ranking Toolkit", "/gmb-toolkit", "An Excel toolkit of checklists, post templates and review scripts for ranking on Google Maps (not on sale at the moment).")}
 
 ## Company
 

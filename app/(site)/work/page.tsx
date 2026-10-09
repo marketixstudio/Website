@@ -8,11 +8,12 @@ import Image from "next/image";
 import Link from "next/link";
 import { ArrowRight, Star } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
-import { Cta, TextLink } from "@/components/v2/primitives";
+import { Cta, FaqList, TextLink } from "@/components/v2/primitives";
+import type { QA } from "@/lib/content-types";
 import { clientLogos, testimonials } from "@/content/testimonials";
 import { publishedCaseStudies, workOverview } from "@/content/work";
 import { buildMetadata } from "@/lib/seo";
-import { breadcrumbSchema, collectionSchema, graph } from "@/lib/structured-data";
+import { breadcrumbSchema, collectionSchema, faqSchema, graph } from "@/lib/structured-data";
 import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 
 const path = "/work";
@@ -22,6 +23,21 @@ export const metadata: Metadata = buildMetadata({
   description: workOverview.metaDescription,
   path,
 });
+
+const faqs: QA[] = [
+  {
+    q: "Can I see examples of your work?",
+    a: "Yes. This page shows the case studies our clients have approved, with what we changed and what happened. In a free growth audit we can also walk you through work similar to what your business needs.",
+  },
+  {
+    q: "Why don't you publish more numbers?",
+    a: "We only publish a result once the client has approved it and we can state the period it was measured over. Numbers without that context are easy to make look good and hard to trust.",
+  },
+  {
+    q: "Can I speak to a client you have worked with?",
+    a: "Where a client is happy to take a call, we can put you in touch after an initial conversation. We ask them first, every time.",
+  },
+];
 
 export default function Page() {
   const [lead, ...rest] = publishedCaseStudies;
@@ -43,6 +59,7 @@ export default function Page() {
             path,
             items: publishedCaseStudies.map((s) => ({ name: s.headline, path: `/work/${s.slug}` })),
           }),
+          faqSchema(faqs),
         ])}
       />
 
@@ -175,6 +192,17 @@ export default function Page() {
               </li>
             ))}
           </ul>
+        </div>
+      </section>
+
+      {/* FAQ: the questions people search before choosing an agency. */}
+      <section className="py-24 sm:py-28">
+        <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
+          <div>
+            <Eyebrow>FAQ</Eyebrow>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions about our work</h2>
+          </div>
+          <FaqList items={faqs} />
         </div>
       </section>
 

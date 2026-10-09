@@ -21,6 +21,9 @@ export async function POST(request: Request) {
   if (!product) {
     return Response.json({ error: "Unknown product." }, { status: 404 });
   }
+  if (!product.onSale) {
+    return Response.json({ error: "This product is not on sale right now." }, { status: 410 });
+  }
   if (gateway !== "razorpay" && gateway !== "stripe") {
     return Response.json({ error: "Unknown payment method." }, { status: 400 });
   }

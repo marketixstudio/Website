@@ -67,7 +67,7 @@ export const legalPages: Record<string, LegalContent> = {
         "You can block or clear cookies through your browser settings at any time. See the Cookie Policy for more detail.",
       ]},
       { heading: "Service providers and international processing", body: [
-        "We use trusted providers for hosting, email delivery, analytics, content management, CRM, AI-assisted chat, and communication workflows. They receive only the information reasonably needed to provide the relevant service and are expected to protect it.",
+        "We use a small number of providers to run this website: website hosting, email delivery for enquiry and audit forms, Google Analytics, a hosted database for review and reporting tools, and an AI provider that powers the site chat assistant. Where we manage a client's Google Business Profile, Google processes review data under its own terms. Providers receive only the information reasonably needed to provide the relevant service and are expected to protect it.",
         "Some providers may process information outside your country. Where that happens, we use reasonable contractual and technical safeguards appropriate to the service and applicable law.",
       ]},
       { heading: "Retention and security", body: [
