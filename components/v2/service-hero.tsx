@@ -59,7 +59,7 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
 
           {content.scene && (
             <div className="flex justify-center">
-              <Scene3D kind={content.scene} className="max-w-[300px] sm:max-w-[360px]" />
+              <Scene3D kind={content.scene} className="-my-6 max-w-[250px] sm:my-0 sm:max-w-[360px]" />
             </div>
           )}
         </div>
