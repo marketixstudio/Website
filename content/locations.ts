@@ -37,6 +37,18 @@ export const locationsOverview: OverviewContent = {
     ],
   },
   faqs: [
+    {
+      q: "Which cities and countries does Marketix Studio cover?",
+      a: "In India: Pune, Mumbai, Bangalore, Delhi NCR, Hyderabad and Ahmedabad. Abroad: the UAE, the UK, the US, Australia, Canada and Singapore. The team works from Pune and runs campaigns wherever your customers are.",
+    },
+    {
+      q: "Do you need a local office to market a business in another city?",
+      a: "No. What matters is local targeting, landing pages written for that market, a Google Business Profile where you have a real address, and fast follow-up on enquiries. Meetings happen online, and we travel when a project needs it.",
+    },
+    {
+      q: "Can you run campaigns in Hindi, Marathi or Arabic?",
+      a: "Yes. Creative and landing pages are written for the market: English, Hindi and Marathi across India, and Arabic alongside English for the UAE.",
+    },
     { q: "Do you have offices in all these cities?", a: "No. We are based in Pune and work remotely with clients elsewhere. We are straightforward about that because claiming virtual offices is both misleading and, for Google Business Profile purposes, against the rules." },
     { q: "How do you handle time zone differences?", a: "The UAE and Singapore overlap closely with Indian hours, the UK morning is the Indian afternoon, and calls with the US and Canada are scheduled at a time that suits both sides. Reports and written updates cover the rest." },
   ],
@@ -87,7 +99,7 @@ export const locations: Record<string, LocationContent> = {
       "Our home city, where the whole team is based.",
     metaTitle: "Digital Marketing Agency in Pune",
     metaDescription:
-      "Performance marketing agency in Pune. Google Ads, Meta Ads, SEO and web design for real estate, eCommerce and D2C brands across Pune.",
+      "Digital marketing agency in Pune: google Ads, Meta Ads, SEO and web design for real estate, eCommerce and D2C brands across Pune.",
     answerBlock: {
       question: "How much does a digital marketing agency in Pune cost?",
       answer:
@@ -138,7 +150,7 @@ export const locations: Record<string, LocationContent> = {
       "India's most expensive ad auction. We work in Mumbai by being sharper about targeting, not by outspending everyone.",
     metaTitle: "Digital Marketing Agency in Mumbai",
     metaDescription:
-      "Performance marketing for Mumbai brands. Google Ads, Meta Ads and SEO for real estate, finance, retail and D2C businesses across Mumbai and Navi Mumbai.",
+      "Digital marketing agency in Mumbai: google Ads, Meta Ads and SEO for real estate, finance, retail and D2C businesses across Mumbai and Navi Mumbai.",
     answerBlock: {
       question: "Why are digital ads more expensive in Mumbai?",
       answer:
@@ -189,7 +201,7 @@ export const locations: Record<string, LocationContent> = {
       "India's startup capital, where the buyers are technical, sceptical of marketing language, and comparing you against three alternatives.",
     metaTitle: "Digital Marketing Agency in Bangalore",
     metaDescription:
-      "Performance marketing for Bangalore startups, SaaS and D2C brands. Paid acquisition, SEO and CRO measured on CAC payback and pipeline.",
+      "Digital marketing agency in Bangalore: paid acquisition, SEO and CRO measured on CAC payback and pipeline.",
     answerBlock: {
       question: "How is marketing to a Bangalore audience different?",
       answer:
@@ -247,7 +259,7 @@ export const locations: Record<string, LocationContent> = {
       "Five distinct markets wearing one name. Gurugram does not behave like Noida, and campaigns that ignore that underperform.",
     metaTitle: "Digital Marketing Agency in Delhi NCR",
     metaDescription:
-      "Performance marketing across Delhi, Gurugram, Noida and Faridabad. Campaigns for real estate, education, manufacturing and D2C brands.",
+      "Digital marketing agency in Delhi NCR: campaigns for real estate, education, manufacturing and D2C brands.",
     answerBlock: {
       question: "Should Delhi NCR campaigns be targeted as one market?",
       answer:
@@ -298,7 +310,7 @@ export const locations: Record<string, LocationContent> = {
       "A fast-growing market where advertising costs are still reasonable, which makes it a good place to scale efficiently.",
     metaTitle: "Digital Marketing Agency in Hyderabad",
     metaDescription:
-      "Performance marketing for Hyderabad businesses. Paid media, SEO and web development for real estate, pharma, technology and retail brands.",
+      "Digital marketing agency in Hyderabad: paid media, SEO and web development for real estate, pharma, technology and retail brands.",
     answerBlock: {
       question: "Is digital advertising cheaper in Hyderabad than Mumbai or Bangalore?",
       answer:
@@ -349,7 +361,7 @@ export const locations: Record<string, LocationContent> = {
       "A manufacturing and trading economy going digital fast, where B2B buyers still want a phone call and the website's job is to earn it.",
     metaTitle: "Digital Marketing Agency in Ahmedabad",
     metaDescription:
-      "Performance marketing for Ahmedabad businesses. B2B lead generation, eCommerce growth and SEO for manufacturing, textile and D2C brands.",
+      "Digital marketing agency in Ahmedabad: B2B lead generation, eCommerce growth and SEO for manufacturing, textile and D2C brands.",
     answerBlock: {
       question: "How does B2B marketing work for Ahmedabad manufacturers?",
       answer:
@@ -390,7 +402,7 @@ export const locations: Record<string, LocationContent> = {
 
   "dubai-uae": {
     slug: "dubai-uae",
-    title: "Digital Marketing Agency for Dubai & UAE",
+    title: "Digital Marketing Agency in Dubai & UAE",
     area: "Dubai",
     nearby: ["Dubai Marina", "Downtown Dubai", "Business Bay", "JLT", "Abu Dhabi", "Sharjah"],
     eyebrow: "Locations",
@@ -398,9 +410,9 @@ export const locations: Record<string, LocationContent> = {
     countryName: "United Arab Emirates",
     subtitle:
       "A high-value, multilingual and competitive market, only 1.5 hours behind India.",
-    metaTitle: "Digital Marketing Agency for Dubai & UAE",
+    metaTitle: "Digital Marketing Agency in Dubai & UAE",
     metaDescription:
-      "Performance marketing for Dubai and UAE businesses. Arabic and English campaigns for property, luxury retail, hospitality and professional services.",
+      "Digital marketing agency in Dubai: arabic and English campaigns for property, luxury retail, hospitality and professional services.",
     answerBlock: {
       question: "What should businesses know about digital marketing in the UAE?",
       answer:
@@ -441,7 +453,7 @@ export const locations: Record<string, LocationContent> = {
 
   "london-uk": {
     slug: "london-uk",
-    title: "Digital Marketing Agency for London & UK",
+    title: "Digital Marketing Agency in London & UK",
     area: "London",
     nearby: ["Greater London", "Manchester", "Birmingham", "Leeds", "Bristol", "Edinburgh"],
     eyebrow: "Locations",
@@ -449,9 +461,9 @@ export const locations: Record<string, LocationContent> = {
     countryName: "United Kingdom",
     subtitle:
       "A mature, well-regulated market where audiences are marketing-literate and unearned claims get ignored or reported.",
-    metaTitle: "Digital Marketing Agency for London & UK",
+    metaTitle: "Digital Marketing Agency in London & UK",
     metaDescription:
-      "Performance marketing for UK businesses. Google Ads, Meta Ads and SEO for eCommerce, professional services and hospitality brands across the UK.",
+      "Digital marketing agency in London: google Ads, Meta Ads and SEO for eCommerce, professional services and hospitality brands across the UK.",
     answerBlock: {
       question: "What are the rules for advertising in the UK?",
       answer:
@@ -502,7 +514,7 @@ export const locations: Record<string, LocationContent> = {
       "The largest and most competitive digital market in the world, where an offshore team has to prove its value.",
     metaTitle: "Digital Marketing Agency for US Businesses",
     metaDescription:
-      "Performance marketing for US businesses. Google Ads, Meta Ads, SEO and CRO for D2C, SaaS and service brands across US time zones.",
+      "Digital marketing agency for US businesses: google Ads, Meta Ads, SEO and CRO for D2C, SaaS and service brands across US time zones.",
     answerBlock: {
       question: "What makes US digital advertising different from other markets?",
       answer:
@@ -553,7 +565,7 @@ export const locations: Record<string, LocationContent> = {
       "A concentrated, high-value market where local trades and service businesses win on Google Business Profile and reviews more than on paid media.",
     metaTitle: "Digital Marketing Agency for Australia",
     metaDescription:
-      "Performance marketing for Australian businesses. Local SEO, Google Ads and Meta Ads for trades, services and eCommerce brands across Australia.",
+      "Digital marketing agency for Australia: local SEO, Google Ads and Meta Ads for trades, services and eCommerce brands across Australia.",
     answerBlock: {
       question: "What works best for marketing a local Australian business?",
       answer:
@@ -611,7 +623,7 @@ export const locations: Record<string, LocationContent> = {
       "A bilingual market with some of the strictest anti-spam legislation anywhere, which makes doing it properly a real advantage.",
     metaTitle: "Digital Marketing Agency for Canada",
     metaDescription:
-      "Performance marketing for Canadian businesses. CASL-compliant email, Google Ads, SEO and bilingual campaigns for Toronto, Vancouver and Montreal.",
+      "Digital marketing agency for Canada: CASL-compliant email, Google Ads, SEO and bilingual campaigns for Toronto, Vancouver and Montreal.",
     answerBlock: {
       question: "What is CASL and how does it affect marketing in Canada?",
       answer:
@@ -662,7 +674,7 @@ export const locations: Record<string, LocationContent> = {
       "A small, affluent, extremely competitive market that doubles as the regional headquarters for most of Southeast Asia.",
     metaTitle: "Digital Marketing Agency for Singapore",
     metaDescription:
-      "Performance marketing for Singapore businesses. B2B lead generation, PDPA-compliant campaigns and regional Southeast Asia expansion support.",
+      "Digital marketing agency for Singapore: B2B lead generation, PDPA-compliant campaigns and regional Southeast Asia expansion support.",
     answerBlock: {
       question: "What should businesses consider when marketing in Singapore?",
       answer:

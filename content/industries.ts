@@ -24,9 +24,9 @@ export const industriesOverview: OverviewContent = {
   highlight: "customers decide",
   subtitle:
     "A flat buyer, a SaaS trial and a first online order follow different paths. We plan campaigns around the way your customer actually decides.",
-  metaTitle: "Industries We Serve | Marketing by Sector",
+  metaTitle: "Marketing by Industry: 8 Sectors We Serve",
   metaDescription:
-    "Performance marketing for real estate, eCommerce, SaaS, healthcare, education, hospitality, interiors and automotive brands in India and abroad.",
+    "Marketing by industry: campaigns for real estate, eCommerce, SaaS, healthcare, education, hospitality, interiors and automotive brands in India and abroad.",
   cardsTitle: "Sectors we work in",
   cards: [
     { label: "Real Estate", href: "/industries/real-estate", body: "Site visits and inventory movement, not just form fills.", icon: Building2 },
@@ -63,7 +63,7 @@ export const industries: Record<string, IndustryContent> = {
       "Campaigns measured in site visits and bookings, because a real estate lead that never visits the property is worth nothing.",
     metaTitle: "Real Estate Marketing Agency in Pune",
     metaDescription:
-      "Real estate lead generation for developers, builders and brokers. Campaigns measured on site visits and bookings, not raw form fills.",
+      "Real estate marketing agency in Pune for developers, builders and brokers: lead generation measured on site visits and bookings, not raw form fills.",
     answerBlock: {
       question: "How do developers generate quality real estate leads online?",
       answer:
@@ -121,9 +121,9 @@ export const industries: Record<string, IndustryContent> = {
     eyebrow: "Industries",
     subtitle:
       "Profitable growth measured on contribution margin, not the ROAS screenshot your ad account would like you to celebrate.",
-    metaTitle: "eCommerce & D2C Marketing Agency",
+    metaTitle: "eCommerce Marketing Agency for D2C Brands",
     metaDescription:
-      "Performance marketing for eCommerce and D2C brands. Meta and Google ads, creative testing, email flows and CRO built around profitable unit economics.",
+      "eCommerce marketing agency for D2C brands: Meta and Google ads, creative testing, email flows and CRO built around profitable unit economics.",
     answerBlock: {
       question: "What is a good ROAS for an eCommerce brand?",
       answer:
@@ -181,9 +181,9 @@ export const industries: Record<string, IndustryContent> = {
     eyebrow: "Industries",
     subtitle:
       "Pipeline built for a long sales cycle, where the metric is qualified demos, not trial signups from people who will never pay.",
-    metaTitle: "SaaS & Startup Marketing Agency",
+    metaTitle: "SaaS Marketing Agency for Startups",
     metaDescription:
-      "B2B SaaS marketing covering demand generation, paid acquisition, SEO and conversion optimisation measured on qualified pipeline and CAC payback.",
+      "SaaS marketing agency for B2B startups: demand generation, paid acquisition, SEO and conversion optimisation measured on qualified pipeline and CAC payback.",
     answerBlock: {
       question: "How should a SaaS company measure marketing performance?",
       answer:
@@ -242,7 +242,7 @@ export const industries: Record<string, IndustryContent> = {
       "Patient acquisition that respects advertising policy, medical ethics and the fact that people searching are often frightened.",
     metaTitle: "Healthcare Marketing Agency in India",
     metaDescription:
-      "Digital marketing for hospitals, clinics and healthcare brands. Compliant patient acquisition through search, local SEO and reputation management.",
+      "Healthcare marketing agency for hospitals, clinics and healthcare brands: compliant patient acquisition through search, local SEO and reputation management.",
     answerBlock: {
       question: "Can healthcare businesses advertise on Google and Meta?",
       answer:
@@ -299,9 +299,9 @@ export const industries: Record<string, IndustryContent> = {
     eyebrow: "Industries",
     subtitle:
       "Admissions campaigns built around the intake calendar, because in education, starting late can mean missing an entire cycle.",
-    metaTitle: "Education Marketing for Admissions",
+    metaTitle: "Education Marketing Agency for Admissions",
     metaDescription:
-      "Digital marketing for schools, colleges, edtech and coaching institutes. Admission campaigns, counsellor enablement and enrolment-focused funnels.",
+      "Education marketing agency for schools, colleges, edtech and coaching institutes: admission campaigns, counsellor enablement and enrolment-focused funnels.",
     answerBlock: {
       question: "How can schools and coaching institutes get more admissions?",
       answer:
@@ -359,9 +359,9 @@ export const industries: Record<string, IndustryContent> = {
     eyebrow: "Industries",
     subtitle:
       "Direct bookings that keep the commission OTAs would otherwise take out of your margin.",
-    metaTitle: "Hotel & Hospitality Marketing Agency",
+    metaTitle: "Hospitality Marketing Agency for Hotels",
     metaDescription:
-      "Digital marketing for hotels, resorts, restaurants and travel brands. Direct booking campaigns, local SEO and reputation management.",
+      "Hospitality marketing agency for hotels, resorts, restaurants and travel brands: direct booking campaigns, local SEO and reputation management.",
     answerBlock: {
       question: "How can hotels increase direct bookings?",
       answer:
@@ -420,7 +420,7 @@ export const industries: Record<string, IndustryContent> = {
       "High-ticket enquiries from people ready to spend, filtered before they reach your design team's calendar.",
     metaTitle: "Marketing for Interior Designers",
     metaDescription:
-      "Lead generation for interior design and architecture firms. Portfolio-led campaigns that attract high-budget clients and filter out tyre-kickers.",
+      "Marketing for interior designers and architecture firms: portfolio-led campaigns that attract high-budget clients and filter out tyre-kickers.",
     answerBlock: {
       question: "How do interior designers get quality leads online?",
       answer:
@@ -478,9 +478,9 @@ export const industries: Record<string, IndustryContent> = {
     eyebrow: "Industries",
     subtitle:
       "Showroom footfall, test drives and service bookings, measured at the door rather than in the ad dashboard.",
-    metaTitle: "Automotive and Dealership Marketing",
+    metaTitle: "Automotive Marketing Agency for Dealers",
     metaDescription:
-      "Digital marketing for car dealerships, service centres and auto accessory brands. Test drive campaigns, local SEO and review generation.",
+      "Automotive marketing agency for car dealerships, service centres and accessory brands: test drive campaigns, local SEO and review generation.",
     answerBlock: {
       question: "How can a car dealership increase sales with digital marketing?",
       answer:

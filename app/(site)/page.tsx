@@ -4,6 +4,7 @@
  * still apply: verified testimonials only, every number computed from real data, no
  * template case studies or prices. The two photos are the live site's own.
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import type { Metadata } from "next";
 import Image from "next/image";
 import Link from "next/link";
@@ -40,6 +41,8 @@ import { buildMetadata } from "@/lib/seo";
 import { answerSchema, faqSchema, graph, localBusinessSchema, organizationSchema } from "@/lib/structured-data";
 import type { AnswerBlock, QA } from "@/lib/content-types";
 import { business } from "@/lib/site-config";
+
+const path = "/";
 
 export const metadata: Metadata = buildMetadata({
   title: "Performance Marketing Agency in Pune | Marketix Studio",
@@ -217,6 +220,9 @@ export default async function HomePage() {
                 aria-hidden="true"
                 className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(ellipse_75%_65%_at_18%_28%,rgb(var(--card)/0.92)_0%,rgb(var(--card)/0.6)_45%,transparent_75%),radial-gradient(ellipse_55%_45%_at_78%_82%,rgb(var(--card)/0.9)_0%,rgb(var(--card)/0.5)_50%,transparent_80%)] lg:block"
               />
+            </div>
+            <div className="-mb-4 sm:-mb-6">
+              <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
             </div>
             <h1 className="max-w-[18ch] font-display text-[clamp(2.6rem,6.4vw+0.2rem,6.25rem)] font-bold leading-[1.1] tracking-[-0.015em] text-ink">
               Performance Marketing Agency for Real Estate, Startups &amp; eCommerce
@@ -572,12 +578,12 @@ export default async function HomePage() {
       <section className="py-24 sm:py-28">
         <div className="container-edge">
           <div className="mx-reveal">
-            <AnswerCard block={answer} id="answer" />
+            <AnswerCard block={answer} id="answer" source={pageSource(path)} />
           </div>
           <div className="mt-16 grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
             <div className="mx-reveal">
               <Eyebrow>FAQ</Eyebrow>
-              <h2 className="mt-5 font-display text-h2 font-bold leading-[1.18] text-ink">Questions people ask first</h2>
+              <h2 className="mt-5 font-display text-h2 font-bold leading-[1.18] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}</h2>
               <div className="mt-8 flex flex-col items-start gap-5">
                 <Cta href="/growth-audit">Get a free growth audit</Cta>
                 <TextLink href="/faq">More answers in the FAQ</TextLink>

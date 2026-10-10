@@ -166,3 +166,14 @@ advisable before scaling paid traffic.
 - GMB toolkit claims "500+ businesses" and "rank in 30 days" were NOT carried over; need
   evidence first.
 - Optional: a brand video for the hero.
+
+## On-page SEO (Rank Math style), 2026-10-10
+
+Every indexable page has one focus keyword in `lib/focus-keywords.ts` (plus one official
+outside reference per page in `pageSources`). Templates use it for: the start of the title,
+the meta description, a label above the H1 (hidden when the H1 already contains it), one
+subheading (usually the FAQ heading), and the "Official guide" link in the answer card.
+Scored with a Rank Math-style checker: average 89, most pages 90. The last 10 points are two
+checks skipped on purpose: keyword in the URL (renaming live URLs costs ranking) and keyword
+in image alt text (most pages have no images; alt text must describe the image, not repeat a
+keyword). Contact, growth audit and blog index stay short by design.

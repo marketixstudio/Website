@@ -2,6 +2,7 @@
  * centrepiece: StepRail (the page's one entrance) · honest: pass (46: invented stats removed from content/services.ts)
  * testimonials: none (design.md: client quotes live on case studies) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { AlertTriangle, ArrowRight, Check } from "lucide-react";
@@ -127,6 +128,7 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
   const related = f.related.map((slug) => services[slug]).filter(Boolean);
 
   const hero: ServiceHeroContent = {
+    keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: content.title, path }, ],
     scene: serviceScenes[content.slug] ?? "bars",
     label: `${content.title}, Pune`,
@@ -162,7 +164,7 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
 
       {/* 1 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={content.answerBlock} id="answer" />
+        <AnswerCard block={content.answerBlock} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 2 · The problem this service fixes. */}
@@ -263,7 +265,7 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Tell us what you sell and where. The free audit shows where enquiries are being lost.

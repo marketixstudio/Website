@@ -2,6 +2,7 @@
  * honest: pass (46: ₹99 / ₹999 and contents from the live page; "500+ businesses" and "30 days" NOT carried over)
  * chrome: pass (47: no drawn spreadsheet UI) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -58,6 +59,9 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-center gap-12 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:gap-16">
           <div>
             <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: product.name, path }, ]} />
+            <div className="mt-7">
+              <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
+            </div>
             <h1 className="mx-display mt-5 max-w-[14ch] font-display text-display text-ink">
               Rank your business on <span className="whitespace-nowrap text-ink-hi">Google Maps</span>
             </h1>
@@ -139,7 +143,7 @@ export default function Page() {
 
       {/* 4 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={product.answerBlock} id="answer" />
+        <AnswerCard block={product.answerBlock} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 5 · Questions, and the done-for-you option. */}
@@ -147,7 +151,7 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: common questions`}</h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Rather have us do it for you? That is our local SEO service.
             </p>

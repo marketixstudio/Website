@@ -35,7 +35,16 @@ export function TextLink({ href, children }: { href: string; children: React.Rea
  * The answer-first block for AI search engines, kept compact: one card, not a
  * full-width section with an eyebrow beside the heading (Hallmark gate 54).
  */
-export function AnswerCard({ block, id }: { block: AnswerBlock; id?: string }) {
+export function AnswerCard({
+  block,
+  id,
+  source,
+}: {
+  block: AnswerBlock;
+  id?: string;
+  /** An official outside guide on the topic (e.g. Google's own documentation). */
+  source?: { label: string; href: string };
+}) {
   return (
     <section id={id} aria-labelledby={id ? `${id}-q` : undefined} className="mx-card p-7 sm:p-9">
       <h2 id={id ? `${id}-q` : undefined} className="font-display text-2xl font-bold leading-tight tracking-tight text-ink sm:text-[1.75rem]">
@@ -51,6 +60,14 @@ export function AnswerCard({ block, id }: { block: AnswerBlock; id?: string }) {
             </li>
           ))}
         </ul>
+      )}
+      {source && (
+        <p className="mt-6 border-t border-line pt-5 text-sm text-muted">
+          Official guide:{" "}
+          <a href={source.href} target="_blank" rel="noopener" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4 hover:decoration-accent">
+            {source.label}
+          </a>
+        </p>
       )}
     </section>
   );

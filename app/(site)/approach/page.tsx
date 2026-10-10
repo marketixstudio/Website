@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: company · centrepiece: StepRail of the method
  * honest: pass (46: principles describe process, no invented guarantees) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -16,9 +17,9 @@ import { answerSchema, breadcrumbSchema, faqSchema, graph } from "@/lib/structur
 const path = "/approach";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Our Approach: Audit, Plan, Build, Improve",
+  title: "Digital Marketing Process: Audit, Plan, Build",
   description:
-    "How Marketix Studio runs every engagement: an audit first, a written plan, campaigns and pages built together, then steady improvement against enquiries.",
+    "Our digital marketing process: an audit first, a written plan, campaigns and pages built together, then steady improvement measured on enquiries.",
   path,
 });
 
@@ -65,6 +66,14 @@ const faqs: QA[] = [
     q: "How often will I hear from you?",
     a: "You get a plain monthly report on what changed and what it produced, plus a message whenever something important happens, such as a campaign being paused or a new test going live.",
   },
+  {
+    q: "What do you need from us to get started?",
+    a: "Manager access to your ad accounts, analytics, Google Business Profile and website, a clear picture of what you sell and to whom, and a named person on your side who handles enquiries. Nothing changes hands: everything stays in your name.",
+  },
+  {
+    q: "How soon will we see results?",
+    a: "Paid ads can bring enquiries within days of going live and improve over the first months as data builds. SEO and content take longer; Google itself says SEO usually needs four months to a year to show its benefit. The plan uses ads for early results while the slower channels build.",
+  },
 ];
 
 export default function Page() {
@@ -82,6 +91,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "Our Approach", path }, ]}
         label="Our approach, Marketix Studio Pune"
         title="Audit. Plan. Build."
@@ -101,7 +111,7 @@ export default function Page() {
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · Principles. */}
@@ -147,7 +157,7 @@ export default function Page() {
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions about how we work</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: questions about how we work`}</h2>
           </div>
           <FaqList items={faqs} />
         </div>

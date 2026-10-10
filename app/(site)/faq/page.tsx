@@ -2,6 +2,7 @@
  * honest: pass (46: invented retainer range, minimum term, notice period, budgets, weekly updates,
  * exclusivity, "a third international" and language claims removed) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { JsonLd } from "@/components/seo/json-ld";
@@ -14,10 +15,12 @@ import { buildMetadata } from "@/lib/seo";
 import { business } from "@/lib/site-config";
 import { breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
 
+const path = "/faq";
+
 export const metadata: Metadata = buildMetadata({
-  title: "FAQ: Questions About Working With Us",
+  title: "Marketing Agency FAQ: Working With Us",
   description:
-    "Straight answers about pricing, results, reporting, locations and how Marketix Studio in Pune works, before you get on a call.",
+    "Marketing agency FAQ: straight answers about pricing, results, reporting, locations and how Marketix Studio in Pune works, before you get on a call.",
   path: "/faq",
 });
 
@@ -41,7 +44,9 @@ const groups: { title: string; items: QA[] }[] = [
       },
       {
         q: "Is there anything with a fixed price?",
-        a: `Yes, the Google Maps Ranking Toolkit, a do-it-yourself Excel file, costs ₹${toolkit.priceInr}.`,
+        a: toolkit.onSale
+          ? `Yes, the Google Maps Ranking Toolkit, a do-it-yourself Excel file, costs ₹${toolkit.priceInr}.`
+          : "Not at the moment. Every engagement is quoted on scope after a free growth audit, so you only pay for the work your business needs.",
       },
     ],
   },
@@ -94,6 +99,18 @@ const groups: { title: string; items: QA[] }[] = [
         q: "Do you work with businesses outside India?",
         a: "Yes. We plan campaigns for brands selling into the UAE, the UK, the US, Australia, Canada and Singapore.",
       },
+      {
+        q: "Can a Pune agency run campaigns in other cities?",
+        a: "Yes. Campaigns are targeted by location, with landing pages and creative written for each city or country, and meetings happen online. Being in Pune changes where the team sits, not where your customers are.",
+      },
+      {
+        q: "Do you work in UAE, UK and US time zones?",
+        a: "Yes. The team works on India time, which overlaps with the UAE working day and the UK morning, and we schedule calls to suit US clients. Campaign changes and reporting do not depend on a shared office day.",
+      },
+      {
+        q: "How do I know a marketing agency is right for my business?",
+        a: "Ask to see work in your industry, how enquiries are tracked back to campaigns, who will run your account day to day and what each report contains. The free growth audit is a low-risk way to see how we think before you commit.",
+      },
     ],
   },
 ];
@@ -114,6 +131,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "FAQ", path: "/faq" }, ]}
         label="FAQ, Marketix Studio Pune"
         title="Straight answers,"
@@ -125,7 +143,15 @@ export default function Page() {
 
       <section aria-label="Frequently asked questions" className="pb-24">
         <div className="container-edge">
-          <FaqExplorer groups={groups} />
+          <div>
+            <FaqExplorer groups={groups} />
+            <p className="mt-8 text-sm text-muted">
+              Official guide:{" "}
+              <a href={pageSource(path).href} target="_blank" rel="noopener" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">
+                {pageSource(path).label}
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 
@@ -134,7 +160,7 @@ export default function Page() {
           <div>
             <Eyebrow>Get in touch</Eyebrow>
             <h2 className="mt-6 max-w-[20ch] font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Still have a question?
+              {`${sentenceCase(focusKeyword(path) ?? "")}: still have a question?`}
             </h2>
           </div>
           <div className="flex flex-col items-start gap-5">

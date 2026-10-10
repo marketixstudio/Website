@@ -112,7 +112,7 @@ export const puneAreas: PuneArea[] = [
     area: "Baner",
     metaTitle: "Digital Marketing Company in Baner, Pune",
     metaDescription:
-      "Digital marketing company for Baner, Pune: Google Ads, SEO, Google Maps and social media for Baner shops, clinics, startups and real estate.",
+      "Digital marketing company in Baner: google Ads, SEO, Google Maps and social media for Baner shops, clinics, startups and real estate.",
     title: { before: "Digital marketing company in", accent: "Baner" },
     lede:
       "We help Baner businesses, from Baner Road retail and clinics to startups and residential projects, win the searches their customers are making every day.",
@@ -176,7 +176,7 @@ export const puneAreas: PuneArea[] = [
     area: "Aundh",
     metaTitle: "Digital Marketing Services in Aundh, Pune",
     metaDescription:
-      "Digital marketing services for Aundh businesses: Google Maps, SEO, Google Ads, social media and websites, from a Pune team that knows the area.",
+      "Digital marketing services in Aundh: google Maps, SEO, Google Ads, social media and websites, from a Pune team that knows the area.",
     title: { before: "Digital marketing services for", accent: "Aundh", after: "businesses" },
     lede:
       "Aundh is one of Pune's established neighbourhoods, with long-running shops, restaurants, clinics and schools alongside newer brands. We help Aundh businesses stay first choice when locals search, working as a Pune team that knows the area.",
@@ -238,9 +238,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "hinjewadi",
     area: "Hinjewadi",
-    metaTitle: "Hinjewadi Digital Marketing Agency",
+    metaTitle: "Digital Marketing Agency in Hinjewadi, Pune",
     metaDescription:
-      "Digital marketing for Hinjewadi: Google Ads, SEO and landing pages for startups, SaaS firms, real estate projects and local businesses near the IT park.",
+      "Digital marketing agency in Hinjewadi: google Ads, SEO and landing pages for startups, SaaS firms, real estate projects and local businesses near the IT park.",
     title: { before: "Digital marketing for", accent: "Hinjewadi", after: "and its IT park" },
     lede:
       "Hinjewadi is built around the Rajiv Gandhi Infotech Park and the housing that grew up around it. We help the startups, SaaS teams and real estate developers here win customers, and the local businesses that serve the IT crowd fill their tables and slots.",
@@ -308,7 +308,7 @@ export const puneAreas: PuneArea[] = [
     area: "Wakad",
     metaTitle: "Digital Marketing Company in Wakad, Pune",
     metaDescription:
-      "Digital marketing for Wakad businesses and projects: Google Maps, Google Ads, Meta ads and websites for retail, clinics, coaching and real estate.",
+      "Digital marketing company in Wakad: google Maps, Google Ads, Meta ads and websites for retail, clinics, coaching and real estate.",
     title: { before: "Digital marketing company in", accent: "Wakad" },
     lede:
       "Wakad has grown into one of Pune's busiest residential hubs, with the shops, clinics, schools and classes that come with it. We help Wakad businesses and real estate projects reach the families moving in.",
@@ -370,9 +370,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "pimpri-chinchwad",
     area: "Pimpri Chinchwad",
-    metaTitle: "Digital Marketing Agency, Pimpri Chinchwad",
+    metaTitle: "Digital Marketing Agency in Pimpri Chinchwad",
     metaDescription:
-      "Digital marketing for Pimpri Chinchwad (PCMC): Google Ads, SEO, websites and Google Maps for manufacturers, dealers, retail and local services.",
+      "Digital marketing agency in Pimpri Chinchwad: google Ads, SEO, websites and Google Maps for manufacturers, dealers, retail and local services.",
     title: { before: "Digital marketing agency in", accent: "PCMC,", after: "Pimpri Chinchwad" },
     lede:
       "Pimpri Chinchwad is one of Maharashtra's big industrial and manufacturing belts, alongside fast-growing residential areas. We help PCMC manufacturers, suppliers, dealers and local businesses turn searches into calls and orders.",
@@ -438,9 +438,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "pimple-saudagar",
     area: "Pimple Saudagar",
-    metaTitle: "Pimple Saudagar Digital Marketing Agency",
+    metaTitle: "Digital Marketing Agency in Pimple Saudagar",
     metaDescription:
-      "Digital marketing for Pimple Saudagar businesses: Google Maps, local ads, social media and WhatsApp for restaurants, clinics, classes and retail.",
+      "Digital marketing agency in Pimple Saudagar: google Maps, local ads, social media and WhatsApp for restaurants, clinics, classes and retail.",
     title: { before: "Digital marketing for", accent: "Pimple Saudagar", after: "businesses" },
     lede:
       "Pimple Saudagar is one of the busiest residential neighbourhoods in Pimpri Chinchwad, with large housing societies and streets full of restaurants, clinics, classes and shops. We help businesses here become the first name residents find when they search nearby.",
@@ -502,9 +502,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "kharadi",
     area: "Kharadi",
-    metaTitle: "Digital Marketing Services Kharadi, Pune",
+    metaTitle: "Digital Marketing Services in Kharadi, Pune",
     metaDescription:
-      "Digital marketing services for Kharadi and East Pune: Google Ads, SEO, landing pages and Google Maps for IT firms, real estate, retail and clinics.",
+      "Digital marketing services in Kharadi: google Ads, SEO, landing pages and Google Maps for IT firms, real estate, retail and clinics.",
     title: { before: "Digital marketing services in", accent: "Kharadi", after: "and East Pune" },
     lede:
       "Kharadi has become East Pune's business centre, with EON IT Park and World Trade Center Pune surrounded by new homes, restaurants and retail. We help Kharadi businesses and projects compete for the searches that matter.",
@@ -568,7 +568,7 @@ export const puneAreas: PuneArea[] = [
     area: "Viman Nagar",
     metaTitle: "Digital Marketing Agency in Viman Nagar",
     metaDescription:
-      "Digital marketing for Viman Nagar: Google Maps, Instagram, Meta and Google Ads for cafes, restaurants, clinics, salons and brands near the airport.",
+      "Digital marketing agency in Viman Nagar: google Maps, Instagram, Meta and Google Ads for cafes, restaurants, clinics, salons and brands near the airport.",
     title: { before: "Digital marketing agency in", accent: "Viman Nagar" },
     lede:
       "Viman Nagar sits beside Pune airport and has become one of the city's liveliest neighbourhoods, with students, young professionals and a dense run of cafes, restaurants, salons and clinics. We help Viman Nagar businesses stand out where these customers look first: Google Maps and Instagram.",
@@ -634,9 +634,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "hadapsar",
     area: "Hadapsar",
-    metaTitle: "Digital Marketing Company, Hadapsar Pune",
+    metaTitle: "Digital Marketing Company in Hadapsar, Pune",
     metaDescription:
-      "Digital marketing for Hadapsar, Magarpatta and Amanora: Google Ads, SEO, Google Maps and landing pages for real estate, retail, clinics and B2B.",
+      "Digital marketing company in Hadapsar: google Ads, SEO, Google Maps and landing pages for real estate, retail, clinics and B2B.",
     title: { before: "Digital marketing company in", accent: "Hadapsar" },
     lede:
       "Hadapsar has grown from an industrial suburb into one of East Pune's largest hubs, with Magarpatta City, Amanora Park Town and new housing along Solapur Road. We help Hadapsar businesses and projects win customers across the area, from shops and clinics to developers and suppliers.",
@@ -698,9 +698,9 @@ export const puneAreas: PuneArea[] = [
   {
     slug: "koregaon-park",
     area: "Koregaon Park",
-    metaTitle: "Digital Marketing Services, Koregaon Park",
+    metaTitle: "Digital Marketing Services in Koregaon Park",
     metaDescription:
-      "Digital marketing for Koregaon Park brands: Instagram, Google Maps, Meta ads and websites for restaurants, boutiques, wellness studios and clinics.",
+      "Digital marketing services in Koregaon Park: instagram, Google Maps, Meta ads and websites for restaurants, boutiques, wellness studios and clinics.",
     title: { before: "Digital marketing for", accent: "Koregaon Park", after: "brands" },
     lede:
       "Koregaon Park is Pune's best-known lifestyle address, with restaurants, bars, boutiques, wellness studios and premium clinics along its tree-lined lanes. We help Koregaon Park brands look as good online as they do in person, and turn that attention into bookings.",
@@ -764,7 +764,7 @@ export const puneAreas: PuneArea[] = [
     area: "Kothrud",
     metaTitle: "Digital Marketing Company in Kothrud, Pune",
     metaDescription:
-      "Digital marketing for Kothrud: Google Maps, social media, Google Ads and websites for shops, clinics, coaching classes and restaurants in Kothrud.",
+      "Digital marketing company in Kothrud: google Maps, social media, Google Ads and websites for shops, clinics, coaching classes and restaurants in Kothrud.",
     title: { before: "Digital marketing company in", accent: "Kothrud" },
     lede:
       "Kothrud is one of Pune's largest and most established residential areas, full of family-run shops, clinics, coaching classes and restaurants with loyal local customers. We help Kothrud businesses keep those customers and win the next generation online.",

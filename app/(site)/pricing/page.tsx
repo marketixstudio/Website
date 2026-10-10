@@ -2,6 +2,7 @@
  * honest: pass (46: the old tiers, prices, minimum spends and "no setup fee" were invented and are removed;
  * the only public price is the ₹99 toolkit) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -22,9 +23,9 @@ const path = "/pricing";
 const toolkit = products["gmb-toolkit"];
 
 export const metadata: Metadata = buildMetadata({
-  title: "Pricing: How We Quote",
+  title: "Digital Marketing Agency Pricing: How We Quote",
   description:
-    "How Marketix Studio prices marketing work: quoted on scope after a free audit, with ad spend paid directly to the platforms. Build your scope online.",
+    "Digital marketing agency pricing at Marketix Studio: quoted on scope after a free audit, with ad spend paid directly to the platforms. Build your scope online.",
   path,
 });
 
@@ -65,6 +66,26 @@ const faqs: QA[] = [
     q: "How do I get a quote?",
     a: `Build your scope on this page and send it on WhatsApp, request a free growth audit, or call ${business.phoneDisplay}.`,
   },
+  {
+    q: "Is the growth audit really free?",
+    a: "Yes. We review your ads, website, Google Business Profile, tracking and follow-up and tell you plainly what to fix first. There is no obligation to work with us afterwards.",
+  },
+  {
+    q: "What does the cost of digital marketing depend on?",
+    a: "Mainly the number of channels, campaigns and markets, how much creative and content is needed, and whether a website or landing pages are part of the work. Ad budget is separate and paid straight to Google, Meta or the platform.",
+  },
+  {
+    q: "What affects the cost of a website?",
+    a: "The number of pages and templates, features such as booking or payments, who writes the content, and any integrations with your CRM or WhatsApp. A focused landing page costs far less than a full website with many sections.",
+  },
+  {
+    q: "Can I start small and add channels later?",
+    a: "Yes. Many clients start with one channel, such as Google Ads or local SEO, and add others once tracking shows what works. The plan is built so each new channel fits the one before it.",
+  },
+  {
+    q: "How is a monthly marketing retainer different from a project fee?",
+    a: "A retainer covers ongoing work such as managing ads, SEO or social media month after month, and is reviewed against results. A project fee covers a defined piece of work, such as a website or a landing page, delivered once.",
+  },
 ];
 
 export default function Page() {
@@ -90,6 +111,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "Pricing", path }, ]}
         label="Pricing, Marketix Studio Pune"
         title="Priced on the work you"
@@ -108,7 +130,7 @@ export default function Page() {
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · What shapes a quote. */}
@@ -154,7 +176,7 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Pricing questions</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: common questions`}</h2>
             <div className="mt-6">
               <TextLink href="/services">See all services</TextLink>
             </div>

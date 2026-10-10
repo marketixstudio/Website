@@ -2,6 +2,7 @@
  * honest: pass (46: one published study, shown as one; client quotes are real and approved)
  * testimonials: allowed here (the case-study hub) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Image from "next/image";
@@ -68,6 +69,9 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
           <div>
             <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Case Studies", path }, ]} />
+            <div className="mt-7">
+              <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
+            </div>
             <h1 className="mx-display mt-5 max-w-[17ch] font-display text-display text-ink">
               {workOverview.title} <span className="text-ink-hi">{workOverview.highlight}</span>
             </h1>
@@ -200,9 +204,17 @@ export default function Page() {
         <div className="container-edge grid gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Questions about our work</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: questions about our work`}</h2>
           </div>
-          <FaqList items={faqs} />
+          <div>
+            <FaqList items={faqs} />
+            <p className="mt-8 text-sm text-muted">
+              Official guide:{" "}
+              <a href={pageSource(path).href} target="_blank" rel="noopener" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">
+                {pageSource(path).label}
+              </a>
+            </p>
+          </div>
         </div>
       </section>
 

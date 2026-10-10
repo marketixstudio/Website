@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: contact · centrepiece: three-route chooser (call, WhatsApp, form)
  * honest: pass (46: removed invented pricing, "a third international" and response-time promises) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { ArrowRight, Mail, MapPin, MessageCircle, Phone } from "lucide-react";
@@ -14,8 +15,10 @@ import { business, fullAddress } from "@/lib/site-config";
 import { breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
 import { ElectricMonogram } from "@/components/v2/electric-monogram";
 
+const path = "/contact";
+
 export const metadata: Metadata = buildMetadata({
-  title: "Contact Marketix Studio, Pune",
+  title: "Contact Marketix Studio: Call, WhatsApp or Visit Us in Pune",
   description: `Contact Marketix Studio on Balewadi High Street, Pune. Call or WhatsApp ${business.phoneDisplay}, email ${business.email}, or send an enquiry.`,
   path: "/contact",
 });
@@ -95,6 +98,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "Contact", path: "/contact" }, ]}
         label="Contact, Marketix Studio Pune"
         title="Tell us what needs to"
@@ -183,7 +187,7 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Before you get in touch</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">Before you contact Marketix Studio</h2>
             <div className="mt-6 flex flex-col items-start gap-4">
               <TextLink href="/faq">All questions</TextLink>
               <TextLink href="/pricing">How we price</TextLink>

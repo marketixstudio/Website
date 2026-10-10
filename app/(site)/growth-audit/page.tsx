@@ -1,6 +1,8 @@
 /* Hallmark · genre: atmospheric · template: conversion · centrepiece: "what the audit checks" board beside the form
  * honest: pass (46: Vistrow CRM/automation framing removed; describes only what the audit looks at) · eyebrows: none
  */
+import Link from "next/link";
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { BarChart3, CalendarCheck, ListChecks, MapPin, MessagesSquare, MonitorSmartphone, Search } from "lucide-react";
@@ -15,9 +17,9 @@ import { breadcrumbSchema, faqSchema, graph } from "@/lib/structured-data";
 const path = "/growth-audit";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Free Growth Audit for Your Marketing",
+  title: "Free Marketing Audit: Ads, Website and Google",
   description:
-    "A free growth audit from Marketix Studio, Pune: we review your ads, website, Google profile, tracking and follow-up, and tell you what to fix first.",
+    "A free marketing audit from Marketix Studio, Pune: we review your ads, website, Google profile, tracking and follow-up, and tell you what to fix first.",
   path,
 });
 
@@ -52,6 +54,18 @@ const faqs: QA[] = [
     q: "What happens after I submit the form?",
     a: "We review your request and contact you by your preferred channel to arrange the audit and ask anything we need.",
   },
+  {
+    q: "What does a marketing audit check?",
+    a: "Where your ad budget goes and which searches or audiences waste it, how fast and easy your website is to enquire on, how complete your Google Business Profile is, whether calls and forms are tracked to the right channel, and how quickly enquiries hear back.",
+  },
+  {
+    q: "How long does the audit take?",
+    a: "Two short steps to request it, about a minute. We then review what is public, plus anything you choose to share access to, and come back with the priorities in order: what is costing you enquiries and what we would fix first.",
+  },
+  {
+    q: "Do I have to give you access to my accounts?",
+    a: "No. We can audit everything that is public, such as your website, Google Business Profile and visible ads. Read-only access to ad accounts and analytics makes the audit sharper, but it is your choice.",
+  },
 ];
 
 export default function Page() {
@@ -75,6 +89,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "Growth audit", path }, ]}
         label="Free growth audit"
         title="Find out where your enquiries are"
@@ -141,9 +156,19 @@ export default function Page() {
         <div className="container-edge grid grid-cols-[minmax(0,1fr)] gap-12 lg:grid-cols-[minmax(0,0.8fr)_minmax(0,1.2fr)]">
           <div>
             <Eyebrow>FAQ</Eyebrow>
-            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">About the audit</h2>
+            <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">{`${sentenceCase(focusKeyword(path) ?? "")}: common questions`}</h2>
           </div>
-          <FaqList items={faqs} />
+          <div>
+            <FaqList items={faqs} />
+            <p className="mt-8 text-sm leading-relaxed text-muted">
+              See <Link href="/approach" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">how we work</Link>,{" "}
+              <Link href="/services" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">our services</Link> and{" "}
+              <Link href="/work" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">client case studies</Link>. Official guide:{" "}
+              <a href={pageSource(path).href} target="_blank" rel="noopener" className="font-semibold text-ink underline decoration-accent/50 underline-offset-4">
+                {pageSource(path).label}
+              </a>
+            </p>
+          </div>
         </div>
       </section>
     </>

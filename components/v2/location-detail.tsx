@@ -2,6 +2,7 @@
  * centrepiece: AreaGlobe (India: spinning Earth, arc from Pune) or HoursOverlap (international), computed from real offsets
  * honest: pass (46: invented prices, capabilities and wrong time-zone claims fixed in content/locations.ts)
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -45,6 +46,7 @@ export function LocationDetail({ content }: { content: LocationContent }) {
   const siblings = locationList.filter((l) => l.slug !== content.slug && (l.countryCode === "IN") === isIndia);
 
   const hero: ServiceHeroContent = {
+    keyword: focusKeyword(path),
     scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: content.area, path }, ],
     label: isIndia ? `${content.area}, ${content.countryName}` : `${content.area}, from our office in Pune`,
@@ -83,7 +85,7 @@ export function LocationDetail({ content }: { content: LocationContent }) {
 
       {/* 1 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={content.answerBlock} id="answer" />
+        <AnswerCard block={content.answerBlock} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 2 · The market, drawn: the page's centrepiece. */}
@@ -226,7 +228,7 @@ export function LocationDetail({ content }: { content: LocationContent }) {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Tell us what you sell in {content.area} and we&apos;ll show you where enquiries are being lost.

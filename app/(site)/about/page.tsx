@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: company · centrepiece: "studio at a glance" board, every number counted from content
  * honest: pass (46: removed invented retainer range, flat-fee and exclusivity claims, 90-day review) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -24,7 +25,7 @@ import { ElectricMonogram } from "@/components/v2/electric-monogram";
 const path = "/about";
 
 export const metadata: Metadata = buildMetadata({
-  title: "About Marketix Studio, Marketing Agency in Pune",
+  title: "Marketing Agency in Pune: About Marketix Studio",
   description:
     "Marketix Studio is a performance marketing agency in Pune, serving real estate, startups and eCommerce brands since 2023.",
   path,
@@ -65,6 +66,18 @@ const faqs: QA[] = [
     q: "Do you guarantee results?",
     a: "No. Outcomes depend on your market, offer, budget and how your team follows up on enquiries, so any guarantee would be a guess. We agree clear targets before starting and report honestly against them.",
   },
+  {
+    q: "What makes Marketix Studio different from other marketing agencies in Pune?",
+    a: "We judge the work on the enquiries and sales it produces, not on clicks or impressions. One team plans ads, SEO, websites and creative together, your ad accounts and data stay in your name, and every month you get a plain report on what changed and what it produced.",
+  },
+  {
+    q: "Do you work with small businesses?",
+    a: "Yes. Alongside larger brands we work with clinics, shops, coaching classes, restaurants and local service businesses. The free growth audit shows what is worth doing at your budget, so a smaller business is never sold a plan it does not need.",
+  },
+  {
+    q: "Where is Marketix Studio located?",
+    a: "On Balewadi High Street in Pune, Maharashtra. Clients elsewhere in India and abroad work with us online, and we meet in person in Pune whenever that helps.",
+  },
 ];
 
 export default function Page() {
@@ -97,6 +110,7 @@ export default function Page() {
       />
 
       <IndexHero
+        keyword={focusKeyword(path)}
         crumbs={[ { name: "Home", path: "/" }, { name: "About", path }, ]}
         label="About Marketix Studio"
         title="A performance marketing agency that shows its"
@@ -145,7 +159,7 @@ export default function Page() {
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · How we work. */}
@@ -211,7 +225,7 @@ export default function Page() {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <div className="mt-8 flex flex-col items-start gap-5">
               <Cta href="/growth-audit">Get a free growth audit</Cta>

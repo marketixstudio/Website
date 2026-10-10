@@ -1,7 +1,9 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { Check } from "lucide-react";
+import { Eyebrow } from "@/components/ui/section-heading";
 import { Breadcrumbs, type Crumb } from "@/components/v2/breadcrumbs";
+import { sentenceCase } from "@/lib/focus-keywords";
 import { Scene3D, type SceneKind } from "@/components/v2/scene-3d";
 import { Cta, TextLink } from "@/components/v2/primitives";
 
@@ -20,6 +22,8 @@ export type ServiceHeroContent = {
   bestForLabel?: string;
   /** Breadcrumb trail shown above the title (replaces the label). */
   crumbs?: Crumb[];
+  /** The page's focus keyword, shown as a label above the title (Rank Math: keyword up front). */
+  keyword?: string;
   /** The 3D scene on the right of the hero: towers, bars, tiles, layers or pins. */
   scene?: SceneKind;
   /** Replaces the at-a-glance container below the hero (industry pages: the buyer's path). */
@@ -45,6 +49,11 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
               <Breadcrumbs items={content.crumbs} />
             ) : (
               <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>
+            )}
+            {content.keyword && !`${title.before} ${title.accent} ${title.after ?? ""}`.toLowerCase().includes(content.keyword.toLowerCase()) && (
+              <div className="mt-7">
+                <Eyebrow>{sentenceCase(content.keyword)}</Eyebrow>
+              </div>
             )}
             <h1 className="mx-display mt-5 max-w-[16ch] font-display text-display text-ink">
               {title.before} <span className="whitespace-nowrap text-ink-hi">{title.accent}</span>

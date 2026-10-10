@@ -23,7 +23,7 @@ export const servicesOverview: OverviewContent = {
     "Paid ads, SEO, websites, creative and follow-up, planned together so every channel is measured on the enquiries and sales it produces.",
   metaTitle: "Digital Marketing Services in Pune",
   metaDescription:
-    "Google and Meta ads, SEO, local SEO, websites, landing pages, branding, social, email and WhatsApp marketing from Marketix Studio, Pune.",
+    "Digital marketing services in Pune: Google and Meta ads, SEO, local SEO, websites, landing pages, branding, social, email and WhatsApp marketing.",
   cardsTitle: "What we do",
   cards: [
     { label: "Performance Marketing", href: "/services/performance-marketing", body: "Paid media across channels, managed against enquiry and sales targets.", icon: Target },
@@ -73,7 +73,7 @@ export const services: Record<string, ServiceContent> = {
       "Paid media across Google and Meta, managed against the enquiries and sales you actually want, not the cheapest click.",
     metaTitle: "Performance Marketing Services in Pune",
     metaDescription:
-      "Performance marketing agency managing Google, Meta and LinkedIn budgets against revenue targets. Serving Pune, Mumbai, Dubai, London and the US.",
+      "Performance marketing services in Pune: Google, Meta and LinkedIn budgets managed against revenue targets, for brands in Pune, Mumbai, Dubai, London and the US.",
     answerBlock: {
       question: "What is performance marketing?",
       answer:
@@ -185,7 +185,7 @@ export const services: Record<string, ServiceContent> = {
       "Facebook and Instagram advertising where fresh creative, not endless audience tinkering, is the lever we pull.",
     metaTitle: "Meta Ads Agency for Facebook and Instagram",
     metaDescription:
-      "Facebook and Instagram ad management focused on creative testing, Conversions API tracking and profitable cost per acquisition.",
+      "Meta ads agency for Facebook and Instagram: creative testing, Conversions API tracking and ad management focused on a profitable cost per acquisition.",
     answerBlock: {
       question: "Are Facebook and Instagram ads worth it?",
       answer:
@@ -239,9 +239,9 @@ export const services: Record<string, ServiceContent> = {
     eyebrow: "Services",
     subtitle:
       "Technical fixes, content that deserves to rank, and the authority that makes Google and AI assistants trust your brand.",
-    metaTitle: "SEO Services in Pune",
+    metaTitle: "SEO Services in Pune That Bring Customers",
     metaDescription:
-      "SEO services covering technical audits, on-page optimisation, content strategy, link acquisition and AI search visibility for brands in India and abroad.",
+      "SEO services in Pune: technical audits, on-page optimisation, content strategy, link acquisition and AI search visibility for brands in India and abroad.",
     answerBlock: {
       question: "How long does SEO take to show results?",
       answer:
@@ -355,7 +355,7 @@ export const services: Record<string, ServiceContent> = {
       "Content built against real search demand and written to be cited by Google, by AI assistants and by your own sales team.",
     metaTitle: "Content Marketing Agency in Pune",
     metaDescription:
-      "Content marketing services covering strategy, SEO content production, thought leadership and content that earns AI citations and organic rankings.",
+      "Content marketing agency in Pune: strategy, SEO content production and thought leadership that earns organic rankings and AI citations.",
     answerBlock: {
       question: "What does a content marketing agency actually do?",
       answer:
@@ -410,9 +410,9 @@ export const services: Record<string, ServiceContent> = {
     eyebrow: "Services",
     subtitle:
       "Fast, accessible, search-ready websites built on modern frameworks rather than a pile of page-builder plugins.",
-    metaTitle: "Web Design and Development in Pune",
+    metaTitle: "Web Design in Pune: Websites That Convert",
     metaDescription:
-      "Custom website design and development in Next.js, WordPress and Shopify. Fast, accessible, SEO-ready sites built to convert.",
+      "Web design in Pune and website development in Next.js, WordPress and Shopify: fast, accessible, SEO-ready sites built to turn visits into enquiries.",
     answerBlock: {
       question: "What makes a website good for SEO and conversion?",
       answer:
@@ -467,9 +467,9 @@ export const services: Record<string, ServiceContent> = {
     eyebrow: "Services",
     subtitle:
       "Campaign pages built around a single conversion, tested continuously and never left to go stale.",
-    metaTitle: "Landing Page Design Agency in Pune",
+    metaTitle: "Landing Page Design in Pune for Paid Ads",
     metaDescription:
-      "High-converting landing page design and sales funnel builds for paid campaigns. Built fast, tested continuously, measured against cost per lead.",
+      "Landing page design in Pune and sales funnel builds for paid campaigns: built fast, tested continuously and measured against cost per lead.",
     answerBlock: {
       question: "What is a good landing page conversion rate?",
       answer:
@@ -526,7 +526,7 @@ export const services: Record<string, ServiceContent> = {
       "Identity, messaging and design systems that make a small team look like a category leader and stay consistent as you grow.",
     metaTitle: "Branding Agency in Pune",
     metaDescription:
-      "Brand identity, positioning, messaging and design systems for growing brands. Logo, visual identity, brand guidelines and marketing collateral.",
+      "Branding agency in Pune for growing brands: brand identity, positioning, messaging, logo, visual identity, brand guidelines and marketing collateral.",
     answerBlock: {
       question: "What is included in a brand identity project?",
       answer:
@@ -583,7 +583,7 @@ export const services: Record<string, ServiceContent> = {
       "Organic social that builds the demand your paid campaigns later harvest: planned, produced and published consistently.",
     metaTitle: "Social Media Marketing Agency in Pune",
     metaDescription:
-      "Social media management, content production and community growth on Instagram, LinkedIn, Facebook and YouTube for brands in India and abroad.",
+      "Social media marketing agency in Pune: management, content production and community growth on Instagram, LinkedIn, Facebook and YouTube.",
     answerBlock: {
       question: "Is social media marketing worth it for a business?",
       answer:
@@ -640,7 +640,7 @@ export const services: Record<string, ServiceContent> = {
       "Lifecycle flows that earn more from the audience you already paid to acquire.",
     metaTitle: "Email Marketing Agency in Pune",
     metaDescription:
-      "Email marketing, lifecycle automation and CRM flows that recover abandoned carts, nurture leads and increase customer lifetime value.",
+      "Email marketing agency in Pune: lifecycle automation and CRM flows that recover abandoned carts, nurture leads and raise customer lifetime value.",
     answerBlock: {
       question: "What email automations should every business have?",
       answer:
@@ -697,7 +697,7 @@ export const services: Record<string, ServiceContent> = {
       "The app your customers already use, run properly on the official Business API rather than a personal number.",
     metaTitle: "WhatsApp Marketing Agency in India",
     metaDescription:
-      "WhatsApp Business API setup, broadcast campaigns, chatbot flows and CRM integration for Indian and international brands.",
+      "WhatsApp marketing agency for Indian and international brands: WhatsApp Business API setup, broadcast campaigns, chatbot flows and CRM integration.",
     answerBlock: {
       question: "How does WhatsApp marketing work for businesses?",
       answer:
@@ -752,9 +752,9 @@ export const services: Record<string, ServiceContent> = {
     eyebrow: "Services",
     subtitle:
       "Earn more revenue from the traffic you already pay for.",
-    metaTitle: "Conversion Rate Optimisation (CRO) Agency",
+    metaTitle: "Conversion Rate Optimisation Agency (CRO)",
     metaDescription:
-      "CRO services covering analytics audits, user research, A/B testing and funnel optimisation to increase revenue from existing traffic.",
+      "Conversion rate optimisation agency: analytics audits, user research, A/B testing and funnel optimisation to raise revenue from the traffic you already have.",
     answerBlock: {
       question: "What is conversion rate optimisation?",
       answer:

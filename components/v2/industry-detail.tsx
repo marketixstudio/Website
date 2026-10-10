@@ -2,6 +2,7 @@
  * centrepiece: Funnel of the sector's workflow · honest: pass (46: invented prices and stats removed from content/industries.ts)
  * testimonials: none (case study card links out instead) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { ArrowRight, TriangleAlert } from "lucide-react";
@@ -41,6 +42,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
   const study = Object.values(caseStudies).find((c) => c.industrySlug === content.slug && !c.draft);
 
   const hero: ServiceHeroContent = {
+    keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Industries", path: "/industries" }, { name: content.title, path }, ],
     label: `${content.title}, Pune`,
     title: f.title,
@@ -79,7 +81,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
 
       {/* 1 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={content.answerBlock} id="answer" />
+        <AnswerCard block={content.answerBlock} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 2 · What usually goes wrong. */}
@@ -200,7 +202,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Tell us about your business and we&apos;ll show you where enquiries are being lost.

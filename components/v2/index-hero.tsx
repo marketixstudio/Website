@@ -1,5 +1,7 @@
 import type { ReactNode } from "react";
+import { Eyebrow } from "@/components/ui/section-heading";
 import { Breadcrumbs, type Crumb } from "@/components/v2/breadcrumbs";
+import { sentenceCase } from "@/lib/focus-keywords";
 import { Cta, TextLink } from "@/components/v2/primitives";
 
 /**
@@ -15,6 +17,7 @@ export function IndexHero({
   cta = { label: "Get a free growth audit", href: "/growth-audit" },
   secondary,
   crumbs,
+  keyword,
   visual,
   children,
 }: {
@@ -27,6 +30,8 @@ export function IndexHero({
   secondary?: { label: string; href: string };
   /** Breadcrumb trail shown above the title (replaces the label). */
   crumbs?: Crumb[];
+  /** The page's focus keyword, shown as a label above the title. */
+  keyword?: string;
   /** Optional decorative visual shown above the lede (e.g. the electric monogram). */
   visual?: ReactNode;
   /** Optional content under the lede, e.g. contact details. */
@@ -36,6 +41,11 @@ export function IndexHero({
     <section className="mx-pool pb-16 pt-36 sm:pt-44">
       <div className="container-edge">
         {crumbs && crumbs.length > 1 ? <Breadcrumbs items={crumbs} /> : <p className="text-base font-semibold text-ink-2 sm:text-lg">{label}</p>}
+        {keyword && (
+          <div className="mt-7">
+            <Eyebrow>{sentenceCase(keyword)}</Eyebrow>
+          </div>
+        )}
         <div className="mt-5 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
           <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
             {title}

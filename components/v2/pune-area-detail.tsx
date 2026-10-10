@@ -2,6 +2,7 @@
  * centrepiece: AreaGlobe (spinning 3D Earth on Pune, with the nearby areas named)
  * honest: local facts are general knowledge; searches are labelled as examples; no invented results
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { ArrowRight, Search } from "lucide-react";
@@ -19,6 +20,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
   const others = puneAreas.filter((a) => a.slug !== content.slug && a.slug !== "balewadi");
 
   const hero: ServiceHeroContent = {
+    keyword: focusKeyword(path),
     scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: "Pune", path: "/locations/pune" }, { name: content.area, path }, ],
     label: `${content.area}, Pune`,
@@ -58,7 +60,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
 
       {/* 1 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={content.answer} id="answer" />
+        <AnswerCard block={content.answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 2 · The neighbourhood: profile beside the area map (the centrepiece). */}
@@ -159,7 +161,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions from {content.area} businesses
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions from ${content.area} businesses`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Tell us what you sell in {content.area} and we&apos;ll show you where enquiries are being lost.

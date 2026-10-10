@@ -46,7 +46,7 @@ export const products: Record<string, DigitalProduct> = {
       "One Excel file, 12 sheets: the checklists, post templates and review scripts for ranking a business on Google Maps.",
     metaTitle: "Google Maps Ranking Toolkit (GMB)",
     metaDescription:
-      "The Marketix Studio GMB toolkit: audit checklists, local SEO checks, 30 post templates and review scripts in Hindi, English and Marathi.",
+      "The Google Maps ranking toolkit from Marketix Studio: audit checklists, local SEO checks, 30 post templates and review scripts in Hindi, English and Marathi.",
     tagline: "Rank your business on Google Maps",
     subtitle:
       "A single Excel file with 12 sheets. Open it, work through the steps, and fix what's holding your Google Business Profile back, without running ads.",
@@ -90,6 +90,9 @@ export const products: Record<string, DigitalProduct> = {
     faqs: [
       { q: "What format is it in?", a: "One Excel file with 12 sheets." },
       { q: "Does it work for my type of business?", a: "It is written for any local business with a Google Business Profile: shops, clinics, showrooms, service businesses and more." },
+      // The next answer is true while onSale is false; remove it when the toolkit goes back on sale.
+      { q: "Is the toolkit available to buy now?", a: "Not at the moment. We can run the same Google Business Profile checks for you in a free growth audit, or manage local SEO for you." },
+      { q: "How is the toolkit different from your local SEO service?", a: "The toolkit is a do-it-yourself checklist. The local SEO service is us doing the work: optimising your Google Business Profile, building local pages, collecting reviews and reporting on calls and direction requests." },
       { q: "Which languages are the review scripts in?", a: "The WhatsApp scripts come in Hindi, English and Marathi. The SMS, email and in-person scripts are in English." },
     ],
   },

@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: index · centrepiece: MarketBoard (all markets on one IST axis)
  * design-system: design.md · honest: pass (46: "eight markets" and "deepest network" claims removed) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -19,9 +20,9 @@ import { Breadcrumbs } from "@/components/v2/breadcrumbs";
 const path = "/locations";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Where We Work: Pune, India and Abroad",
+  title: "Digital Marketing Agency in India and Abroad",
   description:
-    "Marketix Studio works from Pune with brands across India, and plans campaigns for the UAE, the UK, the US, Australia, Canada and Singapore.",
+    "Digital marketing agency in India and abroad, based in Pune: campaigns for brands across India, the UAE, the UK, the US, Australia, Canada and Singapore.",
   path,
 });
 
@@ -75,6 +76,9 @@ export default function Page() {
       <section className="mx-pool pb-16 pt-36 sm:pt-44">
         <div className="container-edge">
           <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Locations", path }, ]} />
+          <div className="mt-7">
+            <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
+          </div>
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
               {locationsOverview.title}{" "}
@@ -173,7 +177,7 @@ export default function Page() {
 
       {/* 4 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 5 · How we work across markets. */}
@@ -207,7 +211,7 @@ export default function Page() {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <div className="mt-8 flex flex-col items-start gap-5">
               <Cta href="/growth-audit">Get a free growth audit</Cta>

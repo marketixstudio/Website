@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: index · centrepiece: IndustryExplorer (tabbed sector panels)
  * design-system: design.md · honest: pass (46: invented history and exclusivity claims removed) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -86,6 +87,9 @@ export default function Page() {
       <section className="mx-pool pb-16 pt-36 sm:pt-44">
         <div className="container-edge">
           <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Industries", path }, ]} />
+          <div className="mt-7">
+            <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
+          </div>
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <h1 className="mx-display max-w-[16ch] font-display text-display text-ink">
               {industriesOverview.title}{" "}
@@ -113,7 +117,7 @@ export default function Page() {
 
       {/* 3 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 4 · Why sector matters. */}
@@ -147,7 +151,7 @@ export default function Page() {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Not in the list? Tell us how you sell and we&apos;ll say honestly whether we can help.

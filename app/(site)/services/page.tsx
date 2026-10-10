@@ -2,6 +2,7 @@
  * design-system: design.md · nav: N5 · footer: Ft5 · honest: pass (46: invented claims removed from servicesOverview)
  * chrome: pass (47) · eyebrows: none
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -70,6 +71,9 @@ export default function Page() {
       <section className="mx-pool pb-16 pt-36 sm:pt-44">
         <div className="container-edge">
           <Breadcrumbs items={[ { name: "Home", path: "/" }, { name: "Services", path }, ]} />
+          <div className="mt-7">
+            <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
+          </div>
           <div className="mt-5 grid gap-8 lg:grid-cols-[minmax(0,1.2fr)_minmax(0,0.8fr)] lg:items-end">
             <h1 className="mx-display max-w-[15ch] font-display text-display text-ink">
               {servicesOverview.title}{" "}
@@ -97,7 +101,7 @@ export default function Page() {
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · Why plan them together, and how an engagement runs. */}
@@ -155,7 +159,7 @@ export default function Page() {
           <div>
             <Eyebrow>Get started</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Not sure where to start?
+              {`${sentenceCase(focusKeyword(path) ?? "")}: not sure where to start?`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               The free growth audit looks at your ads, website and Google profile, and tells you which

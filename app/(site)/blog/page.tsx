@@ -1,6 +1,7 @@
 /* Hallmark · genre: atmospheric · template: index
  * honest: pass (no posts are published yet, so the page says so and stays out of search until there are)
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import type { Metadata } from "next";
 import { PenLine } from "lucide-react";
 import { BlogIndexPage } from "@/components/templates/blog-index-page";
@@ -9,14 +10,16 @@ import { TextLink } from "@/components/v2/primitives";
 import { buildMetadata } from "@/lib/seo";
 import { getBlogPosts } from "@/lib/blog";
 
+const path = "/blog";
+
 export const revalidate = 60;
 
 export async function generateMetadata(): Promise<Metadata> {
   const posts = await getBlogPosts();
   return buildMetadata({
-    title: "Marketing Insights and Guides",
+    title: "Digital Marketing Blog: Guides and Insights",
     description:
-      "Practical guides on performance marketing, SEO, paid ads and conversion from the Marketix Studio team in Pune.",
+      "The Marketix Studio digital marketing blog: practical guides on performance marketing, SEO, paid ads and conversion from our team in Pune.",
     path: "/blog",
     // Thin, empty index pages shouldn't be indexed; this lifts automatically once posts exist.
     robots: posts.length ? undefined : { index: false, follow: true },
@@ -30,6 +33,7 @@ export default async function Page() {
   return (
     <>
       <IndexHero
+        keyword={focusKeyword(path)}
         label="Blog, Marketix Studio Pune"
         title="Marketing notes"
         accent="from Pune"

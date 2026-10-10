@@ -15,9 +15,9 @@ export const workOverview = {
   highlight: "and what we actually changed",
   subtitle:
     "Every study states the baseline, the period measured and what we did. Where a client cannot be named, the sector and the numbers stay intact.",
-  metaTitle: "Case Studies and Client Results",
+  metaTitle: "Digital Marketing Case Studies and Results",
   metaDescription:
-    "Case studies from Marketix Studio in Pune: the problem, what we changed and what happened, published only with the client's approval.",
+    "Digital marketing case studies from Marketix Studio in Pune: the problem, what we changed and what happened, published only with the client's approval.",
 };
 
 export const caseStudies: Record<string, CaseStudy> = {

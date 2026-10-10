@@ -3,6 +3,7 @@
  * nav: N5 · footer: Ft5 · honest: pass (46) · chrome: pass (47 — live page in a figure, no drawn device) · eyebrows: none
  * testimonials: none on service pages — the Jay Ganesh quote lives on its case study
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import { FileSpreadsheet, MapPin, MessageSquareQuote, Star } from "lucide-react";
@@ -20,9 +21,10 @@ const toolkit = products["gmb-toolkit"];
 const path = "/services/local-seo-gmb";
 
 const hero: ServiceHeroContent = {
+  keyword: focusKeyword(path),
   scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Local SEO & Google Business", path }, ],
-  label: "Local SEO & Google Business Profile, Pune",
+  label: "Local SEO in Pune: Google Business Profile",
   title: { before: "Get found by the customers searching", accent: "near you" },
   lede: "We optimise your Google Business Profile, keep reviews coming in and clean up your listings everywhere else, so people nearby find you on Google Maps and call, visit or ask for directions.",
   cta: { label: "Get a free local SEO audit", href: "/growth-audit" },
@@ -44,9 +46,9 @@ const hero: ServiceHeroContent = {
 
 export const metadata: Metadata = {
   ...buildMetadata({
-    title: "Local SEO & Google Business Profile, Pune",
+    title: "Local SEO in Pune: Google Business Profile",
     description:
-      "Local SEO and Google Business Profile management in Pune. Show up in the map pack, collect more reviews and turn nearby searches into enquiries.",
+      "Local SEO in Pune and Google Business Profile management: show up in the map pack, collect more reviews and turn nearby searches into enquiries.",
     path,
   }),
 };
@@ -109,7 +111,7 @@ export default function Page() {
 
       {/* 2 · The answer, early, for people and for AI search. */}
       <div className="container-edge pb-20">
-        <AnswerCard block={service.answerBlock} id="answer" />
+        <AnswerCard block={service.answerBlock} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · The real tool, shown live. */}
@@ -244,7 +246,7 @@ export default function Page() {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Questions people ask first
+              {`${sentenceCase(focusKeyword(path) ?? "")}: questions people ask`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Anything else, ask us directly. We&apos;re based in Pune.

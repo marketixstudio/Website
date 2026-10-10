@@ -3,6 +3,7 @@
  * nav: N5 · footer: Ft5 · honest: pass (46 — every claim traced to the live PPC page) · chrome: pass (47) · eyebrows: none
  * pre-emit critique: P5 H4 E4 S5 R4 V5
  */
+import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
 import Link from "next/link";
@@ -33,6 +34,7 @@ const answer: AnswerBlock = {
 };
 
 const hero: ServiceHeroContent = {
+  keyword: focusKeyword(path),
   scene: "bars",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Google Ads & PPC", path }, ],
   label: "Google Ads management, Pune",
@@ -127,7 +129,7 @@ export default function Page() {
 
       {/* 2 · The answer, for people and for AI search. */}
       <div className="container-edge pb-24">
-        <AnswerCard block={answer} id="answer" />
+        <AnswerCard block={answer} id="answer" source={pageSource(path)} />
       </div>
 
       {/* 3 · Who it's for — stacked, not a three-card grid. */}
@@ -178,7 +180,7 @@ export default function Page() {
           <div>
             <Eyebrow>FAQ</Eyebrow>
             <h2 className="mt-6 font-display text-h2 font-bold leading-[1.18] tracking-[-0.01em] text-ink">
-              Before you spend a rupee
+              {`${sentenceCase(focusKeyword(path) ?? "")}: before you spend a rupee`}
             </h2>
             <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
               Send us your current account and we&apos;ll tell you where the budget is leaking.
