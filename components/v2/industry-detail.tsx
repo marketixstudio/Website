@@ -2,6 +2,7 @@
  * centrepiece: Funnel of the sector's workflow · honest: pass (46: invented prices and stats removed from content/industries.ts)
  * testimonials: none (case study card links out instead) · eyebrows: none
  */
+import { heroPhoto } from "@/lib/hero-images";
 import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -42,6 +43,7 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
   const study = Object.values(caseStudies).find((c) => c.industrySlug === content.slug && !c.draft);
 
   const hero: ServiceHeroContent = {
+    photo: heroPhoto(path, "We measure", f.outcome),
     keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Industries", path: "/industries" }, { name: content.title, path }, ],
     label: `${content.title}, Pune`,

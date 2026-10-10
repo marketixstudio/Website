@@ -2,6 +2,7 @@
  * centrepiece: StepRail (the page's one entrance) · honest: pass (46: invented stats removed from content/services.ts)
  * testimonials: none (design.md: client quotes live on case studies) · eyebrows: none
  */
+import { heroPhoto } from "@/lib/hero-images";
 import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -27,6 +28,21 @@ const ind = {
   interiors: { label: "Interiors and architecture", href: "/industries/interior-architecture" },
   automotive: { label: "Automotive", href: "/industries/automotive" },
 } satisfies Record<string, Link2>;
+
+/** The small card on the hero photo: what each service is judged on. */
+const serviceCards: Record<string, [string, string]> = {
+  "performance-marketing": ["Measured on", "Revenue and cost per acquisition"],
+  "meta-ads": ["Measured on", "A profitable cost per acquisition"],
+  "seo-services": ["We fix first", "Technical issues, then content, then authority"],
+  "content-marketing": ["Written for", "The questions your buyers search"],
+  "web-design-development": ["Built to", "Turn visits into enquiries"],
+  "landing-pages-funnels": ["Built around", "One clear action per page"],
+  "branding-design": ["The goal", "A brand that looks the same everywhere"],
+  "social-media-marketing": ["The goal", "A brand people see and remember"],
+  "email-marketing-automation": ["The goal", "Customers who come back"],
+  "whatsapp-marketing": ["The goal", "Fast replies where customers already chat"],
+  "conversion-rate-optimisation": ["The goal", "More enquiries from the traffic you have"],
+};
 
 /** Per-service framing: a promise for the H1, who it suits, and where to go next. */
 const framing: Record<
@@ -112,6 +128,7 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
   const related = f.related.map((slug) => services[slug]).filter(Boolean);
 
   const hero: ServiceHeroContent = {
+    photo: heroPhoto(path, ...(serviceCards[content.slug] ?? ["Measured on", "Enquiries and sales"])),
     keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: content.title, path }, ],
     label: `${content.title}, Pune`,

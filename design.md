@@ -282,6 +282,11 @@ site-wide kit. Use these, not one-off variants:
 - **Cards:** `.mx-card`; for highlighted cards `.mx-glow-card` (violet edge light, a static
   glow: a deliberate exception to "glow only on hover", because the live site has it).
 - **Photo with card:** `.mx-notch-photo` + `.mx-notch--tl/--br`; on phones the card drops below.
+- **Inner-page heroes (2026-10-10):** the home page keeps the violet threads; every service,
+  industry and location page shows its own topic photo (lib/hero-images.ts, free Unsplash
+  photos, credits kept) in the notched frame with a one-line card of what the page is measured
+  on. No 3D objects, icons-as-art or CSS scenes in heroes (the user rejected them as
+  unfinished). Replace with the client's own photos whenever they exist.
 - **No divider lines between sections.** Sections are separated by space only.
 - **Header:** taller bar, violet active item and chevrons, violet call pill (`.mx-phone-pill`).
 - **Honesty still wins:** the live site's template case studies, counters and $ prices stay out.

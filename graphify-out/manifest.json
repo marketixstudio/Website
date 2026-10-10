@@ -588,9 +588,9 @@
     "semantic_hash": "5122e6e59104073c6bcd761be24e35c1"
   },
   "design.md": {
-    "mtime": 1791483794.3200057,
-    "seen": 1791564577.609267,
-    "ast_hash": "7236db0f6395edbc4e0fd186ed26584a",
+    "mtime": 1791613691.9786406,
+    "seen": 1791613694.870591,
+    "ast_hash": "a95d137dbd1771a298d8c88da983b1cb",
     "semantic_hash": ""
   },
   "docs/PROJECT_CONTEXT.md": {
@@ -642,15 +642,15 @@
     "semantic_hash": ""
   },
   "app/(site)/services/google-ads-ppc/page.tsx": {
-    "mtime": 1791613277.721299,
-    "seen": 1791613286.7666821,
-    "ast_hash": "b0d7d136d252a79a76b083273790f1e6",
+    "mtime": 1791613582.8119802,
+    "seen": 1791613694.870522,
+    "ast_hash": "7b042e406b685437c6e2c00c07d0b350",
     "semantic_hash": ""
   },
   "app/(site)/services/local-seo-gmb/page.tsx": {
-    "mtime": 1791613277.7216067,
-    "seen": 1791613286.7666829,
-    "ast_hash": "dadffcd913cca659fa1bc3d9f77a3d54",
+    "mtime": 1791613582.8123524,
+    "seen": 1791613694.870523,
+    "ast_hash": "d012dae43298d6c348e4ded76cd1f31d",
     "semantic_hash": ""
   },
   "components/home/demand-map.tsx": {
@@ -672,9 +672,9 @@
     "semantic_hash": ""
   },
   "components/v2/service-detail.tsx": {
-    "mtime": 1791613277.7192717,
-    "seen": 1791613286.766728,
-    "ast_hash": "aaa730511a293e60e9fb58877d7a49d6",
+    "mtime": 1791613582.8102536,
+    "seen": 1791613694.8705668,
+    "ast_hash": "ef0c0217180c9f0615618c58284009f7",
     "semantic_hash": ""
   },
   "components/v2/step-rail.tsx": {
@@ -696,15 +696,15 @@
     "semantic_hash": ""
   },
   "components/v2/industry-detail.tsx": {
-    "mtime": 1791613277.7205272,
-    "seen": 1791613286.7667232,
-    "ast_hash": "602aab89f32d92fbcc32e9d30e3bfada",
+    "mtime": 1791613582.8106184,
+    "seen": 1791613694.870563,
+    "ast_hash": "26fa6d7f3e06d6520cf547e126d77dd0",
     "semantic_hash": ""
   },
   "components/v2/location-detail.tsx": {
-    "mtime": 1791613277.7208805,
-    "seen": 1791613286.766724,
-    "ast_hash": "8076e56bac4e283bb942a6f1fd3bca25",
+    "mtime": 1791613582.8109386,
+    "seen": 1791613694.870563,
+    "ast_hash": "5450a81bfae697b9d66bfaef7a59573a",
     "semantic_hash": ""
   },
   "components/v2/market-visuals.tsx": {
@@ -750,9 +750,9 @@
     "semantic_hash": ""
   },
   "components/v2/pune-area-detail.tsx": {
-    "mtime": 1791613277.7210777,
-    "seen": 1791613286.766727,
-    "ast_hash": "3416089691d186f20a4466fd8ec1eb76",
+    "mtime": 1791613582.811311,
+    "seen": 1791613694.870566,
+    "ast_hash": "a8cd8c77a6bcaae8926820d85e1cea61",
     "semantic_hash": ""
   },
   "content/pune-areas.ts": {
@@ -1107,6 +1107,12 @@
     "mtime": 1791610927.826416,
     "seen": 1791611118.6252842,
     "ast_hash": "011e127175a8658363289104bfc23c0d",
+    "semantic_hash": ""
+  },
+  "lib/hero-images.ts": {
+    "mtime": 1791613691.9781036,
+    "seen": 1791613694.87058,
+    "ast_hash": "1e1cbc9fc17c6950a49121cd33b64edf",
     "semantic_hash": ""
   }
 }

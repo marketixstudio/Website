@@ -2,6 +2,7 @@
  * centrepiece: AreaGlobe (spinning 3D Earth on Pune, with the nearby areas named)
  * honest: local facts are general knowledge; searches are labelled as examples; no invented results
  */
+import { heroPhoto } from "@/lib/hero-images";
 import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import Link from "next/link";
 import { Eyebrow } from "@/components/ui/section-heading";
@@ -20,6 +21,7 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
   const others = puneAreas.filter((a) => a.slug !== content.slug && a.slug !== "balewadi");
 
   const hero: ServiceHeroContent = {
+    photo: heroPhoto(path, "Pune neighbourhood", `Businesses in ${content.area}`),
     keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: "Pune", path: "/locations/pune" }, { name: content.area, path }, ],
     label: `${content.area}, Pune`,

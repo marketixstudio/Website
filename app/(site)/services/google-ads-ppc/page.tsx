@@ -3,6 +3,7 @@
  * nav: N5 · footer: Ft5 · honest: pass (46 — every claim traced to the live PPC page) · chrome: pass (47) · eyebrows: none
  * pre-emit critique: P5 H4 E4 S5 R4 V5
  */
+import { heroPhoto } from "@/lib/hero-images";
 import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { Eyebrow } from "@/components/ui/section-heading";
 import type { Metadata } from "next";
@@ -34,6 +35,7 @@ const answer: AnswerBlock = {
 };
 
 const hero: ServiceHeroContent = {
+  photo: heroPhoto(path, "Measured on", "Cost per lead and return on ad spend"),
   keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Google Ads & PPC", path }, ],
   label: "Google Ads management, Pune",

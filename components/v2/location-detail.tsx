@@ -2,6 +2,7 @@
  * centrepiece: AreaGlobe (India: spinning Earth, arc from Pune) or HoursOverlap (international), computed from real offsets
  * honest: pass (46: invented prices, capabilities and wrong time-zone claims fixed in content/locations.ts)
  */
+import { heroPhoto } from "@/lib/hero-images";
 import { focusKeyword, pageSource, sentenceCase } from "@/lib/focus-keywords";
 import { GlossIcon } from "@/components/home-v2/gloss-icon";
 import Link from "next/link";
@@ -46,6 +47,7 @@ export function LocationDetail({ content }: { content: LocationContent }) {
   const siblings = locationList.filter((l) => l.slug !== content.slug && (l.countryCode === "IN") === isIndia);
 
   const hero: ServiceHeroContent = {
+    photo: heroPhoto(path, isIndia ? "Working in" : "From Pune, for", isIndia ? `Businesses across ${content.area}` : `Brands in ${content.area}`),
     keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: content.area, path }, ],
     label: isIndia ? `${content.area}, ${content.countryName}` : `${content.area}, from our office in Pune`,
