@@ -1,4 +1,3 @@
-import type { SceneKind } from "@/components/v2/scene-3d";
 import { PathExplorer, type PathStep } from "@/components/v2/path-explorer";
 
 /**
@@ -100,18 +99,6 @@ const paths: Record<string, Path> = {
   },
 };
 
-/** The hero's 3D scene, per sector. */
-const sectorScenes: Record<string, SceneKind> = {
-  "real-estate": "towers",
-  "ecommerce-d2c": "tiles",
-  "saas-startups": "layers",
-  healthcare: "pins",
-  education: "towers",
-  hospitality: "towers",
-  "interior-architecture": "layers",
-  automotive: "pins",
-};
-export const industryScene = (slug: string): SceneKind => sectorScenes[slug] ?? "bars";
 
 export function IndustryPath({ slug, sector, outcome }: { slug: string; sector: string; outcome: string }) {
   const path = paths[slug];

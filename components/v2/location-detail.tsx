@@ -47,7 +47,6 @@ export function LocationDetail({ content }: { content: LocationContent }) {
 
   const hero: ServiceHeroContent = {
     keyword: focusKeyword(path),
-    scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: content.area, path }, ],
     label: isIndia ? `${content.area}, ${content.countryName}` : `${content.area}, from our office in Pune`,
     title: f.title,

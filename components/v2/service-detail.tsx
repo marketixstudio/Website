@@ -8,7 +8,6 @@ import { Eyebrow } from "@/components/ui/section-heading";
 import { AlertTriangle, ArrowRight, Check } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { FillHeading } from "@/components/v2/fill-heading";
-import type { SceneKind } from "@/components/v2/scene-3d";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { ProcessPanel, StepRail } from "@/components/v2/step-rail";
 import { AnswerCard, Cta, FaqList, TextLink, serviceHref } from "@/components/v2/primitives";
@@ -28,21 +27,6 @@ const ind = {
   interiors: { label: "Interiors and architecture", href: "/industries/interior-architecture" },
   automotive: { label: "Automotive", href: "/industries/automotive" },
 } satisfies Record<string, Link2>;
-
-/** The hero's 3D scene, per service. */
-const serviceScenes: Record<string, SceneKind> = {
-  "performance-marketing": "bars",
-  "meta-ads": "tiles",
-  "seo-services": "bars",
-  "content-marketing": "layers",
-  "web-design-development": "layers",
-  "landing-pages-funnels": "layers",
-  "branding-design": "tiles",
-  "social-media-marketing": "tiles",
-  "email-marketing-automation": "layers",
-  "whatsapp-marketing": "tiles",
-  "conversion-rate-optimisation": "bars",
-};
 
 /** Per-service framing: a promise for the H1, who it suits, and where to go next. */
 const framing: Record<
@@ -130,7 +114,6 @@ export function ServiceDetail({ content }: { content: ServiceContent }) {
   const hero: ServiceHeroContent = {
     keyword: focusKeyword(path),
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: content.title, path }, ],
-    scene: serviceScenes[content.slug] ?? "bars",
     label: `${content.title}, Pune`,
     title: f.title,
     lede: content.subtitle,

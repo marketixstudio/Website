@@ -21,7 +21,6 @@ export function PuneAreaDetail({ content }: { content: PuneArea }) {
 
   const hero: ServiceHeroContent = {
     keyword: focusKeyword(path),
-    scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Locations", path: "/locations" }, { name: "Pune", path: "/locations/pune" }, { name: content.area, path }, ],
     label: `${content.area}, Pune`,
     title: content.title,

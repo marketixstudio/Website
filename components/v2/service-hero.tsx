@@ -4,7 +4,7 @@ import { Check } from "lucide-react";
 import { Eyebrow } from "@/components/ui/section-heading";
 import { Breadcrumbs, type Crumb } from "@/components/v2/breadcrumbs";
 import { sentenceCase } from "@/lib/focus-keywords";
-import { Scene3D, type SceneKind } from "@/components/v2/scene-3d";
+import Image from "next/image";
 import { Cta, TextLink } from "@/components/v2/primitives";
 
 export type ServiceHeroContent = {
@@ -24,15 +24,15 @@ export type ServiceHeroContent = {
   crumbs?: Crumb[];
   /** The page's focus keyword, shown as a label above the title (Rank Math: keyword up front). */
   keyword?: string;
-  /** The 3D scene on the right of the hero: towers, bars, tiles, layers or pins. */
-  scene?: SceneKind;
+  /** The page's topic photo (lib/hero-images.ts), shown in the notched frame with a small card. */
+  photo?: { src: string; alt: string; cardLabel: string; cardText: string };
   /** Replaces the at-a-glance container below the hero (industry pages: the buyer's path). */
   aside?: ReactNode;
 };
 
 /**
  * The hero every service, industry and location page uses. Left: the promise and the action.
- * Right: one live 3D scene (components/v2/scene-3d.tsx) and nothing else. The at-a-glance details
+ * Right: the page's topic photo with a small card set into its corner (when one is set). The at-a-glance details
  * (what's included, who it suits) sit in their own wide container just below.
  */
 export function ServiceHero({ content }: { content: ServiceHeroContent }) {
@@ -43,7 +43,7 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
   return (
     <>
       <section className="mx-pool pb-20 pt-36 sm:pb-24 sm:pt-44">
-        <div className="container-edge grid items-center gap-12 lg:grid-cols-[minmax(0,1.3fr)_minmax(0,0.7fr)] lg:gap-16">
+        <div className={`container-edge grid items-center gap-12 lg:gap-14 ${content.photo ? "lg:grid-cols-[minmax(0,1.05fr)_minmax(0,0.95fr)]" : ""}`}>
           <div>
             {content.crumbs && content.crumbs.length > 1 ? (
               <Breadcrumbs items={content.crumbs} />
@@ -66,9 +66,24 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
             </div>
           </div>
 
-          {content.scene && (
-            <div className="flex justify-center">
-              <Scene3D kind={content.scene} className="-my-6 max-w-[250px] sm:my-0 sm:max-w-[360px]" />
+          {content.photo && (
+            <div className="relative">
+              <div className="mx-notch-photo aspect-[4/3] lg:aspect-[5/6]">
+                <Image
+                  src={content.photo.src}
+                  alt={content.photo.alt}
+                  fill
+                  priority
+                  sizes="(min-width: 1024px) 45vw, 100vw"
+                  className="object-cover"
+                />
+              </div>
+              <div className="mx-notch mx-notch--br max-sm:w-auto w-[min(19rem,calc(100%-3rem))]">
+                <div className="mx-glow-card p-5 sm:p-6">
+                  <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">{content.photo.cardLabel}</p>
+                  <p className="mt-2 font-display text-lg font-bold leading-snug text-ink">{content.photo.cardText}</p>
+                </div>
+              </div>
             </div>
           )}
         </div>

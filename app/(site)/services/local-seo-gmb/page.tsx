@@ -22,7 +22,6 @@ const path = "/services/local-seo-gmb";
 
 const hero: ServiceHeroContent = {
   keyword: focusKeyword(path),
-  scene: "pins",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Local SEO & Google Business", path }, ],
   label: "Local SEO in Pune: Google Business Profile",
   title: { before: "Get found by the customers searching", accent: "near you" },

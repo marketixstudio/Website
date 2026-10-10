@@ -9,7 +9,7 @@ import { ArrowRight, TriangleAlert } from "lucide-react";
 import { JsonLd } from "@/components/seo/json-ld";
 import { FillHeading } from "@/components/v2/fill-heading";
 import { Funnel } from "@/components/v2/funnel";
-import { IndustryPath, industryScene } from "@/components/v2/industry-path";
+import { IndustryPath } from "@/components/v2/industry-path";
 import { ServiceHero, type ServiceHeroContent } from "@/components/v2/service-hero";
 import { AnswerCard, Cta, FaqList, TextLink } from "@/components/v2/primitives";
 import { servicesOverview } from "@/content/services";
@@ -53,7 +53,6 @@ export function IndustryDetail({ content }: { content: IndustryContent }) {
     bestFor: content.services.map((s) => ({ label: s.label, href: s.href })),
     includedLabel: "What we focus on",
     bestForLabel: "Services we use",
-    scene: industryScene(content.slug),
     aside: <IndustryPath slug={content.slug} sector={f.sector} outcome={f.outcome} />,
   };
 

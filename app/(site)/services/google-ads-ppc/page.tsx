@@ -35,7 +35,6 @@ const answer: AnswerBlock = {
 
 const hero: ServiceHeroContent = {
   keyword: focusKeyword(path),
-  scene: "bars",
     crumbs: [ { name: "Home", path: "/" }, { name: "Services", path: "/services" }, { name: "Google Ads & PPC", path }, ],
   label: "Google Ads management, Pune",
   title: { before: "Google Ads that turn searches into", accent: "enquiries" },
