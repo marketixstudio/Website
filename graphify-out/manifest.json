@@ -534,9 +534,9 @@
     "semantic_hash": ""
   },
   "next.config.mjs": {
-    "mtime": 1791483154.062554,
-    "seen": 1791483785.621354,
-    "ast_hash": "84a8ee78dcd04b44db2f32742b543235",
+    "mtime": 1791913873.4762301,
+    "seen": 1791913892.7751548,
+    "ast_hash": "b028fe2174ccf1dbb5c9e8e6eb850983",
     "semantic_hash": ""
   },
   "package.json": {
@@ -1113,6 +1113,12 @@
     "mtime": 1791613691.9781036,
     "seen": 1791613694.87058,
     "ast_hash": "1e1cbc9fc17c6950a49121cd33b64edf",
+    "semantic_hash": ""
+  },
+  "docs/HERO_IMAGE_PROMPTS.md": {
+    "mtime": 1791613850.1751156,
+    "seen": 1791913892.775166,
+    "ast_hash": "09852fd02b77b72bfbfc40c4b79fada6",
     "semantic_hash": ""
   }
 }

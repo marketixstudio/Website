@@ -13,6 +13,17 @@ const legacyRedirects = [
   ["/content-marketing-seo", "/services/content-marketing"],
   ["/email-marketing-automation", "/services/email-marketing-automation"],
 
+  // Older service pages Search Console still reports as 404
+  ["/web-design-development", "/services/web-design-development"],
+  ["/website-development", "/services/web-design-development"],
+  ["/seo-optimization", "/services/seo-services"],
+  ["/google-my-business", "/services/local-seo-gmb"],
+  ["/real-estate-lead-generation", "/industries/real-estate"],
+
+  // Old blog index and a post that was not migrated
+  ["/blogs", "/blog"],
+  ["/why-your-local-business-needs-a-strong-digital-presence-in-2025", "/blog"],
+
   // Company pages
   ["/about-us", "/about"],
   ["/contact-us", "/contact"],
