@@ -59,6 +59,13 @@ export async function POST(request: Request) {
       { status: 400 },
     );
   }
+  const phone = clean(data.phone, 60);
+  if (type === "contact" && !/^\d{8,15}$/.test(phone.replace(/[\s()+.-]/g, ""))) {
+    return NextResponse.json(
+      { error: "Please provide a valid phone or WhatsApp number." },
+      { status: 400 },
+    );
+  }
   if (type === "contact" && message.length < 10) {
     return NextResponse.json(
       { error: "Please tell us a little more about what you need." },
@@ -86,7 +93,6 @@ export async function POST(request: Request) {
     );
   }
 
-  const phone = clean(data.phone, 60);
   const details = (
     [
       ["Email", email],

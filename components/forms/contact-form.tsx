@@ -7,10 +7,12 @@ import { Field, Input, Select, Textarea } from "@/components/forms/fields";
 import { trackLead } from "@/lib/analytics";
 import { SuccessCelebration } from "@/components/forms/success-celebration";
 
-type Errors = Partial<Record<"name" | "email" | "message" | "consent", string>>;
+type Errors = Partial<Record<"name" | "email" | "phone" | "message" | "consent", string>>;
 type Status = "idle" | "submitting" | "success" | "error";
 
 const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+/** 8 to 15 digits once spaces, dashes, brackets and a leading + are ignored. */
+const isPhone = (value: string) => /^\d{8,15}$/.test(value.replace(/[\s()+.-]/g, ""));
 
 const services = [
   "Google Ads / PPC",
@@ -37,12 +39,15 @@ export function ContactForm() {
     const next: Errors = {};
     const name = String(data.get("name") || "").trim();
     const email = String(data.get("email") || "").trim();
+    const phone = String(data.get("phone") || "").trim();
     const message = String(data.get("message") || "").trim();
     const consent = data.get("consent") === "on";
 
     if (!name) next.name = "Please enter your name.";
     if (!email) next.email = "Please enter your work email.";
     else if (!emailRe.test(email)) next.email = "Please enter a valid email address.";
+    if (!phone) next.phone = "Please enter your phone or WhatsApp number.";
+    else if (!isPhone(phone)) next.phone = "Please enter a valid phone number.";
     if (message.length < 10) next.message = "Please tell us a little more about what you need.";
     if (!consent) next.consent = "Please agree to be contacted.";
 
@@ -60,7 +65,7 @@ export function ContactForm() {
           name,
           email,
           company: String(data.get("company") || ""),
-          phone: String(data.get("phone") || ""),
+          phone,
           service: String(data.get("service") || ""),
           budget: String(data.get("budget") || ""),
           message,
@@ -101,8 +106,8 @@ export function ContactForm() {
         <Field label="Company" htmlFor="company">
           <Input id="company" name="company" autoComplete="organization" placeholder="Company name" />
         </Field>
-        <Field label="Phone / WhatsApp" htmlFor="phone">
-          <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="Optional" />
+        <Field label="Phone / WhatsApp" htmlFor="phone" required error={errors.phone}>
+          <Input id="phone" name="phone" type="tel" autoComplete="tel" placeholder="+91 98765 43210" />
         </Field>
         <Field label="What can we help with?" htmlFor="service" className="sm:col-span-2">
           <Select id="service" name="service" defaultValue="">
