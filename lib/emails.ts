@@ -3,29 +3,31 @@
  * leads to the team, the visitor's confirmation, Riya chat leads and newsletter
  * sign-ups. One shared layout so every email looks the same.
  *
- * Email-client rules followed: tables for layout, inline styles, web-safe font
- * stack, 600px max width, a dark header band with the light-text logo (safe when
- * Gmail/Outlook force dark mode), bulletproof buttons, a plain-text part for every
- * email, and a hidden preheader. Copy follows the site rules: no dashes, no
- * invented promises (no reply-time guarantees).
+ * Email-client rules followed: tables for layout, inline styles (plus bgcolor for
+ * Outlook), web-safe font stack, 600px max width, a dark header band with the
+ * light-text logo (safe when Gmail/Outlook force dark mode), bulletproof buttons,
+ * a plain-text part for every email, and a hidden preheader. Images load from the
+ * live site, so nothing shows up as a stray attachment. Copy follows the site
+ * rules: no dashes, no invented promises (no reply-time guarantees).
  *
  * Preview locally at /api/dev/email-preview (development only).
  */
-import { business } from "@/lib/site-config";
+import { business, fullAddress } from "@/lib/site-config";
 import { siteUrl } from "@/lib/seo";
-import { EMAIL_LOGO_PNG_BASE64, EMAIL_WA_ICON_PNG_BASE64 } from "@/lib/email-logo";
 
 const C = {
   violet: "#C82AEF",
-  violetDeep: "#9425E4",
   violetText: "#8E16AC",
-  ink: "#0A0A0C",
-  body: "#2A2730",
-  muted: "#6C6973",
-  line: "#E7E3EC",
-  soft: "#F7F5FA",
-  page: "#F1EEF4",
+  violetTint: "#F7EEFB",
+  ink: "#141217",
+  body: "#3A3640",
+  muted: "#77727F",
+  line: "#E8E4ED",
+  soft: "#F8F7FA",
+  page: "#EFEDF2",
   dark: "#0A090B",
+  darkMuted: "#A39DAC",
+  whatsapp: "#1FAF55",
 };
 const FONT = "'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Helvetica,Arial,sans-serif";
 
@@ -58,65 +60,86 @@ export function leadRecipients(): string[] {
 }
 
 /**
- * The logo travels inside every email as an inline attachment (cid:marketix-logo),
- * so it shows even before marketixstudio.com serves it. Pass with every send.
+ * Images now load from the live site, so emails carry no attachments. Kept as an
+ * empty list so the API routes that pass it to Resend keep working unchanged.
  */
-export const emailAttachments = [
-  { filename: "marketix-logo.png", content: EMAIL_LOGO_PNG_BASE64, content_id: "marketix-logo" },
-  { filename: "whatsapp.png", content: EMAIL_WA_ICON_PNG_BASE64, content_id: "wa-icon" },
-];
+export const emailAttachments: { filename: string; content: string; content_id: string }[] = [];
 
-/** Where images come from: embedded attachments when sent, URLs in the local preview. */
+/** Image URLs: the live site when sent, the dev server in the local preview. */
 let assetBaseForRender: string | undefined;
-const img = (cid: string, file: string) => (assetBaseForRender ? `${assetBaseForRender}/brand/${file}` : `cid:${cid}`);
+const asset = (file: string) => `${assetBaseForRender || siteUrl}/brand/${file}`;
 
-/* ---------- building blocks ---------- */
+/** "13 Oct 2026, 11:34 PM IST" */
+function receivedAtIST(date = new Date()) {
+  const parts = new Intl.DateTimeFormat("en-IN", {
+    timeZone: "Asia/Kolkata",
+    day: "numeric",
+    month: "short",
+    year: "numeric",
+    hour: "numeric",
+    minute: "2-digit",
+    hour12: true,
+  }).formatToParts(date);
+  const get = (t: string) => parts.find((p) => p.type === t)?.value || "";
+  return `${get("day")} ${get("month")} ${get("year")}, ${get("hour")}:${get("minute")} ${get("dayPeriod").toUpperCase()} IST`;
+}
 
 /** Gmail auto-links bare domains in bright blue; link them ourselves in brand colour. */
 const linkSite = (html: string) =>
   html.replace(/marketixstudio\.com/g, `<a href="${siteUrl}" style="color:${C.violetText};text-decoration:none;">marketixstudio.com</a>`);
 
+const link = (href: string, text: string) =>
+  `<a href="${href}" style="color:${C.violetText};text-decoration:none;font-weight:600;">${text}</a>`;
 
-type ButtonKind = "primary" | "gradient" | "whatsapp" | "ghost";
+/* ---------- building blocks ---------- */
 
-/** Pill button. Gradients get a solid fallback colour for clients that drop background-image. */
+type ButtonKind = "primary" | "outline" | "whatsapp";
+
+/** Bulletproof pill button: the coloured cell is the button, so it survives clients that strip padding on links. */
 function button(href: string, text: string, kind: ButtonKind = "primary") {
-  const styles: Record<ButtonKind, { bg: string; image?: string; fg: string; border: string }> = {
+  const s = {
     primary: { bg: C.violet, fg: "#FFFFFF", border: C.violet },
-    gradient: { bg: C.violet, image: `linear-gradient(135deg,${C.violet},${C.violetDeep})`, fg: "#FFFFFF", border: C.violetDeep },
-    whatsapp: { bg: "#25D366", fg: "#FFFFFF", border: "#25D366" },
-    ghost: { bg: "#FFFFFF", fg: C.ink, border: C.line },
-  };
-  const s = styles[kind];
+    outline: { bg: "#FFFFFF", fg: C.ink, border: "#D6D0DE" },
+    whatsapp: { bg: C.whatsapp, fg: "#FFFFFF", border: C.whatsapp },
+  }[kind];
   const icon =
     kind === "whatsapp"
-      ? `<img src="${img("wa-icon", "whatsapp-white.png")}" width="18" height="18" alt="" style="display:inline-block;width:18px;height:18px;border:0;vertical-align:-4px;margin-right:8px;">`
+      ? `<img src="${asset("whatsapp-white.png")}" width="16" height="16" alt="" style="display:inline-block;width:16px;height:16px;border:0;vertical-align:-3px;margin-right:7px;">`
       : "";
-  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;margin:0 8px 10px 0;"><tr><td style="border-radius:999px;background-color:${s.bg};${s.image ? `background-image:${s.image};` : ""}border:1px solid ${s.border};">
-<a href="${href}" style="display:inline-block;padding:12px 22px;font-family:${FONT};font-size:14px;font-weight:700;line-height:18px;color:${s.fg};text-decoration:none;border-radius:999px;">${icon}${text}</a>
+  return `<table role="presentation" cellpadding="0" cellspacing="0" border="0" style="display:inline-table;margin:0 8px 10px 0;"><tr><td bgcolor="${s.bg}" style="border-radius:999px;background-color:${s.bg};border:1px solid ${s.border};">
+<a href="${href}" style="display:inline-block;padding:11px 20px;font-family:${FONT};font-size:14px;font-weight:700;line-height:18px;color:${s.fg};text-decoration:none;border-radius:999px;">${icon}${text}</a>
 </td></tr></table>`;
 }
 
+/** Small uppercase section label. */
 function label(text: string) {
-  return `<p style="margin:0 0 8px;font-family:${FONT};font-size:13px;font-weight:700;color:${C.muted};">${escapeHtml(text)}</p>`;
+  return `<p style="margin:0 0 10px;font-family:${FONT};font-size:11px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:${C.muted};">${escapeHtml(text)}</p>`;
 }
 
-function detailTable(rows: Detail[]) {
+const section = (inner: string, pad = "28px 40px 0") => `<tr><td class="mx-pad" style="padding:${pad};">${inner}</td></tr>`;
+
+/** Label/value rows. Values may contain trusted HTML (links) when `html` is set. */
+function keyValueTable(rows: { k: string; v: string; html?: boolean }[], tinted = false) {
   if (!rows.length) return "";
-  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="border:1px solid ${C.line};border-radius:14px;border-collapse:separate;">
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" ${tinted ? `bgcolor="${C.soft}"` : ""} style="border:1px solid ${C.line};border-radius:12px;border-collapse:separate;${tinted ? `background:${C.soft};` : ""}">
 ${rows
   .map(
-    ([k, v], i) => `<tr>
-<td class="mx-cell" style="padding:12px 16px;${i ? `border-top:1px solid ${C.line};` : ""}width:150px;vertical-align:top;font-family:${FONT};font-size:13px;font-weight:600;color:${C.muted};">${escapeHtml(k)}</td>
-<td class="mx-cell" style="padding:12px 16px;${i ? `border-top:1px solid ${C.line};` : ""}vertical-align:top;font-family:${FONT};font-size:14px;color:${C.ink};line-height:1.5;word-break:break-word;">${esc(v)}</td>
+    ({ k, v, html }, i) => `<tr>
+<td class="mx-cell mx-key" style="padding:13px 18px;${i ? `border-top:1px solid ${C.line};` : ""}width:140px;vertical-align:top;font-family:${FONT};font-size:13px;line-height:21px;color:${C.muted};">${escapeHtml(k)}</td>
+<td class="mx-cell" style="padding:13px 18px;${i ? `border-top:1px solid ${C.line};` : ""}vertical-align:top;font-family:${FONT};font-size:14px;font-weight:600;color:${C.ink};line-height:21px;word-break:break-word;">${html ? v : esc(v)}</td>
 </tr>`,
   )
   .join("")}
 </table>`;
 }
 
+function detailTable(rows: Detail[]) {
+  return keyValueTable(rows.map(([k, v]) => ({ k, v })));
+}
+
+/** A message the visitor wrote, set apart from our own copy. */
 function quote(text: string) {
-  return `<div style="background:${C.soft};border-left:3px solid ${C.violet};border-radius:10px;padding:16px 18px;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">${esc(text)}</div>`;
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr><td bgcolor="${C.soft}" style="background:${C.soft};border-left:3px solid ${C.violet};border-radius:0 12px 12px 0;padding:16px 20px;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">${esc(text)}</td></tr></table>`;
 }
 
 function transcript(turns: Turn[], botName: string) {
@@ -131,12 +154,24 @@ function transcript(turns: Turn[], botName: string) {
     .join("");
 }
 
-const section = (inner: string, pad = "28px 40px 0") => `<tr><td class="mx-pad" style="padding:${pad};">${inner}</td></tr>`;
+/** Numbered steps, used for "what happens next". */
+function steps(items: [title: string, body: string][]) {
+  return `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${items
+    .map(
+      ([title, body], i) => `<tr>
+<td width="44" style="width:44px;padding:0 0 ${i === items.length - 1 ? 0 : 16}px;vertical-align:top;">
+<table role="presentation" cellpadding="0" cellspacing="0"><tr><td width="30" height="30" align="center" bgcolor="${C.violetTint}" style="width:30px;height:30px;border-radius:999px;background:${C.violetTint};font-family:${FONT};font-size:13px;font-weight:700;line-height:30px;color:${C.violetText};">${i + 1}</td></tr></table>
+</td>
+<td style="padding:4px 0 ${i === items.length - 1 ? 0 : 16}px;vertical-align:top;font-family:${FONT};">
+<p style="margin:0;font-size:15px;font-weight:700;color:${C.ink};">${escapeHtml(title)}</p>
+<p style="margin:3px 0 0;font-size:14px;line-height:1.6;color:${C.body};">${escapeHtml(body)}</p>
+</td></tr>`,
+    )
+    .join("")}</table>`;
+}
 
-/** The shared shell: dark logo band, white card, contact footer. */
-function layout({ preheader, body, footerNote, assetBase }: { preheader: string; body: string; footerNote: string; assetBase?: string }) {
-  // Sent emails use the embedded logo; the local preview page passes assetBase to load it by URL.
-  const logo = assetBase ? `${assetBase}/brand/marketix-logo.png` : "cid:marketix-logo";
+/** The shared shell: dark logo band with a short tag, white card, contact footer. */
+function layout({ preheader, tag, body, footerNote }: { preheader: string; tag: string; body: string; footerNote: string }) {
   return `<!doctype html>
 <html lang="en">
 <head>
@@ -146,25 +181,34 @@ function layout({ preheader, body, footerNote, assetBase }: { preheader: string;
 <meta name="supported-color-schemes" content="light only">
 <title>Marketix Studio</title>
 <style>
-  @media (max-width:620px){ .mx-pad{padding-left:22px!important;padding-right:22px!important} .mx-cell{display:block!important;width:auto!important} }
+  @media (max-width:620px){
+    .mx-pad{padding-left:22px!important;padding-right:22px!important}
+    .mx-cell{display:block!important;width:auto!important}
+    .mx-key{padding-bottom:0!important}
+    .mx-tag{display:none!important}
+    .mx-h1{font-size:22px!important}
+  }
 </style>
 </head>
-<body style="margin:0;padding:0;background:${C.page};">
-<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${escapeHtml(preheader)}&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
-<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.page};">
-<tr><td align="center" style="padding:28px 12px;">
-<table role="presentation" width="600" cellpadding="0" cellspacing="0" style="width:600px;max-width:100%;background:#FFFFFF;border-radius:20px;overflow:hidden;border:1px solid ${C.line};">
-<tr><td class="mx-pad" style="background:${C.dark};padding:22px 40px;">
-<a href="${siteUrl}" style="text-decoration:none;"><img src="${logo}" width="148" height="32" alt="Marketix Studio" style="display:block;width:148px;height:32px;border:0;font-family:${FONT};font-size:18px;font-weight:700;color:#FFFFFF;"></a>
+<body style="margin:0;padding:0;background:${C.page};-webkit-text-size-adjust:100%;">
+<div style="display:none;max-height:0;overflow:hidden;opacity:0;color:transparent;">${escapeHtml(preheader)}&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;&#8199;&#65279;&#847;</div>
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${C.page}" style="background:${C.page};">
+<tr><td align="center" style="padding:32px 12px;">
+<table role="presentation" width="600" cellpadding="0" cellspacing="0" bgcolor="#FFFFFF" style="width:600px;max-width:100%;background:#FFFFFF;border-radius:16px;overflow:hidden;border:1px solid ${C.line};">
+<tr><td class="mx-pad" bgcolor="${C.dark}" style="background:${C.dark};padding:22px 40px;">
+<table role="presentation" width="100%" cellpadding="0" cellspacing="0"><tr>
+<td style="vertical-align:middle;"><a href="${siteUrl}" style="text-decoration:none;"><img src="${asset("marketix-logo.png")}" width="140" height="30" alt="Marketix Studio" style="display:block;width:140px;height:30px;border:0;font-family:${FONT};font-size:18px;font-weight:700;color:#FFFFFF;"></a></td>
+<td class="mx-tag" align="right" style="vertical-align:middle;font-family:${FONT};font-size:12px;font-weight:600;color:${C.darkMuted};">${escapeHtml(tag)}</td>
+</tr></table>
 </td></tr>
-<tr><td style="height:3px;line-height:3px;font-size:0;background:${C.violet};background-image:linear-gradient(90deg,${C.violet},${C.violetDeep});">&nbsp;</td></tr>
+<tr><td bgcolor="${C.violet}" style="height:3px;line-height:3px;font-size:0;background:${C.violet};">&nbsp;</td></tr>
 ${body}
-<tr><td class="mx-pad" style="padding:32px 40px 0;"><div style="height:1px;background:${C.line};line-height:1px;font-size:0;">&nbsp;</div></td></tr>
-<tr><td class="mx-pad" style="padding:20px 40px 30px;font-family:${FONT};font-size:13px;line-height:1.7;color:${C.muted};">
-<strong style="color:${C.ink};">${business.name}</strong><br>
-
-<a href="tel:${business.phone}" style="color:${C.violetText};text-decoration:none;">${business.phoneDisplay}</a> &nbsp;·&nbsp; <a href="mailto:${business.email}" style="color:${C.violetText};text-decoration:none;">${business.email}</a> &nbsp;·&nbsp; <a href="${siteUrl}" style="color:${C.violetText};text-decoration:none;">marketixstudio.com</a>
-<p style="margin:12px 0 0;font-size:12px;color:${C.muted};">${linkSite(escapeHtml(footerNote))}</p>
+<tr><td class="mx-pad" style="padding:36px 40px 0;"><div style="height:1px;background:${C.line};line-height:1px;font-size:0;">&nbsp;</div></td></tr>
+<tr><td class="mx-pad" style="padding:22px 40px 32px;font-family:${FONT};font-size:13px;line-height:1.7;color:${C.muted};">
+<p style="margin:0;font-size:14px;font-weight:700;color:${C.ink};">${business.name}</p>
+<p style="margin:2px 0 0;">${escapeHtml(fullAddress)}</p>
+<p style="margin:6px 0 0;">${link(`tel:${business.phone}`, business.phoneDisplay)} &nbsp;&middot;&nbsp; ${link(`mailto:${business.email}`, business.email)} &nbsp;&middot;&nbsp; ${link(siteUrl, "marketixstudio.com")}</p>
+<p style="margin:14px 0 0;font-size:12px;line-height:1.6;color:${C.muted};">${linkSite(escapeHtml(footerNote))}</p>
 </td></tr>
 </table>
 </td></tr>
@@ -173,22 +217,30 @@ ${body}
 </html>`;
 }
 
-function heading(kicker: string, title: string, intro?: string) {
+/** Title block: a quiet meta line, the headline, then an optional subline and intro. */
+function heading(meta: string, title: string, opts: { sub?: string; intro?: string } = {}) {
   return section(
-    `<p style="margin:0;font-family:${FONT};font-size:13px;font-weight:700;color:${C.violetText};">${escapeHtml(kicker)}</p>
-<h1 style="margin:8px 0 0;font-family:${FONT};font-size:26px;font-weight:700;line-height:1.25;color:${C.ink};">${escapeHtml(title)}</h1>
-${intro ? `<p style="margin:12px 0 0;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">${linkSite(escapeHtml(intro))}</p>` : ""}`,
-    "34px 40px 0",
+    `${meta ? `<p style="margin:0 0 8px;font-family:${FONT};font-size:13px;color:${C.muted};">${escapeHtml(meta)}</p>` : ""}
+<h1 class="mx-h1" style="margin:0;font-family:${FONT};font-size:26px;font-weight:700;line-height:1.25;color:${C.ink};">${escapeHtml(title)}</h1>
+${opts.sub ? `<p style="margin:6px 0 0;font-family:${FONT};font-size:15px;font-weight:600;color:${C.body};">${escapeHtml(opts.sub)}</p>` : ""}
+${opts.intro ? `<p style="margin:14px 0 0;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">${linkSite(escapeHtml(opts.intro))}</p>` : ""}`,
+    "36px 40px 0",
   );
 }
 
-function contactButtons(name: string, email: string, phone: string) {
-  const first = escapeHtml(firstNameOf(name));
-  return [
-    email ? button(`mailto:${encodeURIComponent(email)}`, `Reply to ${first}`) : "",
-    phone ? button(`tel:${encodeURIComponent(phone)}`, `Call ${escapeHtml(phone)}`, "gradient") : "",
-    phone ? button(`https://wa.me/${waNumber(phone)}`, "WhatsApp", "whatsapp") : "",
+/** The lead's contact details with tappable links, then the quick actions. */
+function contactBlock(opts: { name: string; email: string; phone: string; preferred?: string }) {
+  const rows: { k: string; v: string; html?: boolean }[] = [];
+  if (opts.email) rows.push({ k: "Email", v: link(`mailto:${encodeURIComponent(opts.email)}`, escapeHtml(opts.email)), html: true });
+  if (opts.phone) rows.push({ k: "Phone", v: link(`tel:${encodeURIComponent(opts.phone)}`, escapeHtml(opts.phone)), html: true });
+  if (opts.preferred) rows.push({ k: "Prefers", v: opts.preferred });
+  const first = escapeHtml(firstNameOf(opts.name));
+  const actions = [
+    opts.email ? button(`mailto:${encodeURIComponent(opts.email)}`, `Reply to ${first}`) : "",
+    opts.phone ? button(`tel:${encodeURIComponent(opts.phone)}`, "Call", "outline") : "",
+    opts.phone ? button(`https://wa.me/${waNumber(opts.phone)}`, "WhatsApp", "whatsapp") : "",
   ].join("");
+  return keyValueTable(rows, true) + (actions ? `<div style="margin-top:16px;font-size:0;">${actions}</div>` : "");
 }
 
 /* ---------- emails ---------- */
@@ -206,15 +258,24 @@ export function leadEmail(opts: {
 }): Email {
   assetBaseForRender = opts.assetBase;
   const audit = opts.type === "growth-audit";
-  const who = opts.company ? `${opts.name}, ${opts.company}` : opts.name;
-  const subject = audit ? `Growth audit request: ${opts.company || opts.name}` : `New enquiry: ${opts.company || opts.name}`;
+  const kind = audit ? "Growth audit request" : "Website enquiry";
+  const subject = audit ? `Growth audit request: ${opts.company || opts.name}` : `New enquiry: ${opts.name}${opts.company ? `, ${opts.company}` : ""}`;
+  const pick = (key: string) => opts.details.find(([k]) => k === key)?.[1] || "";
+  const service = pick("Service") || pick("Industry");
+  const sub = [opts.company, service].filter(Boolean).join("  ·  ");
+  // Email, phone, company and preference are shown above, so the table only holds the rest.
+  const shown = new Set(["Email", "Phone", "Company", "Preferred contact", "Name"]);
+  const rest = opts.details.filter(([k]) => !shown.has(k));
+
   const body =
-    heading(audit ? "Growth audit request" : "Website enquiry", who, `Sent from the ${audit ? "growth audit" : "contact"} form on marketixstudio.com. Replying to this email goes straight to ${firstNameOf(opts.name)}.`) +
-    section(contactButtons(opts.name, opts.email, opts.phone), "22px 40px 0") +
+    heading(`${kind}  ·  ${receivedAtIST()}`, opts.name, { sub }) +
+    section(contactBlock({ name: opts.name, email: opts.email, phone: opts.phone, preferred: pick("Preferred contact") }), "22px 40px 0") +
     (opts.message ? section(label(audit ? "Main challenge" : "Message") + quote(opts.message)) : "") +
-    section(label("Details") + detailTable(opts.details));
+    (rest.length ? section(label("Enquiry details") + detailTable(rest)) : "");
+
   const text = [
     subject,
+    `Received ${receivedAtIST()}`,
     "",
     `Name: ${opts.name}`,
     ...opts.details.map(([k, v]) => `${k}: ${v}`),
@@ -224,12 +285,17 @@ export function leadEmail(opts: {
   ].join("\n");
   return {
     subject,
-    html: layout({ preheader: opts.message.slice(0, 120) || subject, body, footerNote: "Lead notification from the website. Reply-to is set to the enquirer.", assetBase: opts.assetBase }),
+    html: layout({
+      preheader: opts.message.slice(0, 120) || subject,
+      tag: audit ? "New audit request" : "New enquiry",
+      body,
+      footerNote: `Sent automatically from the ${audit ? "growth audit" : "contact"} form on marketixstudio.com. Replying to this email goes straight to ${firstNameOf(opts.name)}.`,
+    }),
     text,
   };
 }
 
-/** To the visitor: confirmation after a contact or growth-audit form. Short and useful: how to reach us now, a copy of what they sent, and (audits) what helps us start sooner. */
+/** To the visitor: confirmation after a contact or growth-audit form. Warm, short and useful: what happens next, how to reach us now, a copy of what they sent. */
 export function confirmationEmail(opts: { type: "contact" | "growth-audit"; name: string; company: string; message?: string; assetBase?: string }): Email {
   assetBaseForRender = opts.assetBase;
   const audit = opts.type === "growth-audit";
@@ -240,7 +306,18 @@ export function confirmationEmail(opts: { type: "contact" | "growth-audit"; name
   const subject = audit ? "Your growth audit request is in" : "We've got your message";
   const intro = audit
     ? `Your growth audit request${opts.company ? ` for ${opts.company}` : ""} has reached our team. We'll look at your ads, website, Google Maps listing and how enquiries are followed up, and come back with what to fix first.`
-    : "Your message has reached our team and someone will get back to you soon.";
+    : "Thank you for reaching out to Marketix Studio. Your message has reached our team, and the right person will get back to you.";
+  const next: [string, string][] = audit
+    ? [
+        ["We review your marketing", "Ads, website, Google Maps listing and how enquiries are followed up."],
+        ["You'll hear from us", "A reply by email or your preferred channel with what we found."],
+        ["We agree what to fix first", "Practical priorities for your business, not a generic pitch."],
+      ]
+    : [
+        ["We review your message", "Your enquiry goes to the person closest to what you described."],
+        ["You'll hear from us", "A reply by email or your preferred channel."],
+        ["We shape a plan", "Practical next steps for your goal, not a generic pitch."],
+      ];
   const prepare: string[] = [
     "Your website link",
     "Your Google Maps (Business Profile) link",
@@ -252,49 +329,66 @@ export function confirmationEmail(opts: { type: "contact" | "growth-audit"; name
   ];
   const linkCards = links
     .map(
-      ([kicker, title, href]) => `<tr><td style="padding:0 0 10px;"><a href="${href}" style="display:block;text-decoration:none;border:1px solid ${C.line};border-radius:14px;padding:14px 16px;">
-<span style="display:block;font-family:${FONT};font-size:12px;font-weight:700;color:${C.violetText};">${kicker}</span>
-<span style="display:block;margin-top:4px;font-family:${FONT};font-size:15px;font-weight:700;line-height:1.4;color:${C.ink};">${escapeHtml(title)} &rarr;</span>
+      ([kicker, title, href]) => `<tr><td style="padding:0 0 10px;"><a href="${href}" style="display:block;text-decoration:none;border:1px solid ${C.line};border-radius:12px;padding:14px 18px;">
+<span style="display:block;font-family:${FONT};font-size:12px;font-weight:600;color:${C.muted};">${kicker}</span>
+<span style="display:block;margin-top:3px;font-family:${FONT};font-size:15px;font-weight:700;line-height:1.4;color:${C.ink};">${escapeHtml(title)} <span style="color:${C.violetText};">&rarr;</span></span>
 </a></td></tr>`,
     )
     .join("");
+  const hours = `Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST`;
 
   const body =
-    heading(audit ? "Growth audit requested" : "Message received", `Thanks, ${first}. We've got it.`, intro) +
+    heading("", `Thanks, ${first}. We've got it.`, { intro }) +
+    section(label("What happens next") + steps(next)) +
     section(
-      `<p style="margin:0 0 14px;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">In a hurry? WhatsApp or call us, Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.</p>` +
-        button(whatsapp, "WhatsApp us", "whatsapp") +
-        button(`tel:${business.phone}`, `Call ${business.phoneDisplay}`, "gradient"),
-      "22px 40px 0",
+      `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" bgcolor="${C.soft}" style="background:${C.soft};border:1px solid ${C.line};border-radius:12px;"><tr><td style="padding:20px 22px 12px;">
+<p style="margin:0;font-family:${FONT};font-size:15px;font-weight:700;color:${C.ink};">Need to talk sooner?</p>
+<p style="margin:4px 0 14px;font-family:${FONT};font-size:14px;line-height:1.6;color:${C.body};">WhatsApp or call us, ${hours}.</p>
+<div style="font-size:0;">${button(whatsapp, "WhatsApp us", "whatsapp")}${button(`tel:${business.phone}`, `Call ${business.phoneDisplay}`, "outline")}</div>
+</td></tr></table>`,
     ) +
     (audit
       ? section(
           label("Want us to start sooner? Reply with") +
-            `<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:${C.soft};border-radius:14px;"><tr><td style="padding:14px 18px;">${prepare
-              .map((p) => `<p style="margin:6px 0;font-family:${FONT};font-size:14px;line-height:1.6;color:${C.body};"><span style="color:${C.violet};font-weight:700;">&#10003;</span>&nbsp; ${escapeHtml(p)}</p>`)
-              .join("")}</td></tr></table>`,
+            `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${prepare
+              .map((p) => `<tr><td style="padding:4px 0;font-family:${FONT};font-size:14px;line-height:1.6;color:${C.body};"><span style="color:${C.violet};font-weight:700;">&#10003;</span>&nbsp;&nbsp;${escapeHtml(p)}</td></tr>`)
+              .join("")}</table>`,
         )
       : "") +
-    (opts.message ? section(label("What you sent us") + quote(opts.message)) : "") +
-    section(label("While you wait") + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${linkCards}</table>`);
+    (opts.message ? section(label("Your message") + quote(opts.message)) : "") +
+    section(label("While you wait") + `<table role="presentation" width="100%" cellpadding="0" cellspacing="0">${linkCards}</table>`) +
+    section(
+      `<p style="margin:0;font-family:${FONT};font-size:15px;line-height:1.7;color:${C.body};">Warm regards,<br><strong style="color:${C.ink};">Team ${business.name}</strong></p>`,
+      "26px 40px 0",
+    );
 
   const text = [
     `Thanks, ${first}. We've got it.`,
     "",
     intro,
     "",
-    `In a hurry? WhatsApp or call ${business.phoneDisplay}, Monday to Saturday, ${business.openingHours.opens} to ${business.openingHours.closes} IST.`,
+    "What happens next:",
+    ...next.map(([t, b], i) => `${i + 1}. ${t}: ${b}`),
+    "",
+    `Need to talk sooner? WhatsApp or call ${business.phoneDisplay}, ${hours}.`,
     ...(audit ? ["", "Want us to start sooner? Reply with:", ...prepare.map((p) => `- ${p}`)] : []),
-    ...(opts.message ? ["", "What you sent us:", opts.message] : []),
+    ...(opts.message ? ["", "Your message:", opts.message] : []),
     "",
     "While you wait:",
     ...links.map(([, title, href]) => `${title}: ${href}`),
     "",
-    business.name,
+    "Warm regards,",
+    `Team ${business.name}`,
+    fullAddress,
   ].join("\n");
   return {
     subject,
-    html: layout({ preheader: intro, body, footerNote: "You're receiving this because you submitted a form on marketixstudio.com. Reply to this email to reach the team.", assetBase: opts.assetBase }),
+    html: layout({
+      preheader: intro,
+      tag: audit ? "Audit request received" : "Message received",
+      body,
+      footerNote: "You're receiving this because you submitted a form on marketixstudio.com. Reply to this email to reach the team.",
+    }),
     text,
   };
 }
@@ -312,12 +406,12 @@ export function chatLeadEmail(opts: { botName: string; name: string; phone: stri
     ] as Detail[]
   ).filter(([, v]) => v);
   const body =
-    heading(`Chat lead from ${opts.botName}`, opts.name, opts.summary || "A visitor left their details in the website chat.") +
-    section(contactButtons(opts.name, opts.email, opts.phone), "22px 40px 0") +
-    section(label("Details") + detailTable(details)) +
+    heading(`Chat lead from ${opts.botName}  ·  ${receivedAtIST()}`, opts.name, { intro: opts.summary || "A visitor left their details in the website chat." }) +
+    section(contactBlock({ name: opts.name, email: opts.email, phone: opts.phone }), "22px 40px 0") +
     section(label("Conversation") + transcript(opts.transcript, opts.botName));
   const text = [
     subject,
+    `Received ${receivedAtIST()}`,
     "",
     ...details.map(([k, v]) => `${k}: ${v}`),
     "",
@@ -326,7 +420,12 @@ export function chatLeadEmail(opts: { botName: string; name: string; phone: stri
   ].join("\n");
   return {
     subject,
-    html: layout({ preheader: opts.summary || subject, body, footerNote: `Captured by ${opts.botName}, the AI assistant on marketixstudio.com. Check the details before calling.`, assetBase: opts.assetBase }),
+    html: layout({
+      preheader: opts.summary || subject,
+      tag: "New chat lead",
+      body,
+      footerNote: `Captured by ${opts.botName}, the AI assistant on marketixstudio.com. Check the details before calling.`,
+    }),
     text,
   };
 }
@@ -336,11 +435,16 @@ export function newsletterSignupEmail(opts: { email: string; assetBase?: string 
   assetBaseForRender = opts.assetBase;
   const subject = `Newsletter sign-up: ${opts.email}`;
   const body =
-    heading("Newsletter sign-up", opts.email, "Someone joined the marketing notes list from the website footer.") +
-    section(detailTable([["Email", opts.email], ["Source", "Website footer"]]));
+    heading(`Newsletter sign-up  ·  ${receivedAtIST()}`, opts.email, { intro: "Someone joined the marketing notes list from the website footer." }) +
+    section(detailTable([["Email", opts.email], ["Source", "Website footer"]]), "22px 40px 0");
   return {
     subject,
-    html: layout({ preheader: `${opts.email} joined the newsletter`, body, footerNote: "Newsletter notification from the website. Reply-to is set to the subscriber.", assetBase: opts.assetBase }),
+    html: layout({
+      preheader: `${opts.email} joined the newsletter`,
+      tag: "Newsletter",
+      body,
+      footerNote: "Newsletter notification from the website. Reply-to is set to the subscriber.",
+    }),
     text: `New newsletter sign-up from the website footer.\n\nEmail: ${opts.email}`,
   };
 }
