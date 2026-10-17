@@ -5,6 +5,7 @@ import Image from "next/image";
 import { ArrowRight, Check, Copy, Loader2, RefreshCw } from "lucide-react";
 import type { ReviewClient } from "@/lib/content-types";
 import PeekRating from "@/components/ui/bits/PeekRating";
+import { CarPicker, carLabel, type CarChoice } from "@/components/tools/car-picker";
 
 type Status = "idle" | "loading" | "ready" | "error";
 
@@ -13,6 +14,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [service, setService] = useState("");
   const [feedback, setFeedback] = useState("");
   const [picked, setPicked] = useState<string[]>([]);
+  const [car, setCar] = useState<CarChoice>({ make: "", model: "" });
   const [details, setDetails] = useState<string[]>(() => (config.detailFields ?? []).map(() => ""));
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -27,8 +29,8 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
       setStatus("error");
       return;
     }
-    if (feedback.trim().length < 3 && !details.some((d) => d.trim())) {
-      setError(config.detailFields?.length ? "Add your car, or a few words about the work." : "Tell us a little about your experience.");
+    if (feedback.trim().length < 3 && !details.some((d) => d.trim()) && !carLabel(car)) {
+      setError(config.carPicker || config.detailFields?.length ? "Pick your car, or add a few words about the work." : "Tell us a little about your experience.");
       setStatus("error");
       return;
     }
@@ -40,7 +42,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ client: config.slug, rating, service, feedback, highlights: picked, details }),
+        body: JSON.stringify({ client: config.slug, rating, service, feedback, highlights: picked, details, carMake: car.make, car: car.model }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -127,7 +129,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               <>
             <fieldset className="mt-6">
               <legend className="text-sm font-semibold">What did you get done?</legend>
-              <div className="mt-3 flex flex-wrap gap-2">
+              <div className={service ? "mt-3 flex flex-wrap items-center gap-2" : "mt-3 grid grid-cols-2 gap-2"}>
                 {/* After a pick only that choice stays, so the page doesn't grow into a form. */}
                 {(service ? [service] : config.services).map((item) => {
                   const on = service === item;
@@ -137,7 +139,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                       type="button"
                       aria-pressed={on}
                       onClick={() => setService(on ? "" : item)}
-                      className={`rounded-full border px-3.5 py-2 text-sm transition-colors ${
+                      className={`${service ? "rounded-full px-3.5 py-2" : "rounded-[12px] px-3 py-2.5 text-left leading-snug"} border text-[13px] transition-colors ${
                         on ? "border-transparent" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400"
                       }`}
                       style={on ? accentStyle : undefined}
@@ -157,6 +159,15 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 )}
               </div>
             </fieldset>
+
+            {config.carPicker && (
+              <fieldset className="mt-6">
+                <legend className="text-sm font-semibold">
+                  Your car <span className="font-normal text-neutral-400">(optional)</span>
+                </legend>
+                <CarPicker value={car} onChange={setCar} accentStyle={accentStyle} />
+              </fieldset>
+            )}
 
             {config.detailFields && config.detailFields.length > 0 && (
               <div className="mt-6 grid gap-4">
@@ -184,7 +195,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 <legend className="text-sm font-semibold">
                   What stood out? <span className="font-normal text-neutral-400">(optional, up to 3)</span>
                 </legend>
-                <div className="mt-3 flex flex-wrap gap-2">
+                <div className="mt-3 grid grid-cols-2 gap-2">
                   {config.highlights.map((h) => {
                     const on = picked.includes(h);
                     return (
@@ -194,7 +205,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                         aria-pressed={on}
                         disabled={!on && picked.length >= 3}
                         onClick={() => setPicked((p) => (on ? p.filter((x) => x !== h) : [...p, h]))}
-                        className={`rounded-full border px-3.5 py-2 text-sm transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
+                        className={`rounded-[12px] border px-3 py-2.5 text-left text-[13px] leading-snug transition-colors disabled:cursor-not-allowed disabled:opacity-40 ${
                           on ? "border-transparent text-[#0A0A0C]" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400"
                         }`}
                         style={on ? { background: config.accent, color: config.accentInk } : undefined}

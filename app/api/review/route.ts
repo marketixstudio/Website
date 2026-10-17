@@ -2,6 +2,7 @@ import { recordStat } from "@/lib/review-stats";
 import { aiProvider, aiText, AiRateLimitError, AiRefusalError, type AiTurn } from "@/lib/ai";
 import { recentTexts, rememberText } from "@/lib/review-memory";
 import { reviewClients } from "@/content/review-clients";
+import { carMakes } from "@/content/cars";
 import { detectLanguage, pick, sameStart, similarity } from "@/lib/review-text";
 
 export const runtime = "nodejs";
@@ -41,7 +42,7 @@ export async function POST(request: Request) {
     return Response.json({ error: "Invalid request." }, { status: 400 });
   }
 
-  const { client, rating, service, feedback, highlights, details } = (payload || {}) as Record<string, unknown>;
+  const { client, rating, service, feedback, highlights, details, carMake, car } = (payload || {}) as Record<string, unknown>;
 
   const config = typeof client === "string" ? reviewClients[client] : undefined;
   if (!config || !config.active) {
@@ -69,8 +70,14 @@ export async function POST(request: Request) {
   const safeDetails = (config.detailFields ?? [])
     .map((f, i) => ({ label: f.label, value: Array.isArray(details) && typeof details[i] === "string" ? details[i].replace(/[<>]/g, "").trim().slice(0, MAX_DETAIL) : "" }))
     .filter((d) => d.value);
+  // The car picker: a listed make plus its model, or free text ("Other").
+  if (config.carPicker && typeof car === "string" && car.trim()) {
+    const make = carMakes.find((m) => m.name === carMake);
+    const model = car.replace(/[<>]/g, "").trim().slice(0, MAX_DETAIL);
+    safeDetails.unshift({ label: "Car", value: make ? `${make.name} ${model}` : model });
+  }
   // One field can hold several facts ("Creta, 3M sun film"); each must show up in the draft.
-  const detailFacts = safeDetails.flatMap((d) => d.value.split(/,|\/|&|\band\b/i)).map((v) => v.trim()).filter(Boolean);
+  const detailFacts = safeDetails.flatMap((d) => (d.label === "Car" ? carModelOnly(d.value) : d.value).split(/,|\/|&|\band\b/i)).map((v) => v.trim()).filter(Boolean);
 
   if (feedbackValue.length < 3 && !detailFacts.length) {
     return Response.json({ error: "Tell us a little about your experience." }, { status: 400 });
@@ -236,8 +243,9 @@ function draftIssues(
   const copied = highlights.filter((h) => bare.includes(` ${words(h).filter((w) => w !== "and").join(" ")} `));
   if (copied.length) issues.push(`it copies the ticked wording word for word (${copied.map((h) => `"${h}"`).join(", ")}); say it the customer's own way`);
   if (!nameAllowed && lower.includes(businessName.toLowerCase().split(" ").slice(0, 2).join(" "))) issues.push("it names the business");
-  // The dropdown label ("Sun Film & Tinting") pasted in reads as a form, not a person.
-  if (service.includes(" ") && lower.includes(service.toLowerCase())) issues.push(`it pastes the menu label "${service}"; name the job in plain words or leave it out`);
+  // A menu-style label ("Cleaning & detailing", "LED / projector lights") pasted in reads as a
+  // form, not a person. Plain labels like "sun film" are just the job's name, so they're fine.
+  if (/[&/]/.test(service) && lower.includes(service.toLowerCase())) issues.push(`it pastes the menu label "${service}"; name the job in plain words or leave it out`);
   const missing = details.filter((d) => !lower.includes(d.toLowerCase()));
   if (missing.length) issues.push(`it leaves out what the customer typed (${missing.map((d) => `"${d}"`).join(", ")}); include it as written`);
   // Handing the notes straight back is not a review; a runaway draft is padding.
@@ -247,6 +255,12 @@ function draftIssues(
   if (words(text).length >= 4 && recent.some((r) => lastWords(r) === lastWords(text))) issues.push("it ends the same way as another customer's review");
   if (recent.some((r) => similarity(r, text) > 0.3)) issues.push("it shares too much wording with another customer's review");
   return issues;
+}
+
+/** "Hyundai Creta" -> "Creta": the part a customer would actually write. */
+function carModelOnly(car: string) {
+  const make = carMakes.find((m) => car.startsWith(`${m.name} `));
+  return make ? car.slice(make.name.length + 1) : car;
 }
 
 /** The customer's notes plus any car/product they typed but did not mention in the notes. */

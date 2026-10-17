@@ -4762,7 +4762,7 @@
       "file_type": "code",
       "norm_label": "applyhabits()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L267"
+      "source_location": "L269"
     },
     {
       "id": "app_api_review_route_clean",
@@ -4774,7 +4774,7 @@
       "file_type": "code",
       "norm_label": "clean()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L257"
+      "source_location": "L259"
     },
     {
       "id": "app_api_review_route_draftissues",
@@ -4786,7 +4786,7 @@
       "file_type": "code",
       "norm_label": "draftissues()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L215"
+      "source_location": "L217"
     },
     {
       "id": "app_api_review_route_lastwords",
@@ -4798,7 +4798,7 @@
       "file_type": "code",
       "norm_label": "lastwords()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L212"
+      "source_location": "L214"
     },
     {
       "id": "app_api_review_route_pickstyle",
@@ -4810,7 +4810,7 @@
       "file_type": "code",
       "norm_label": "pickstyle()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L168"
+      "source_location": "L170"
     },
     {
       "id": "app_api_review_route_post",
@@ -4822,7 +4822,7 @@
       "file_type": "code",
       "norm_label": "post()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L29"
+      "source_location": "L31"
     },
     {
       "id": "app_api_review_route_ratelimited",
@@ -4834,7 +4834,7 @@
       "file_type": "code",
       "norm_label": "ratelimited()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L18"
+      "source_location": "L20"
     },
     {
       "id": "app_api_review_route_withdetails",
@@ -4846,7 +4846,7 @@
       "file_type": "code",
       "norm_label": "withdetails()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L251"
+      "source_location": "L253"
     },
     {
       "id": "app_api_review_route_words",
@@ -4858,7 +4858,7 @@
       "file_type": "code",
       "norm_label": "words()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L211"
+      "source_location": "L213"
     },
     {
       "id": "lib_ai_aistructured",
@@ -4870,7 +4870,7 @@
       "file_type": "code",
       "norm_label": "aistructured()",
       "source_file": "lib/ai.ts",
-      "source_location": "L66"
+      "source_location": "L69"
     },
     {
       "id": "lib_ai_aitext",
@@ -4894,7 +4894,7 @@
       "file_type": "code",
       "norm_label": "openai()",
       "source_file": "lib/ai.ts",
-      "source_location": "L109"
+      "source_location": "L112"
     },
     {
       "id": "lib_ai_openaibody",
@@ -4906,7 +4906,7 @@
       "file_type": "code",
       "norm_label": "openaibody()",
       "source_file": "lib/ai.ts",
-      "source_location": "L125"
+      "source_location": "L128"
     },
     {
       "id": "lib_review_reply_generatereply",
@@ -10364,7 +10364,7 @@
       "file_type": "code",
       "norm_label": "hits",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L14"
+      "source_location": "L16"
     },
     {
       "id": "app_api_review_route_runtime",
@@ -10386,7 +10386,7 @@
       "file_type": "code",
       "norm_label": "stock",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L202"
+      "source_location": "L204"
     },
     {
       "id": "lib_ai",
@@ -14520,7 +14520,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L233",
+      "source_location": "L235",
       "weight": 1.0
     },
     {
@@ -14532,7 +14532,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L242",
+      "source_location": "L244",
       "weight": 1.0
     },
     {
@@ -14544,7 +14544,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L244",
+      "source_location": "L246",
       "weight": 1.0
     },
     {
@@ -14556,7 +14556,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L245",
+      "source_location": "L247",
       "weight": 1.0
     },
     {
@@ -14568,7 +14568,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L212",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -14580,7 +14580,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L172",
+      "source_location": "L174",
       "weight": 1.0
     },
     {
@@ -14592,7 +14592,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L124",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -14604,7 +14604,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L124",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -14616,7 +14616,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L126",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -14628,7 +14628,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L141",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -14640,7 +14640,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L141",
+      "source_location": "L143",
       "weight": 1.0
     },
     {
@@ -14652,7 +14652,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L145",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -14664,7 +14664,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L147",
+      "source_location": "L149",
       "weight": 1.0
     },
     {
@@ -14676,7 +14676,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L31",
+      "source_location": "L33",
       "weight": 1.0
     },
     {
@@ -14688,7 +14688,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L77",
+      "source_location": "L79",
       "weight": 1.0
     },
     {
@@ -14700,7 +14700,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L81",
+      "source_location": "L83",
       "weight": 1.0
     },
     {
@@ -14712,7 +14712,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L84",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -14724,7 +14724,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L85",
+      "source_location": "L87",
       "weight": 1.0
     },
     {
@@ -14736,7 +14736,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L86",
+      "source_location": "L88",
       "weight": 1.0
     },
     {
@@ -18156,7 +18156,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L104",
+      "source_location": "L107",
       "weight": 1.0
     },
     {
@@ -18168,7 +18168,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L82",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -18180,7 +18180,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L41",
+      "source_location": "L44",
       "weight": 1.0
     },
     {
@@ -18192,7 +18192,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L43",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -18204,7 +18204,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L56",
+      "source_location": "L59",
       "weight": 1.0
     },
     {
@@ -18216,7 +18216,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L113",
+      "source_location": "L116",
       "weight": 1.0
     },
     {
@@ -18228,7 +18228,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "lib/ai.ts",
-      "source_location": "L115",
+      "source_location": "L118",
       "weight": 1.0
     },
     {
@@ -39585,7 +39585,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L14",
+      "source_location": "L16",
       "weight": 1.0
     },
     {
@@ -39596,7 +39596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L168",
+      "source_location": "L170",
       "weight": 1.0
     },
     {
@@ -39607,7 +39607,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L18",
+      "source_location": "L20",
       "weight": 1.0
     },
     {
@@ -39618,7 +39618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L202",
+      "source_location": "L204",
       "weight": 1.0
     },
     {
@@ -39629,7 +39629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L211",
+      "source_location": "L213",
       "weight": 1.0
     },
     {
@@ -39640,7 +39640,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L212",
+      "source_location": "L214",
       "weight": 1.0
     },
     {
@@ -39651,7 +39651,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L215",
+      "source_location": "L217",
       "weight": 1.0
     },
     {
@@ -39662,7 +39662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L251",
+      "source_location": "L253",
       "weight": 1.0
     },
     {
@@ -39673,7 +39673,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L257",
+      "source_location": "L259",
       "weight": 1.0
     },
     {
@@ -39684,7 +39684,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L267",
+      "source_location": "L269",
       "weight": 1.0
     },
     {
@@ -39695,7 +39695,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L29",
+      "source_location": "L31",
       "weight": 1.0
     },
     {
@@ -45833,7 +45833,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/ai.ts",
-      "source_location": "L109",
+      "source_location": "L112",
       "weight": 1.0
     },
     {
@@ -45844,7 +45844,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/ai.ts",
-      "source_location": "L125",
+      "source_location": "L128",
       "weight": 1.0
     },
     {
@@ -45899,7 +45899,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "lib/ai.ts",
-      "source_location": "L66",
+      "source_location": "L69",
       "weight": 1.0
     },
     {
@@ -50374,5 +50374,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "1ee3d2bbd48c2610abd9476c31e8ac7e70ea92dc"
+  "built_at_commit": "e7f93d02ffc2259771e98945c11386364beecd2a"
 }

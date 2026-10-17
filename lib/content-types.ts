@@ -232,6 +232,8 @@ export type ReviewClient = {
    * cars and products instead of reading alike.
    */
   detailFields?: { label: string; placeholder: string }[];
+  /** Show the car make (logo) and model picker; the pick is passed to the draft as a fact. */
+  carPicker?: boolean;
   /** Shown in replies to low ratings so the customer can reach the shop, e.g. a phone number. */
   replyContact?: string;
   /**
