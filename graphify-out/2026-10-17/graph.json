@@ -4762,7 +4762,7 @@
       "file_type": "code",
       "norm_label": "applyhabits()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L263"
+      "source_location": "L267"
     },
     {
       "id": "app_api_review_route_clean",
@@ -4774,7 +4774,7 @@
       "file_type": "code",
       "norm_label": "clean()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L253"
+      "source_location": "L257"
     },
     {
       "id": "app_api_review_route_draftissues",
@@ -4786,7 +4786,7 @@
       "file_type": "code",
       "norm_label": "draftissues()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L214"
+      "source_location": "L215"
     },
     {
       "id": "app_api_review_route_lastwords",
@@ -4798,7 +4798,7 @@
       "file_type": "code",
       "norm_label": "lastwords()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L211"
+      "source_location": "L212"
     },
     {
       "id": "app_api_review_route_pickstyle",
@@ -4810,7 +4810,7 @@
       "file_type": "code",
       "norm_label": "pickstyle()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L164"
+      "source_location": "L168"
     },
     {
       "id": "app_api_review_route_post",
@@ -4846,7 +4846,7 @@
       "file_type": "code",
       "norm_label": "withdetails()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L248"
+      "source_location": "L251"
     },
     {
       "id": "app_api_review_route_words",
@@ -4858,7 +4858,7 @@
       "file_type": "code",
       "norm_label": "words()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L210"
+      "source_location": "L211"
     },
     {
       "id": "lib_ai_aistructured",
@@ -9394,7 +9394,7 @@
       "file_type": "code",
       "norm_label": "reviewclientlist",
       "source_file": "content/review-clients.ts",
-      "source_location": "L80"
+      "source_location": "L77"
     },
     {
       "id": "content_review_clients_reviewclients",
@@ -9416,7 +9416,7 @@
       "file_type": "code",
       "norm_label": "reviewclientslugs",
       "source_file": "content/review-clients.ts",
-      "source_location": "L81"
+      "source_location": "L78"
     },
     {
       "id": "app_layout",
@@ -10386,7 +10386,7 @@
       "file_type": "code",
       "norm_label": "stock",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L201"
+      "source_location": "L202"
     },
     {
       "id": "lib_ai",
@@ -14520,31 +14520,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L231",
-      "weight": 1.0
-    },
-    {
-      "source": "app_api_review_route_draftissues",
-      "target": "lib_review_text_samestart",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "app/api/review/route.ts",
-      "source_location": "L241",
-      "weight": 1.0
-    },
-    {
-      "source": "app_api_review_route_draftissues",
-      "target": "app_api_review_route_lastwords",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "app/api/review/route.ts",
-      "source_location": "L242",
+      "source_location": "L233",
       "weight": 1.0
     },
     {
@@ -14556,7 +14532,31 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L243",
+      "source_location": "L242",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_review_route_draftissues",
+      "target": "lib_review_text_samestart",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/review/route.ts",
+      "source_location": "L244",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_review_route_draftissues",
+      "target": "app_api_review_route_lastwords",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/review/route.ts",
+      "source_location": "L245",
       "weight": 1.0
     },
     {
@@ -14568,7 +14568,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L211",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -14580,7 +14580,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L169",
+      "source_location": "L172",
       "weight": 1.0
     },
     {
@@ -14592,7 +14592,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L120",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -14604,7 +14604,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L120",
+      "source_location": "L124",
       "weight": 1.0
     },
     {
@@ -14616,7 +14616,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L122",
+      "source_location": "L126",
       "weight": 1.0
     },
     {
@@ -14628,7 +14628,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L137",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -14640,7 +14640,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L137",
+      "source_location": "L141",
       "weight": 1.0
     },
     {
@@ -14652,7 +14652,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L141",
+      "source_location": "L145",
       "weight": 1.0
     },
     {
@@ -14664,7 +14664,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L143",
+      "source_location": "L147",
       "weight": 1.0
     },
     {
@@ -14688,19 +14688,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L75",
-      "weight": 1.0
-    },
-    {
-      "source": "app_api_review_route_post",
-      "target": "app_api_review_route_pickstyle",
-      "relation": "calls",
-      "_origin": "ast",
-      "confidence": "EXTRACTED",
-      "confidence_score": 1.0,
-      "context": "call",
-      "source_file": "app/api/review/route.ts",
-      "source_location": "L79",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -14712,7 +14700,19 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L80",
+      "source_location": "L81",
+      "weight": 1.0
+    },
+    {
+      "source": "app_api_review_route_post",
+      "target": "app_api_review_route_pickstyle",
+      "relation": "calls",
+      "_origin": "ast",
+      "confidence": "EXTRACTED",
+      "confidence_score": 1.0,
+      "context": "call",
+      "source_file": "app/api/review/route.ts",
+      "source_location": "L84",
       "weight": 1.0
     },
     {
@@ -14724,7 +14724,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L81",
+      "source_location": "L85",
       "weight": 1.0
     },
     {
@@ -14736,7 +14736,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L82",
+      "source_location": "L86",
       "weight": 1.0
     },
     {
@@ -39596,7 +39596,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L164",
+      "source_location": "L168",
       "weight": 1.0
     },
     {
@@ -39618,7 +39618,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L201",
+      "source_location": "L202",
       "weight": 1.0
     },
     {
@@ -39629,7 +39629,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L210",
+      "source_location": "L211",
       "weight": 1.0
     },
     {
@@ -39640,7 +39640,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L211",
+      "source_location": "L212",
       "weight": 1.0
     },
     {
@@ -39651,7 +39651,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L214",
+      "source_location": "L215",
       "weight": 1.0
     },
     {
@@ -39662,7 +39662,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L248",
+      "source_location": "L251",
       "weight": 1.0
     },
     {
@@ -39673,7 +39673,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L253",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -39684,7 +39684,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L263",
+      "source_location": "L267",
       "weight": 1.0
     },
     {
@@ -44865,7 +44865,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "content/review-clients.ts",
-      "source_location": "L80",
+      "source_location": "L77",
       "weight": 1.0
     },
     {
@@ -44876,7 +44876,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "content/review-clients.ts",
-      "source_location": "L81",
+      "source_location": "L78",
       "weight": 1.0
     },
     {
@@ -50374,5 +50374,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "f7215f65bf7a7daab9d10331a8e993fd2ab14fcd"
+  "built_at_commit": "1ee3d2bbd48c2610abd9476c31e8ac7e70ea92dc"
 }

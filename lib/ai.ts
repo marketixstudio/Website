@@ -30,15 +30,18 @@ export async function aiText({
   messages,
   maxTokens = 400,
   temperature = 0.6,
+  openaiModel,
 }: {
   system: string;
   messages: AiTurn[];
   maxTokens?: number;
   /** Higher = more varied wording (0 to 1). */
   temperature?: number;
+  /** OpenAI model for this call only; defaults to OPENAI_MODEL. */
+  openaiModel?: string;
 }) {
   if (aiProvider() === "openai") {
-    const data = await openai({ messages: [{ role: "system", content: system }, ...messages], max_tokens: maxTokens, temperature });
+    const data = await openai({ messages: [{ role: "system", content: system }, ...messages], max_tokens: maxTokens, temperature }, openaiModel);
     const choice = data?.choices?.[0];
     if (choice?.message?.refusal) throw new AiRefusalError(choice.message.refusal);
     return String(choice?.message?.content ?? "").trim();
@@ -106,11 +109,11 @@ export async function aiStructured<T>({
   }
 }
 
-async function openai(body: Record<string, unknown>) {
+async function openai(body: Record<string, unknown>, model = OPENAI_MODEL) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify(openaiBody(body)),
+    body: JSON.stringify(openaiBody(body, model)),
   });
   if (res.status === 429) throw new AiRateLimitError("rate limited");
   if (!res.ok) throw new Error(`OpenAI request failed: ${res.status} ${await res.text()}`);
@@ -122,11 +125,11 @@ async function openai(body: Record<string, unknown>) {
  * "none" keeps them fast and allows a custom temperature; plain gpt-5 / gpt-5-mini only
  * accept the default temperature.
  */
-function openaiBody(body: Record<string, unknown>) {
-  const m = OPENAI_MODEL.match(/^gpt-5(?:\.(\d+))?/);
-  if (!m) return { model: OPENAI_MODEL, ...body };
+function openaiBody(body: Record<string, unknown>, model: string) {
+  const m = model.match(/^gpt-5(?:\.(\d+))?/);
+  if (!m) return { model, ...body };
   const { max_tokens, temperature, ...rest } = body;
-  const out: Record<string, unknown> = { model: OPENAI_MODEL, ...rest, max_completion_tokens: max_tokens };
+  const out: Record<string, unknown> = { model, ...rest, max_completion_tokens: max_tokens };
   if (m[1]) Object.assign(out, { reasoning_effort: "none", temperature });
   else out.reasoning_effort = "minimal";
   return out;

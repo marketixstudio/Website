@@ -1,7 +1,7 @@
 # Graph Report - MARKETIX WEBSITE  (2026-10-17)
 
 ## Corpus Check
-- 188 files · ~155,057 words
+- 188 files · ~155,265 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .example 1, .ico 1)
 
@@ -11,7 +11,7 @@
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `f7215f65`
+- Built from commit: `1ee3d2bb`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
