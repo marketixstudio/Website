@@ -227,6 +227,11 @@ Bottom left, every site page. WhatsApp green is allowed here only (recognisable 
 The idle float is the one sanctioned looping motion; it is motion-safe and pauses on hover. Prefilled
 messages never include the page URL (user rejected it).
 
+## Review page "Post on Google" (2026-10-17, user request)
+On /r/[client], the Post on Google button carries Google's multicolour G on a white disc and a
+light sweep (`.review-cta-shine`) that plays 3 times when the draft appears, then stops. It is the
+only attention motion on that page, uses the house ease-out, and is off under reduced motion.
+
 ## AI assistant (2026-09-25, user request)
 Bottom right, every site page: pill with "Ask Riya / AI assistant" and the avatar. Panel is a plain
 card (no glass, no eyebrows); violet only on the visitor's bubbles and actions. Always labelled as an
