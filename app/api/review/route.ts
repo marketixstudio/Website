@@ -74,7 +74,7 @@ export async function POST(request: Request) {
   if (config.carPicker && typeof car === "string" && car.trim()) {
     const make = carMakes.find((m) => m.name === carMake);
     const model = car.replace(/[<>]/g, "").trim().slice(0, MAX_DETAIL);
-    safeDetails.unshift({ label: "Car", value: make ? `${make.name} ${model}` : model });
+    safeDetails.unshift({ label: "Car", value: make ? `${model} (a ${make.name})` : model });
   }
   // One field can hold several facts ("Creta, 3M sun film"); each must show up in the draft.
   const detailFacts = safeDetails.flatMap((d) => (d.label === "Car" ? carModelOnly(d.value) : d.value).split(/,|\/|&|\band\b/i)).map((v) => v.trim()).filter(Boolean);
@@ -107,9 +107,9 @@ This draft:
 
 How to write it:
 - Write the review this customer would write if they took a minute over it, from ALL the facts they gave: the notes, the service, <details> (their car, product or brand) and <what_stood_out>. Do not just hand their notes back reworded; turn the facts into a proper short review in their voice.
-- Name the actual job in plain words (e.g. "sun film", "seat covers", "dashcam") and include every <details> value as given, spelled their way.
+- Name the actual job in plain words (e.g. "sun film", "seat covers", "dashcam") and include every <details> value. Call the car by its model the way owners do ("my Wagon R", "the Creta"); only rarely add the make, never "Maruti Suzuki Wagon R" style full names.
 - <what_stood_out> are points the customer ticked: turn each into a concrete, plain remark in their way of talking (e.g. ticked "Fast fitting" might become "they finished it in about an hour" only if the notes say so, otherwise "fitting was quick"). Never copy the ticked wording, never list them.
-- Keep the customer's own distinctive words, slang and spellings where they fit. Do not add slang or filler of your own (no "yaar", "bro", "ekdum" unless they wrote it). Say each thing once.
+- Fix plain typing slips ("ggod" -> "good", "instaled" -> "installed"), but keep the customer's own distinctive words, slang, Hinglish or Marathi words and casual style where they fit. Do not add slang or filler of your own (no "yaar", "bro", "ekdum" unless they wrote it). Say each thing once.
 - Add no facts beyond what they gave: no staff names, prices, times, dates, extra products, visits, friends or comparisons with other shops.
 - Sentences are uneven and plain. No neat three-part lists, no summary line at the end, no "overall", no advice to other people.
 - Match the star rating honestly. 4 stars can carry a small complaint; 1 to 3 stars must read negative or mixed.
@@ -242,6 +242,8 @@ function draftIssues(
   const bare = ` ${words(text).filter((w) => w !== "and").join(" ")} `;
   const copied = highlights.filter((h) => bare.includes(` ${words(h).filter((w) => w !== "and").join(" ")} `));
   if (copied.length) issues.push(`it copies the ticked wording word for word (${copied.map((h) => `"${h}"`).join(", ")}); say it the customer's own way`);
+  // Devanagari only when the customer wrote in it; "अच्छी तरह" inside an English line is a giveaway.
+  if (!/[\u0900-\u097F]/.test(notes) && /[\u0900-\u097F]/.test(text)) issues.push("it switches to Devanagari script; write only in the customer's own script and language");
   if (!nameAllowed && lower.includes(businessName.toLowerCase().split(" ").slice(0, 2).join(" "))) issues.push("it names the business");
   // A menu-style label ("Cleaning & detailing", "LED / projector lights") pasted in reads as a
   // form, not a person. Plain labels like "sun film" are just the job's name, so they're fine.
@@ -259,8 +261,7 @@ function draftIssues(
 
 /** "Hyundai Creta" -> "Creta": the part a customer would actually write. */
 function carModelOnly(car: string) {
-  const make = carMakes.find((m) => car.startsWith(`${m.name} `));
-  return make ? car.slice(make.name.length + 1) : car;
+  return car.replace(/\s*\(a [^)]+\)$/, "");
 }
 
 /** The customer's notes plus any car/product they typed but did not mention in the notes. */
@@ -273,6 +274,7 @@ function withDetails(notes: string, details: string[]) {
 function clean(text: string) {
   return text
     .replace(/^["'\u201c\u2018]+|["'\u201d\u2019]+$/g, "")
+    .replace(/\s*\n+\s*/g, " ") // one paragraph, like a phone-typed review
     .replace(/!/g, ".")
     .replace(/\.\.+/g, ".")
     .replace(/\s*[\u2014\u2013]\s*/g, ", ") // dashes are a giveaway in phone-typed reviews

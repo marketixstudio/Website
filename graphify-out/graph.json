@@ -4752,7 +4752,7 @@
       "file_type": "code",
       "norm_label": "applyhabits()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L283"
+      "source_location": "L285"
     },
     {
       "id": "app_api_review_route_carmodelonly",
@@ -4764,7 +4764,7 @@
       "file_type": "code",
       "norm_label": "carmodelonly()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L261"
+      "source_location": "L263"
     },
     {
       "id": "app_api_review_route_clean",
@@ -4776,7 +4776,7 @@
       "file_type": "code",
       "norm_label": "clean()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L273"
+      "source_location": "L274"
     },
     {
       "id": "app_api_review_route_draftissues",
@@ -4848,7 +4848,7 @@
       "file_type": "code",
       "norm_label": "withdetails()",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L267"
+      "source_location": "L268"
     },
     {
       "id": "app_api_review_route_words",
@@ -14627,7 +14627,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L252",
+      "source_location": "L254",
       "weight": 1.0
     },
     {
@@ -14639,7 +14639,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L254",
+      "source_location": "L256",
       "weight": 1.0
     },
     {
@@ -14651,7 +14651,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "app/api/review/route.ts",
-      "source_location": "L255",
+      "source_location": "L257",
       "weight": 1.0
     },
     {
@@ -39889,7 +39889,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L261",
+      "source_location": "L263",
       "weight": 1.0
     },
     {
@@ -39900,7 +39900,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L267",
+      "source_location": "L268",
       "weight": 1.0
     },
     {
@@ -39911,7 +39911,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L273",
+      "source_location": "L274",
       "weight": 1.0
     },
     {
@@ -39922,7 +39922,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "app/api/review/route.ts",
-      "source_location": "L283",
+      "source_location": "L285",
       "weight": 1.0
     },
     {
@@ -50667,5 +50667,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "4d6b1bc46b8305c8500cfcf7ab8343f5fb5265fd"
+  "built_at_commit": "d132d0089f322786277a1ae4cf6e1f5698b8044a"
 }
