@@ -60,3 +60,10 @@ minutes. The old `?key=<REVIEW_ADMIN_KEY>` link still works as a backup.
 Short and personal, one detail from the review, in the reviewer's language, varied
 openings, no stock phrases, no city or keyword stuffing, never an incentive. Low ratings:
 apology, no excuses, the business phone number, and always a human click before posting.
+
+## Repeat protection (drafts and replies)
+
+The last 60 review drafts and the last 60 owner replies per business are kept in Redis
+(`rv:recent:draft:<client>`, `rv:recent:reply:<client>`), so the no-repeat checks work across
+every Vercel instance. Without Redis they fall back to memory, which resets on each cold start
+and lets repeats through, so set up storage (setup step 1) for the live site.

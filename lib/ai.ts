@@ -10,7 +10,7 @@ import Anthropic from "@anthropic-ai/sdk";
 export type AiTurn = { role: "user" | "assistant"; content: string };
 export type AiProvider = "openai" | "anthropic";
 
-const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-4o-mini";
+const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5-nano";
 const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5";
 
 export function aiProvider(): AiProvider | null {
@@ -110,9 +110,24 @@ async function openai(body: Record<string, unknown>) {
   const res = await fetch("https://api.openai.com/v1/chat/completions", {
     method: "POST",
     headers: { Authorization: `Bearer ${process.env.OPENAI_API_KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({ model: OPENAI_MODEL, ...body }),
+    body: JSON.stringify(openaiBody(body)),
   });
   if (res.status === 429) throw new AiRateLimitError("rate limited");
   if (!res.ok) throw new Error(`OpenAI request failed: ${res.status} ${await res.text()}`);
   return res.json();
+}
+
+/**
+ * GPT-5 models take max_completion_tokens instead of max_tokens. From 5.1 on, reasoning
+ * "none" keeps them fast and allows a custom temperature; plain gpt-5 / gpt-5-mini only
+ * accept the default temperature.
+ */
+function openaiBody(body: Record<string, unknown>) {
+  const m = OPENAI_MODEL.match(/^gpt-5(?:\.(\d+))?/);
+  if (!m) return { model: OPENAI_MODEL, ...body };
+  const { max_tokens, temperature, ...rest } = body;
+  const out: Record<string, unknown> = { model: OPENAI_MODEL, ...rest, max_completion_tokens: max_tokens };
+  if (m[1]) Object.assign(out, { reasoning_effort: "none", temperature });
+  else out.reasoning_effort = "minimal";
+  return out;
 }

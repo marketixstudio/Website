@@ -27,7 +27,7 @@ export const statsStorage = (): "redis" | "file" | "none" =>
 export const dayKey = (d = new Date()) => new Date(d.getTime() + 5.5 * 36e5).toISOString().slice(0, 10);
 export const monthKey = (d = new Date()) => dayKey(d).slice(0, 7);
 
-async function redis(commands: (string | number)[][]) {
+export async function redis(commands: (string | number)[][]) {
   const res = await fetch(`${redisUrl()}/pipeline`, {
     method: "POST",
     headers: { Authorization: `Bearer ${redisToken()}`, "Content-Type": "application/json" },
