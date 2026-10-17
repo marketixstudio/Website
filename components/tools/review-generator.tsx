@@ -27,8 +27,8 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
       setStatus("error");
       return;
     }
-    if (feedback.trim().length < 3) {
-      setError("Tell us a little about your experience.");
+    if (feedback.trim().length < 3 && !details.some((d) => d.trim())) {
+      setError(config.detailFields?.length ? "Add your car, or a few words about the work." : "Tell us a little about your experience.");
       setStatus("error");
       return;
     }
@@ -123,27 +123,43 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               </div>
             </fieldset>
 
-            <div className="mt-6">
-              <label htmlFor="service" className="text-sm font-semibold">
-                What service did you use?
-              </label>
-              <select
-                id="service"
-                value={service}
-                onChange={(event) => setService(event.target.value)}
-                className="mt-2 w-full rounded-xl border-0 bg-neutral-100 px-4 py-3.5 text-[15px] text-neutral-800 focus:outline focus:outline-2 focus:outline-offset-2"
-              >
-                <option value="">Choose a service...</option>
-                {config.services.map((item) => (
-                  <option key={item} value={item}>
-                    {item}
-                  </option>
-                ))}
-              </select>
-            </div>
+            {rating > 0 && (
+              <>
+            <fieldset className="mt-6">
+              <legend className="text-sm font-semibold">What did you get done?</legend>
+              <div className="mt-3 flex flex-wrap gap-2">
+                {/* After a pick only that choice stays, so the page doesn't grow into a form. */}
+                {(service ? [service] : config.services).map((item) => {
+                  const on = service === item;
+                  return (
+                    <button
+                      key={item}
+                      type="button"
+                      aria-pressed={on}
+                      onClick={() => setService(on ? "" : item)}
+                      className={`rounded-full border px-3.5 py-2 text-sm transition-colors ${
+                        on ? "border-transparent" : "border-neutral-200 bg-white text-neutral-600 hover:border-neutral-400"
+                      }`}
+                      style={on ? accentStyle : undefined}
+                    >
+                      {item}
+                    </button>
+                  );
+                })}
+                {service && (
+                  <button
+                    type="button"
+                    onClick={() => setService("")}
+                    className="px-2 text-sm font-medium text-neutral-500 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800"
+                  >
+                    Change
+                  </button>
+                )}
+              </div>
+            </fieldset>
 
             {config.detailFields && config.detailFields.length > 0 && (
-              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+              <div className="mt-6 grid gap-4">
                 {config.detailFields.map((field, i) => (
                   <div key={field.label}>
                     <label htmlFor={`detail-${i}`} className="text-sm font-semibold">
@@ -193,11 +209,17 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
 
             <div className="mt-6">
               <label htmlFor="feedback" className="text-sm font-semibold">
-                Tell us about your experience
+                {config.detailFields?.length ? (
+                  <>
+                    Anything to add? <span className="font-normal text-neutral-400">(optional)</span>
+                  </>
+                ) : (
+                  "Tell us about your experience"
+                )}
               </label>
               <textarea
                 id="feedback"
-                rows={4}
+                rows={3}
                 maxLength={600}
                 value={feedback}
                 onChange={(event) => setFeedback(event.target.value)}
@@ -235,6 +257,8 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 </>
               )}
             </button>
+              </>
+            )}
           </div>
         </div>
 

@@ -27,10 +27,7 @@ export const reviewClients: Record<string, ReviewClient> = {
       "Something else",
     ],
     placeholder: "e.g. Got seat covers installed, very clean work, staff was helpful...",
-    detailFields: [
-      { label: "Your car", placeholder: "e.g. Swift, Creta, Nexon" },
-      { label: "Product or brand", placeholder: "e.g. 70mai dashcam, JBL speakers" },
-    ],
+    detailFields: [{ label: "Your car and what you got", placeholder: "e.g. Creta, 3M sun film" }],
     accent: "#FFD400",
     accentInk: "#0A0A0C",
     // Taken from what real customers praise in this listing's Google reviews (2026-09-27).
