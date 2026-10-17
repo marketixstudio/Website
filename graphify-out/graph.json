@@ -5148,7 +5148,7 @@
       "file_type": "code",
       "norm_label": "copyreview()",
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L61"
+      "source_location": "L75"
     },
     {
       "id": "components_tools_review_generator_reviewgenerator_generate",
@@ -5160,7 +5160,7 @@
       "file_type": "code",
       "norm_label": "generate()",
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L26"
+      "source_location": "L40"
     },
     {
       "id": "components_ui_bits_peekrating_clamp",
@@ -17123,7 +17123,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L32",
+      "source_location": "L28",
       "weight": 1.0
     },
     {
@@ -17135,7 +17135,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L32",
+      "source_location": "L46",
       "weight": 1.0
     },
     {
@@ -19691,7 +19691,7 @@
       "confidence_score": 1.0,
       "context": "call",
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L61",
+      "source_location": "L75",
       "weight": 1.0
     },
     {
@@ -43134,7 +43134,7 @@
       "confidence": "EXTRACTED",
       "confidence_score": 1.0,
       "source_file": "components/tools/review-generator.tsx",
-      "source_location": "L26",
+      "source_location": "L40",
       "weight": 1.0
     },
     {
@@ -50667,5 +50667,5 @@
       "source_file": "docs/PROJECT_CONTEXT.md"
     }
   ],
-  "built_at_commit": "9c47bdd513c4ffb295a2aa45089013e278eefd56"
+  "built_at_commit": "4d6b1bc46b8305c8500cfcf7ab8343f5fb5265fd"
 }

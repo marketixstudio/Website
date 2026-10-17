@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import Image from "next/image";
 import { ArrowRight, Check, Copy, Loader2, RefreshCw } from "lucide-react";
 import type { ReviewClient } from "@/lib/content-types";
@@ -15,6 +15,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [feedback, setFeedback] = useState("");
   const [picked, setPicked] = useState<string[]>([]);
   const [car, setCar] = useState<CarChoice>({ make: "", model: "" });
+  const [carSkipped, setCarSkipped] = useState(false);
   const [details, setDetails] = useState<string[]>(() => (config.detailFields ?? []).map(() => ""));
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
@@ -22,6 +23,19 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [copied, setCopied] = useState(false);
 
   const accentStyle = { backgroundColor: config.accent, color: config.accentInk };
+
+  // One step at a time: stars, then the service, then the car (or skip), then the rest.
+  const carDone = !config.carPicker || carSkipped || car.make === "Other" || Boolean(carLabel(car));
+  const step = !rating ? 0 : !service ? 1 : !carDone ? 2 : 3;
+  const lastStep = useRef(step);
+  useEffect(() => {
+    // Bring a newly opened step into view (phones); never scroll on going back.
+    if (step > lastStep.current) {
+      const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+      document.getElementById(`review-step-${step}`)?.scrollIntoView({ block: "nearest", behavior: reduce ? "auto" : "smooth" });
+    }
+    lastStep.current = step;
+  }, [step]);
 
   async function generate() {
     if (!rating) {
@@ -127,7 +141,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
 
             {rating > 0 && (
               <>
-            <fieldset className="mt-6">
+            <fieldset id="review-step-1" className="mt-6 scroll-mb-6">
               <legend className="text-sm font-semibold">What did you get done?</legend>
               <div className={service ? "mt-3 flex flex-wrap items-center gap-2" : "mt-3 grid grid-cols-2 gap-2"}>
                 {/* After a pick only that choice stays, so the page doesn't grow into a form. */}
@@ -160,15 +174,28 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               </div>
             </fieldset>
 
-            {config.carPicker && (
-              <fieldset className="mt-6">
-                <legend className="text-sm font-semibold">
-                  Your car <span className="font-normal text-neutral-400">(optional)</span>
+            {service && config.carPicker && (
+              <fieldset id="review-step-2" className="mt-6 scroll-mb-6">
+                <legend className="flex w-full items-baseline justify-between text-sm font-semibold">
+                  <span>
+                    Your car <span className="font-normal text-neutral-400">(optional)</span>
+                  </span>
+                  {!carDone && (
+                    <button
+                      type="button"
+                      onClick={() => setCarSkipped(true)}
+                      className="text-sm font-medium text-neutral-500 underline decoration-neutral-300 underline-offset-4 transition-colors hover:text-neutral-800"
+                    >
+                      Skip
+                    </button>
+                  )}
                 </legend>
                 <CarPicker value={car} onChange={setCar} accentStyle={accentStyle} />
               </fieldset>
             )}
 
+            {service && carDone && (
+              <div id="review-step-3" className="scroll-mb-6">
             {config.detailFields && config.detailFields.length > 0 && (
               <div className="mt-6 grid gap-4">
                 {config.detailFields.map((field, i) => (
@@ -268,6 +295,8 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
                 </>
               )}
             </button>
+              </div>
+            )}
               </>
             )}
           </div>
