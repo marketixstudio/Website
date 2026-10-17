@@ -226,6 +226,12 @@ export type ReviewClient = {
   active: boolean;
   /** Optional "What stood out?" chips on the review page; the customer taps up to 3. */
   highlights?: string[];
+  /**
+   * Optional short fields under the service dropdown (e.g. "Your car", "Product or brand").
+   * What the customer types is passed to the draft as their own facts, so reviews name real
+   * cars and products instead of reading alike.
+   */
+  detailFields?: { label: string; placeholder: string }[];
   /** Shown in replies to low ratings so the customer can reach the shop, e.g. a phone number. */
   replyContact?: string;
   /**

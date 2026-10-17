@@ -13,6 +13,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
   const [service, setService] = useState("");
   const [feedback, setFeedback] = useState("");
   const [picked, setPicked] = useState<string[]>([]);
+  const [details, setDetails] = useState<string[]>(() => (config.detailFields ?? []).map(() => ""));
   const [review, setReview] = useState("");
   const [status, setStatus] = useState<Status>("idle");
   const [error, setError] = useState("");
@@ -39,7 +40,7 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
       const res = await fetch("/api/review", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ client: config.slug, rating, service, feedback, highlights: picked }),
+        body: JSON.stringify({ client: config.slug, rating, service, feedback, highlights: picked, details }),
       });
       const data = await res.json();
       if (!res.ok) {
@@ -141,6 +142,27 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               </select>
             </div>
 
+            {config.detailFields && config.detailFields.length > 0 && (
+              <div className="mt-6 grid gap-4 sm:grid-cols-2">
+                {config.detailFields.map((field, i) => (
+                  <div key={field.label}>
+                    <label htmlFor={`detail-${i}`} className="text-sm font-semibold">
+                      {field.label}
+                    </label>
+                    <input
+                      id={`detail-${i}`}
+                      type="text"
+                      maxLength={40}
+                      value={details[i] ?? ""}
+                      onChange={(event) => setDetails((d) => d.map((v, j) => (j === i ? event.target.value : v)))}
+                      placeholder={field.placeholder}
+                      className="mt-2 w-full rounded-xl border-0 bg-neutral-100 px-4 py-3.5 text-[15px] text-neutral-800 placeholder:text-neutral-400 focus:outline focus:outline-2 focus:outline-offset-2"
+                    />
+                  </div>
+                ))}
+              </div>
+            )}
+
             {config.highlights && config.highlights.length > 0 && (
               <fieldset className="mt-6">
                 <legend className="text-sm font-semibold">
@@ -231,9 +253,21 @@ export function ReviewGenerator({ config }: { config: ReviewClient }) {
               onChange={(event) => setReview(event.target.value)}
               className="mt-4 w-full resize-none rounded-xl bg-neutral-50 p-4 text-[15px] leading-relaxed text-neutral-800 focus:outline focus:outline-2 focus:outline-offset-2"
             />
-            <p className="mt-2 text-xs text-neutral-400">
-              Edit it freely - it&apos;s your review, in your words.
+            <p className="mt-2 text-xs text-neutral-500">
+              Change anything that doesn&apos;t sound like you. It&apos;s your review.
             </p>
+
+            <ol className="mt-5 space-y-1.5 text-sm text-neutral-600">
+              <li>
+                <span className="font-semibold text-[#0A0A0C]">1.</span> Read it and make it yours: add or fix any detail.
+              </li>
+              <li>
+                <span className="font-semibold text-[#0A0A0C]">2.</span> On Google, paste it and add a photo of your car or the work.
+              </li>
+              <li>
+                <span className="font-semibold text-[#0A0A0C]">3.</span> Post it from your own phone and Google account.
+              </li>
+            </ol>
 
             <div className="mt-5 flex flex-col gap-2.5 sm:flex-row">
               <button
