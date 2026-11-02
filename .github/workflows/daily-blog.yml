@@ -1,0 +1,72 @@
+# Daily blog draft. Runs on GitHub's servers (no laptop needed) at 07:00 IST, or on demand
+# from the Actions tab. Drafts one post from the next real-search topic in
+# content/blog-queue.json and opens a pull request. Vercel builds a preview of the branch;
+# merging the PR publishes the post. Closing it without merging skips that topic.
+name: Daily blog draft
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  pull-requests: write
+
+concurrency:
+  group: daily-blog
+  cancel-in-progress: false
+
+jobs:
+  draft:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    env:
+      GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      # Topics already waiting in an open draft PR, so the same one isn't written twice.
+      # Stop at 3 unreviewed drafts rather than piling them up.
+      - name: Check open drafts
+        id: open
+        run: |
+          gh label create daily-blog --color C82AEF --description "Daily blog draft" --force >/dev/null
+          bodies=$(gh pr list --label daily-blog --state open --json body --jq '.[].body')
+          count=$(gh pr list --label daily-blog --state open --json number --jq 'length')
+          skip=$(printf '%s\n' "$bodies" | sed -n 's/.*topic-id: \([^ ]*\) -->.*/\1/p' | paste -sd, -)
+          echo "count=$count" >> "$GITHUB_OUTPUT"
+          echo "skip=$skip" >> "$GITHUB_OUTPUT"
+          echo "$count open draft(s); skipping topics: ${skip:-none}"
+
+      - name: Draft the post
+        id: draft
+        if: steps.open.outputs.count < 3
+        env:
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          BLOG_MODEL: ${{ vars.BLOG_MODEL }}
+          SKIP_TOPICS: ${{ steps.open.outputs.skip }}
+          PR_BODY_FILE: ${{ runner.temp }}/pr-body.md
+        run: node scripts/blog/draft-post.mjs
+
+      # Model-written values go through env vars, never straight into the script.
+      - name: Open the pull request
+        if: steps.draft.outputs.slug != ''
+        env:
+          SLUG: ${{ steps.draft.outputs.slug }}
+          TITLE: ${{ steps.draft.outputs.title }}
+        run: |
+          branch="blog/$(TZ=Asia/Kolkata date +%F)-$SLUG"
+          git config user.name "marketix-blog-bot"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git checkout -b "$branch"
+          git add content/blog-posts content/blog-queue.json
+          git commit -m "Blog draft: $TITLE"
+          git push origin "$branch"
+          gh pr create --base main --head "$branch" --label daily-blog \
+            --title "Blog: $TITLE" \
+            --body-file "${{ runner.temp }}/pr-body.md"

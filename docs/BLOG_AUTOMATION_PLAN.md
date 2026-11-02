@@ -69,3 +69,16 @@ API access. It does not post to Instagram, Facebook or LinkedIn; those need a Me
 app and a LinkedIn developer app.
 
 Google's Indexing API is only for job postings and livestreams, so it is not used for blog posts.
+
+## Built (2026-11-02)
+
+- `scripts/blog/build-queue.py` turns docs/SEARCH_DEMAND.md into `content/blog-queue.json`
+  (201 topics, one per distinct question, categories interleaved). Re-run after refreshing the
+  research; drafted topics keep their status.
+- `scripts/blog/draft-post.mjs` drafts the next topic with OpenAI (`BLOG_MODEL`, default
+  gpt-5.4-mini), checks links/dashes/stock phrases/length, saves `content/blog-posts/<slug>.json`
+  and regenerates `content/blog-posts/index.ts`. `--dry` prints without writing.
+- `.github/workflows/daily-blog.yml` runs it at 07:00 IST on GitHub's servers and opens a PR
+  labelled `daily-blog` (max 3 open at once). Merge publishes; close skips the topic.
+- Needs, once: repo secret `OPENAI_API_KEY`, and "Allow GitHub Actions to create and approve
+  pull requests" (Settings > Actions > General).

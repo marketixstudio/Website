@@ -1,4 +1,5 @@
 import type { BlogPost } from "@/lib/content-types";
+import { generatedPosts } from "@/content/blog-posts";
 
 /**
  * ARCHIVED — these six posts were written for Vistrow (CRM, AI voice, automation)
@@ -275,7 +276,7 @@ void archivedVistrowPosts;
  * Published Marketix posts. Rules: no invented statistics, sources linked for any
  * platform or regulatory fact, worked examples labelled as examples, no em dashes.
  */
-export const blogPosts: BlogPost[] = [
+const handWrittenPosts: BlogPost[] = [
   {
     slug: "how-to-rank-higher-on-google-maps",
     title: "How to rank higher on Google Maps: a practical checklist for local businesses",
@@ -627,3 +628,7 @@ export const blogPosts: BlogPost[] = [
     ],
   },
 ];
+
+/** Hand-written posts above plus the daily drafts merged from content/blog-posts/. */
+export const blogPosts: BlogPost[] = [...handWrittenPosts, ...generatedPosts];
+
