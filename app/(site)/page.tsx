@@ -12,7 +12,6 @@ import {
   ArrowRight,
   BarChart3,
   Check,
-  FileText,
   Mail,
   Map,
   MonitorSmartphone,
@@ -45,9 +44,9 @@ import { business } from "@/lib/site-config";
 const path = "/";
 
 export const metadata: Metadata = buildMetadata({
-  title: "Performance Marketing Agency in Pune | Marketix Studio",
+  title: "AI Performance Marketing Agency in Pune",
   description:
-    "Performance marketing agency in Pune for real estate, startups and eCommerce: Google and Meta ads, SEO, websites and creative, measured on enquiries.",
+    "AI-powered performance marketing agency in Pune: Google and Meta ads, SEO and websites, with AI for creative testing, faster insight and AI search visibility.",
   path: "/",
 });
 
@@ -64,24 +63,32 @@ const bestAt = [
   { label: "Conversion optimisation", href: "/services/conversion-rate-optimisation" },
 ];
 
+/** How Marketix uses AI on client accounts. Each point confirmed by the user on 2026-11-02;
+ * add nothing here the team doesn't actually do. */
 const pillars = [
   {
+    icon: Sparkles,
+    title: "More ad creative, tested properly",
+    body: "AI drafts copy and visual variants for Google and Meta. Our team edits them, picks the ones worth running, and moves budget to the winners once the test has enough data.",
+    link: { label: "Meta ads", href: "/services/meta-ads" },
+  },
+  {
+    icon: Search,
+    title: "Found in AI search",
+    body: "Clear answers and structured data on your pages, so ChatGPT, Perplexity and Google AI Overviews can cite your business as well as rank it.",
+    link: { label: "SEO services", href: "/services/seo-services" },
+  },
+  {
     icon: BarChart3,
-    title: "Data-driven decisions",
-    body: "Every campaign is steered by tracked enquiries and sales, so the budget goes where it actually converts.",
+    title: "Wasted spend, spotted sooner",
+    body: "AI helps us read your search terms, Search Console and GA4 data every week, so poor keywords and falling enquiries show up early. You still get a plain monthly report.",
     link: { label: "How we work", href: "/approach" },
   },
   {
-    icon: Sparkles,
-    title: "Creative that converts",
-    body: "Bold creative written to a performance brief, because good marketing has to look right and sell.",
-    link: { label: "Branding and design", href: "/services/branding-design" },
-  },
-  {
-    icon: FileText,
-    title: "Transparent reporting",
-    body: "A plain monthly report on what worked, what we changed and what it produced. No jargon, no vanity numbers.",
-    link: { label: "About the studio", href: "/about" },
+    icon: Star,
+    title: "More Google reviews, within the rules",
+    body: "Our AI review page helps happy customers put their visit into words. They edit the draft and post it on Google themselves.",
+    link: { label: "See the Jay Ganesh case study", href: "/work/jayganesh-review-system" },
   },
 ];
 
@@ -135,11 +142,12 @@ const process = [
 const answer: AnswerBlock = {
   question: "What does Marketix Studio do?",
   answer:
-    "Marketix Studio is a performance marketing agency in Pune. We help real estate developers, startups, SaaS companies and eCommerce brands grow with Google and Meta ads, SEO and local SEO, websites, landing pages and creative, and we judge the work on the enquiries and sales it brings in.",
+    "Marketix Studio is an AI-powered performance marketing agency in Pune. We help real estate developers, startups, SaaS companies and eCommerce brands grow with Google and Meta ads, SEO and local SEO, websites, landing pages and creative. AI helps us test more ad creative, read campaign data faster and get clients cited in AI search; our team makes the decisions, and we judge the work on the enquiries and sales it brings in.",
   keyFacts: [
     `Based in ${business.address.city}, serving brands since ${business.foundingDate}`,
     "Clients across India, with campaigns for the UAE, the UK and the US",
     "Paid ads, SEO, websites and creative under one roof",
+    "AI for creative testing, data analysis and AI search visibility, with people making the calls",
     "Every enquiry tracked back to the channel that produced it",
   ],
 };
@@ -221,19 +229,20 @@ export default async function HomePage() {
                 className="pointer-events-none absolute inset-0 hidden bg-[radial-gradient(ellipse_75%_65%_at_18%_28%,rgb(var(--card)/0.92)_0%,rgb(var(--card)/0.6)_45%,transparent_75%),radial-gradient(ellipse_55%_45%_at_78%_82%,rgb(var(--card)/0.9)_0%,rgb(var(--card)/0.5)_50%,transparent_80%)] lg:block"
               />
             </div>
-            <div className="-mb-4 sm:-mb-6">
+            <div className="mb-5 sm:-mb-6">
               <Eyebrow>{sentenceCase(focusKeyword(path) ?? "")}</Eyebrow>
             </div>
             <h1 className="max-w-[18ch] font-display text-[clamp(2.6rem,6.4vw+0.2rem,6.25rem)] font-bold leading-[1.1] tracking-[-0.015em] text-ink">
-              Performance Marketing Agency for Real Estate, Startups &amp; eCommerce
+              AI-Powered Performance Marketing for Real Estate, Startups &amp; eCommerce
             </h1>
             <div className="mt-12 grid grid-cols-[minmax(0,1fr)] gap-8 lg:grid-cols-2">
               <p className="hidden self-end text-sm font-medium text-muted lg:block">Pune, India</p>
               <div>
                 <p className="max-w-[46ch] text-lg leading-[1.6] text-ink-2">
-                  We help real estate developers, startups, SaaS companies and eCommerce brands grow with
-                  performance marketing and conversion-focused execution. Based in Pune, working with brands
-                  across India and abroad.
+                  We run your Google and Meta ads, SEO, Google Maps and website, and use AI to test more ad
+                  creative, spot what&apos;s working sooner and get you found in ChatGPT and Google AI Overviews. Our
+                  team makes every call, and every result is tracked to a real enquiry. Based in Pune, working across
+                  India and abroad.
                 </p>
                 <div className="mt-8 flex flex-wrap items-center gap-x-8 gap-y-5">
                   <Cta href="/growth-audit">Get a free growth audit</Cta>
@@ -349,7 +358,7 @@ export default async function HomePage() {
             {pillars.map((p, i) => (
               <li
                 key={p.title}
-                className={`mx-reveal mx-card relative p-7 sm:py-8 sm:pl-28 sm:pr-8 ${i === 2 ? "" : "sm:ml-10"} ${i === 1 ? "lg:ml-20" : ""}`}
+                className={`mx-reveal mx-card relative p-7 sm:py-8 sm:pl-28 sm:pr-8 ${i === 3 ? "" : "sm:ml-10"} ${i === 1 || i === 2 ? "lg:ml-20" : ""}`}
                 style={delay(i * 120)}
               >
                 <div className="sm:mx-edge-icon">
@@ -366,11 +375,11 @@ export default async function HomePage() {
 
           <div className="mx-reveal order-1 lg:order-2" style={delay(120)}>
             <Eyebrow>Why choose Marketix Studio</Eyebrow>
-            <h2 className="mt-5 max-w-[16ch] font-display text-h2 font-bold leading-[1.15] text-ink">Your growth is our only brief</h2>
+            <h2 className="mt-5 max-w-[16ch] font-display text-h2 font-bold leading-[1.15] text-ink">How we use AI on your account</h2>
             <p className="mt-5 max-w-[60ch] text-[1.0625rem] leading-relaxed text-muted">
-              The right agency can make or break a year of growth. We build each plan around your business, your
-              buyers and your numbers, run the channels together and stay accountable for the enquiries they bring.
-              Based in Pune, working with brands across India and abroad.
+              AI takes on the slow parts of the job: drafting variants, reading search data, structuring pages. The
+              strategy, the budget and the creative calls stay with the people on your account, and every change is
+              judged on the enquiries it brings.
             </p>
             <div className="relative mt-10">
               <div className="mx-notch-photo aspect-[3/2]">

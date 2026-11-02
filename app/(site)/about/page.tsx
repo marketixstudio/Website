@@ -27,13 +27,13 @@ const path = "/about";
 export const metadata: Metadata = buildMetadata({
   title: "Marketing Agency in Pune: About Marketix Studio",
   description:
-    "Marketix Studio is a performance marketing agency in Pune, serving real estate, startups and eCommerce brands since 2023.",
+    "Marketix Studio is an AI-powered performance marketing agency in Pune, serving real estate, startups and eCommerce brands since 2023.",
   path,
 });
 
 const answer: AnswerBlock = {
   question: "Who is Marketix Studio?",
-  answer: `Marketix Studio is a performance marketing agency in Pune, serving brands since ${business.foundingDate}. A team of ${team.length} plans and runs paid ads, SEO, websites, creative and social media for real estate developers, startups and eCommerce brands, and measures the work on enquiries and sales.`,
+  answer: `Marketix Studio is an AI-powered performance marketing agency in Pune, serving brands since ${business.foundingDate}. A team of ${team.length} plans and runs paid ads, SEO, websites, creative and social media for real estate developers, startups and eCommerce brands, uses AI for creative testing, data analysis and AI search visibility, and measures the work on enquiries and sales.`,
   keyFacts: [
     `Founded in ${business.foundingDate}, based in ${business.address.city}`,
     `${serviceList.length} services, from Google Ads to branding`,
@@ -115,7 +115,7 @@ export default function Page() {
         label="About Marketix Studio"
         title="A performance marketing agency that shows its"
         accent="working"
-        lede={`We have worked from Pune since ${business.foundingDate}, planning and running ads, SEO, websites and creative for real estate, startups and eCommerce brands.`}
+        lede={`We have worked from Pune since ${business.foundingDate}, planning and running ads, SEO, websites and creative for real estate, startups and eCommerce brands, with AI helping us test faster and people making the calls.`}
         secondary={{ label: "Meet the team", href: "/team" }}
         visual={<ElectricMonogram className="h-[200px] w-full sm:h-[240px]" />}
       />

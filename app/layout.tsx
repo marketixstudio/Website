@@ -14,13 +14,13 @@ const jakarta = Plus_Jakarta_Sans({
   display: "swap",
 });
 
-const defaultTitle = "Marketix Studio | Performance Marketing Agency in Pune, India";
+const defaultTitle = "Marketix Studio | AI-Powered Performance Marketing, Pune";
 
 export const metadata: Metadata = {
   ...buildMetadata({
     title: defaultTitle,
     description:
-      "Marketix Studio is a performance marketing agency in Pune. We grow real estate, eCommerce and D2C brands with paid ads, SEO and conversion-led creative across India, the UAE, the UK and the US.",
+      "Marketix Studio is an AI-powered performance marketing agency in Pune. We grow real estate, eCommerce and D2C brands with paid ads, SEO and conversion-led creative across India, the UAE, the UK and the US.",
     path: "/",
   }),
   metadataBase: new URL(siteUrl),

@@ -20,10 +20,10 @@ export const servicesOverview: OverviewContent = {
   title: "Marketing services that bring in",
   highlight: "enquiries",
   subtitle:
-    "Paid ads, SEO, websites, creative and follow-up, planned together so every channel is measured on the enquiries and sales it produces.",
+    "Paid ads, SEO, websites, creative and follow-up, planned together and sharpened with AI, so every channel is measured on the enquiries and sales it produces.",
   metaTitle: "Digital Marketing Services in Pune",
   metaDescription:
-    "Digital marketing services in Pune: Google and Meta ads, SEO, local SEO, websites, landing pages, branding, social, email and WhatsApp marketing.",
+    "Digital marketing services in Pune: Google and Meta ads, SEO and AI search, local SEO, websites, landing pages, branding, social, email and WhatsApp.",
   cardsTitle: "What we do",
   cards: [
     { label: "Performance Marketing", href: "/services/performance-marketing", body: "Paid media across channels, managed against enquiry and sales targets.", icon: Target },
@@ -47,6 +47,7 @@ export const servicesOverview: OverviewContent = {
     points: [
       "One team across ads, SEO, web and creative",
       "Tracking set up before launch",
+      "AI for creative variants, data analysis and AI search visibility; people make the calls",
       "Monthly reports on cost per lead, conversion rate and return on ad spend",
     ],
   },
@@ -70,7 +71,7 @@ export const services: Record<string, ServiceContent> = {
     title: "Performance Marketing",
     eyebrow: "Services",
     subtitle:
-      "Paid media across Google and Meta, managed against the enquiries and sales you actually want, not the cheapest click.",
+      "Paid media across Google and Meta, with AI-assisted creative testing and data analysis, managed against the enquiries and sales you want, not the cheapest click.",
     metaTitle: "Performance Marketing Services in Pune",
     metaDescription:
       "Performance marketing services in Pune: Google, Meta and LinkedIn budgets managed against revenue targets, for brands in Pune, Mumbai, Dubai, London and the US.",
@@ -98,7 +99,7 @@ export const services: Record<string, ServiceContent> = {
     included: [
       "Channel strategy and budget allocation model",
       "Campaign build across Google, Meta and LinkedIn",
-      "Creative direction, production and testing roadmap",
+      "Creative direction, production and testing roadmap, with AI-drafted variants edited by our team",
       "Landing page design and build",
       "GA4, Google Tag Manager and server-side conversion tracking",
       "CRM integration and lead routing",
@@ -108,7 +109,7 @@ export const services: Record<string, ServiceContent> = {
       { title: "Diagnose", body: "Account audit, funnel review, tracking validation and a competitor spend analysis." },
       { title: "Architect", body: "We agree the offer, the audiences, the creative angles and the target cost per acquisition." },
       { title: "Launch", body: "Campaigns, landing pages and tracking go live together in a single coordinated release." },
-      { title: "Compound", body: "Weekly creative and bid iteration, scaling budget only into proven segments." },
+      { title: "Compound", body: "Weekly creative and bid iteration, with AI helping read the data, scaling budget only into proven segments." },
     ],
     tools: ["Google Ads", "Meta Ads Manager", "LinkedIn Campaign Manager", "GA4", "Google Tag Manager", "Looker Studio", "Hotjar"],
     faqs: [
@@ -126,7 +127,7 @@ export const services: Record<string, ServiceContent> = {
     title: "Google Ads & PPC",
     eyebrow: "Services",
     subtitle:
-      "Search, Shopping and Performance Max campaigns structured for profitable cost per acquisition and checked every month for wasted spend.",
+      "Search, Shopping and Performance Max campaigns structured for profitable cost per acquisition, with AI helping us catch wasted spend every week.",
     metaTitle: "Google Ads Management in Pune",
     metaDescription:
       "Google Ads management in Pune for Search, Shopping, Display and Performance Max: keyword research, ad copy, daily bids, landing pages and monthly reporting.",
@@ -158,12 +159,12 @@ export const services: Record<string, ServiceContent> = {
       "Shopping feed optimisation for eCommerce",
       "Performance Max asset groups and brand exclusions",
       "Conversion tracking and offline conversion import",
-      "Weekly search term review and bid management",
+      "Weekly AI-assisted search term review and bid management",
     ],
     steps: [
       { title: "Audit", body: "We score the account on structure, match types, negatives, tracking accuracy and landing page speed." },
       { title: "Rebuild", body: "Campaigns restructured around intent tiers with clean conversion actions." },
-      { title: "Test", body: "Ad copy, extensions and landing pages tested in a defined sequence." },
+      { title: "Test", body: "Ad copy variants, drafted with AI and edited by us, tested with extensions and landing pages in a defined sequence." },
       { title: "Scale", body: "Budget moved into the keyword clusters proving profitable at your target CPA." },
     ],
     tools: ["Google Ads", "Google Merchant Center", "GA4", "Google Tag Manager", "Looker Studio", "Semrush"],
@@ -182,7 +183,7 @@ export const services: Record<string, ServiceContent> = {
     title: "Meta Ads",
     eyebrow: "Services",
     subtitle:
-      "Facebook and Instagram advertising where fresh creative, not endless audience tinkering, is the lever we pull.",
+      "Facebook and Instagram advertising where fresh creative, produced faster with AI and chosen by people, is the lever we pull.",
     metaTitle: "Meta Ads Agency for Facebook and Instagram",
     metaDescription:
       "Meta ads agency for Facebook and Instagram: creative testing, Conversions API tracking and ad management focused on a profitable cost per acquisition.",
@@ -218,7 +219,7 @@ export const services: Record<string, ServiceContent> = {
     ],
     steps: [
       { title: "Research", body: "Offer analysis, competitor ad library teardown and message-market fit mapping." },
-      { title: "Produce", body: "We build the first batch of creative across distinct angles, not colour variations." },
+      { title: "Produce", body: "AI drafts copy and visual variants, and our team builds the first batch across distinct angles, not colour variations." },
       { title: "Test", body: "Structured testing at the ad level with enough budget to exit the learning phase." },
       { title: "Scale", body: "Winners moved into scaling campaigns, with fresh angles queued behind them." },
     ],
@@ -238,7 +239,7 @@ export const services: Record<string, ServiceContent> = {
     title: "SEO Services",
     eyebrow: "Services",
     subtitle:
-      "Technical fixes, content that deserves to rank, and the authority that makes Google and AI assistants trust your brand.",
+      "Technical fixes, content that deserves to rank, and the authority that gets your brand cited in ChatGPT, Perplexity and Google AI Overviews as well as ranked.",
     metaTitle: "SEO Services in Pune That Bring Customers",
     metaDescription:
       "SEO services in Pune: technical audits, on-page optimisation, content strategy, link acquisition and AI search visibility for brands in India and abroad.",
@@ -333,7 +334,7 @@ export const services: Record<string, ServiceContent> = {
     steps: [
       { title: "Claim & clean", body: "Verify the profile, fix categories and correct NAP data everywhere it appears." },
       { title: "Build authority", body: "Citations, local links and location pages that establish genuine area relevance." },
-      { title: "Generate reviews", body: "A repeatable request flow so new reviews arrive every week, not every quarter." },
+      { title: "Generate reviews", body: "An AI-assisted review page customers edit and post themselves, so new reviews arrive every week, not every quarter." },
       { title: "Track by area", body: "Grid-based rank tracking showing exactly where you win and lose by neighbourhood." },
     ],
     tools: ["Google Business Profile", "Local Falcon", "BrightLocal", "Semrush Local", "Google Search Console"],

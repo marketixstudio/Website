@@ -9,7 +9,7 @@ export const business = {
   name: "Marketix Studio",
   tagline: "Marketing That Clicks",
   description:
-    "Marketix Studio is a performance marketing agency in Pune helping real estate, eCommerce and D2C brands grow with paid media, SEO and conversion-led creative across India, the UAE, the UK and the US.",
+    "Marketix Studio is an AI-powered performance marketing agency in Pune helping real estate, eCommerce and D2C brands grow with paid media, SEO and conversion-led creative, using AI to test more creative, read data faster and win visibility in AI search, across India, the UAE, the UK and the US.",
   foundingDate: "2023",
   email: "contact@marketixstudio.com",
   phone: "+917448136636",
