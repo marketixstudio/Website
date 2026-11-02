@@ -75,10 +75,50 @@ Google's Indexing API is only for job postings and livestreams, so it is not use
 - `scripts/blog/build-queue.py` turns docs/SEARCH_DEMAND.md into `content/blog-queue.json`
   (201 topics, one per distinct question, categories interleaved). Re-run after refreshing the
   research; drafted topics keep their status.
-- `scripts/blog/draft-post.mjs` drafts the next topic with OpenAI (`BLOG_MODEL`, default
-  gpt-5.4-mini), checks links/dashes/stock phrases/length, saves `content/blog-posts/<slug>.json`
+- `scripts/blog/draft-post.mjs` drafts the next topic with Claude (`BLOG_MODEL`, default
+  claude-opus-5-5, structured output, server-side refusal fallback), checks links/dashes/stock phrases/length, saves `content/blog-posts/<slug>.json`
   and regenerates `content/blog-posts/index.ts`. `--dry` prints without writing.
 - `.github/workflows/daily-blog.yml` runs it at 07:00 IST on GitHub's servers and opens a PR
   labelled `daily-blog` (max 3 open at once). Merge publishes; close skips the topic.
-- Needs, once: repo secret `OPENAI_API_KEY`, and "Allow GitHub Actions to create and approve
+- Needs, once: repo secret `ANTHROPIC_API_KEY`, and "Allow GitHub Actions to create and approve
   pull requests" (Settings > Actions > General).
+
+## Writing structure (2026-11-02)
+
+From Google's helpful-content guidance, cross-checked with coreyhaines31/marketingskills (58k
+stars), AgriciDaniel/claude-seo (26k) and TheCraigHewitt/seomachine (7.7k): answer first
+(40 to 60 words), a "Key takeaways" block, headings phrased as the real searches with a short
+answer opening each section, format by intent (cost / vs / how-to / worth it), 3 to 5 internal
+links, official help pages cited where a platform fact is stated (checked to load), and one real
+"From our work" note added by a person in PR review. Rejected from those repos: invented
+mini-stories, unsourced statistics, keyword-density and word-count targets.
+
+## Google Cloud (2026-11-02)
+
+Project `marketix-automation` (number 134954999671) on marketixstudio@gmail.com. Enabled: Sheets,
+Search Console, Analytics Data, My Business Account Management, My Business Business
+Information. Service account `marketix-automation-bot@marketix-automation.iam.gserviceaccount.com`.
+
+- `scripts/blog/google.mjs`: service-account login (node:crypto, no deps) + Sheets, Search
+  Console (sitemap submit, URL inspection, page stats) and GA4 page views.
+- `scripts/blog/sheet-log.mjs`: daily job logs each draft (status "Draft: PR open") in the
+  Marketix Content Calender sheet (columns A..N).
+- `scripts/blog/seo-sync.mjs` + `.github/workflows/blog-seo-sync.yml`: after a post merges and
+  every Monday 08:00 IST: resubmit the sitemap, mark rows Published, indexed yes/no, clicks,
+  impressions, position, views.
+
+To switch on (GitHub repo > Settings > Secrets and variables > Actions):
+- Secret `GOOGLE_SERVICE_ACCOUNT_JSON`: the service account's JSON key (Cloud console > IAM >
+  Service accounts > the bot > Keys > Add key > JSON), pasted whole.
+- Variable `CALENDAR_SHEET_ID` = `1-8DBggLs45yARz6OUlidLpDacXC1zOC_RfC4we4ySUU` (bot is Editor).
+- Variable `GSC_SITE` = the Search Console property, e.g. `sc-domain:marketixstudio.com`
+  (add the bot as a Full user in Search Console > Settings > Users and permissions).
+- Variable `GA4_PROPERTY_ID` = the numeric GA4 property ID (add the bot as Viewer in
+  GA4 > Admin > Property access management).
+
+Google Business Profile (posts, edits, review replies): the APIs are enabled, but Google gives
+new projects a quota of 0 until the "Business Profile APIs access request" form is approved for
+project number 134954999671 (days to weeks). The "Google My Business API" (posts and reviews)
+only becomes visible after approval. The existing review auto-reply code (lib/gbp.ts,
+docs/REVIEW_REPLIES.md) uses OAuth as the owner account, which Business Profile requires; a
+service account cannot be added to a Business Profile.

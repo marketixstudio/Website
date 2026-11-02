@@ -4,26 +4,28 @@
  *
  * 1. Takes the next queued topic from content/blog-queue.json (real Google searches, India),
  *    skipping topics that already have an open draft PR (SKIP_TOPICS, comma separated).
- * 2. Writes the post with OpenAI as structured JSON in the site's BlogPost shape.
+ * 2. Writes the post with Claude (structured output, so the reply always matches the schema).
  * 3. Checks it: no invented links (only our own pages), no em dashes, no stock phrases;
  *    every number is listed in the PR body for a human to confirm before merging.
  * 4. Saves content/blog-posts/<slug>.json, regenerates content/blog-posts/index.ts and marks
  *    the topic drafted.
  *
- * Env: OPENAI_API_KEY (required), BLOG_MODEL (default gpt-5.4-mini), SKIP_TOPICS,
+ * Env: ANTHROPIC_API_KEY (required), BLOG_MODEL (default claude-opus-5-5), SKIP_TOPICS,
  * PR_BODY_FILE (where to write the PR description), GITHUB_OUTPUT (set by Actions).
  * Local dry run: node scripts/blog/draft-post.mjs --dry   (prints, writes nothing)
  */
 import { appendFileSync, readFileSync, readdirSync, writeFileSync } from "node:fs";
 import { join } from "node:path";
 import { fileURLToPath } from "node:url";
+import Anthropic from "@anthropic-ai/sdk";
+import { jsonSchemaOutputFormat } from "@anthropic-ai/sdk/helpers/json-schema";
 
 const ROOT = fileURLToPath(new URL("../../", import.meta.url));
 const read = (p) => readFileSync(join(ROOT, p), "utf8");
 const DRY = process.argv.includes("--dry");
-const MODEL = process.env.BLOG_MODEL || "gpt-5.4-mini";
-const KEY = process.env.OPENAI_API_KEY;
-if (!KEY) throw new Error("OPENAI_API_KEY is not set");
+const MODEL = process.env.BLOG_MODEL || "claude-opus-5-5";
+if (!process.env.ANTHROPIC_API_KEY) throw new Error("ANTHROPIC_API_KEY is not set");
+const client = new Anthropic();
 
 // ---------- inputs ----------
 const queue = JSON.parse(read("content/blog-queue.json"));
@@ -54,6 +56,16 @@ const existingPosts = [
     .map((f) => JSON.parse(read(`content/blog-posts/${f}`)))
     .map((p) => ({ slug: p.slug, title: p.title })),
 ];
+// Official sources the post may cite (checked live before publishing).
+const OFFICIAL = ["support.google.com", "developers.google.com", "business.google.com", "ads.google.com", "www.facebook.com/business/help", "developers.facebook.com", "business.whatsapp.com", "www.meta.com"];
+const isOfficial = (h) => /^https:\/\//.test(h) && OFFICIAL.some((d) => h.replace(/^https:\/\//, "").startsWith(d));
+const liveCache = new Map();
+async function isLive(url) {
+  if (!liveCache.has(url)) {
+    liveCache.set(url, fetch(url, { method: "GET", redirect: "follow", signal: AbortSignal.timeout(10000) }).then((r) => r.ok, () => false));
+  }
+  return liveCache.get(url);
+}
 const allowedHrefs = new Set([...pageLinks.map((l) => l.href), ...existingPosts.map((p) => `/blog/${p.slug}`)]);
 
 // ---------- prompt ----------
@@ -64,11 +76,17 @@ Readers are Indian business owners and marketing managers who typed the searches
 Hard rules:
 - Never invent facts. No statistics, percentages, survey results, client results, case studies, testimonials, prices or rupee figures unless they are well-established, official platform facts (e.g. a Google or Meta policy). For cost questions, explain what the cost depends on, how to estimate it for your own business, and give a worked example clearly labelled "Example" with round illustrative numbers that are obviously an illustration, not a market rate.
 - Do not claim Marketix did or achieved anything specific.
-- Links: only use links from the allowed list below, written as markdown [text](/path). No external links.
+- Links: internal links only from the allowed list below, written as markdown [text](/path), 3 to 5 per post. For a platform rule, policy or figure, you may cite an official help page on ${OFFICIAL.join(", ")}, written as [text](https://...). Only cite a URL you are confident exists; every external link is checked and broken ones are removed.
 - No em dashes or en dashes. No exclamation marks. No emoji.
 - Avoid filler and stock phrases: "in today's digital landscape", "game-changer", "unlock", "leverage", "seamless", "dive in", "it's important to note", "in conclusion", "elevate", "navigate the complexities", "robust", "plethora".
 - Use the focus keyword in the title, the first paragraph and one heading. Searches are often typed ungrammatically ("how much seo cost"); write them the way a person would say them ("how much SEO costs"), never paste a broken phrase. No keyword stuffing; no "near me".
-- 1,000 to 1,600 words across 5 to 8 sections. Short paragraphs (2 to 4 sentences). Use "points" for checklists or steps.
+Structure (this is what ranks and gets quoted by Google's AI answers):
+- Section 1 (no heading): answer the main search directly in the first one or two sentences (40 to 60 words), then say what the post covers.
+- Section 2, heading "Key takeaways": no paragraphs, 3 to 5 points that are the post's actual conclusions, each a standalone sentence.
+- Then 4 to 7 sections whose headings are the real searches below, phrased as a person would ask them. Each section opens with a one or two sentence direct answer, then explains.
+- Shape each section to the question: cost = what drives it plus a worked example labelled "Example"; "X vs Y" = side by side points for each, then when to choose which; "how to" = numbered steps as points; "is it worth it" = when yes, when no.
+- Short paragraphs (2 to 4 sentences), one idea each. Use points for steps and checklists. Length is whatever fully answers the searches, usually 1,000 to 1,600 words; never pad.
+- Write as Marketix's team sharing how we approach this for clients, but never invent a client, a result or an anecdote. A person adds one real "From our work" note before publishing.
 - 4 to 6 FAQs drawn from the other real searches, each answered in 2 to 4 sentences.
 - The last section points readers to the most relevant service page from the allowed list.
 
@@ -121,22 +139,23 @@ const schema = {
 };
 
 async function draft(extra = []) {
-  const res = await fetch("https://api.openai.com/v1/chat/completions", {
-    method: "POST",
-    headers: { Authorization: `Bearer ${KEY}`, "Content-Type": "application/json" },
-    body: JSON.stringify({
-      model: MODEL,
-      reasoning_effort: "low",
-      max_completion_tokens: 12000,
-      messages: [{ role: "system", content: system }, { role: "user", content: user }, ...extra],
-      response_format: { type: "json_schema", json_schema: { name: "blog_post", strict: true, schema } },
-    }),
+  // Server-side fallback: if Opus declines on a safety classifier, the API reruns the request
+  // on a suitable fallback model in the same call instead of failing the day's draft.
+  const message = await client.beta.messages.parse({
+    model: MODEL,
+    max_tokens: 16000,
+    betas: ["server-side-fallback-2026-07-01"],
+    fallbacks: "default",
+    output_config: { effort: "high", format: jsonSchemaOutputFormat(schema) },
+    system,
+    messages: [{ role: "user", content: user }, ...extra],
   });
-  if (!res.ok) throw new Error(`OpenAI ${res.status}: ${await res.text()}`);
-  const data = await res.json();
-  const msg = data.choices?.[0]?.message;
-  if (msg?.refusal) throw new Error(`Model refused: ${msg.refusal}`);
-  return { post: JSON.parse(msg.content), raw: msg.content };
+  if (message.stop_reason === "refusal") throw new Error(`Model refused: ${message.stop_details?.explanation ?? "no reason given"}`);
+  if (message.stop_reason === "max_tokens") throw new Error("Draft hit max_tokens before finishing");
+  if (!message.parsed_output) throw new Error("Draft did not match the post schema");
+  const raw = message.content.filter((b) => b.type === "text").map((b) => b.text).join("");
+  console.log(`Tokens: ${message.usage.input_tokens} in, ${message.usage.output_tokens} out (${message.model})`);
+  return { post: message.parsed_output, raw };
 }
 
 // ---------- checks ----------
@@ -146,13 +165,14 @@ const allText = (p) => [p.title, p.excerpt, ...p.sections.flatMap((s) => [s.head
 function problems(p) {
   const out = [];
   const text = allText(p).join("\n");
-  const badLinks = [...text.matchAll(/\]\(([^)]+)\)/g)].map((m) => m[1]).filter((h) => !allowedHrefs.has(h));
+  const badLinks = [...text.matchAll(/\]\(([^)]+)\)/g)].map((m) => m[1]).filter((h) => !allowedHrefs.has(h) && !isOfficial(h));
   if (badLinks.length) out.push(`it links to pages that are not on the allowed list: ${badLinks.join(", ")}`);
   if (/[—–]/.test(text)) out.push("it uses em or en dashes");
   if (/!/.test(text.replace(/\]\([^)]*\)/g, ""))) out.push("it uses exclamation marks");
   const stock = text.match(STOCK);
   if (stock) out.push(`it uses the stock phrase "${stock[0]}"`);
   const words = text.split(/\s+/).length;
+  if (!p.sections.some((s) => /key takeaways/i.test(s.heading))) out.push('it is missing the "Key takeaways" section');
   if (words < 900) out.push(`it is too short (${words} words); answer the searches more fully`);
   if (!new RegExp(topic.focusKeyword.split(" ").slice(0, 3).join(" "), "i").test(p.title + " " + p.sections[0]?.paragraphs.join(" ")))
     out.push("the focus keyword is missing from the title and opening");
@@ -171,8 +191,14 @@ for (let i = 0; i < 2; i++) {
 }
 const remaining = problems(post);
 
+// Keep an official link only if it actually loads; otherwise keep just its text.
+const external = [...new Set(allText(post).join("\n").match(/https:\/\/[^)\s]+/g) ?? [])];
+const deadLinks = new Set();
+for (const url of external) if (!(await isLive(url))) deadLinks.add(url);
+if (deadLinks.size) console.log(`Removed ${deadLinks.size} link(s) that did not load: ${[...deadLinks].join(", ")}`);
+
 // Last-resort cleanup so a bad link or dash never ships even if the model kept it.
-const fixLinks = (s) => s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, t, h) => (allowedHrefs.has(h) ? m : t)).replace(/\s*[—–]\s*/g, ", ");
+const fixLinks = (s) => s.replace(/\[([^\]]+)\]\(([^)]+)\)/g, (m, t, h) => (allowedHrefs.has(h) || (isOfficial(h) && !deadLinks.has(h)) ? m : t)).replace(/\s*[—–]\s*/g, ", ");
 const clean = (s) => fixLinks(s).trim();
 
 // ---------- build the BlogPost ----------
@@ -215,6 +241,8 @@ ${wordCount} words · ${blogPost.readTime} · model ${MODEL}
 - [ ] The title and headings read naturally (searches are often typed ungrammatically, e.g. "cost" for "costs")
 - [ ] To fix wording, edit \`content/blog-posts/${slug}.json\` in this PR (pencil icon on the Files tab)
 - [ ] Every sentence with a number below is true or clearly labelled as an example
+- [ ] Add one real "From our work" observation (a short paragraph in a section): this is what Google rewards and AI cannot write
+- [ ] Official links still point to the right page (they were checked to load)
 - [ ] Open the Vercel preview link below and look at /blog/${slug}
 
 ${numbers.length ? `**Sentences with numbers (${numbers.length}):**\n${numbers.map((n) => `- ${n}`).join("\n")}` : "No numbers in this post."}

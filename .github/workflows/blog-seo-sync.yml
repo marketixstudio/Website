@@ -1,0 +1,38 @@
+# After a blog post is published (merged to main) and every Monday 08:00 IST: resubmit the
+# sitemap to Search Console, check whether each post is indexed, and write clicks,
+# impressions, position (Search Console) and views (GA4) into the content calendar sheet.
+# Runs on GitHub's servers. Each part is skipped until its secret/variable is set.
+name: Blog SEO sync
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "content/blog-posts/**"
+      - "content/blog.ts"
+  schedule:
+    - cron: "30 2 * * 1" # Monday 02:30 UTC = 08:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      # Give Vercel time to deploy a just-merged post before asking Google about it.
+      - if: github.event_name == 'push'
+        run: sleep 240
+      - name: Sync the content calendar
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          CALENDAR_SHEET_ID: ${{ vars.CALENDAR_SHEET_ID }}
+          GSC_SITE: ${{ vars.GSC_SITE }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+        run: node scripts/blog/seo-sync.mjs

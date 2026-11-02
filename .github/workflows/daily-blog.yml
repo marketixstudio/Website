@@ -29,6 +29,9 @@ jobs:
       - uses: actions/setup-node@v4
         with:
           node-version: 22
+          cache: npm
+
+      - run: npm ci --ignore-scripts
 
       # Topics already waiting in an open draft PR, so the same one isn't written twice.
       # Stop at 3 unreviewed drafts rather than piling them up.
@@ -47,7 +50,7 @@ jobs:
         id: draft
         if: steps.open.outputs.count < 3
         env:
-          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
           BLOG_MODEL: ${{ vars.BLOG_MODEL }}
           SKIP_TOPICS: ${{ steps.open.outputs.skip }}
           PR_BODY_FILE: ${{ runner.temp }}/pr-body.md
@@ -55,6 +58,7 @@ jobs:
 
       # Model-written values go through env vars, never straight into the script.
       - name: Open the pull request
+        id: pr
         if: steps.draft.outputs.slug != ''
         env:
           SLUG: ${{ steps.draft.outputs.slug }}
@@ -67,6 +71,18 @@ jobs:
           git add content/blog-posts content/blog-queue.json
           git commit -m "Blog draft: $TITLE"
           git push origin "$branch"
-          gh pr create --base main --head "$branch" --label daily-blog \
+          pr_url=$(gh pr create --base main --head "$branch" --label daily-blog \
             --title "Blog: $TITLE" \
-            --body-file "${{ runner.temp }}/pr-body.md"
+            --body-file "${{ runner.temp }}/pr-body.md")
+          echo "pr_url=$pr_url" >> "$GITHUB_OUTPUT"
+
+      # Skips quietly until the Google secrets are added.
+      - name: Log the draft in the content calendar
+        if: steps.pr.outputs.pr_url != ''
+        continue-on-error: true
+        env:
+          SLUG: ${{ steps.draft.outputs.slug }}
+          PR_URL: ${{ steps.pr.outputs.pr_url }}
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          CALENDAR_SHEET_ID: ${{ vars.CALENDAR_SHEET_ID }}
+        run: node scripts/blog/sheet-log.mjs
