@@ -32,6 +32,15 @@ export const team: TeamMember[] = [
     expertise: ["Finance", "Billing and payments", "Budgeting"],
   },
   {
+    slug: "aditya-deshmukh",
+    name: "Aditya Deshmukh",
+    role: "Finance Executive",
+    // TODO: photo still to come - shown as an initials card until then.
+    bio: "Works with the Finance Manager on invoicing, payments and keeping client accounts and budgets up to date.",
+    linkedin: "https://www.linkedin.com/in/aditya1563/",
+    expertise: ["Invoicing", "Payments", "Accounts"],
+  },
+  {
     slug: "chinmay-lohokare",
     name: "Chinmay Lohokare",
     role: "Creative Director & Finance",
@@ -54,6 +63,15 @@ export const team: TeamMember[] = [
     // TODO: photo not found on the live site under the expected filename - send it over.
     bio: "Heads digital marketing across client accounts, from planning paid ads and social to checking that each campaign brings in enquiries.",
     expertise: ["Digital marketing strategy", "Paid ads", "Social media"],
+  },
+  {
+    slug: "pranav-nair",
+    name: "Pranav Nair",
+    role: "SEO Specialist",
+    // TODO: photo still to come - shown as an initials card until then.
+    bio: "Handles SEO across client accounts: on-page fixes, content and the local search work that gets businesses found on Google and Google Maps.",
+    linkedin: "https://www.linkedin.com/in/pranav-nair-8709992a2/",
+    expertise: ["SEO", "Local SEO", "Content"],
   },
 ];
 

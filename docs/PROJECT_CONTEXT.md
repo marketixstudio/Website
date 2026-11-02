@@ -18,7 +18,8 @@ Last updated: 2026-09-23
   `/Users/mac15/BRANDS/VISTROW NEW WEBSITE`. This project was cloned from its architecture.
 - Team (roles updated by the user 2026-11-02): Abhishek Ghadge (Founder & CEO), Shalini Dhumal
   (Business Development Manager), Sakshi Kshirsagar (Finance Manager), Chinmay Lohokare (Creative
-  Director & Finance), Gururaj Dangare (Mentor), Prakash Sharma (Digital Marketing Head).
+  Director & Finance), Gururaj Dangare (Mentor), Prakash Sharma (Digital Marketing Head),
+  Aditya Deshmukh (Finance Executive), Pranav Nair (SEO Specialist).
 - Real clients: Jay Ganesh Car Accessories (owner Maruti Kalbhor), PIBM (Pratibha Institute
   of Business Management), ReviveUp Drinks, Dostii Food Products, Kleawip, Urbanrise Infra,
   Bingle India, Shree Saraswati Optics (Phaltan).
