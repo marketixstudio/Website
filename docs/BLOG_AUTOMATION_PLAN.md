@@ -107,14 +107,15 @@ Information. Service account `marketix-automation-bot@marketix-automation.iam.gs
   every Monday 08:00 IST: resubmit the sitemap, mark rows Published, indexed yes/no, clicks,
   impressions, position, views.
 
-To switch on (GitHub repo > Settings > Secrets and variables > Actions):
-- Secret `GOOGLE_SERVICE_ACCOUNT_JSON`: the service account's JSON key (Cloud console > IAM >
-  Service accounts > the bot > Keys > Add key > JSON), pasted whole.
-- Variable `CALENDAR_SHEET_ID` = `1-8DBggLs45yARz6OUlidLpDacXC1zOC_RfC4we4ySUU` (bot is Editor).
-- Variable `GSC_SITE` = the Search Console property, e.g. `sc-domain:marketixstudio.com`
-  (add the bot as a Full user in Search Console > Settings > Users and permissions).
-- Variable `GA4_PROPERTY_ID` = the numeric GA4 property ID (add the bot as Viewer in
-  GA4 > Admin > Property access management).
+Search Console property `https://www.marketixstudio.com/` (bot: Full user) and GA4 property
+479854747 (bot: Administrator, at the user's request, so automation may also change GA4 settings
+later via the Analytics Admin API). Sheet, site and property IDs are defaults in
+`scripts/blog/google.mjs`.
+
+To switch on: GitHub repo > Settings > Secrets and variables > Actions > secret
+`GOOGLE_SERVICE_ACCOUNT_JSON` = the bot's JSON key (Cloud console > IAM > Service accounts >
+the bot > Keys > Add key > JSON), pasted whole. Plus Settings > Actions > General > "Allow GitHub
+Actions to create and approve pull requests".
 
 Google Business Profile (posts, edits, review replies): the APIs are enabled, but Google gives
 new projects a quota of 0 until the "Business Profile APIs access request" form is approved for

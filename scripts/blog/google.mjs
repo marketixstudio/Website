@@ -3,11 +3,16 @@
  * signed with node:crypto, plus the few calls we need from Sheets, Search Console and GA4.
  *
  * Env: GOOGLE_SERVICE_ACCOUNT_JSON (the whole key file as one secret),
- *      CALENDAR_SHEET_ID, GSC_SITE (e.g. sc-domain:marketixstudio.com), GA4_PROPERTY_ID.
+ *      Optional overrides: CALENDAR_SHEET_ID, GSC_SITE, GA4_PROPERTY_ID (defaults below).
  * The service account (marketix-automation-bot@marketix-automation.iam.gserviceaccount.com)
  * must be an Editor on the sheet, a user on the Search Console property and a Viewer on GA4.
  */
 import { createSign } from "node:crypto";
+
+// Marketix defaults (not secrets); env vars override them.
+export const SHEET_ID = process.env.CALENDAR_SHEET_ID || "1-8DBggLs45yARz6OUlidLpDacXC1zOC_RfC4we4ySUU";
+export const GSC_SITE = process.env.GSC_SITE || "https://www.marketixstudio.com/";
+export const GA4_PROPERTY = process.env.GA4_PROPERTY_ID || "479854747";
 
 const SCOPES = [
   "https://www.googleapis.com/auth/spreadsheets",
@@ -51,7 +56,7 @@ export const googleConfigured = () => Boolean(process.env.GOOGLE_SERVICE_ACCOUNT
 
 // ---------- Sheets (content calendar; columns A..N, header in row 1) ----------
 export const COLUMNS = ["Date", "Category", "Focus keyword", "Title", "Status", "PR link", "Live URL", "Indexed", "Clicks (28d)", "Impressions (28d)", "Avg position", "Views (28d)", "Last checked", "Notes"];
-const sheetUrl = (path) => `https://sheets.googleapis.com/v4/spreadsheets/${process.env.CALENDAR_SHEET_ID}${path}`;
+const sheetUrl = (path) => `https://sheets.googleapis.com/v4/spreadsheets/${SHEET_ID}${path}`;
 
 export async function readRows() {
   const data = await call(sheetUrl(`/values/${encodeURIComponent("A2:N")}`));
@@ -73,7 +78,7 @@ export async function updateRow(row, values) {
 }
 
 // ---------- Search Console ----------
-const site = () => encodeURIComponent(process.env.GSC_SITE);
+const site = () => encodeURIComponent(GSC_SITE);
 
 /** Tell Google the sitemap changed (the supported way to get new blog posts crawled). */
 export const submitSitemap = (sitemapUrl) =>
@@ -83,7 +88,7 @@ export const submitSitemap = (sitemapUrl) =>
 export async function inspectUrl(url) {
   const data = await call("https://searchconsole.googleapis.com/v1/urlInspection/index:inspect", {
     method: "POST",
-    body: { inspectionUrl: url, siteUrl: process.env.GSC_SITE },
+    body: { inspectionUrl: url, siteUrl: GSC_SITE },
   });
   const r = data.inspectionResult?.indexStatusResult ?? {};
   return { verdict: r.verdict ?? "UNKNOWN", coverage: r.coverageState ?? "", lastCrawl: r.lastCrawlTime ?? "" };
@@ -103,7 +108,7 @@ export async function pageSearchStats() {
 // ---------- GA4 ----------
 /** Page views per path over the last 28 days. */
 export async function pageViews() {
-  const data = await call(`https://analyticsdata.googleapis.com/v1beta/properties/${process.env.GA4_PROPERTY_ID}:runReport`, {
+  const data = await call(`https://analyticsdata.googleapis.com/v1beta/properties/${GA4_PROPERTY}:runReport`, {
     method: "POST",
     body: {
       dateRanges: [{ startDate: "28daysAgo", endDate: "yesterday" }],

@@ -7,7 +7,7 @@ import { readFileSync } from "node:fs";
 import { fileURLToPath } from "node:url";
 import { appendRow, googleConfigured } from "./google.mjs";
 
-if (!googleConfigured() || !process.env.CALENDAR_SHEET_ID) {
+if (!googleConfigured()) {
   console.log("Google not configured; skipping sheet log.");
   process.exit(0);
 }

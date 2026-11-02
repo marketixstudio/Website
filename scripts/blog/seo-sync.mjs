@@ -13,7 +13,7 @@ import { fileURLToPath } from "node:url";
 import { appendRow, googleConfigured, inspectUrl, pageSearchStats, pageViews, readRows, submitSitemap, updateRow } from "./google.mjs";
 
 const SITE = "https://www.marketixstudio.com";
-if (!googleConfigured() || !process.env.CALENDAR_SHEET_ID) {
+if (!googleConfigured()) {
   console.log("Google not configured; skipping.");
   process.exit(0);
 }
@@ -29,8 +29,8 @@ const posts = [
   ...readdirSync(root + "content/blog-posts").filter((f) => f.endsWith(".json")).map((f) => JSON.parse(read(`content/blog-posts/${f}`))),
 ];
 
-const gsc = Boolean(process.env.GSC_SITE);
-const ga = Boolean(process.env.GA4_PROPERTY_ID);
+const gsc = true;
+const ga = true;
 if (gsc) {
   await submitSitemap(`${SITE}/sitemap.xml`).then(() => console.log("Sitemap submitted."), (e) => console.log(`Sitemap submit failed: ${e.message}`));
 }
