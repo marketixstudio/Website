@@ -117,7 +117,9 @@ To switch on: GitHub repo > Settings > Secrets and variables > Actions > secret
 the bot > Keys > Add key > JSON), pasted whole. Plus Settings > Actions > General > "Allow GitHub
 Actions to create and approve pull requests".
 
-Google Business Profile (posts, edits, review replies): the APIs are enabled, but Google gives
+Google Business Profile (posts, edits, review replies): access requested 2026-11-02 for project
+134954999671 and the Marketix Studio profile, case ID 8-7860000042097 (Google quotes 7 to 10
+business days). The APIs are enabled, but Google gives
 new projects a quota of 0 until the "Business Profile APIs access request" form is approved for
 project number 134954999671 (days to weeks). The "Google My Business API" (posts and reviews)
 only becomes visible after approval. The existing review auto-reply code (lib/gbp.ts,
