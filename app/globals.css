@@ -216,9 +216,10 @@ html:not(.dark) .group:focus-visible .mx-icon-tile {
 }
 
 @layer components {
-  /* Content width: comfortable side margins, as on the live site's sections. */
+  /* Content width shared by every section (header and home hero use .container-wide).
+   * Widened 2026-11-02 at the user's request: less side padding, roomier sections. */
   .container-edge {
-    @apply mx-auto w-full max-w-[1320px] px-5 sm:px-10 lg:px-16 xl:px-20;
+    @apply mx-auto w-full max-w-[1440px] px-5 sm:px-8 lg:px-10 xl:px-12;
   }
   /* Header and home hero only: near edge to edge, like the live site. */
   .container-wide {

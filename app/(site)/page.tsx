@@ -257,8 +257,9 @@ export default async function HomePage() {
       {/* 2 · Our expertise, matched to the live site's sizes: a tall photo (about 40% of the row)
        * with a card set into its cut-out corner; the heading, copy, checklist and years card. */}
       <section className="py-24 sm:py-32">
-        <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-start gap-14 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-14">
-          <div className="mx-reveal relative">
+        <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-start gap-14 lg:grid-cols-[minmax(0,0.44fr)_minmax(0,0.56fr)] lg:gap-16">
+          {/* Sticky on desktop: the text column is taller than the photo, so the photo stays beside it. */}
+          <div className="mx-reveal relative lg:sticky lg:top-28">
             <div className="mx-notch-photo aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]">
               <Image
                 src="/home/team-creative-review.jpg"
@@ -285,7 +286,7 @@ export default async function HomePage() {
 
           <div className="mx-reveal" style={delay(120)}>
             <Eyebrow>Our expertise</Eyebrow>
-            <h2 className="mt-6 font-display text-[clamp(2.4rem,4.7vw,4.6rem)] font-bold leading-[1.12] tracking-[-0.01em] text-ink">
+            <h2 className="mt-6 max-w-[18ch] font-display text-h2 font-bold leading-[1.14] tracking-[-0.01em] text-ink">
               Data-driven marketing, measurable business results
             </h2>
             <p className="mt-7 max-w-[64ch] text-[1.0625rem] leading-relaxed text-muted">
@@ -313,17 +314,17 @@ export default async function HomePage() {
                 </ul>
               </div>
               <div className="mx-glow-card p-7 sm:p-8">
-                <div className="flex items-center gap-4">
-                  <span aria-hidden="true" className="font-display text-[5.5rem] font-bold leading-none text-transparent [-webkit-text-stroke:2px_rgb(var(--accent))]">
+                <div className="flex items-center gap-3">
+                  <span aria-hidden="true" className="font-display text-[5rem] font-bold leading-none text-transparent [-webkit-text-stroke:2px_rgb(var(--accent))]">
                     {yearsActive}
                   </span>
                   <span aria-hidden="true" className="font-display text-4xl font-bold leading-none text-transparent [-webkit-text-stroke:1.5px_rgb(var(--accent))]">
                     +
                   </span>
-                  <p className="font-display text-xl font-bold leading-snug text-ink">
-                    <span className="sr-only">{yearsActive}+ </span>Years delivering results for growing brands
-                  </p>
                 </div>
+                <p className="mt-4 font-display text-xl font-bold leading-snug text-ink">
+                  <span className="sr-only">{yearsActive}+ </span>Years delivering results for growing brands
+                </p>
                 <p className="mt-6 text-base leading-relaxed text-muted">
                   Helping businesses grow online since {business.foundingDate}, with marketing focused on leads,
                   conversions and long-term growth.

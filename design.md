@@ -101,6 +101,9 @@ Accent footprint ≤ 5 % per viewport, except the page's single light pool.
   No scroll-fill headings (FillHeading is now static), no radial accent fills on cards.
 
 ## Spacing
+Page width (2026-11-02, user request): every section's content sits in `.container-edge`,
+max 1440px with 20 / 32 / 40 / 48px side padding (phone / tablet / laptop / desktop), so all
+pages share one left and right edge. Only the header and the home hero use `.container-wide`.
 4-point named scale (`--space-3xs` … `--space-3xl`). Section padding VARIES
 by role — hero bottom ≥ 1.3× top; proof sections tighter; closing sections looser.
 Never one padding value for every section.
