@@ -12,7 +12,7 @@ Last updated: 2026-09-23
 
 - **Marketix Studio** — performance marketing agency, Pune. Tagline "Marketing That Clicks".
 - NAP (must match Google Business Profile exactly): Balewadi High Street, Balewadi,
-  Pune, Maharashtra 411045 · +91 90217 53876 · contact@marketixstudio.com
+  Pune, Maharashtra 411045 · +91 74481 36636 · contact@marketixstudio.com
 - Live site: https://marketixstudio.com — WordPress + Elementor on Hostinger (being replaced).
 - Sister brand **Vistrow** (vistrow.com), same owner. Codebase at
   `/Users/mac15/BRANDS/VISTROW NEW WEBSITE`. This project was cloned from its architecture.

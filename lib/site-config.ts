@@ -12,9 +12,9 @@ export const business = {
     "Marketix Studio is a performance marketing agency in Pune helping real estate, eCommerce and D2C brands grow with paid media, SEO and conversion-led creative across India, the UAE, the UK and the US.",
   foundingDate: "2023",
   email: "contact@marketixstudio.com",
-  phone: "+919021753876",
-  phoneDisplay: "+91 90217 53876",
-  whatsapp: "919021753876",
+  phone: "+917448136636",
+  phoneDisplay: "+91 74481 36636",
+  whatsapp: "917448136636",
   address: {
     street: "Balewadi High Street",
     locality: "Balewadi",

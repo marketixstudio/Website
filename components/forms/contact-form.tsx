@@ -198,8 +198,8 @@ export function ContactForm() {
         </button>
         <p className="text-[13px] text-muted">
           Prefer to talk? Call{" "}
-          <a href="tel:+919021753876" className="font-semibold text-ink hover:text-accent">
-            +91 90217 53876
+          <a href="tel:+917448136636" className="font-semibold text-ink hover:text-accent">
+            +91 74481 36636
           </a>
         </p>
       </div>
