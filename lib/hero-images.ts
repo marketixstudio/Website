@@ -47,10 +47,23 @@ export const heroImages: Record<string, HeroImage> = {
   "/locations/usa": img("usa", "The Empire State Building and the New York skyline at dusk"),
   "/locations/australia": img("australia", "Sydney Opera House and Harbour Bridge from the water at blue hour"),
   "/locations/canada": img("canada", "The Toronto skyline and CN Tower across Lake Ontario at dusk"),
+  // Pune neighbourhoods: one image each, never shared (user rule, 2026-11-02).
+  "/locations/pune/balewadi": img("pune-balewadi", "Balewadi High Street in Pune at dusk, with cafés, string lights and people walking"),
+  "/locations/pune/baner": img("pune-baner", "A café-lined road in Baner, Pune at golden hour with Baner hill behind"),
+  "/locations/pune/aundh": img("pune-aundh", "A leafy residential lane in Aundh, Pune in the evening"),
+  "/locations/pune/hinjewadi": img("pune-hinjewadi", "Employees walking out of the Hinjewadi IT Park tech campus at blue hour"),
+  "/locations/pune/wakad": img("pune-wakad", "New residential towers and a lit row of shops at a junction in Wakad, Pune"),
+  "/locations/pune/pimpri-chinchwad": img("pune-pimpri-chinchwad", "Workers arriving on two-wheelers along a planned road in Pimpri-Chinchwad at dawn"),
+  "/locations/pune/pimple-saudagar": img("pune-pimple-saudagar", "A neighbourhood market street with stalls and shops in Pimple Saudagar, Pune"),
+  "/locations/pune/kharadi": img("pune-kharadi", "Glass office towers and a landscaped plaza in Kharadi, Pune at night"),
+  "/locations/pune/viman-nagar": img("pune-viman-nagar", "A busy street of cafés in Viman Nagar, Pune at dusk"),
+  "/locations/pune/hadapsar": img("pune-hadapsar", "A tree-lined jogging track and residential towers in a Hadapsar township"),
+  "/locations/pune/koregaon-park": img("pune-koregaon-park", "A banyan-shaded lane with a heritage bungalow café in Koregaon Park, Pune"),
+  "/locations/pune/kothrud": img("pune-kothrud", "A grandfather and grandson walking past a sweet shop in Kothrud, Pune"),
   "/locations/singapore": img("singapore", "Marina Bay Sands and the Singapore waterfront at blue hour"),
 };
 
-/** Pune neighbourhood pages share a Pune city view until each has its own image. */
+/** Fallback for a new Pune area page that doesn't have its own image yet. */
 export const puneAreaImage = img("pune-city", "A lively Pune street at dusk with cafés, scooters and people walking");
 
 export const heroImage = (path: string): HeroImage | undefined =>
