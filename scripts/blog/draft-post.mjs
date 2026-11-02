@@ -213,7 +213,7 @@ ${wordCount} words · ${blogPost.readTime} · model ${MODEL}
 **Before merging, please check:**
 - [ ] It reads well and is correct for our clients
 - [ ] The title and headings read naturally (searches are often typed ungrammatically, e.g. "cost" for "costs")
-- [ ] To fix wording, edit `content/blog-posts/${slug}.json` in this PR (pencil icon on the Files tab)
+- [ ] To fix wording, edit \`content/blog-posts/${slug}.json\` in this PR (pencil icon on the Files tab)
 - [ ] Every sentence with a number below is true or clearly labelled as an example
 - [ ] Open the Vercel preview link below and look at /blog/${slug}
 
