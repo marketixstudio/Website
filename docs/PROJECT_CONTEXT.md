@@ -16,9 +16,9 @@ Last updated: 2026-09-23
 - Live site: https://marketixstudio.com — WordPress + Elementor on Hostinger (being replaced).
 - Sister brand **Vistrow** (vistrow.com), same owner. Codebase at
   `/Users/mac15/BRANDS/VISTROW NEW WEBSITE`. This project was cloned from its architecture.
-- Team (from live /team page): Abhishek Ghadge (Founder & CEO), Shalini Dhumal (Senior SEO
-  Specialist), Sakshi Kshirsagar (Performance Marketing Lead), Chinmay Lohokare (Creative
-  Director), Gururaj Dangare (Client Success Manager), Prakash Sharma (Social Media Manager).
+- Team (roles updated by the user 2026-11-02): Abhishek Ghadge (Founder & CEO), Shalini Dhumal
+  (Business Development Manager), Sakshi Kshirsagar (Finance Manager), Chinmay Lohokare (Creative
+  Director & Finance), Gururaj Dangare (Mentor), Prakash Sharma (Digital Marketing Head).
 - Real clients: Jay Ganesh Car Accessories (owner Maruti Kalbhor), PIBM (Pratibha Institute
   of Business Management), ReviveUp Drinks, Dostii Food Products, Kleawip, Urbanrise Infra,
   Bingle India, Shree Saraswati Optics (Phaltan).

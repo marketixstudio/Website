@@ -1,7 +1,7 @@
 import type { TeamMember } from "@/lib/content-types";
 
 /**
- * Names, roles and photos pulled from the live marketixstudio.com/team page.
+ * Names and photos from the live marketixstudio.com/team page; roles updated by the user on 2026-11-02.
  * Bios describe each person's remit only - no years of experience, past
  * employers or credentials, because inventing those would be fabrication.
  * Replace each `bio` with the person's own wording before launch.
@@ -18,42 +18,42 @@ export const team: TeamMember[] = [
   {
     slug: "shalini-dhumal",
     name: "Shalini Dhumal",
-    role: "Senior SEO Specialist",
-    bio: "Owns technical SEO, content strategy and local search programmes across client accounts, from crawl audits through to map pack rankings.",
+    role: "Business Development Manager",
+    bio: "Leads new business: first conversations with prospective clients, understanding what they need and putting together the proposal for each engagement.",
     image: "/team/shalini-dhumal.webp",
-    expertise: ["Technical SEO", "Local SEO", "Content strategy"],
+    expertise: ["Business development", "Client relationships", "Proposals"],
   },
   {
     slug: "sakshi-kshirsagar",
     name: "Sakshi Kshirsagar",
-    role: "Performance Marketing Lead",
-    bio: "Runs Google and Meta campaign strategy day to day: account structure, creative testing and the regular optimisation calls.",
+    role: "Finance Manager",
+    bio: "Manages the studio's finances: billing, payments, budgets and the financial side of every client engagement.",
     image: "/team/sakshi-kshirsagar.webp",
-    expertise: ["Google Ads", "Meta Ads", "Conversion tracking"],
+    expertise: ["Finance", "Billing and payments", "Budgeting"],
   },
   {
     slug: "chinmay-lohokare",
     name: "Chinmay Lohokare",
-    role: "Creative Director",
-    bio: "Leads brand identity, campaign creative and web design, and sets the creative testing direction that keeps paid accounts from stalling.",
+    role: "Creative Director & Finance",
+    bio: "Leads brand identity, campaign creative and web design, and also supports the studio's finance work alongside the Finance Manager.",
     image: "/team/chinmay-lohokare.webp",
-    expertise: ["Brand identity", "Campaign creative", "Web design"],
+    expertise: ["Brand identity", "Campaign creative", "Finance"],
   },
   {
     slug: "gururaj-dangare",
     name: "Gururaj Dangare",
-    role: "Client Success Manager",
-    bio: "Point of contact across active engagements: reporting, escalations and making sure what was scoped is what actually ships.",
+    role: "Mentor",
+    bio: "Mentors the Marketix Studio team, guiding how the studio works with clients and how the team grows.",
     image: "/team/gururaj-dangare.webp",
-    expertise: ["Account management", "Reporting", "Client strategy"],
+    expertise: ["Mentorship", "Team guidance", "Client strategy"],
   },
   {
     slug: "prakash-sharma",
     name: "Prakash Sharma",
-    role: "Social Media Manager",
+    role: "Digital Marketing Head",
     // TODO: photo not found on the live site under the expected filename - send it over.
-    bio: "Plans and runs organic social across client accounts, including the content calendar, community management and creator coordination.",
-    expertise: ["Social media strategy", "Community management", "Content production"],
+    bio: "Heads digital marketing across client accounts, from planning paid ads and social to checking that each campaign brings in enquiries.",
+    expertise: ["Digital marketing strategy", "Paid ads", "Social media"],
   },
 ];
 
