@@ -158,7 +158,7 @@ export function Globe({
       ref={canvasRef}
       role="img"
       aria-label={label}
-      className={`aspect-square w-full max-w-[560px] cursor-grab touch-pan-y opacity-0 transition-opacity duration-700 motion-reduce:transition-none ${className}`}
+      className={`mx-auto block aspect-square w-full max-w-[560px] cursor-grab touch-pan-y opacity-0 transition-opacity duration-700 motion-reduce:transition-none ${className}`}
     />
   );
 }
@@ -178,7 +178,8 @@ export function AreaGlobe({
   const label = arcFromPune ? `Globe showing ${city}, linked to our team in Pune` : `Globe showing ${city}, where our team is based`;
   return (
     <figure className="mx-card flex flex-col items-center p-5 sm:p-8">
-      <Globe focus={focus} arcFromPune={arcFromPune} label={label} />
+      {/* Faces the city and stays there (drag to look around; it eases back). */}
+      <Globe focus={focus} arcFromPune={arcFromPune} label={label} spin={false} />
       <figcaption className="mt-4 w-full border-t border-line pt-5">
         <p className="text-center text-sm text-muted">
           {arcFromPune ? `${city} and nearby areas we target from Pune` : `Areas we target around ${city}`}
