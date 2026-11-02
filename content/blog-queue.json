@@ -17,7 +17,9 @@
       "performance marketing price",
       "digital marketing price"
     ],
-    "status": "queued"
+    "status": "drafted",
+    "slug": "how-much-performance-marketing-costs",
+    "draftedOn": "2026-11-02"
   },
   {
     "id": "google-ads-ppc:cost",
