@@ -120,24 +120,24 @@
   ],
   "faqs": [
     {
-      "question": "Is digital marketing cost the same as performance marketing cost?",
-      "answer": "No. Performance marketing cost covers paid ads and their management, measured against leads or sales. Digital marketing cost also includes SEO, social media, content, email, WhatsApp and website work, so the total is usually higher."
+      "q": "Is digital marketing cost the same as performance marketing cost?",
+      "a": "No. Performance marketing cost covers paid ads and their management, measured against leads or sales. Digital marketing cost also includes SEO, social media, content, email, WhatsApp and website work, so the total is usually higher."
     },
     {
-      "question": "Can I run performance marketing with a small budget?",
-      "answer": "Yes, if you keep it focused. Choose one channel, a tight location and a clear offer so the budget produces enough results for the platform to learn. A small budget spread across many campaigns rarely gives useful data."
+      "q": "Can I run performance marketing with a small budget?",
+      "a": "Yes, if you keep it focused. Choose one channel, a tight location and a clear offer so the budget produces enough results for the platform to learn. A small budget spread across many campaigns rarely gives useful data."
     },
     {
-      "question": "Why do digital marketing prices vary so much between agencies?",
-      "answer": "Quotes differ because scope differs. One agency may include creatives, landing pages, tracking and detailed reporting, while another quotes only campaign management. Compare what is included, not just the headline fee."
+      "q": "Why do digital marketing prices vary so much between agencies?",
+      "a": "Quotes differ because scope differs. One agency may include creatives, landing pages, tracking and detailed reporting, while another quotes only campaign management. Compare what is included, not just the headline fee."
     },
     {
-      "question": "Is GST charged on ad spend and agency fees in India?",
-      "answer": "Yes. GST applies to ad spend billed by Google and Meta to Indian advertisers, and agencies registered for GST also charge it on their fees. Include both when planning your monthly budget."
+      "q": "Is GST charged on ad spend and agency fees in India?",
+      "a": "Yes. GST applies to ad spend billed by Google and Meta to Indian advertisers, and agencies registered for GST also charge it on their fees. Include both when planning your monthly budget."
     },
     {
-      "question": "How long before I know if my budget is working?",
-      "answer": "Give a new campaign a fixed test period, usually a few weeks, so the platforms can learn and you collect enough leads to judge quality. Judge it on cost per qualified lead and cost per sale, not on clicks or impressions."
+      "q": "How long before I know if my budget is working?",
+      "a": "Give a new campaign a fixed test period, usually a few weeks, so the platforms can learn and you collect enough leads to judge quality. Judge it on cost per qualified lead and cost per sale, not on clicks or impressions."
     }
   ]
 }
