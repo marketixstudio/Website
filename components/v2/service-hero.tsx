@@ -39,6 +39,10 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
   const { label, title, lede, cta, secondary, included, bestFor } = content;
   const includedLabel = content.includedLabel ?? "What’s included";
   const bestForLabel = content.bestForLabel ?? "Best for";
+  // Up to three short "what's included" items float over the photo as chips.
+  const fromIncluded = included.map(chipLabel).filter((c): c is string => Boolean(c));
+  // Industry pages list long sentences; their short "best for" labels read better as chips.
+  const chips = (fromIncluded.length >= 2 ? fromIncluded : bestFor.map((b) => b.label).filter((l) => l.length <= 34)).slice(0, 3);
 
   return (
     <>
@@ -68,7 +72,8 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
 
           {content.photo && (
             <div className="relative">
-              <div className="mx-notch-photo aspect-[4/3] lg:aspect-[5/6]">
+              {/* 4:5 on phones (photos are generated portrait), 5:6 from lg: little is cropped either way. */}
+              <div className="mx-notch-photo aspect-[4/5] sm:aspect-[5/6]">
                 <Image
                   src={content.photo.src}
                   alt={content.photo.alt}
@@ -78,6 +83,22 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
                   className="object-cover"
                 />
               </div>
+              {/* What the page offers, as chips over the photo: real items from `included`, never figures. */}
+              {chips.length > 0 && (
+                <ul aria-hidden="true" className="pointer-events-none absolute left-3 top-4 flex flex-col items-start gap-2 sm:left-0 sm:top-8 lg:-left-6">
+                  {chips.map((chip, i) => (
+                    <li
+                      key={chip}
+                      className={`flex max-w-[20rem] items-center gap-2.5 whitespace-nowrap rounded-2xl border border-white/15 bg-[rgb(10_8_12/0.72)] px-3 py-2 text-[13px] font-semibold leading-snug text-[#F5F2F6] backdrop-blur-md sm:text-sm ${i === 1 ? "sm:ml-6" : i === 2 ? "max-sm:hidden sm:ml-2" : ""}`}
+                    >
+                      <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-accent text-white">
+                        <Check className="h-3.5 w-3.5" strokeWidth={3} />
+                      </span>
+                      {chip}
+                    </li>
+                  ))}
+                </ul>
+              )}
               <div className="mx-notch mx-notch--br max-sm:w-auto w-[min(19rem,calc(100%-3rem))]">
                 <div className="mx-glow-card p-5 sm:p-6">
                   <p className="text-xs font-semibold uppercase tracking-[0.12em] text-accent">{content.photo.cardLabel}</p>
@@ -129,4 +150,13 @@ export function ServiceHero({ content }: { content: ServiceHeroContent }) {
       </div>
     </>
   );
+}
+
+/** A short chip label from a "what's included" item: its leading phrase, never reworded. */
+function chipLabel(item: string) {
+  if (item.length <= 34) return item;
+  // Full sentences (industry pages) don't cut cleanly; only shorten short phrases.
+  if (item.split(/\s+/).length >= 8) return null;
+  const head = item.split(/,| and | with | mapped | across | for | to /)[0].trim();
+  return head.length <= 34 && head.split(/\s+/).length >= 2 ? head : null;
 }
