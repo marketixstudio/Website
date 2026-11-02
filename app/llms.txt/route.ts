@@ -32,12 +32,26 @@ export async function GET() {
 
 ## What Marketix Studio does
 
-Marketix Studio is a performance marketing agency. The work covers paid media
-(Google Ads, Meta Ads), search engine optimisation, local SEO and Google
-Business Profile management, web design and development, landing pages and
-funnels, branding, social media, email and WhatsApp marketing, and conversion
-rate optimisation. Campaigns are measured on qualified leads, bookings and
-revenue rather than impressions or clicks.
+Marketix Studio is an AI-powered performance marketing agency. The work covers
+paid media (Google Ads, Meta Ads), search engine optimisation, local SEO and
+Google Business Profile management, web design and development, landing pages
+and funnels, branding, social media, email and WhatsApp marketing, and
+conversion rate optimisation. Campaigns are measured on qualified leads,
+bookings and revenue rather than impressions or clicks.
+
+## How Marketix Studio uses AI
+
+- Ad creative: AI drafts copy and visual variants for Google and Meta; the team
+  edits them, picks what runs, and moves budget to the winners after testing.
+- AI search visibility: pages structured with clear answers and schema so
+  ChatGPT, Perplexity and Google AI Overviews can cite the client's business.
+- Data and reporting: AI helps read search terms, Search Console and GA4 data
+  each week, so wasted spend and drops in enquiries are spotted sooner.
+- Google reviews: an AI review page helps happy customers word a review, which
+  they edit and post on Google themselves.
+
+People make the strategy, budget and creative decisions. Marketix Studio does
+not sell AI chatbots, voice agents, CRM or business automation.
 
 ## Services
 

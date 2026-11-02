@@ -40,6 +40,15 @@ export function buildChatKnowledge(): string {
   lines.push(`Markets: ${business.areaServed.join(", ")}.`);
   lines.push("");
 
+  // Confirmed by the user on 2026-11-02 (same list as the home page). Add nothing the team doesn't do.
+  lines.push("HOW WE USE AI (people make the strategy, budget and creative decisions):");
+  lines.push("- Ad creative: AI drafts copy and visual variants for Google and Meta; the team edits them, picks what runs and moves budget to the winners after testing.");
+  lines.push("- AI search visibility: clear answers and structured data so ChatGPT, Perplexity and Google AI Overviews can cite the business (/services/seo-services).");
+  lines.push("- Data: AI helps read search terms, Search Console and GA4 data each week, so wasted spend and falling enquiries are spotted sooner.");
+  lines.push("- Google reviews: an AI review page helps happy customers word a review they edit and post themselves (/work/jayganesh-review-system).");
+  lines.push("We do NOT offer AI chatbots, voice agents, CRM or business automation; if asked, say so politely.");
+  lines.push("");
+
   lines.push("SERVICES:");
   for (const s of serviceList) lines.push(`- ${s.title} (/services/${s.slug}): ${s.metaDescription}`);
   lines.push("");

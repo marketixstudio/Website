@@ -103,7 +103,7 @@ export function SiteFooter() {
         <div className="col-span-2 md:col-span-3 lg:col-span-1 lg:pr-10">
           <Wordmark height={40} />
           <p className="mt-5 max-w-[40ch] text-[0.9375rem] leading-relaxed text-muted">
-            Performance marketing agency in Pune for real estate, startups and eCommerce brands, across India and abroad.
+            AI-powered performance marketing agency in Pune for real estate, startups and eCommerce brands, across India and abroad.
           </p>
           <ul className="mt-6 space-y-3 text-[0.9375rem]">
             <li className="flex gap-3 text-ink-2">

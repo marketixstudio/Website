@@ -55,7 +55,7 @@ export function buildMetadata({
     url: "/og.png",
     width: 1200,
     height: 630,
-    alt: "Marketix Studio performance marketing agency",
+    alt: "Marketix Studio, AI-powered performance marketing agency",
   };
   const openGraphImage = openGraph?.image || defaultImage;
   const twitterImage = twitter?.image || openGraphImage;
