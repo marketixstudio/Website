@@ -57,7 +57,7 @@ export function ProcessPanel({
 }) {
   return (
     <section id={id} className="scroll-mt-28 py-16 sm:py-24">
-      <div className="mx-auto w-full max-w-[1480px] px-4 sm:px-6 lg:px-8">
+      <div className="container-edge">
         <div className="mx-card relative overflow-hidden rounded-[32px] px-6 py-14 sm:px-12 sm:py-20 lg:px-16">
           <div
             aria-hidden="true"

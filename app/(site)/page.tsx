@@ -248,7 +248,7 @@ export default async function HomePage() {
       {/* 2 · Our expertise, matched to the live site's sizes: a tall photo (about 40% of the row)
        * with a card set into its cut-out corner; the heading, copy, checklist and years card. */}
       <section className="py-24 sm:py-32">
-        <div className="mx-auto grid w-full max-w-[1480px] grid-cols-[minmax(0,1fr)] items-start gap-14 px-5 sm:px-10 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-14 lg:px-12">
+        <div className="container-edge grid grid-cols-[minmax(0,1fr)] items-start gap-14 lg:grid-cols-[minmax(0,0.42fr)_minmax(0,0.58fr)] lg:gap-14">
           <div className="mx-reveal relative">
             <div className="mx-notch-photo aspect-[4/3] sm:aspect-[5/4] lg:aspect-[4/5]">
               <Image
