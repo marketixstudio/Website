@@ -160,7 +160,7 @@ async function draft(extra = []) {
 
 // ---------- checks ----------
 const STOCK = /in today's digital|game[- ]changer|\bunlock\b|\bleverage\b|seamless|dive in|it's important to note|in conclusion|\belevate\b|navigate the complexities|\brobust\b|plethora/i;
-const allText = (p) => [p.title, p.excerpt, ...p.sections.flatMap((s) => [s.heading ?? "", ...s.paragraphs, ...(s.points ?? [])]), ...p.faqs.flatMap((f) => [f.question, f.answer])];
+const allText = (p) => [p.title, p.excerpt, ...p.sections.flatMap((s) => [s.heading ?? "", ...s.paragraphs, ...(s.points ?? [])]), ...p.faqs.flatMap((f) => [f.question ?? f.q, f.answer ?? f.a])];
 
 function problems(p) {
   const out = [];
@@ -224,7 +224,8 @@ const blogPost = {
   focusKeyword: topic.focusKeyword,
   secondaryKeywords: post.secondaryKeywords,
   sections,
-  faqs: post.faqs.map((f) => ({ question: clean(f.question), answer: clean(f.answer) })),
+  // The site's QA type is { q, a } (lib/content-types.ts).
+  faqs: post.faqs.map((f) => ({ q: clean(f.question), a: clean(f.answer) })),
 };
 
 // Every number in the post, for the reviewer to confirm (CLAUDE.md: never fabricate).
