@@ -256,7 +256,10 @@ export type BlogPost = {
   slug: string;
   title: string;
   excerpt: string;
+  /** Display name of a category in content/blog-categories.ts. */
   category: string;
+  /** Hand-picked for the "Featured guides" row on /blog. */
+  featured?: boolean;
   author: string;
   date: string;
   readTime: string;

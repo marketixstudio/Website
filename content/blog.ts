@@ -281,7 +281,7 @@ export const blogPosts: BlogPost[] = [
     title: "How to rank higher on Google Maps: a practical checklist for local businesses",
     excerpt:
       "Google ranks local businesses on relevance, distance and prominence. Here is what each one means, what you can actually control, and the mistakes that get profiles suspended.",
-    category: "Local SEO",
+    category: "SEO & Google Maps",
     author: "Marketix Studio",
     date: "2026-09-24",
     readTime: "8 min read",
@@ -415,7 +415,7 @@ export const blogPosts: BlogPost[] = [
     title: "Real estate lead generation in Pune: why site visits beat cost per lead",
     excerpt:
       "Cheap leads that never visit the site cost more than expensive leads that do. How to plan, qualify and measure real estate campaigns around site visits and bookings.",
-    category: "Real Estate Marketing",
+    category: "Industry Playbooks",
     author: "Marketix Studio",
     date: "2026-09-24",
     readTime: "8 min read",
@@ -524,7 +524,7 @@ export const blogPosts: BlogPost[] = [
     title: "What is a good ROAS? How to work out your break-even ROAS",
     excerpt:
       "A good ROAS depends entirely on your margin. Here is how to calculate your break-even ROAS, what to include in your costs, and why platform ROAS rarely matches your bank account.",
-    category: "eCommerce",
+    category: "Costs & Budgets",
     author: "Marketix Studio",
     date: "2026-09-24",
     readTime: "7 min read",

@@ -7,7 +7,7 @@ import { puneAreas } from "@/content/pune-areas";
 import { reviewClientSlugs } from "@/content/review-clients";
 import { publishedCaseStudySlugs } from "@/content/work";
 import { legalSlugs } from "@/content/legal";
-import { getBlogPosts } from "@/lib/blog";
+import { categoriesWithCounts, getBlogPosts } from "@/lib/blog";
 
 type Entry = MetadataRoute.Sitemap[number];
 
@@ -68,6 +68,8 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
 
   // The blog index is listed only once it has posts (it is noindexed while empty).
   const blogIndex = blog.length ? [entry("/blog", 0.8, "weekly")] : [];
+  // Category pages exist only for categories with posts (see /blog/category/[slug]).
+  const blogCategoryPages = categoriesWithCounts(posts).map((c) => entry(`/blog/category/${c.slug}`, 0.6, "weekly"));
 
-  return [...core, ...services, ...industries, ...locations, ...puneAreaPages, ...work, ...blogIndex, ...blog, ...legal];
+  return [...core, ...services, ...industries, ...locations, ...puneAreaPages, ...work, ...blogIndex, ...blogCategoryPages, ...blog, ...legal];
 }
