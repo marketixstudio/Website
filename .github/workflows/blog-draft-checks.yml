@@ -1,0 +1,24 @@
+# Red until a person replaces the "[FROM OUR WORK: ...]" placeholder in a daily blog draft
+# with a real observation from client work (Google rewards first-hand experience; AI can't write it).
+name: Blog draft checks
+
+on:
+  pull_request:
+    paths:
+      - "content/blog-posts/**"
+
+permissions:
+  contents: read
+
+jobs:
+  first-hand-note:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: First-hand note filled in
+        run: |
+          if grep -l "\[FROM OUR WORK:" content/blog-posts/*.json; then
+            echo "::error::Replace the [FROM OUR WORK: ...] paragraph with a real observation before merging."
+            exit 1
+          fi
+          echo "First-hand note present."

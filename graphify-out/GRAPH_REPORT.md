@@ -1,34 +1,34 @@
 # Graph Report - MARKETIX WEBSITE  (2026-11-02)
 
 ## Corpus Check
-- 201 files · ~170,469 words
+- 201 files · ~171,213 words
 - Verdict: corpus is large enough that graph structure adds value.
 - Unclassified: 5 file(s) not represented in the graph (top: (none) 2, .example 1, .ico 1)
 
 ## Summary
-- 1271 nodes · 3310 edges · 79 communities (74 shown, 5 thin omitted)
+- 1272 nodes · 3311 edges · 77 communities (72 shown, 5 thin omitted)
 - Extraction: 99% EXTRACTED · 1% INFERRED · 0% AMBIGUOUS · INFERRED: 38 edges (avg confidence: 0.89)
 - Token cost: 0 input · 0 output
 
 ## Graph Freshness
-- Built from commit: `2151ca15`
+- Built from commit: `20dfbd90`
 - Run `git rev-parse HEAD` and compare to check if the graph is stale.
 - Run `graphify update .` after code changes (no API cost).
 
 ## Community Hubs (Navigation)
 - ElectricLogo.tsx
-- app/not-found.tsx
+- next
 - admin-auth.ts
 - graph
 - draft-post.mjs
 - review/route.ts
 - locations.ts
-- sitemap.ts
+- chat-knowledge.ts
 - components.json
 - package.json
 - compilerOptions
 - review-report.ts
-- accent-switcher.tsx
+- app/layout.tsx
 - design.md (locked design system)
 - reveal.tsx
 - CLAUDE.md (project instructions)
@@ -41,45 +41,43 @@
 - Macrostructure family
 - PROJECT_CONTEXT.md
 - review-clients.ts
-- location-detail.tsx
+- google-ads-ppc/page.tsx
 - pricing/page.tsx
-- work/[slug]/page.tsx
-- services/page.tsx
+- sitemap.ts
+- about/page.tsx
 - Accent violet #C82AEF
 - vercel.json
-- lucide-react
+- primitives.tsx
 - next.config.mjs
 - content-types.ts
 - shadcn
 - postcss.config.mjs
-- buildMetadata
-- industries/page.tsx
+- seo.ts
+- lib/blog.ts
 - blog-index-page.tsx
-- calculators.tsx
-- chat-widget.tsx
+- tools/[slug]/page.tsx
+- trackLead
 - import-demo-site.py
 - dependencies
 - review-stats.ts
-- seo.ts
+- buildMetadata
 - Overnight redesign plan (started 2026-09-24)
-- ai.ts
-- next
+- structured-data.ts
+- lucide-react
 - Buyer questions by topic (as searched)
-- AccentSwitcher
-- globe.tsx
+- getBlogPosts
+- pune-areas.ts
 - growth-audit-form.tsx
-- footer.tsx
+- tools/page.tsx
 - (site)/page.tsx
 - email-logo.ts
 - review-generator.tsx
-- blog-post-page.tsx
+- products-catalog.ts
 - callback/route.ts
 - Google review replies and the review report
-- electric-monogram.tsx
-- nav.tsx
+- QueueItem
 - marketixstudio.com DNS records
 - LogoLoop.tsx
-- WebThreads.tsx
 - team/page.tsx
 - devDependencies
 - Hero image prompts (Marketix Studio)
@@ -111,14 +109,14 @@
 ## Surprising Connections (you probably didn't know these)
 - `Phase 2: Pages (redesign each in the new system)` --references--> `ServiceHero()`  [INFERRED]
   docs/REDESIGN_PLAN.md → components/v2/service-hero.tsx
-- `Phase 1: Chrome and routing` --references--> `serviceHref()`  [INFERRED]
-  docs/REDESIGN_PLAN.md → components/v2/primitives.tsx
 - `SEO / AEO / GEO checklist (every indexable page)` --references--> `AnswerCard()`  [INFERRED]
   docs/REDESIGN_PLAN.md → components/v2/primitives.tsx
 - `SEO / AEO / GEO checklist (every indexable page)` --references--> `buildMetadata()`  [INFERRED]
   docs/REDESIGN_PLAN.md → lib/seo.ts
 - `Never fabricate metrics/testimonials/clients rule` --semantically_similar_to--> `Honest content rule (overrides every skill)`  [INFERRED] [semantically similar]
   CLAUDE.md → design.md
+- `Non-negotiable rules` --references--> `FillHeading()`  [INFERRED]
+  docs/REDESIGN_PLAN.md → components/v2/fill-heading.tsx
 
 ## Import Cycles
 - None detected.
@@ -128,39 +126,39 @@
 - **Anti-AI-slop design decisions (Aurora, eyebrows, column footer removed)** — docs_project_context_aurora_removed, docs_project_context_eyebrows_removed, docs_project_context_statement_footer_decision, design_light_pool, design_section_labels_off, design_ft5_statement_footer [INFERRED 0.85]
 - **Differentiation from sister brand Vistrow** — claude_not_like_vistrow_rule, design_positioning_guardrail, docs_project_context_keyword_territory_split, docs_project_context_unpublish_vistrow_blog, docs_project_context_rejected_vistrow_copy [INFERRED 0.85]
 
-## Communities (79 total, 5 thin omitted)
+## Communities (77 total, 5 thin omitted)
 
 ### Community 0 - "ElectricLogo.tsx"
 Cohesion: 0.15
 Nodes (19): blurGrid(), blurLine(), ElectricLogo(), ElectricLogoProps, Focus, hexToRgb(), Point, Pulse (+11 more)
 
-### Community 1 - "app/not-found.tsx"
-Cohesion: 0.19
-Nodes (10): metadata, CardSpotlight(), group(), SiteFooter(), SiteNav(), topics, waLink(), WhatsAppFloat() (+2 more)
+### Community 1 - "next"
+Cohesion: 0.05
+Nodes (46): metadata, NotFound(), routes, LOGO, LOGO_LIGHT, Wordmark(), CardSpotlight(), ChatMessage (+38 more)
 
 ### Community 2 - "admin-auth.ts"
 Cohesion: 0.18
 Nodes (18): attempts, createFirstLogin(), signIn(), startSession(), LoginForm(), dynamic, metadata, Page() (+10 more)
 
 ### Community 3 - "graph"
-Cohesion: 0.27
-Nodes (34): Page(), Page(), Page(), Page(), Page(), Page(), Page(), Page() (+26 more)
+Cohesion: 0.22
+Nodes (38): Page(), Page(), Page(), Page(), Page(), Page(), Page(), Page() (+30 more)
 
 ### Community 4 - "draft-post.mjs"
 Cohesion: 0.07
-Nodes (30): ref_node_path, allowedHrefs, allText(), blogPost, categories, categoriesSrc, category, clean() (+22 more)
+Nodes (29): allowedHrefs, allText(), blogPost, categories, categoriesSrc, category, clean(), client (+21 more)
 
 ### Community 5 - "review/route.ts"
-Cohesion: 0.17
-Nodes (24): applyHabits(), carModelOnly(), clean(), draftIssues(), hits, lastWords(), pickStyle(), POST() (+16 more)
+Cohesion: 0.14
+Nodes (33): POST(), runtime, applyHabits(), carModelOnly(), clean(), draftIssues(), hits, lastWords() (+25 more)
 
 ### Community 6 - "locations.ts"
 Cohesion: 0.15
 Nodes (10): generateMetadata(), globalLocations, globalProcess, globalServices, indiaLocations, indiaProcess, indiaServices, locations (+2 more)
 
-### Community 7 - "sitemap.ts"
-Cohesion: 0.15
-Nodes (10): generateMetadata(), Entry, industries, industriesOverview, industryList, industrySlugs, locationSlugs, reviewClientSlugs (+2 more)
+### Community 7 - "chat-knowledge.ts"
+Cohesion: 0.14
+Nodes (13): GET(), line(), revalidate, generateMetadata(), industries, industriesOverview, industryList, industrySlugs (+5 more)
 
 ### Community 8 - "components.json"
 Cohesion: 0.11
@@ -175,20 +173,20 @@ Cohesion: 0.11
 Nodes (18): compilerOptions, allowJs, esModuleInterop, incremental, isolatedModules, jsx, lib, module (+10 more)
 
 ### Community 11 - "review-report.ts"
-Cohesion: 0.12
-Nodes (22): Chart(), chip(), dynamic, metadata, Page(), ReplyQueue(), reviewClientList, listReviews() (+14 more)
+Cohesion: 0.14
+Nodes (19): Chart(), chip(), dynamic, metadata, Page(), ReplyQueue(), Bar, buildReport() (+11 more)
 
-### Community 12 - "accent-switcher.tsx"
-Cohesion: 0.18
-Nodes (14): HeroThreads(), toHex(), choose(), Bounds, DragState, Side, ThemeToggle(), toggle() (+6 more)
+### Community 12 - "app/layout.tsx"
+Cohesion: 0.06
+Nodes (46): app_globals, jakarta, metadata, RootLayout(), viewport, GoogleAnalytics(), HeroThreads(), toHex() (+38 more)
 
 ### Community 13 - "design.md (locked design system)"
 Cohesion: 0.13
 Nodes (17): design.md (locked design system), Atmospheric genre, CTA voice (dark pill + accent ring + arrow circle), Hallmark gate 22, Honest content rule (overrides every skill), Live-site elements not to carry over, No gradient text / accent on one word, Plus Jakarta Sans only typography (+9 more)
 
 ### Community 14 - "reveal.tsx"
-Cohesion: 0.13
-Nodes (11): SummaryGroup, Feature, FeatureCards(), LinkCardGrid(), Outcome, Step, Steps(), Reveal() (+3 more)
+Cohesion: 0.15
+Nodes (9): SummaryGroup, Feature, FeatureCards(), Outcome, Step, Steps(), Reveal(), RevealProps (+1 more)
 
 ### Community 15 - "CLAUDE.md (project instructions)"
 Cohesion: 0.14
@@ -199,20 +197,20 @@ Cohesion: 0.15
 Nodes (14): Content in code, no CMS, lib/blog.ts async blog API, Multi-tenant review tool /r/[client], WordPress 301 redirects (next.config.mjs), Claude API client review generator (app/api/review), content/ typed TS content directory, Framer Motion, lucide-react icons (+6 more)
 
 ### Community 17 - "emails.ts"
-Cohesion: 0.06
-Nodes (73): clean(), getSystemPrompt(), IncomingMessage, isRateLimited(), POST(), replySchema, requestLog, runtime (+65 more)
+Cohesion: 0.09
+Nodes (55): clean(), getSystemPrompt(), IncomingMessage, isRateLimited(), POST(), replySchema, requestLog, runtime (+47 more)
 
 ### Community 18 - "contact-form.tsx"
 Cohesion: 0.22
 Nodes (10): ContactForm(), Errors, isPhone(), nextSteps, services, Status, Field(), Input() (+2 more)
 
 ### Community 19 - "google.mjs"
-Cohesion: 0.19
-Nodes (18): appendRow(), call(), COLUMNS, inspectUrl(), pageSearchStats(), pageViews(), readRows(), SCOPES (+10 more)
+Cohesion: 0.18
+Nodes (19): appendRow(), call(), COLUMNS, GA4_PROPERTY, GSC_SITE, inspectUrl(), pageSearchStats(), pageViews() (+11 more)
 
 ### Community 20 - "review-autoreply.ts"
 Cohesion: 0.17
-Nodes (23): dynamic, GET(), maxDuration, runtime, GET(), runtime, POST(), runtime (+15 more)
+Nodes (25): dynamic, GET(), maxDuration, runtime, GET(), runtime, POST(), runtime (+17 more)
 
 ### Community 21 - "Positioning guardrail (Marketix vs Vistrow)"
 Cohesion: 0.22
@@ -227,24 +225,24 @@ Cohesion: 0.31
 Nodes (9): Hallmark slop test before shipping UI, Never fabricate metrics/testimonials/clients rule, Design system locked decision, Rejected: Editorial ledger (Specimen fall-through), Google Maps Ranking Toolkit, Hallmark skill (Nutlope), Hallmark audit 2026-09-23 (9 critical, 8 major, 7 minor), Site map (59 routes, 79 static pages) (+1 more)
 
 ### Community 24 - "review-clients.ts"
-Cohesion: 0.24
-Nodes (6): dynamic, metadata, Page(), ReplyHelper(), reviewClients, ReviewClient
+Cohesion: 0.22
+Nodes (7): dynamic, metadata, Page(), ReplyHelper(), reviewClientList, reviewClients, reviewClientSlugs
 
-### Community 25 - "location-detail.tsx"
-Cohesion: 0.13
-Nodes (29): answer, audiences, hero, metadata, hero, metadata, workGroups, Eyebrow() (+21 more)
+### Community 25 - "google-ads-ppc/page.tsx"
+Cohesion: 0.09
+Nodes (32): answer, audiences, hero, metadata, hero, metadata, workGroups, FillHeading() (+24 more)
 
 ### Community 26 - "pricing/page.tsx"
-Cohesion: 0.32
-Nodes (6): answer, drivers, faqs, metadata, ScopeBuilder(), ScopeOption
+Cohesion: 0.28
+Nodes (7): answer, drivers, faqs, metadata, ScopeBuilder(), ScopeOption, services
 
-### Community 27 - "work/[slug]/page.tsx"
-Cohesion: 0.12
-Nodes (15): isTodo(), livePreview, Page(), clientLogos, clientStats, NOTE: the old WordPress /testimonials/ page still carries the theme's demo, testimonials, caseStudies (+7 more)
+### Community 27 - "sitemap.ts"
+Cohesion: 0.17
+Nodes (9): Entry, locationSlugs, serviceSlugs, caseStudyIndustries, caseStudyList, caseStudySlugs, publishedCaseStudies, publishedCaseStudySlugs (+1 more)
 
-### Community 28 - "services/page.tsx"
-Cohesion: 0.13
-Nodes (18): agreed, answer, faqs, metadata, principles, steps, countOf(), metadata (+10 more)
+### Community 28 - "about/page.tsx"
+Cohesion: 0.09
+Nodes (39): answer, faqs, metadata, values, agreed, answer, faqs, metadata (+31 more)
 
 ### Community 29 - "Accent violet #C82AEF"
 Cohesion: 0.33
@@ -254,33 +252,33 @@ Nodes (6): Card surface (radial gradient, 24px radius), Accent violet #C82AEF, S
 Cohesion: 0.33
 Nodes (5): buildCommand, crons, framework, installCommand, $schema
 
-### Community 31 - "lucide-react"
-Cohesion: 0.09
-Nodes (36): answer, faqs, metadata, values, Page(), revalidate, include, metadata (+28 more)
+### Community 31 - "primitives.tsx"
+Cohesion: 0.18
+Nodes (14): faqs, metadata, routes, whatsappText, groups, metadata, checks, faqs (+6 more)
 
 ### Community 33 - "content-types.ts"
-Cohesion: 0.09
-Nodes (17): runtime, DigitalProduct, productList, TODO: photo not found on the live site under the expected filename - send it…, teamBySlug, toolList, tools, toolSlugs (+9 more)
-
-### Community 36 - "buildMetadata"
 Cohesion: 0.15
-Nodes (14): metadata, metadata, metadata, metadata, metadata, generateMetadata(), generateMetadata(), formatDate() (+6 more)
+Nodes (12): TODO: photo not found on the live site under the expected filename - send it…, teamBySlug, toolList, tools, toolSlugs, BlogSection, CaseStudy, CaseStudyResult (+4 more)
 
-### Community 37 - "industries/page.tsx"
-Cohesion: 0.15
-Nodes (14): answer, goals, metadata, answer, metadata, zones, Breadcrumbs(), Crumb (+6 more)
+### Community 36 - "seo.ts"
+Cohesion: 0.08
+Nodes (24): aiCrawlers, disallow, metadata, metadata, metadata, metadata, metadata, ReadingProgress() (+16 more)
+
+### Community 37 - "lib/blog.ts"
+Cohesion: 0.26
+Nodes (8): archivedVistrowPosts, blogPosts, blogCategories, BlogCategory, blogCategoryNames, handWrittenPosts, generatedPosts, BlogPost
 
 ### Community 38 - "blog-index-page.tsx"
-Cohesion: 0.10
-Nodes (33): generateMetadata(), generateStaticParams(), Page(), revalidate, generateMetadata(), generateMetadata(), generateStaticParams(), Page() (+25 more)
+Cohesion: 0.30
+Nodes (11): BlogBrowser(), CategoryLink, formatPostDate(), PostCard(), PostCardData, AuditCta(), BlogHeader(), HeroPost() (+3 more)
 
-### Community 39 - "calculators.tsx"
-Cohesion: 0.19
-Nodes (10): AdBudgetCalculator(), RoasCalculator(), slug(), SOURCE_PRESETS, UtmBuilder(), draft(), QueueItem(), call() (+2 more)
+### Community 39 - "tools/[slug]/page.tsx"
+Cohesion: 0.21
+Nodes (7): generateMetadata(), AdBudgetCalculator(), RoasCalculator(), slug(), SOURCE_PRESETS, UtmBuilder(), draft()
 
-### Community 40 - "chat-widget.tsx"
-Cohesion: 0.14
-Nodes (15): GrowthAuditForm(), ChatMessage, ChatWidget(), onSubmit(), send(), fallback, greeting, LinkAction (+7 more)
+### Community 40 - "trackLead"
+Cohesion: 0.24
+Nodes (8): GrowthAuditForm(), ChatWidget(), onSubmit(), send(), GtagCommand, LeadSource, trackLead(), Window
 
 ### Community 41 - "import-demo-site.py"
 Cohesion: 0.15
@@ -291,72 +289,68 @@ Cohesion: 0.18
 Nodes (11): dependencies, @anthropic-ai/sdk, cobe, framer-motion, gsap, lucide-react, motion, next (+3 more)
 
 ### Community 43 - "review-stats.ts"
-Cohesion: 0.25
-Nodes (13): POST(), runtime, FILE, FileData, RawStats, readFile(), readStats(), recordStat() (+5 more)
+Cohesion: 0.17
+Nodes (16): POST(), runtime, local, Counts, FILE, FileData, RawStats, readFile() (+8 more)
 
-### Community 44 - "seo.ts"
-Cohesion: 0.09
-Nodes (17): app_globals, jakarta, metadata, RootLayout(), viewport, aiCrawlers, disallow, CUSTOM_PAGES (+9 more)
+### Community 44 - "buildMetadata"
+Cohesion: 0.17
+Nodes (11): generateMetadata(), Page(), revalidate, generateMetadata(), Page(), revalidate, CUSTOM_PAGES, generateMetadata() (+3 more)
 
 ### Community 45 - "Overnight redesign plan (started 2026-09-24)"
 Cohesion: 0.25
 Nodes (7): Log, Morning summary (2026-09-24, ~07:00), Overnight redesign plan (started 2026-09-24), Phase 2: Pages (redesign each in the new system), Phase 3: Site-wide verification, Progress, The creative bar
 
-### Community 46 - "ai.ts"
-Cohesion: 0.33
-Nodes (10): POST(), runtime, aiProvider, AiRateLimitError, AiRefusalError, aiStructured(), aiText(), AiTurn (+2 more)
+### Community 46 - "structured-data.ts"
+Cohesion: 0.18
+Nodes (8): businessAddress, businessGeo, businessPhone, JsonLdValue, openingHoursSchema, productSchema(), serviceLocalities, softwareAppSchema()
 
-### Community 47 - "next"
-Cohesion: 0.20
-Nodes (9): metadata, CtaBand(), Faq(), CtaLink, PageHero(), Breadcrumb(), Crumb, toolsOverview (+1 more)
+### Community 47 - "lucide-react"
+Cohesion: 0.31
+Nodes (5): CtaBand(), CtaLink, Breadcrumb(), Crumb, lucide-react
 
 ### Community 48 - "Buyer questions by topic (as searched)"
 Cohesion: 0.07
 Nodes (26): automotive, branding-design, Buyer questions by topic (as searched), content-marketing, conversion-rate-optimisation, ecommerce-d2c, education, email-marketing-automation (+18 more)
 
-### Community 49 - "AccentSwitcher"
-Cohesion: 0.47
-Nodes (8): AccentSwitcher(), begin(), finish(), move(), onMouseDown(), onTouchStart(), snap(), clamp()
+### Community 49 - "getBlogPosts"
+Cohesion: 0.31
+Nodes (9): generateStaticParams(), generateMetadata(), generateStaticParams(), Page(), revalidate, sitemap(), categoriesWithCounts(), getBlogPost() (+1 more)
 
-### Community 50 - "globe.tsx"
-Cohesion: 0.33
-Nodes (7): facing(), Globe(), readColours(), cityCoords, LatLng, PUNE, cobe
+### Community 50 - "pune-areas.ts"
+Cohesion: 0.24
+Nodes (6): dynamicParams, generateMetadata(), PuneArea, puneAreaBySlug, puneAreas, s
 
 ### Community 51 - "growth-audit-form.tsx"
 Cohesion: 0.20
 Nodes (7): auditSteps, budgets, channelOptions, industries, serviceOptions, confettiDots, SuccessCelebration()
 
-### Community 52 - "footer.tsx"
-Cohesion: 0.16
-Nodes (10): columns, icons, NewsletterForm(), Status, footerNav, NavChild, NavGroup, NavItem (+2 more)
+### Community 52 - "tools/page.tsx"
+Cohesion: 0.28
+Nodes (6): metadata, Faq(), LinkCardGrid(), PageHero(), toolsOverview, OverviewCard
 
 ### Community 53 - "(site)/page.tsx"
-Cohesion: 0.15
-Nodes (11): answer, averageRating, bestAt, coreServices, delay(), faqs, metadata, pillars (+3 more)
+Cohesion: 0.11
+Nodes (18): answer, averageRating, bestAt, coreServices, delay(), faqs, metadata, pillars (+10 more)
 
 ### Community 55 - "review-generator.tsx"
 Cohesion: 0.11
-Nodes (15): CarChoice, carLabel(), CarPicker(), ReviewGenerator(), generate(), Status, clamp(), GestureState (+7 more)
+Nodes (16): CarChoice, carLabel(), CarPicker(), ReviewGenerator(), generate(), Status, clamp(), GestureState (+8 more)
 
-### Community 56 - "blog-post-page.tsx"
-Cohesion: 0.36
-Nodes (6): ReadingProgress(), ShareRow(), BlogPostPage(), headingId(), renderInlineLinks(), articleSchema()
+### Community 56 - "products-catalog.ts"
+Cohesion: 0.25
+Nodes (5): runtime, DigitalProduct, productList, lib_content_types_feature, lib_content_types_step
 
 ### Community 57 - "callback/route.ts"
-Cohesion: 0.21
-Nodes (14): esc(), GET(), page(), runtime, GET(), runtime, exchangeCode(), listLocations() (+6 more)
+Cohesion: 0.22
+Nodes (13): esc(), GET(), page(), runtime, GET(), runtime, exchangeCode(), oauthUrl() (+5 more)
 
 ### Community 58 - "Google review replies and the review report"
 Cohesion: 0.29
 Nodes (6): Google review replies and the review report, Repeat protection (drafts and replies), Rules the replies follow (lib/review-reply.ts), Setup, once, Signing in, What runs
 
-### Community 59 - "electric-monogram.tsx"
-Cohesion: 0.32
-Nodes (6): NotFound(), routes, currentAccent(), ELECTRIC, ElectricMonogram(), AccentKey
-
-### Community 60 - "nav.tsx"
-Cohesion: 0.18
-Nodes (10): LOGO, LOGO_LIGHT, Wordmark(), aboutLinks, aboutMatch, industriesNav, PanelId, plainLinks (+2 more)
+### Community 59 - "QueueItem"
+Cohesion: 0.83
+Nodes (4): QueueItem(), call(), draft(), post()
 
 ### Community 61 - "marketixstudio.com DNS records"
 Cohesion: 0.50
@@ -365,10 +359,6 @@ Nodes (3): If the zone has to be recreated at MilesWeb, marketixstudio.com DNS r
 ### Community 62 - "LogoLoop.tsx"
 Cohesion: 0.23
 Nodes (11): ClientLogoLoop(), Logo, ANIMATION_CONFIG, cx(), LogoItem, LogoLoop, LogoLoopProps, toCssLength() (+3 more)
-
-### Community 63 - "WebThreads.tsx"
-Cohesion: 0.25
-Nodes (8): ctxMap, FAN_MODE, FanMode, hexToRgb(), WebThreads(), WebThreadsCtx, WebThreadsProps, ogl
 
 ### Community 64 - "team/page.tsx"
 Cohesion: 0.18
@@ -427,24 +417,24 @@ Cohesion: 0.22
 Nodes (8): APIs and accounts, Blog page, categories and daily-post automation (plan, 2026-11-02), Blog page layout (/blog), Built (2026-11-02), Categories (from real searches), Daily post automation, Google Cloud (2026-11-02), Writing structure (2026-11-02)
 
 ## Knowledge Gaps
-- **435 isolated node(s):** `npx`, `metadata`, `answer`, `values`, `faqs` (+430 more)
-  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 528 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
+- **436 isolated node(s):** `npx`, `metadata`, `answer`, `values`, `faqs` (+431 more)
+  These have ≤1 connection - possible missing edges or undocumented components. (Counts symbols only; 529 node(s) total have ≤1 connection when file, concept and rationale nodes are included.)
 - **5 thin communities (<3 nodes) omitted from report** — run `graphify query` to explore isolated nodes.
 
 ## Suggested Questions
 _Questions this graph is uniquely positioned to answer:_
 
-- **Why does `next` connect `next` to `app/not-found.tsx`, `admin-auth.ts`, `locations.ts`, `sitemap.ts`, `package.json`, `review-report.ts`, `reveal.tsx`, `emails.ts`, `review-clients.ts`, `location-detail.tsx`, `pricing/page.tsx`, `work/[slug]/page.tsx`, `services/page.tsx`, `lucide-react`, `content-types.ts`, `buildMetadata`, `industries/page.tsx`, `blog-index-page.tsx`, `chat-widget.tsx`, `seo.ts`, `footer.tsx`, `(site)/page.tsx`, `review-generator.tsx`, `blog-post-page.tsx`, `electric-monogram.tsx`, `nav.tsx`, `LogoLoop.tsx`, `team/page.tsx`, `react`, `service-finder.tsx`, `framer-motion`, `demand-map.tsx`, `market-visuals.tsx`, `buy-button.tsx`?**
-  _High betweenness centrality (0.227) - this node is a cross-community bridge._
+- **Why does `next` connect `next` to `admin-auth.ts`, `graph`, `locations.ts`, `chat-knowledge.ts`, `package.json`, `review-report.ts`, `app/layout.tsx`, `emails.ts`, `review-clients.ts`, `google-ads-ppc/page.tsx`, `pricing/page.tsx`, `sitemap.ts`, `about/page.tsx`, `primitives.tsx`, `content-types.ts`, `seo.ts`, `blog-index-page.tsx`, `tools/[slug]/page.tsx`, `buildMetadata`, `lucide-react`, `getBlogPosts`, `pune-areas.ts`, `tools/page.tsx`, `(site)/page.tsx`, `review-generator.tsx`, `LogoLoop.tsx`, `team/page.tsx`, `react`, `service-finder.tsx`, `framer-motion`, `demand-map.tsx`, `market-visuals.tsx`, `buy-button.tsx`?**
+  _High betweenness centrality (0.222) - this node is a cross-community bridge._
 - **Why does `Multi-tenant review tool /r/[client]` connect `README.md` to `review-clients.ts`, `Macrostructure family`, `PROJECT_CONTEXT.md`?**
-  _High betweenness centrality (0.122) - this node is a cross-community bridge._
-- **Why does `lucide-react` connect `lucide-react` to `app/not-found.tsx`, `admin-auth.ts`, `locations.ts`, `sitemap.ts`, `package.json`, `review-report.ts`, `accent-switcher.tsx`, `reveal.tsx`, `emails.ts`, `contact-form.tsx`, `review-clients.ts`, `location-detail.tsx`, `pricing/page.tsx`, `work/[slug]/page.tsx`, `services/page.tsx`, `content-types.ts`, `industries/page.tsx`, `blog-index-page.tsx`, `calculators.tsx`, `chat-widget.tsx`, `next`, `growth-audit-form.tsx`, `footer.tsx`, `(site)/page.tsx`, `review-generator.tsx`, `blog-post-page.tsx`, `electric-monogram.tsx`, `nav.tsx`, `react`, `service-finder.tsx`, `framer-motion`, `demand-map.tsx`, `industry-path.tsx`, `buy-button.tsx`?**
+  _High betweenness centrality (0.121) - this node is a cross-community bridge._
+- **Why does `lucide-react` connect `lucide-react` to `next`, `admin-auth.ts`, `graph`, `locations.ts`, `chat-knowledge.ts`, `package.json`, `review-report.ts`, `app/layout.tsx`, `reveal.tsx`, `contact-form.tsx`, `review-clients.ts`, `google-ads-ppc/page.tsx`, `pricing/page.tsx`, `about/page.tsx`, `primitives.tsx`, `content-types.ts`, `seo.ts`, `blog-index-page.tsx`, `tools/[slug]/page.tsx`, `buildMetadata`, `growth-audit-form.tsx`, `tools/page.tsx`, `(site)/page.tsx`, `review-generator.tsx`, `products-catalog.ts`, `react`, `service-finder.tsx`, `framer-motion`, `demand-map.tsx`, `industry-path.tsx`, `buy-button.tsx`?**
   _High betweenness centrality (0.089) - this node is a cross-community bridge._
 - **What connects `npx`, `metadata`, `answer` to the rest of the system?**
-  _435 weakly-connected nodes found - possible documentation gaps or missing edges._
+  _436 weakly-connected nodes found - possible documentation gaps or missing edges._
 - **Should `ElectricLogo.tsx` be split into smaller, more focused modules?**
   _Cohesion score 0.14736842105263157 - nodes in this community are weakly interconnected._
+- **Should `next` be split into smaller, more focused modules?**
+  _Cohesion score 0.053075396825396824 - nodes in this community are weakly interconnected._
 - **Should `draft-post.mjs` be split into smaller, more focused modules?**
-  _Cohesion score 0.06554621848739496 - nodes in this community are weakly interconnected._
-- **Should `components.json` be split into smaller, more focused modules?**
-  _Cohesion score 0.10526315789473684 - nodes in this community are weakly interconnected._
+  _Cohesion score 0.0677361853832442 - nodes in this community are weakly interconnected._

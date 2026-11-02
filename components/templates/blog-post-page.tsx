@@ -154,7 +154,8 @@ export function BlogPostPage({ post, morePosts }: { post: BlogPost; morePosts: B
                       </h2>
                     )}
                     <div className="space-y-5 text-[1.0625rem] leading-[1.8] text-ink-2 sm:text-lg">
-                      {section.paragraphs.map((para, j) => (
+                      {/* An unfilled "[FROM OUR WORK: ...]" draft placeholder never renders. */}
+                      {section.paragraphs.filter((para) => !para.startsWith("[FROM OUR WORK:")).map((para, j) => (
                         <p key={j}>{renderInlineLinks(para)}</p>
                       ))}
                     </div>

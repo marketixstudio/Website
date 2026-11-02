@@ -360,9 +360,9 @@
     "semantic_hash": ""
   },
   "components/templates/blog-post-page.tsx": {
-    "mtime": 1791483179.0,
-    "seen": 1793636508.8000991,
-    "ast_hash": "b7e3537e0c04a893b183345277fb3508",
+    "mtime": 1793641330.7894714,
+    "seen": 1793641491.29205,
+    "ast_hash": "b5f305924b4cb1c68c9901a4baf2ab8c",
     "semantic_hash": ""
   },
   "components/templates/legal-page.tsx": {
@@ -1134,9 +1134,9 @@
     "semantic_hash": ""
   },
   "docs/BLOG_AUTOMATION_PLAN.md": {
-    "mtime": 1793639333.6648653,
-    "seen": 1793639425.3003252,
-    "ast_hash": "bab02695541c3ad89d4687cdd1a1eec6",
+    "mtime": 1793639900.9654455,
+    "seen": 1793641491.292144,
+    "ast_hash": "7790c5a5eaa527f85b3a8188d7bf22fe",
     "semantic_hash": ""
   },
   "app/(site)/blog/category/[slug]/page.tsx": {
@@ -1182,9 +1182,9 @@
     "semantic_hash": ""
   },
   "scripts/blog/draft-post.mjs": {
-    "mtime": 1793639310.5743608,
-    "seen": 1793639425.3003101,
-    "ast_hash": "897201588a7539dc8d2b52d0bb3042d1",
+    "mtime": 1793641487.6043248,
+    "seen": 1793641491.292129,
+    "ast_hash": "1e3eb6ed54c0415f1ce56dda848c7713",
     "semantic_hash": ""
   },
   ".github/workflows/daily-blog.yml": {
@@ -1194,27 +1194,33 @@
     "semantic_hash": ""
   },
   "scripts/blog/google.mjs": {
-    "mtime": 1793639246.3789554,
-    "seen": 1793639267.6272588,
-    "ast_hash": "f9abbf9f4134ca1215d1b6b1a4132122",
+    "mtime": 1793640286.38917,
+    "seen": 1793641491.29213,
+    "ast_hash": "5ae725e202098cfa4dc0fa2d316c9218",
     "semantic_hash": ""
   },
   "scripts/blog/seo-sync.mjs": {
-    "mtime": 1793639273.4167526,
-    "seen": 1793639425.300313,
-    "ast_hash": "912c632e32b3afdebfb73c39d31297d6",
+    "mtime": 1793639742.396163,
+    "seen": 1793641491.2921312,
+    "ast_hash": "52d29a0621c21e661c6669134f62bd7d",
     "semantic_hash": ""
   },
   "scripts/blog/sheet-log.mjs": {
-    "mtime": 1793639273.4135227,
-    "seen": 1793639425.3003142,
-    "ast_hash": "e6bb011c1d5533dc91954ee78f8a8767",
+    "mtime": 1793639742.3957064,
+    "seen": 1793641491.2921321,
+    "ast_hash": "177757759ca54b8d960dcc3794b8c053",
     "semantic_hash": ""
   },
   ".github/workflows/blog-seo-sync.yml": {
     "mtime": 1793639288.6622722,
     "seen": 1793639425.300321,
     "ast_hash": "adb479b168cf3db723be1f2c25088199",
+    "semantic_hash": ""
+  },
+  ".github/workflows/blog-draft-checks.yml": {
+    "mtime": 1793641330.6598828,
+    "seen": 1793641491.292138,
+    "ast_hash": "c7f264145e505ea88c2284964e0e7e06",
     "semantic_hash": ""
   }
 }

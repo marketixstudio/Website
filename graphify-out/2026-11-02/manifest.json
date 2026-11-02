@@ -1134,9 +1134,9 @@
     "semantic_hash": ""
   },
   "docs/BLOG_AUTOMATION_PLAN.md": {
-    "mtime": 1793638226.6205554,
-    "seen": 1793638230.5507882,
-    "ast_hash": "2d336f519d08b40e90e39f984d220f98",
+    "mtime": 1793639333.6648653,
+    "seen": 1793639425.3003252,
+    "ast_hash": "bab02695541c3ad89d4687cdd1a1eec6",
     "semantic_hash": ""
   },
   "app/(site)/blog/category/[slug]/page.tsx": {
@@ -1182,21 +1182,39 @@
     "semantic_hash": ""
   },
   "scripts/blog/draft-post.mjs": {
-    "mtime": 1793638405.3638623,
-    "seen": 1793639267.627254,
-    "ast_hash": "e6c04054eb8df5844ffc31e0268a8464",
+    "mtime": 1793639310.5743608,
+    "seen": 1793639425.3003101,
+    "ast_hash": "897201588a7539dc8d2b52d0bb3042d1",
     "semantic_hash": ""
   },
   ".github/workflows/daily-blog.yml": {
-    "mtime": 1793638405.3660154,
-    "seen": 1793639267.62727,
-    "ast_hash": "59d666c1a1986a737fb203f007d34fe6",
+    "mtime": 1793639288.6568198,
+    "seen": 1793639425.300322,
+    "ast_hash": "8759a61edcc38480a415310a90c37ecc",
     "semantic_hash": ""
   },
   "scripts/blog/google.mjs": {
     "mtime": 1793639246.3789554,
     "seen": 1793639267.6272588,
     "ast_hash": "f9abbf9f4134ca1215d1b6b1a4132122",
+    "semantic_hash": ""
+  },
+  "scripts/blog/seo-sync.mjs": {
+    "mtime": 1793639273.4167526,
+    "seen": 1793639425.300313,
+    "ast_hash": "912c632e32b3afdebfb73c39d31297d6",
+    "semantic_hash": ""
+  },
+  "scripts/blog/sheet-log.mjs": {
+    "mtime": 1793639273.4135227,
+    "seen": 1793639425.3003142,
+    "ast_hash": "e6bb011c1d5533dc91954ee78f8a8767",
+    "semantic_hash": ""
+  },
+  ".github/workflows/blog-seo-sync.yml": {
+    "mtime": 1793639288.6622722,
+    "seen": 1793639425.300321,
+    "ast_hash": "adb479b168cf3db723be1f2c25088199",
     "semantic_hash": ""
   }
 }

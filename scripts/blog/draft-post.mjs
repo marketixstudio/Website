@@ -78,15 +78,22 @@ Hard rules:
 - Do not claim Marketix did or achieved anything specific.
 - Links: internal links only from the allowed list below, written as markdown [text](/path), 3 to 5 per post. For a platform rule, policy or figure, you may cite an official help page on ${OFFICIAL.join(", ")}, written as [text](https://...). Only cite a URL you are confident exists; every external link is checked and broken ones are removed.
 - No em dashes or en dashes. No exclamation marks. No emoji.
+Voice (posts that read as AI-written lose trust and rankings; write like a senior practitioner talking to one client):
+- Vary sentence length a lot: some 5-word sentences, some 25-word ones. No run of three sentences with the same shape or opening word.
+- At most one "X, not Y" or "not X, but Y" contrast in the whole post, and never in a heading.
+- No roadmap intro ("This post explains...", "In this guide..."), no "Here is..." or "Here's how..." lead-ins, no one-line summary closers at the end of sections, no "what matters is", no "sounds X but", no "the key is", no "the right X becomes obvious".
+- Use "usually" at most 3 times, "genuine/genuinely" never. Do not address the reader as "your" in every sentence; mix in "a business", "the brand", "the shop".
+- Lists: at most one list in the post may use the "Label: explanation" pattern. Prefer plain short items. Never three-item lists added for rhythm.
+- No unbacked experience claims: never write "we see", "clients ask us", "in our experience", "the steps we follow" or similar. Instead, in the one section where real experience would help most, add a paragraph that is exactly "[FROM OUR WORK: one real observation about <topic of that section>]". A person replaces it before publishing.
 - Avoid filler and stock phrases: "in today's digital landscape", "game-changer", "unlock", "leverage", "seamless", "dive in", "it's important to note", "in conclusion", "elevate", "navigate the complexities", "robust", "plethora".
 - Use the focus keyword in the title, the first paragraph and one heading. Searches are often typed ungrammatically ("how much seo cost"); write them the way a person would say them ("how much SEO costs"), never paste a broken phrase. No keyword stuffing; no "near me".
 Structure (this is what ranks and gets quoted by Google's AI answers):
 - Section 1 (no heading): answer the main search directly in the first one or two sentences (40 to 60 words), then say what the post covers.
-- Section 2, heading "Key takeaways": no paragraphs, 3 to 5 points that are the post's actual conclusions, each a standalone sentence.
+- Section 2, heading "Key takeaways": no paragraphs, 3 to 5 points. Each must be a decision or rule of thumb the reader can act on; do not repeat sentences that appear later.
 - Then 4 to 7 sections whose headings are the real searches below, phrased as a person would ask them. Each section opens with a one or two sentence direct answer, then explains.
-- Shape each section to the question: cost = what drives it plus a worked example labelled "Example"; "X vs Y" = side by side points for each, then when to choose which; "how to" = numbered steps as points; "is it worth it" = when yes, when no.
+- Shape each section to the question: cost = what drives it, where the reader can get a real figure for their own case for free (e.g. Google Ads Keyword Planner bid ranges for their category and city, Meta Ads Manager's estimated daily results, a small fixed test budget), plus a worked example labelled "Example"; "X vs Y" = side by side points for each, then when to choose which; "how to" = numbered steps as points; "is it worth it" = when yes, when no.
 - Short paragraphs (2 to 4 sentences), one idea each. Use points for steps and checklists. Length is whatever fully answers the searches, usually 1,000 to 1,600 words; never pad.
-- Write as Marketix's team sharing how we approach this for clients, but never invent a client, a result or an anecdote. A person adds one real "From our work" note before publishing.
+- Cite at least two official sources (Google or Meta help pages, or an Indian government site) for platform rules, policies or tax points. Never invent a client, a result or an anecdote.
 - 4 to 6 FAQs drawn from the other real searches, each answered in 2 to 4 sentences.
 - The last section points readers to the most relevant service page from the allowed list.
 
@@ -120,7 +127,7 @@ const schema = {
         additionalProperties: false,
         required: ["heading", "paragraphs", "points"],
         properties: {
-          heading: { type: "string", description: "Empty string for the opening section only." },
+          heading: { type: "string", description: "Empty string for the opening section only; every other section needs a heading." },
           paragraphs: { type: "array", items: { type: "string" } },
           points: { type: "array", items: { type: "string" }, description: "Empty array if none." },
         },
@@ -173,6 +180,25 @@ function problems(p) {
   if (stock) out.push(`it uses the stock phrase "${stock[0]}"`);
   const words = text.split(/\s+/).length;
   if (!p.sections.some((s) => /key takeaways/i.test(s.heading))) out.push('it is missing the "Key takeaways" section');
+  const headless = p.sections.slice(1).filter((s) => !(s.heading ?? "").trim()).length;
+  if (headless) out.push(`${headless} section(s) after the opening have no heading; give every section after the first a heading`);
+  // AI-tell counters (from the 2026-11-02 content audit).
+  const body = text.toLowerCase();
+  const contrasts = (body.match(/,\s*not\s|\bnot\s+\w+(\s\w+){0,4},\s*but\b/g) ?? []).length;
+  if (contrasts > 1) out.push(`it uses ${contrasts} "X, not Y" contrasts; keep at most one`);
+  if (p.sections.some((s) => /\bnot\b/i.test(s.heading ?? ""))) out.push('a heading uses a "not" contrast; make it a plain statement');
+  const usually = (body.match(/\busually\b/g) ?? []).length;
+  if (usually > 3) out.push(`"usually" appears ${usually} times; at most 3`);
+  if (/\bgenuine(ly)?\b|\bhere('s| is) (how|what|why)\b|this (post|guide|article) (explains|covers|walks)|what matters is|\bwe see\b|clients ask us|in our experience/.test(body)) out.push("it uses a banned phrase (genuine, Here is/Here's how, roadmap intro, what matters is, we see, clients ask us, in our experience)");
+  const yourRate = (body.match(/\byour\b/g) ?? []).length / Math.max(1, words);
+  if (yourRate > 0.022) out.push(`"your" is ${(yourRate * 100).toFixed(1)}% of words; vary how the reader is addressed`);
+  const labelled = p.sections.filter((s) => (s.points ?? []).length && s.points.filter((pt) => /^[^:.]{2,40}:\s/.test(pt)).length >= s.points.length / 2).length;
+  if (labelled > 1) out.push(`${labelled} lists use the "Label: explanation" pattern; at most one`);
+  const lens = text.split(/(?<=[.?])\s+/).map((x) => x.split(/\s+/).length).filter((n) => n > 2);
+  const mean = lens.reduce((a, b) => a + b, 0) / Math.max(1, lens.length);
+  const sd = Math.sqrt(lens.reduce((a, b) => a + (b - mean) ** 2, 0) / Math.max(1, lens.length));
+  if (sd < 8) out.push(`sentence lengths are too even (spread ${sd.toFixed(1)}); mix very short and long sentences`);
+  if (!/\[FROM OUR WORK:/.test(text)) out.push('it is missing the "[FROM OUR WORK: ...]" placeholder paragraph');
   if (words < 900) out.push(`it is too short (${words} words); answer the searches more fully`);
   if (!new RegExp(topic.focusKeyword.split(" ").slice(0, 3).join(" "), "i").test(p.title + " " + p.sections[0]?.paragraphs.join(" ")))
     out.push("the focus keyword is missing from the title and opening");
@@ -180,7 +206,7 @@ function problems(p) {
 }
 
 let { post, raw } = await draft();
-for (let i = 0; i < 2; i++) {
+for (let i = 0; i < 3; i++) {
   const issues = problems(post);
   if (!issues.length) break;
   console.log(`Rewrite ${i + 1}: ${issues.join("; ")}`);
@@ -242,7 +268,7 @@ ${wordCount} words · ${blogPost.readTime} · model ${MODEL}
 - [ ] The title and headings read naturally (searches are often typed ungrammatically, e.g. "cost" for "costs")
 - [ ] To fix wording, edit \`content/blog-posts/${slug}.json\` in this PR (pencil icon on the Files tab)
 - [ ] Every sentence with a number below is true or clearly labelled as an example
-- [ ] Add one real "From our work" observation (a short paragraph in a section): this is what Google rewards and AI cannot write
+- [ ] Replace the \`[FROM OUR WORK: ...]\` paragraph with one real observation from client work (the "Blog draft checks" status stays red until you do)
 - [ ] Official links still point to the right page (they were checked to load)
 - [ ] Open the Vercel preview link below and look at /blog/${slug}
 
