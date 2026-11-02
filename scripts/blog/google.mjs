@@ -25,7 +25,13 @@ async function token() {
   if (cached && cached.exp > Date.now() + 60_000) return cached.token;
   const raw = process.env.GOOGLE_SERVICE_ACCOUNT_JSON;
   if (!raw) throw new Error("GOOGLE_SERVICE_ACCOUNT_JSON is not set");
-  const key = JSON.parse(raw);
+  let key;
+  try {
+    key = JSON.parse(raw);
+  } catch {
+    throw new Error("GOOGLE_SERVICE_ACCOUNT_JSON is not the JSON key file. Paste the whole downloaded .json file (it starts with {\"type\": \"service_account\"), not the key ID.");
+  }
+  if (!key.private_key || !key.client_email) throw new Error("GOOGLE_SERVICE_ACCOUNT_JSON is missing private_key/client_email: paste the whole service account key file.");
   const now = Math.floor(Date.now() / 1000);
   const b64 = (o) => Buffer.from(JSON.stringify(o)).toString("base64url");
   const unsigned = `${b64({ alg: "RS256", typ: "JWT" })}.${b64({ iss: key.client_email, scope: SCOPES.join(" "), aud: key.token_uri, iat: now, exp: now + 3600 })}`;
