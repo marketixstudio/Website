@@ -37,7 +37,9 @@
       "google ads cost",
       "google ads cost in india"
     ],
-    "status": "queued"
+    "status": "drafted",
+    "slug": "how-much-google-ads-cost-india",
+    "draftedOn": "2026-11-03"
   },
   {
     "id": "meta-ads:cost",
