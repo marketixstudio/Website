@@ -57,7 +57,9 @@
       "facebook ads cost per 1 000 impressions",
       "facebook ads cost calculator"
     ],
-    "status": "queued"
+    "status": "drafted",
+    "slug": "facebook-ads-cost-india",
+    "draftedOn": "2026-11-04"
   },
   {
     "id": "seo-services:cost",

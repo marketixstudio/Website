@@ -1,0 +1,140 @@
+{
+  "slug": "facebook-ads-cost-india",
+  "title": "How Much Do Facebook Ads Cost in India? A Practical Breakdown",
+  "excerpt": "Facebook ads cost whatever budget you set, but results depend on audience, objective, season and creative. How to estimate a daily and monthly budget for a business.",
+  "category": "Meta & Instagram Ads",
+  "author": "Marketix Studio",
+  "date": "2026-11-04",
+  "readTime": "8 min read",
+  "metaTitle": "Facebook Ads Cost in India: Per Day, Month and CPM",
+  "metaDescription": "How much Facebook ads cost in India, what drives CPM and cost per lead, how Meta bills advertisers, and a simple way to calculate a daily and monthly budget.",
+  "focusKeyword": "facebook ads cost",
+  "secondaryKeywords": [
+    "how much facebook ads cost in india",
+    "how much facebook ads cost per month",
+    "how much facebook ads cost per day",
+    "facebook ads cost per 1000 impressions",
+    "facebook ads cost calculator"
+  ],
+  "sections": [
+    {
+      "paragraphs": [
+        "Facebook ads cost whatever budget you set. Meta publishes no rate card; a business picks a daily or lifetime budget, its ads compete in an auction for every impression, and the price of each click, lead or sale moves with the audience, objective, city, season and the quality of the ad itself.",
+        "The sections below cover what pushes that price up or down, how per-day and per-month budgets behave, and what CPM tells you. Billing and GST come next. The last part is a simple calculation for a starting budget."
+      ]
+    },
+    {
+      "heading": "Key takeaways",
+      "paragraphs": [],
+      "points": [
+        "Work back from the cost per lead or sale the business can afford. Never start from a round monthly number.",
+        "Aim for around 50 optimisation events a week per ad set. If that is out of reach, optimise for an earlier, cheaper event until volume builds.",
+        "Rising CPM points to audience or season. A falling click-through rate points to tired creative, which is the cheaper problem to fix.",
+        "Run a fixed two to three week test before committing to any monthly figure.",
+        "Budget 18% GST on top of ad spend."
+      ]
+    },
+    {
+      "heading": "How much do Facebook ads cost in India?",
+      "paragraphs": [
+        "There is no single figure. A business can start small. What each result costs depends on a handful of factors, and the advertiser controls more of them than most people assume.",
+        "Every time someone scrolls Facebook or Instagram, Meta runs an auction to decide which ad to show, and the winner is picked on a combination of bid, estimated action rate and ad quality, as Meta lays out in its page on [how the ad auction works](https://www.facebook.com/business/help/430291176997542). That matters. A relevant, engaging ad can win impressions more cheaply than a dull one with a bigger budget behind it.",
+        "These are the main things that move the price:"
+      ],
+      "points": [
+        "Audience: metro audiences and narrow, high-income targeting cost more per impression than broad audiences in smaller cities.",
+        "Objective: awareness campaigns buy impressions cheaply, while lead and purchase campaigns cost more per result because Meta hunts for fewer, likelier buyers.",
+        "Season: Diwali, wedding season, year-end sales and big shopping events pull more advertisers into the auction.",
+        "Creative: ads people scroll past get weaker quality and engagement estimates, so they pay more to reach the same people.",
+        "Placement: Feed, Reels, Stories and Audience Network all price differently.",
+        "Category: housing, employment, credit and financial products fall under Meta's special ad categories, which restrict some targeting options.",
+        "Landing experience: a slow page or confusing form wastes clicks that were already paid for."
+      ]
+    },
+    {
+      "heading": "How much do Facebook ads cost per day?",
+      "paragraphs": [
+        "Roughly the daily budget you enter. On a strong day Meta may spend up to 75% more than that figure, and less on a weak one, but across a calendar week it will not spend more than seven times the daily budget.",
+        "Choosing the number is harder. Every new ad set goes through a learning phase, and Meta's delivery system needs roughly 50 optimisation events within a week to settle. Five leads a week won't do it. The ad set stays stuck in learning and costs swing from day to day.",
+        "A rough rule: take the target cost per result, multiply by 50, and divide by 7.",
+        "Example: a dental clinic expects to pay around ₹300 per lead. Fifty leads a week needs about ₹15,000. That is a little over ₹2,000 a day. These are round illustrative numbers, not a market rate.",
+        "Too high? There are two sensible fixes. Merge several small ad sets into one so the budget is not split thin, or optimise for a cheaper event such as landing page views until the account has enough data to move up to leads."
+      ]
+    },
+    {
+      "heading": "How much do Facebook ads cost per month?",
+      "paragraphs": [
+        "Take the daily budget, multiply by about 30, then add GST and whatever goes on creative and management. Only the ad spend part is fully in the advertiser's hands.",
+        "Start with the sales target. How many customers does the business need this month, how many enquiries does it take to close one, and what does each enquiry cost? Answer those three and the monthly budget is tied to revenue.",
+        "Example: a coaching institute wants 20 admissions in a month. Past records show roughly 1 in 10 enquiries converts, so it needs 200 leads. If a test campaign brings leads in at around ₹250 each, monthly ad spend comes to ₹50,000, and with 18% GST the cash outlay is about ₹59,000. Every figure here is a round illustration.",
+        "For eCommerce and D2C brands, the same logic runs on order value and margin. Our post on [working out break-even ROAS](/blog/break-even-roas-calculation) shows how to find the most a brand can spend per sale before it starts losing money.",
+        "What happens after the form is filled matters too. Leads that wait hours for a call go cold, and the effective cost per sale climbs fast. [Speed to lead](/blog/speed-to-lead-why-response-time-decides-deals) covers why response time can matter as much as the budget.",
+        "[FROM OUR WORK: one real observation about setting monthly Facebook ad budgets for Indian businesses]"
+      ]
+    },
+    {
+      "heading": "What do Facebook ads cost per 1,000 impressions?",
+      "paragraphs": [
+        "Cost per 1,000 impressions, or CPM, is spend divided by impressions, multiplied by 1,000. It varies widely by audience, placement and time of year. The only reliable figure is the one in the brand's own account.",
+        "Example: spend ₹1,000, get 10,000 impressions, and the CPM is ₹100. The numbers are picked only to keep the arithmetic easy.",
+        "CPM appears as a column in Ads Manager. Open the Breakdown menu and split it by placement, age, gender and region, and within a few minutes it becomes clear where reach is cheap and where the shop is overpaying.",
+        "A low CPM proves nothing by itself. Cheap impressions to people who never click are still wasted money, so read CPM next to click-through rate and cost per result: if CPM climbs while CTR holds, the auction is crowded; if CTR drops, refresh the creative."
+      ]
+    },
+    {
+      "heading": "Does Facebook charge money for ads?",
+      "paragraphs": [
+        "Yes. Posting on a Facebook Page or Instagram profile is free, but ads and boosted posts are paid, and Meta charges only for delivery up to the budget set.",
+        "Most campaigns are charged per impression. A few objectives let an advertiser pay per link click instead. Spend stays capped either way.",
+        "Indian advertisers can pay by card, UPI or net banking, depending on the account setup. With automatic payments, Meta charges when spend reaches a billing threshold or on the monthly billing date, whichever comes first; with manual payments, the business adds funds in advance and ads pause once the balance runs out. The [Meta Business Help Centre](https://www.facebook.com/business/help) explains payment settings for each account type.",
+        "GST is added to ad charges for Indian advertisers. A GST-registered business can enter its GSTIN in the ad account's payment settings so invoices carry it, which may let it claim input tax credit. Confirm the details with a chartered accountant."
+      ]
+    },
+    {
+      "heading": "Is there a Facebook ads cost calculator?",
+      "paragraphs": [
+        "Not as a standalone tool. Ads Manager shows estimated audience size and estimated daily results as a budget is typed in, and a simple spreadsheet handles everything else.",
+        "Treat that estimate as a rough range. It cannot judge the creative or the offer, and those two decide most of the real result. To build a working budget:"
+      ],
+      "points": [
+        "Write down the monthly revenue target and the average sale value.",
+        "Divide the target by the sale value to get the number of sales needed.",
+        "Use the past close rate on enquiries to work out how many leads that takes.",
+        "Estimate cost per lead from past campaigns, the Ads Manager estimate, or a two to three week test at a fixed budget.",
+        "Multiply leads by cost per lead for monthly spend, then divide by 30 for the daily budget.",
+        "Check each ad set can produce around 50 results a week; if not, combine ad sets.",
+        "Add 18% GST and any creative or agency fees.",
+        "Recalculate after two weeks of real data."
+      ]
+    },
+    {
+      "heading": "Getting the budget right before spending more",
+      "paragraphs": [
+        "Cost per lead often drops more from a sharper landing page and offer than from any bidding tweak. If the page is the weak link, look at [Landing Pages & Funnels](/services/landing-pages-funnels).",
+        "For help planning a Facebook and Instagram budget, setting up tracking and running that first fixed test, see our [Meta Ads](/services/meta-ads) service. Or start with a [free growth audit](/growth-audit) of the current account."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Does Facebook charge for boosting a post?",
+      "a": "Yes. A boosted post is an ad and is billed the same way as a campaign built in Ads Manager. Boosting offers fewer targeting and optimisation choices, so for leads or sales, Ads Manager gives far more control."
+    },
+    {
+      "q": "Can a small business run Facebook ads on a small budget in India?",
+      "a": "Yes. Meta's minimum daily budget is small and varies by currency and bid strategy. The catch is that a very low budget gives the system too few results to learn from, so costs stay unstable for longer."
+    },
+    {
+      "q": "Do Instagram ads cost the same as Facebook ads?",
+      "a": "Both run from the same Ads Manager and the same auction. Prices differ by placement, so Reels, Stories and Feed on each app can show different CPMs. Advantage+ placements let Meta shift budget towards wherever results come cheapest."
+    },
+    {
+      "q": "Do I pay if nobody clicks my Facebook ad?",
+      "a": "With most objectives the charge is per impression, so money is spent whether or not anyone clicks. Some objectives allow paying per link click instead. Very few clicks is a signal that the creative or audience needs work."
+    },
+    {
+      "q": "How long does it take to know the real cost per lead?",
+      "a": "Give a new campaign two to three weeks at a steady budget. The early days include the learning phase, when costs swing. Avoid big edits during that window, because they restart learning."
+    }
+  ]
+}
