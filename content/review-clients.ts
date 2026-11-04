@@ -71,7 +71,7 @@ export const reviewClients: Record<string, ReviewClient> = {
     accentInk: "#FFFFFF",
     highlights: ["More enquiries", "Clear reporting", "Quick replies", "Good ideas", "Honest advice", "On-time delivery"],
     tone: "Plain, professional Indian English from a business owner or marketing manager. Specific, never exaggerated.",
-    replyContact: "+91 74481 36636",
+    replyContact: "+91 90217 53876",
     active: true,
   },
 };
