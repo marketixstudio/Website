@@ -27,7 +27,7 @@ const posts = [
     slug: m[1], title: m[2], category: m[3], date: m[4], focusKeyword: m[5],
   })),
   ...readdirSync(root + "content/blog-posts").filter((f) => f.endsWith(".json")).map((f) => JSON.parse(read(`content/blog-posts/${f}`))),
-];
+].filter((p) => p.date <= new Date(Date.now() + 5.5 * 36e5).toISOString().slice(0, 10)); // scheduled posts count from their day
 
 const gsc = true;
 const ga = true;

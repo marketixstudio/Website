@@ -1,0 +1,133 @@
+{
+  "slug": "ai-max-google-ads",
+  "title": "AI for Google Ads: what AI Max and Smart Bidding do with your budget",
+  "excerpt": "AI Max is switched on by default in new Google Search campaigns. What it changes, what it needs from the account, and how to test it before it spends real money.",
+  "category": "AI Marketing",
+  "author": "Marketix Studio",
+  "date": "2026-11-07",
+  "readTime": "7 min read",
+  "metaTitle": "AI Max for Google Ads: Features, Testing and Review",
+  "metaDescription": "What AI Max for Google Ads changes in a Search campaign, how Smart Bidding fits in, how to run an AI Max experiment, and when it is worth turning on.",
+  "focusKeyword": "AI Max for Google Ads",
+  "secondaryKeywords": [
+    "ai max google ads features",
+    "ai max experiment google ads",
+    "ai max google ads review",
+    "ai for google ads management",
+    "best ai for google ads"
+  ],
+  "featuredImage": {
+    "url": "/blog/ai-max-google-ads.jpg",
+    "alt": "A hand turning a glowing violet dial beside a stack of rupee notes, rising bars on a laptop behind",
+    "width": 1536,
+    "height": 864
+  },
+  "sections": [
+    {
+      "paragraphs": [
+        "AI Max for Google Ads is a set of AI features that sits inside an ordinary Search campaign. It finds searches beyond the keywords, writes extra ad copy and picks landing pages, and Google's setup guide says it is on by default for new Search campaigns.",
+        "So a campaign that went live recently is probably running it already. Who checked?",
+        "Below: what AI Max actually changes, how it depends on Smart Bidding, how to test it without betting the whole budget, and the jobs a person still has to do."
+      ]
+    },
+    {
+      "heading": "Key takeaways",
+      "paragraphs": [],
+      "points": [
+        "Open the AI Max settings on every new Search campaign before launch. Search term matching, text customization and Final URL expansion all start switched on.",
+        "Fix conversion tracking first. AI Max learns from whatever is counted as a conversion, and its search term matching does not work with Manual CPC.",
+        "Test it as an experiment against the existing campaign, on a budget that is not already capped.",
+        "Read the search terms report every week and add negatives and URL exclusions for anything that should never get a click."
+      ]
+    },
+    {
+      "heading": "How does AI Max for Search work in Google Ads?",
+      "paragraphs": [
+        "AI Max is an optimisation layer that runs inside an existing Search campaign. It is not a new campaign type, so the account keeps its ad groups, keywords and ads while the AI expands what they can match and say.",
+        "Google's help page on [how AI Max for Search campaigns works](https://support.google.com/google-ads/answer/15910187) describes two main features. Search term matching uses broad match and keywordless technology, learning from the keywords, ads and URLs already in the campaign to find related searches the keyword list would miss. Asset optimisation writes customised headlines and descriptions and can send each click to the page on the site it predicts will perform best.",
+        "One line matters more than the rest. AI Max will not be effective if the campaign is limited by budget, and Google shows an alert when it is, because a capped campaign has nothing extra to spend on the new searches the AI goes out and finds."
+      ]
+    },
+    {
+      "heading": "AI Max Google Ads features, one by one",
+      "paragraphs": [
+        "The full list, in plain terms, from Google's own documentation. Some settings sit at campaign level and some at ad group level, which matters when only part of an account should change."
+      ],
+      "points": [
+        "Search term matching: expands reach with broad match and keywordless matching. It can be switched off per ad group.",
+        "Text customization: uses existing ads, landing page copy and assets with generative AI to write ad text matched to the search. Text guidelines let the brand exclude words and set messaging restrictions.",
+        "Final URL expansion: sends traffic to other relevant pages on the domain. It needs text customization on, and pinned responsive search ad assets are not respected while it runs.",
+        "URL inclusions and exclusions: control which pages AI Max may use as landing pages.",
+        "Brand inclusions and exclusions: choose the brands ads should appear with, or keep them away from specific brands.",
+        "Locations of interest: reach people by the place they are searching about, even on keywordless matches.",
+        "New reporting: an \"AI Max\" match type in the search terms report, a source column showing why a search matched, and a landing pages column showing which pages AI Max picked."
+      ]
+    },
+    {
+      "heading": "What does Smart Bidding do with the budget?",
+      "paragraphs": [
+        "[Smart Bidding](https://support.google.com/google-ads/answer/7065882) sets a bid for every single auction using Google AI, aiming at conversions or conversion value. Target CPA, Target ROAS, Maximize conversions and Maximize conversion value are the four strategies.",
+        "It reads signals no person could weigh in real time, such as device, location and time of day, then decides how much a particular click is worth. AI Max leans on it. Google's [AI Max setup guide](https://support.google.com/google-ads/answer/15909989) notes that search term matching, Final URL expansion and text customization need conversion-based Smart Bidding to work properly.",
+        "Here lies the risk. If a real estate campaign counts every form fill as a conversion, Smart Bidding will happily buy more form fills from people who never answer the phone. AI Max then widens the net to find more of them. Clean tracking of qualified leads, calls and sales comes before any of this."
+      ]
+    },
+    {
+      "heading": "How to run an AI Max experiment in Google Ads",
+      "paragraphs": [
+        "Run AI Max as an experiment first. Google supports this directly, and its [AI Max FAQ](https://support.google.com/google-ads/answer/15913066) describes a 1-click experiment that some accounts see on the Recommendations page, which sets up a 50/50 split between the current Search campaign and an AI Max version."
+      ],
+      "points": [
+        "Check conversion tracking and switch the campaign to a conversion-based Smart Bidding strategy.",
+        "Check tracking templates. Google warns that templates using a static URL instead of the {lpurl} tag can send expanded traffic to the wrong page or a 404.",
+        "Create the AI Max experiment from the Experiments tab, or the 1-click version if offered. Ad group controls allow search term matching or asset optimisation to be tested on chosen ad groups only.",
+        "Add URL exclusions for pages that should never receive ad traffic, such as careers, blog archives or old offers.",
+        "Let it run long enough to collect real conversions, and judge it on cost per qualified lead or sale.",
+        "Read the search terms report filtered to the AI Max match type before deciding anything."
+      ]
+    },
+    {
+      "heading": "AI Max Google Ads review: is it worth it?",
+      "paragraphs": [
+        "It is worth testing when the account has reliable conversion tracking, a budget that is not capped, a website with clear pages for each service or product, and keyword lists that have stopped finding new demand. In that setup, the extra searches and tailored copy have something good to work with.",
+        "It is a poor fit for a small account still on Manual CPC, a brand with strict legal wording that must appear in every ad, or a site with thin, outdated pages that AI Max might send people to. Google's FAQ is clear that the generated assets are fully automated, so the advertiser cannot edit them line by line. Removing them, setting text guidelines or switching text customization off are the only levers.",
+        "Negative keywords still apply with AI Max on. That is the safety net. Someone has to add them."
+      ]
+    },
+    {
+      "heading": "What is the best AI for Google Ads management?",
+      "paragraphs": [
+        "The best AI for Google Ads is the one already inside the platform. Smart Bidding, AI Max and [Performance Max](https://support.google.com/google-ads/answer/10724817) do the bidding and matching inside Google's own systems.",
+        "General AI tools for Google Ads help with the work around the campaign. A writing assistant drafts headline and description variants for a person to edit. The same tools speed up reading an exported search terms report, spotting irrelevant queries to block, or summarising a month of Search Console and GA4 data. None of them knows the offer. Or the margins. That judgement stays with the person running the account, which is why AI for Google Ads management works best as a faster assistant to a practitioner. For the wider picture, read [what AI marketing is and where it helps](/blog/what-is-ai-marketing)."
+      ]
+    },
+    {
+      "heading": "How Marketix Studio uses AI on Google Ads",
+      "paragraphs": [
+        "We run [Google Ads](/services/google-ads-ppc) for businesses across India from Pune, and AI does two jobs on those accounts. It drafts ad copy variants, which our team edits before anything runs, and it helps us read search terms, Search Console and GA4 data every week so wasted spend shows up early. Landing pages matter just as much once Final URL expansion is choosing between them, which is where our [landing pages and funnels](/services/landing-pages-funnels) work comes in.",
+        "Strategy, budgets and the decision to switch AI Max on stay with people. To find out whether an account is ready for it, start with a [free growth audit](/growth-audit)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Is AI Max a new campaign type in Google Ads?",
+      "a": "No. Google describes AI Max as an optimisation layer inside existing Search campaigns. The campaign keeps its structure, keywords and ads, and AI Max adds search term matching and asset optimisation on top."
+    },
+    {
+      "q": "Does AI Max respect negative keywords?",
+      "a": "Yes. Google's AI Max FAQ confirms negative keywords are still respected with AI Max turned on. They remain the most direct way to stop it matching searches a business does not want to pay for."
+    },
+    {
+      "q": "Can pinned headlines still be used with AI Max?",
+      "a": "Only with some settings off. When Final URL expansion or URL inclusions are on, pinned responsive search ad assets are not respected. A brand that needs pinning should keep both of those settings off."
+    },
+    {
+      "q": "What is the difference between AI Max and Performance Max?",
+      "a": "AI Max works only inside Search campaigns and keeps the familiar Search structure. Performance Max is a separate campaign type that runs across Google's channels from one campaign. If a search could trigger both, Google serves whichever has the higher Ad Rank."
+    },
+    {
+      "q": "What happens if AI Max is turned off?",
+      "a": "All AI Max features in that campaign switch off together, including controls like brand exclusions. Turning it back on restores the settings as they were, according to Google's FAQ."
+    }
+  ]
+}

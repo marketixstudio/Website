@@ -629,6 +629,13 @@ const handWrittenPosts: BlogPost[] = [
   },
 ];
 
-/** Hand-written posts above plus the daily drafts merged from content/blog-posts/. */
-export const blogPosts: BlogPost[] = [...handWrittenPosts, ...generatedPosts];
+/** Today in India (YYYY-MM-DD), when the site is built. */
+const todayIST = new Date(Date.now() + 5.5 * 36e5).toISOString().slice(0, 10);
+
+/**
+ * Hand-written posts above plus the daily posts in content/blog-posts/. A post dated in the
+ * future stays hidden until its day: .github/workflows/daily-publish.yml rebuilds the site at
+ * 07:00 IST so each scheduled post appears on its date.
+ */
+export const blogPosts: BlogPost[] = [...handWrittenPosts, ...generatedPosts].filter((post) => post.date <= todayIST);
 

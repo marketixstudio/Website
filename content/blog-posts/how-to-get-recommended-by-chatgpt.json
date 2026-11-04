@@ -1,0 +1,142 @@
+{
+  "slug": "how-to-get-recommended-by-chatgpt",
+  "title": "How to get your business recommended by ChatGPT: a working plan",
+  "excerpt": "Ask ChatGPT for a good cafe in Koregaon Park and it names three places. What decides those three, the one setting that quietly hides a business, and how to fix it.",
+  "category": "AI Marketing",
+  "author": "Marketix Studio",
+  "date": "2026-11-05",
+  "readTime": "7 min read",
+  "metaTitle": "How to Get Your Business Recommended by ChatGPT",
+  "metaDescription": "How ChatGPT finds the businesses it names, the robots.txt setting that can hide a site, and the steps that make a shop, product or site easy to recommend.",
+  "focusKeyword": "how to get your business recommended by ChatGPT",
+  "secondaryKeywords": [
+    "how to get your website recommended by chatgpt",
+    "how to get your product recommended by chatgpt",
+    "chatgpt seo",
+    "chatgpt seo optimization",
+    "chatgpt seo services"
+  ],
+  "featuredImage": {
+    "url": "/blog/how-to-get-recommended-by-chatgpt.jpg",
+    "alt": "A hand holding a phone outside a Pune cafe at night, one reply bubble on the screen glowing violet",
+    "width": 1536,
+    "height": 864
+  },
+  "sections": [
+    {
+      "paragraphs": [
+        "How do you get your business recommended by ChatGPT? Make sure OpenAI's search crawler can read the website, then give ChatGPT clear, consistent facts about what the business sells, where and for whom, both on the site and across the places that talk about it. ChatGPT names businesses it can find, understand and trust.",
+        "Picture a customer in Baner asking ChatGPT for a quiet place to have a work lunch. She gets three names and a line on each. No ads, no map, no second page. A cafe that is missing from those three did not slip a few ranks. It was never in the conversation.",
+        "Below: how ChatGPT finds its sources, the robots.txt line that quietly blocks many sites, a step-by-step plan for websites, products and local shops, and what to ask anyone selling ChatGPT SEO services."
+      ]
+    },
+    {
+      "heading": "Key takeaways",
+      "paragraphs": [],
+      "points": [
+        "Check robots.txt today. If OAI-SearchBot is blocked, ChatGPT search will leave the site out of its answers whatever else is done.",
+        "Give every service, product or location its own page, with the offer, city, audience and price basis stated in plain sentences.",
+        "Keep the business name, address, phone and category identical on the website, the Google Business Profile and every directory listing.",
+        "Treat reviews and mentions on other sites as part of the job. A model can only repeat what someone has already written down.",
+        "Judge any ChatGPT SEO service on what it changes on the site. A promise of a guaranteed mention is a reason to walk away."
+      ]
+    },
+    {
+      "heading": "How does ChatGPT decide which businesses to recommend?",
+      "paragraphs": [
+        "ChatGPT draws on two things: what its model learned in training, and what it finds when it searches the web for a live answer. For anything local, recent or price-related, what it finds on the web matters most, and that is the part a business can influence.",
+        "OpenAI runs a separate crawler for each job. Its page on [OpenAI's crawlers](https://platform.openai.com/docs/bots) says OAI-SearchBot is used to surface websites in ChatGPT's search features, while GPTBot collects content that may be used to train its models. The two settings are independent. A site can block training and still allow search.",
+        "Once ChatGPT has a handful of pages, it writes its reply from them. A page that says what the business does, in which area, for which customer and at what kind of price gives it something to quote. 'We provide quality solutions' gives it nothing."
+      ]
+    },
+    {
+      "heading": "How to get your website recommended by ChatGPT",
+      "paragraphs": [
+        "Start with access, then clarity, then reputation. The order matters, because content work is wasted on a site the crawler cannot open."
+      ],
+      "points": [
+        "Open the site's /robots.txt file and look for OAI-SearchBot. A Disallow rule for it, or a blanket Disallow for every user agent, keeps the site out of ChatGPT search answers.",
+        "Check the firewall and CDN too. OpenAI recommends allowing requests from its published IP ranges, and some security settings block unfamiliar bots by default.",
+        "Write the important facts as text on the page. Services, areas served, timings and the basis of pricing should never live only inside an image.",
+        "Give each service, product or branch its own page, with a heading that says exactly what it is.",
+        "Answer the questions buyers ask near the top of each page, in the words they use when they ask.",
+        "Wait a day after changing robots.txt before testing. OpenAI says its search systems can take about 24 hours to adjust."
+      ]
+    },
+    {
+      "heading": "ChatGPT SEO: what changes from Google SEO?",
+      "paragraphs": [
+        "Less than most pitches suggest. Both reward pages that are crawlable, specific and trusted. Google's guide to [helpful, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) asks whether a page offers original information and whether a reader would trust it, and those questions fit any AI system choosing a source just as well.",
+        "The reply format is where it differs. Google shows a page of links and lets the searcher pick; an assistant like ChatGPT often narrows it down to a few names for the person asking. Being the clearest choice suddenly counts for more than being the biggest.",
+        "So ChatGPT SEO optimization is mostly ordinary SEO done with more discipline. Fewer vague pages. More direct answers. Facts that match everywhere they appear. The same habits help with Google's AI answers too, which our guide to [what AI marketing is](/blog/what-is-ai-marketing) touches on."
+      ]
+    },
+    {
+      "heading": "How to get your product recommended by ChatGPT",
+      "paragraphs": [
+        "Products get recommended when the facts a shopper compares are easy to find. Someone asking for a cotton kurta within a set budget that can reach Pune in two days needs price, fabric, sizes, delivery time and return rules, and ChatGPT can only include a product whose page actually states them."
+      ],
+      "points": [
+        "Write product titles that say what the item is, in the words shoppers use.",
+        "Keep price, stock and delivery details as text on the product page, and keep them current.",
+        "Add comparison pages where they help, such as which model suits which kind of use.",
+        "Collect reviews on the product page and on the marketplaces where the product sells.",
+        "Link category and product pages from the main navigation so crawlers can reach them."
+      ]
+    },
+    {
+      "heading": "Getting a local shop, clinic or cafe recommended",
+      "paragraphs": [
+        "Local answers lean on what the wider web says about a place. Directories, review sites, local news and the Google Business Profile all describe the same shop, and an answer built from several sources is easier to trust when they agree.",
+        "Google's tips to [improve local ranking](https://support.google.com/business/answer/7091) say local results are based mainly on relevance, distance and prominence, and that prominence draws on reviews and on links from other websites. ChatGPT is a different system. Still, those same signals are what make a business easy to describe and easy to believe.",
+        "Reviews are the one piece a business can build every single week, so ask happy customers while the good experience is fresh, make leaving a review take under a minute, and reply to each one. Listings and reviews are the core of our [Google Maps and local SEO](/services/local-seo-gmb) work."
+      ]
+    },
+    {
+      "heading": "Are ChatGPT SEO services worth paying for?",
+      "paragraphs": [
+        "Yes, when the work is concrete: opening crawl access, rewriting pages so they answer questions, cleaning up listings and building reviews. No, when the offer is a guaranteed mention. Nobody outside OpenAI controls what ChatGPT says.",
+        "Four questions sort the two quickly:"
+      ],
+      "points": [
+        "What will you change on my site in the first month?",
+        "How will you check that ChatGPT can reach my pages?",
+        "Which prompts will you test, and how often?",
+        "What happens to my Google rankings while you do this?"
+      ]
+    },
+    {
+      "heading": "How Marketix Studio helps businesses get recommended",
+      "paragraphs": [
+        "We are a performance marketing agency in Pune. As part of our [SEO services](/services/seo-services), we shape pages so they can be cited in AI search, including ChatGPT, Perplexity and Google AI Overviews, and AI helps us read search terms, Search Console and GA4 data each week. For local businesses we also run an AI review page that helps happy customers write their own Google review.",
+        "Not sure whether ChatGPT can even see the site today? Start with a [free growth audit](/growth-audit). We check crawl access, pages and listings, and show what is standing between the business and a recommendation."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Can I pay to be recommended by ChatGPT?",
+      "a": "OpenAI's crawler documentation lists OAI-AdsBot, which checks landing pages submitted as ads on ChatGPT, so paid ads exist as their own channel. Being named inside the answer itself depends on the sources ChatGPT finds and trusts, which is why the steps above still apply."
+    },
+    {
+      "q": "Should I block GPTBot?",
+      "a": "That is a business decision about model training. According to OpenAI, blocking GPTBot does not stop OAI-SearchBot, so a site can opt out of training and still appear in ChatGPT search."
+    },
+    {
+      "q": "Do I need special markup for ChatGPT?",
+      "a": "No markup is known to guarantee a mention. Structured data that matches the visible page helps search engines understand it, but clear text on a page the crawler can open is the foundation."
+    },
+    {
+      "q": "How long does it take to show up in ChatGPT?",
+      "a": "OpenAI says robots.txt changes take about 24 hours to register for search. Content and reputation work takes longer, because pages need to be crawled again and other sites need to mention the business. Test the same few prompts every month and note what changes."
+    },
+    {
+      "q": "How do I check whether ChatGPT recommends my business?",
+      "a": "Ask it the questions a customer would ask, including the city and the need, and note which businesses and sources it names. Answers vary from one run to the next, so repeat the same prompts a few times and look for a pattern."
+    },
+    {
+      "q": "Is ChatGPT SEO the same as GEO?",
+      "a": "GEO, or generative engine optimization, is the broad term for getting cited by AI answer engines. ChatGPT SEO is the same idea aimed at one product. The work overlaps almost completely."
+    }
+  ]
+}

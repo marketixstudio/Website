@@ -1,0 +1,145 @@
+{
+  "slug": "how-to-rank-in-google-ai-overviews",
+  "title": "How to rank in Google AI Overviews: what Google actually says",
+  "excerpt": "Google has published what it takes to appear in AI Overviews, and the list is shorter than most SEO checklists. The rules, the traffic question, and where ads now fit.",
+  "category": "AI Marketing",
+  "author": "Marketix Studio",
+  "date": "2026-11-06",
+  "readTime": "7 min read",
+  "metaTitle": "How to Rank in Google AI Overviews: Google's Own Rules",
+  "metaDescription": "What Google says it takes to appear in AI Overviews and AI Mode, what it means for SEO traffic, and how ads now show inside AI answers in India.",
+  "focusKeyword": "how to rank in Google AI Overviews",
+  "secondaryKeywords": [
+    "how to rank website in ai overview",
+    "google ai overview seo",
+    "google ai overview seo impact",
+    "ai overviews ai mode",
+    "ai overviews ads"
+  ],
+  "featuredImage": {
+    "url": "/blog/how-to-rank-in-google-ai-overviews.jpg",
+    "alt": "Top-down view of a Midnight MacBook Air showing a column of search results with the top one glowing violet",
+    "width": 1536,
+    "height": 864
+  },
+  "sections": [
+    {
+      "paragraphs": [
+        "How do you rank in Google AI Overviews? A page has to be indexed and eligible to appear in Google Search with a snippet, and then be one of the most useful sources for the question. Google says there is no special markup, file or extra optimization for it. Ordinary SEO, done well, is the method.",
+        "That is a striking thing for Google to put in writing. A small industry now sells 'AI Overview optimization', while Google's own documentation says the requirements are the ones that already applied to Search. The hard part is everything around them: picking the questions worth answering, writing the clearest answer anywhere on the web, and measuring a result Google folds into its normal search data.",
+        "Below: what Google's guide on AI features says, how to rank a website in an AI Overview step by step, whether AI Overviews are killing SEO, how AI Mode differs, and how ads now appear inside AI answers."
+      ]
+    },
+    {
+      "heading": "Key takeaways",
+      "paragraphs": [],
+      "points": [
+        "Check indexing first. A page that is missing from the index, or that blocks snippets, cannot be a supporting link in an AI Overview.",
+        "Skip AI text files and special schema for this purpose. Google says it does not need them.",
+        "Build each page around one question and put a direct answer in the first lines under every heading.",
+        "Track AI Overview traffic in Search Console's Performance report, where it is counted as normal web traffic, and judge pages on enquiries as well as clicks.",
+        "Google lists India among the countries where ads can appear in AI Overviews, from existing Search, Shopping and Performance Max campaigns."
+      ]
+    },
+    {
+      "heading": "What does Google say about ranking in AI Overviews?",
+      "paragraphs": [
+        "Google's guide to [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features) is short and blunt. It says SEO best practices remain relevant, and that there are no additional requirements to appear in AI Overviews or AI Mode.",
+        "The technical bar fits in one sentence. To be shown as a supporting link, a page must be indexed and eligible to be shown in Google Search with a snippet. Google adds that meeting every requirement still does not guarantee a page will be crawled, indexed or served.",
+        "It also explains how answers get built. Both features may use a 'query fan-out' technique, running several related searches across subtopics and sources to put a response together. In practice one broad question can pull in pages that answer its smaller parts, which gives a specific, well organised page a chance even when it is far from the top result for the main search.",
+        "Google is just as clear about what is unnecessary. No new machine-readable files. No AI text files. No special schema.org markup."
+      ]
+    },
+    {
+      "heading": "How to rank a website in an AI Overview",
+      "paragraphs": [
+        "Treat it as SEO with a sharper focus on answers. Each step below comes from the practices Google lists in the same guide."
+      ],
+      "points": [
+        "Confirm the page is indexed with the URL Inspection tool in Search Console, and fix whatever blocks it.",
+        "Check that robots.txt, the CDN and the hosting firewall all let Googlebot crawl the page.",
+        "Remove nosnippet, or a very tight max-snippet limit, from pages that should be cited, since those controls also limit what AI features can show.",
+        "Put important content in text, supported by good images and video where they help.",
+        "Link the page from related pages on the site so it is easy to find.",
+        "Make sure any structured data matches the visible text on the page.",
+        "Keep Merchant Center and Business Profile details current if the business sells products or serves a local area."
+      ]
+    },
+    {
+      "heading": "How to write content that AI Overviews cite",
+      "paragraphs": [
+        "Write each section so it can stand on its own. Open with a one or two sentence answer, then the detail, then the exceptions. An AI response draws on many pages at once, and a passage that needs three paragraphs of setup before it makes sense is harder to use.",
+        "Google's advice on [helpful, people-first content](https://developers.google.com/search/docs/fundamentals/creating-helpful-content) asks whether a page provides original information, research or analysis, and whether it adds value compared with other pages in the results. Original detail is hard to copy. A Pune clinic that explains its real appointment process says something a national health portal never can.",
+        "The same habits make a page easier for ChatGPT and Perplexity to quote, which our guide to [what AI marketing is](/blog/what-is-ai-marketing) covers in more depth."
+      ]
+    },
+    {
+      "heading": "Is Google AI Overview killing SEO?",
+      "paragraphs": [
+        "No. It changes what a click is worth. Some quick factual searches can now be settled on the results page, so pages built only to define terms or answer one-line questions may lose visits. Pages that help someone compare, decide or buy have more reason to earn the click, because a summary rarely holds all the detail a buyer needs.",
+        "Google's guide says AI Overviews appear only when its systems judge them additive to classic Search, and that they often don't trigger. It also says clicks from results pages with AI Overviews are higher quality, meaning people are more likely to spend more time on the site. That is Google describing its own product. Check it against the site's own analytics before believing it."
+      ]
+    },
+    {
+      "heading": "How to measure the SEO impact of AI Overviews",
+      "paragraphs": [
+        "Search Console has no separate AI Overviews report. Google says traffic from AI features is included in the Performance report under the 'Web' search type, so the impact has to be read from patterns."
+      ],
+      "points": [
+        "Compare impressions and clicks for the same pages across two equal periods.",
+        "Flag pages where impressions hold steady while clicks fall, since those queries are the likeliest to be answered on the results page.",
+        "Search those queries yourself and note whether an AI Overview appears and which sites it cites.",
+        "In GA4, compare engagement and conversions from organic search, because fewer visits of better quality can be worth more."
+      ]
+    },
+    {
+      "heading": "AI Overviews vs AI Mode: what is the difference?",
+      "paragraphs": [
+        "They share a foundation and serve different moments. Google describes them like this:"
+      ],
+      "points": [
+        "AI Overviews appear on the normal results page to give the gist of a topic quickly, and only when Google judges they add something.",
+        "AI Mode is a conversational experience for questions that need exploration, reasoning or comparison, with room for follow-up questions.",
+        "Both may use query fan-out, and both show links to supporting websites.",
+        "They may use different models and techniques, so the links each one shows will vary."
+      ]
+    },
+    {
+      "heading": "How do ads work in AI Overviews?",
+      "paragraphs": [
+        "Ads can now appear inside AI Overviews and AI Mode, labelled 'Sponsored'. Google's help page on [ads in AI-powered experiences](https://support.google.com/google-ads/answer/16297775) lists India among the countries where ads can show within them, in English.",
+        "No new campaign is needed. Existing Search, Shopping and Performance Max campaigns are eligible automatically, and advertisers cannot target AI Overviews on their own or opt out of them separately. Exact and phrase match keywords qualify only when the search shows direct commercial intent; broad match, AI Max for Search, Shopping and Performance Max can also be matched to the context of the AI response.",
+        "Google states that paid ads do not influence the organic AI answers, so buying ads will never get a page cited. For advertisers, the useful habit is reading the search terms report, which includes AI Overview queries in aggregate, and adding negative keywords where the intent is wrong."
+      ]
+    },
+    {
+      "heading": "How Marketix Studio approaches AI Overviews",
+      "paragraphs": [
+        "We are a performance marketing agency in Pune. Through our [SEO services](/services/seo-services), pages are shaped so they can be cited in AI search, including Google AI Overviews, ChatGPT and Perplexity, and AI helps us read search terms, Search Console and GA4 data every week. On the paid side, AI drafts ad copy variants for our [Google Ads](/services/google-ads-ppc) campaigns, and our team edits every one before it runs.",
+        "Want to know which pages could be cited, and which are blocked or invisible? Start with a [free growth audit](/growth-audit)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Do I need schema markup for AI Overviews?",
+      "a": "No. Google says there is no special schema.org structured data to add for AI features. Structured data still helps in regular Search, as long as it matches the visible text on the page."
+    },
+    {
+      "q": "Can I stop my content from appearing in AI Overviews?",
+      "a": "Google points site owners to nosnippet, data-nosnippet, max-snippet and noindex to limit what is shown from a page in Search, AI features included. Blocking Googlebot in robots.txt removes the page from regular Search as well, so it is rarely a sensible trade."
+    },
+    {
+      "q": "Does Google-Extended keep my site out of AI Overviews?",
+      "a": "Google's guide describes Google-Extended as the control for AI training and grounding in some of Google's other systems. For AI features inside Search, it points to Googlebot rules in robots.txt and to snippet controls instead."
+    },
+    {
+      "q": "How long does it take to appear in an AI Overview?",
+      "a": "There is no fixed timeline. Google notes that recrawling can take anywhere from several days to several months, depending on how often its systems decide a page needs refreshing. A new or rewritten page can be submitted for recrawling through Search Console."
+    },
+    {
+      "q": "Are AI Overviews and AI Mode available in India?",
+      "a": "Yes. Google's Ads help page lists India among the countries where ads appear within AI Overviews and AI Mode, for English searches."
+    }
+  ]
+}

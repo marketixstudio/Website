@@ -4,9 +4,9 @@
 # merging the PR publishes the post. Closing it without merging skips that topic.
 name: Daily blog draft
 
+# Schedule switched off on 2026-11-02 (user: no API drafts; one post a day, written in Claude
+# Code and published by daily-publish.yml). Run it by hand from the Actions tab if needed.
 on:
-  schedule:
-    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST
   workflow_dispatch:
 
 permissions:

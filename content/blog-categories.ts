@@ -17,6 +17,14 @@ export type BlogCategory = {
 
 export const blogCategories: BlogCategory[] = [
   {
+    slug: "ai-marketing",
+    name: "AI Marketing",
+    intro:
+      "How AI is changing ads, SEO and search for Indian businesses: what it does well, where it wastes budget, and how to get found in ChatGPT and Google AI Overviews.",
+    image: "/blog/category-ai-marketing.jpg",
+    service: { label: "Performance marketing", href: "/services/performance-marketing" },
+  },
+  {
     slug: "google-ads",
     name: "Google Ads",
     intro:

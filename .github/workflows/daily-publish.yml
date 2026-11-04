@@ -1,0 +1,78 @@
+# Publishes the day's scheduled blog post. Posts in content/blog-posts/ carry a future date and
+# stay hidden until that day (content/blog.ts). At 07:00 IST this job, on GitHub's servers:
+#  1. stops if no post is dated today;
+#  2. redeploys the site on Vercel (deploy hook if the VERCEL_DEPLOY_HOOK secret is set,
+#     otherwise an empty commit to main, which Vercel deploys);
+#  3. waits until the post's page is live;
+#  4. resubmits the sitemap in Search Console, checks indexing and logs the post in the
+#     content calendar sheet (seo-sync.mjs), and pings IndexNow for Bing.
+# Google can't be forced to index a blog post (its Indexing API is only for jobs and
+# livestreams); the sitemap resubmit is the supported way to ask it to crawl.
+name: Daily blog publish
+
+on:
+  schedule:
+    - cron: "30 1 * * *" # 01:30 UTC = 07:00 IST
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: daily-publish
+  cancel-in-progress: false
+
+jobs:
+  publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+      - name: Find today's post
+        id: today
+        run: |
+          slugs=$(node -e '
+            const fs = require("fs");
+            const today = new Date(Date.now() + 5.5 * 36e5).toISOString().slice(0, 10);
+            const due = fs.readdirSync("content/blog-posts").filter((f) => f.endsWith(".json"))
+              .map((f) => JSON.parse(fs.readFileSync("content/blog-posts/" + f, "utf8")))
+              .filter((p) => p.date === today).map((p) => p.slug);
+            console.log(due.join(" "));')
+          echo "slugs=$slugs" >> "$GITHUB_OUTPUT"
+          echo "Due today: ${slugs:-none}"
+      - name: Redeploy the site
+        if: steps.today.outputs.slugs != ''
+        env:
+          HOOK: ${{ secrets.VERCEL_DEPLOY_HOOK }}
+        run: |
+          if [ -n "$HOOK" ]; then
+            curl -fsS -X POST "$HOOK"
+          else
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git commit --allow-empty -m "Publish today's blog post: ${{ steps.today.outputs.slugs }}"
+            git push
+          fi
+      - name: Wait until the post is live
+        if: steps.today.outputs.slugs != ''
+        run: |
+          for slug in ${{ steps.today.outputs.slugs }}; do
+            for i in $(seq 1 40); do
+              code=$(curl -s -o /dev/null -w '%{http_code}' "https://www.marketixstudio.com/blog/$slug")
+              [ "$code" = "200" ] && echo "$slug is live" && break
+              sleep 30
+            done
+          done
+      - name: Ask search engines to crawl it
+        if: steps.today.outputs.slugs != ''
+        env:
+          GOOGLE_SERVICE_ACCOUNT_JSON: ${{ secrets.GOOGLE_SERVICE_ACCOUNT_JSON }}
+          CALENDAR_SHEET_ID: ${{ vars.CALENDAR_SHEET_ID }}
+          GSC_SITE: ${{ vars.GSC_SITE }}
+          GA4_PROPERTY_ID: ${{ vars.GA4_PROPERTY_ID }}
+        run: |
+          node scripts/blog/seo-sync.mjs
+          node scripts/blog/indexnow.mjs $(for s in ${{ steps.today.outputs.slugs }}; do echo "https://www.marketixstudio.com/blog/$s"; done) https://www.marketixstudio.com/sitemap.xml

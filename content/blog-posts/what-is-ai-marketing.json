@@ -1,0 +1,138 @@
+{
+  "slug": "what-is-ai-marketing",
+  "title": "What is AI marketing? The parts that actually move your leads",
+  "excerpt": "AI marketing is already running your ad auctions and rewriting how Google answers searches. What it does, where it fails, and how to use it without wasting budget.",
+  "category": "AI Marketing",
+  "featured": true,
+  "author": "Marketix Studio",
+  "date": "2026-11-04",
+  "readTime": "7 min read",
+  "metaTitle": "What Is AI Marketing? A Plain Guide for Indian Businesses",
+  "metaDescription": "What AI marketing is, what it does for ads, SEO and creative, where it fails, and how an Indian business can use it without wasting ad budget.",
+  "focusKeyword": "what is AI marketing",
+  "secondaryKeywords": [
+    "what is ai marketing agency",
+    "ai in digital marketing",
+    "what is ai marketing strategy",
+    "ai marketing for small business",
+    "ai marketing tools"
+  ],
+  "featuredImage": {
+    "url": "/blog/what-is-ai-marketing.jpg",
+    "alt": "A marketer choosing one glowing ad from a grid of AI-generated ad variations on a Midnight MacBook Air",
+    "width": 1536,
+    "height": 864
+  },
+  "sections": [
+    {
+      "paragraphs": [
+        "What is AI marketing? It is the use of machine learning and generative AI to decide who sees an ad, what the ad says, what it bids and how the results are read. Google and Meta already run most of it inside their ad systems. The real question is smaller. Which parts bring in leads?",
+        "Most of what gets sold as AI marketing is a chatbot on a website. The bigger change is quieter. It decides who wins a Google auction at 11 pm, which of twenty Instagram ads gets the budget, and whether a brand is the one ChatGPT names when someone asks for a recommendation.",
+        "Below: what AI marketing does, where it helps and where it burns money, what an AI marketing agency should actually do, and a simple order to start in."
+      ]
+    },
+    {
+      "heading": "Key takeaways",
+      "paragraphs": [],
+      "points": [
+        "Fix conversion tracking before trusting any AI bidding. The platforms learn from whatever is counted as a lead, junk included.",
+        "Use AI for volume and speed: more ad variants, faster data reading. Keep strategy, offers and final copy with a person.",
+        "Write pages that answer real questions clearly, so Google AI Overviews and ChatGPT can quote the business.",
+        "Ask any agency that calls itself AI-powered which decisions the AI makes and which a person makes. A vague answer is a warning."
+      ]
+    },
+    {
+      "heading": "What does AI marketing actually do?",
+      "paragraphs": [
+        "AI marketing works in three places: inside the ad platforms, in the production of creative, and in search itself. Each one changes a different part of the job, and most businesses are already using the first without ever having decided to, because Google and Meta switched it on by default for nearly every new campaign.",
+        "Inside the platforms, the AI is already switched on for most advertisers. Google's [Smart Bidding](https://support.google.com/google-ads/answer/7065882) sets a bid for every single auction using signals like device, location and time of day. [Performance Max](https://support.google.com/google-ads/answer/10724817) goes further and decides where an ad shows across Search, YouTube, Maps and more. Meta's ad system works the same way with audiences. The advertiser no longer picks every keyword or interest. It feeds the machine.",
+        "In production, generative AI drafts headlines, ad copy, image variations and video scripts in minutes. Ten versions of an ad used to take a designer a week. Now a single afternoon produces more drafts than anyone can sensibly judge, so the slow, expensive part of the work has moved from making ads to choosing which ones deserve budget. Choosing is the skill.",
+        "In search, Google answers many questions with an AI summary before any website appears, and people ask ChatGPT and Perplexity for recommendations instead of scrolling. Google explains how its AI features pick sources in its guide to [AI features and your website](https://developers.google.com/search/docs/appearance/ai-features). Being cited there is a new kind of visibility, and it rewards pages that answer questions plainly."
+      ]
+    },
+    {
+      "heading": "AI in digital marketing: where it helps",
+      "paragraphs": [
+        "AI helps most where the work is repetitive or the data is too big to read by hand. Four jobs stand out."
+      ],
+      "points": [
+        "Testing more creative. Meta rewards fresh, distinct ads, and AI makes it cheap to produce enough variants to test properly.",
+        "Reading search term reports, Search Console and GA4 data quickly, so wasted spend and falling enquiries show up in days instead of at month end.",
+        "Turning one long piece of research into headlines, FAQs, ad copy and social posts.",
+        "Bidding in every auction, which no person can do at scale."
+      ]
+    },
+    {
+      "heading": "Where AI marketing goes wrong",
+      "paragraphs": [
+        "Where it hurts is just as predictable. Unedited AI copy sounds like everyone else's. Of course it does: it is built from the average of everything ever written about the topic, so a Pune interior designer and a Mumbai one end up with the same three adjectives. It states made-up facts with total confidence. And platform AI is only as good as what it is told to chase.",
+        "That last point is expensive. If a real estate campaign counts every form fill as a conversion, the algorithm happily finds more people who fill forms and never pick up the phone. The AI did its job perfectly. The goal was wrong."
+      ]
+    },
+    {
+      "heading": "What is an AI marketing agency?",
+      "paragraphs": [
+        "An AI marketing agency uses AI tools to plan, produce, run and report on marketing faster than a traditional team could. The label says nothing about quality on its own. Plenty of agencies added it to their website without changing a thing.",
+        "A good one still does the core work. Offer, strategy, tracking, accountability for leads. AI should make that work faster and the testing wider. It should never replace the person who decides what the business is trying to sell.",
+        "Before signing with any agency that calls itself AI-powered, ask these five questions:"
+      ],
+      "points": [
+        "Which tasks does AI do on my account, and which does a person do?",
+        "Who checks AI-written ads and pages before they go live?",
+        "What exactly counts as a conversion in my tracking, and who set it up?",
+        "Will my ad accounts and data stay in my name?",
+        "How will I see what the AI changed and what it produced?"
+      ]
+    },
+    {
+      "heading": "Is AI marketing worth it for a small business?",
+      "paragraphs": [
+        "Yes. The platform AI is free and already included in every Google and Meta campaign. The real cost is setting it up properly. A shop with a modest budget gets the same bidding technology as a national brand.",
+        "It is worth it when the business has a clear offer, tracking that counts real enquiries, and someone who reviews the results every week. It is not worth it as a shortcut. A small budget spread across automated campaigns with no tracking teaches the algorithm nothing, and the spend disappears into cheap, low quality clicks.",
+        "Paid AI tools? A separate decision. Many small businesses need none beyond what Google, Meta and a good writing assistant already provide."
+      ]
+    },
+    {
+      "heading": "AI marketing strategy: where to start",
+      "paragraphs": [
+        "Measure first. Then let AI scale whatever the measurement proves is working, because automation pointed at a bad goal simply reaches the wrong result faster and with more of the budget."
+      ],
+      "points": [
+        "Set up conversion tracking that counts qualified leads, calls and sales, and import offline results where possible.",
+        "Give Google and Meta clean goals and enough budget per campaign to learn, instead of many tiny campaigns.",
+        "Use AI to draft creative variants, then have a person edit them for the brand, the offer and the facts.",
+        "Rewrite key pages to answer the questions buyers actually ask, with clear headings and FAQs that AI search can quote.",
+        "Review search terms, placements and lead quality every week, and cut what is not producing enquiries."
+      ]
+    },
+    {
+      "heading": "How Marketix Studio uses AI for clients",
+      "paragraphs": [
+        "We are a performance marketing agency in Pune, and AI does four jobs on our client accounts. It drafts ad copy and visual variants for [Meta ads](/services/meta-ads) and [Google Ads](/services/google-ads-ppc), which our team edits before anything runs. It helps us read search terms, Search Console and GA4 data each week. It shapes pages so they can be cited in AI search as part of our [SEO services](/services/seo-services). And it powers a review page that helps happy customers write their own Google review.",
+        "The strategy, the budget and the final call stay with people. If you want to see where AI could save or earn money on your current ads and website, start with a [free growth audit](/growth-audit)."
+      ]
+    }
+  ],
+  "faqs": [
+    {
+      "q": "Will AI replace marketing agencies?",
+      "a": "AI replaces some agency tasks, such as first drafts, manual bidding and report building. It does not replace knowing a business, choosing the offer or being accountable for leads. Agencies that only did the repetitive tasks will struggle; the rest will get faster."
+    },
+    {
+      "q": "Is AI-written content bad for SEO?",
+      "a": "Not by itself. Google says it rewards helpful, original content however it is produced, in its guidance on [using generative AI content](https://developers.google.com/search/docs/fundamentals/using-gen-ai-content). Content made mainly to manipulate rankings breaks its spam policies, and generic, unedited AI text rarely ranks because it adds nothing new."
+    },
+    {
+      "q": "What are AI marketing tools?",
+      "a": "They range from the AI built into Google Ads and Meta Ads Manager, to writing assistants such as ChatGPT and Claude, to image and video generators. Most businesses get the biggest gain from the free platform AI, set up with good tracking, before paying for anything else."
+    },
+    {
+      "q": "Can my business show up in ChatGPT or Google AI Overviews?",
+      "a": "Yes, there is no special markup or payment for it. These systems cite pages that answer questions clearly and come from sites they trust, so the work is the same as good SEO: clear answers, accurate facts, structured pages and a strong reputation online."
+    },
+    {
+      "q": "Does Google Ads already use AI?",
+      "a": "Yes. Smart Bidding sets bids for each auction with machine learning, and Performance Max uses AI to choose placements, audiences and asset combinations across Google's channels. Advertisers steer it through goals, budgets, tracking and the assets they supply."
+    }
+  ]
+}
