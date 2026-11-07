@@ -1,5 +1,5 @@
 import { reviewClients } from "@/content/review-clients";
-import { aiProvider, AiRateLimitError, AiRefusalError } from "@/lib/ai";
+import { aiProvider, AiQuotaError, AiRateLimitError, AiRefusalError } from "@/lib/ai";
 import { generateReply } from "@/lib/review-reply";
 import { hasAdminAccess } from "@/lib/admin-auth";
 
@@ -29,6 +29,7 @@ export async function POST(request: Request) {
     return Response.json({ reply });
   } catch (error) {
     if (error instanceof AiRateLimitError) return Response.json({ error: "Busy, try again in a moment." }, { status: 429 });
+    if (error instanceof AiQuotaError) return Response.json({ error: "The AI account has no credits left. Top up OpenAI or set ANTHROPIC_API_KEY." }, { status: 503 });
     if (error instanceof AiRefusalError) return Response.json({ error: "Couldn't write a reply for this one." }, { status: 422 });
     console.error("Reply generation failed", error);
     return Response.json({ error: "Something went wrong." }, { status: 500 });

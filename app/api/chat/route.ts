@@ -1,4 +1,4 @@
-import { aiProvider, aiStructured, AiRateLimitError } from "@/lib/ai";
+import { aiProvider, aiStructured, AiQuotaError, AiRateLimitError } from "@/lib/ai";
 import { NextResponse } from "next/server";
 import { buildChatKnowledge, VALID_CHAT_LINKS } from "@/lib/chat-knowledge";
 import { assistant, business } from "@/lib/site-config";
@@ -155,6 +155,10 @@ export async function POST(request: Request) {
   } catch (error) {
     if (error instanceof AiRateLimitError) {
       return NextResponse.json({ error: "Busy right now. Please try again in a moment." }, { status: 429 });
+    }
+    if (error instanceof AiQuotaError) {
+      console.error("Chat failed: the AI account has no credits left and ANTHROPIC_API_KEY is not set");
+      return NextResponse.json({ error: UNAVAILABLE }, { status: 503 });
     }
     console.error("Chat request error", error);
     return NextResponse.json({ error: UNAVAILABLE }, { status: 502 });
