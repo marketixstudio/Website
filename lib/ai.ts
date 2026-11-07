@@ -12,7 +12,8 @@ export type AiTurn = { role: "user" | "assistant"; content: string };
 export type AiProvider = "openai" | "anthropic";
 
 const OPENAI_MODEL = process.env.OPENAI_MODEL || "gpt-5-nano";
-const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-sonnet-5";
+// Haiku 5.5: the cheapest current Claude model; plenty for a review line or a chat reply.
+const ANTHROPIC_MODEL = process.env.ANTHROPIC_MODEL || "claude-haiku-5-5";
 
 export function aiProvider(): AiProvider | null {
   if (process.env.OPENAI_API_KEY) return "openai";
